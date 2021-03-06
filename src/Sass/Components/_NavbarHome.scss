@@ -1,0 +1,13 @@
+#nav{
+    .navbar{
+        .navbar-nav{
+            padding-left: 20px;
+            .nav-item{
+                .nav-link{
+                    color:red;
+                    font-size: $fs-5;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,72 @@
+// variable color
+$header-primary:  rgba(255,255,255,.95);
+$text-base-color: #000;
+$bg-base-color: #000;
+$text-on-header-first: #000;
+$text-on-header-second: #9b9b9b;
+$buy-button: #4a4a4a;
+$nav-tab: #000;
+$nav-tab-active: #fa5238;
+$buy-ticket-button: #fb4226;
+$buy-ticket-button-hover: linear-gradient(to left,#fb4226,#ce3017 100%);
+$text-on-base-color: #fff;
+$movie-type-c: #fb4226;
+$movie-type-p: #00ac4d;
+$button-text-color: #fff;
+$movie-time-bg: rgba(246,246,246,.5);
+$movie-time: #108f3e;
+$movie-time-hover: #fb4226;
+$movie-time-disabled: #9b9b9b;
+$theater-text: #8bc541;
+$show-more-button-text: #949494;
+$show-more-button-hover: #fb4226;
+$show-more-button-text-hover: #fff!important;
+$footer-bg-color: #222;
+$footer-text-color: #949494;
+$footer-link-color: #fb4226;
+
+// font family for none title text
+$ff-0: 'Roboto', sans-serif;
+// variable font-size
+$fs-0: 14px; //default
+$fs-1: 13px;
+$fs-2: 18px;
+$fs-3: 20px;
+$fs-4: 24px;
+$fs-5: 36px;
+
+//variable margin
+$mg-0: 2px;
+$mg-1: 5px;
+$mg-2: 10px;
+$mg-3: 20px;
+$mg-4: 25px;
+
+//variable border-radius
+$border-radius: 2px;
+
+//variable padding
+$pd-0: 5px; //default
+$pd-1: 10px;
+$pd-2: 20px;
+
+
+//variable line-height
+$line-height-0: 1.42857143; //default
+
+
+//variable font-weight
+$fw-normal: normal;
+$fw-bold-0: 500;
+$fw-bold-1: 600;
+$fw-bold-2: 700;
+$fw-bold: bold;
+
+
+//break points
+$breakpoints:(
+    'extra-large': 1280px,
+    'large' : 1024px,
+    'medium' : 768px,
+    'small' : 480px,
+)

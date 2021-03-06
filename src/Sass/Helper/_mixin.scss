@@ -1,0 +1,41 @@
+@mixin styleText($fs,$color,$fw){
+    font-size:$fs ;
+    color: $color;
+    font-weight: $fw;
+}
+
+@mixin styleButton($bg-color,$border,$py,$px){
+    background-color: $bg-color;
+    border: 1px solid  $border;
+    padding: $py $px;
+    border-radius: $border-radius;
+}
+
+@mixin styleHoverButtuon($bg-hover,$border-hover,$color-hover){
+    background-color: $bg-hover;
+    border-color: $border-hover;
+    color: $color-hover;
+}
+
+@mixin  styleHoverHeaderIcon($bgIcon-hover,$borderIcon-hover,$colorIcon-hover) {
+    background-color: $bgIcon-hover;
+    border-color: $borderIcon-hover;
+    color: $colorIcon-hover;
+}
+
+// $screen: tên màn hình
+@mixin responsive($screen){
+    // map-has-key: gíup kt có giá trị trong mảng
+    @if(map-has-key($map:$breakpoints, $key:$screen )){
+        // nếu tìm thấy màn hình
+        // map-get: sẽ giúp lấy giá trị màn hình
+        // value chứa kết quả lấy được
+        $value:map-get($map:$breakpoints , $key:$screen );
+        @media screen and (max-width:$value){
+            @content;
+        }
+
+    }@else{
+        @warn "Màn hình không tồn tại";
+    }
+}
