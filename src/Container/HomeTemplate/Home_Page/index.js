@@ -1,19 +1,10 @@
-import React, { Component } from "react";
-class HomePage extends Component {
+import React, { useCallback, useMemo, useState, useEffect } from "react";
 
-  render() {
-    return (
-      <div className="text-center">
-        <h3>HomePage</h3>
-        <p>End Home Page</p>
-      </div>
-    );
-  }
+function HomePage(){
+  return (
+    <div className="text-center">
+    </div>
+  );
 }
 
 export default HomePage;
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(withStyles(styles)(HomePage));

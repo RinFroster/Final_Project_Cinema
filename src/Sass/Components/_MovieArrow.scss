@@ -1,0 +1,26 @@
+.movie__prev__arrow {
+  top: 35% !important;
+  left: -37rem !important;
+  width: 5rem !important;
+  height: 10rem !important;
+  line-height: 12rem !important;
+  text-align: center !important;
+  z-index: 1;
+  transform: rotate(180deg) !important;
+}
+.movie__next__arrow {
+  top: 45% !important;
+  right: -37rem !important;
+  width: 5rem !important;
+  height: 10rem !important;
+  line-height: 12rem !important;
+  text-align: center !important;
+  z-index: 100;
+}
+.movie__prev__arrow:before,
+.movie__next__arrow:before {
+  font-family: none !important;
+  content: url(https://tarkikromanski.github.io/files/arrow-slider.png) !important;
+  background-color: transparent;
+  border: none;
+}
