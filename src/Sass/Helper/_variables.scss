@@ -1,39 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 // variable color
 $header-primary:  rgba(255,255,255,.95);
 $text-base-color: #000;
 $bg-base-color: #000;
 $text-on-header-first: #000;
 $text-on-header-second: #9b9b9b;
-$buy-button: #4a4a4a;
+$button-location-color: #fff;
+$button-location-hover: #60c5ef;
+$buy-button-disabled: #4a4a4a;
+$buy-button-enabled: #fb4226;
+$buy-button-enabled-hover: #b30000;
+$dropdown-item-hover:#60c5ef;
+$dropdown-item-text: #333;
 $nav-tab: #000;
 $nav-tab-active: #fa5238;
-$buy-ticket-button: #fb4226;
+$item-hover: #fb4226;
+$item-active: #fb4226;
+$dot-not-active:#d8d8d8;
 $buy-ticket-button-hover: linear-gradient(to left,#fb4226,#ce3017 100%);
 $text-on-base-color: #fff;
-$movie-type-c: #fb4226;
 $movie-type-p: #00ac4d;
 $button-text-color: #fff;
 $movie-time-bg: rgba(246,246,246,.5);
 $movie-time: #108f3e;
-$movie-time-hover: #fb4226;
 $movie-time-disabled: #9b9b9b;
 $theater-text: #8bc541;
 $show-more-button-text: #949494;
-$show-more-button-hover: #fb4226;
 $show-more-button-text-hover: #fff!important;
 $footer-bg-color: #222;
 $footer-text-color: #949494;
-$footer-link-color: #fb4226;
 
 // font family for none title text
 $ff-0: 'Roboto', sans-serif;
 // variable font-size
-$fs-0: 14px; //default
+$fs-0: 10px; //default
 $fs-1: 13px;
-$fs-2: 18px;
-$fs-3: 20px;
-$fs-4: 24px;
-$fs-5: 36px;
+$fs-2: 14px;
+$fs-3: 15px;
+$fs-4: 18px;
+$fs-5: 20px;
+$fs-6: 24px;
+$fs-7: 36px;
 
 //variable margin
 $mg-0: 2px;
@@ -57,16 +64,18 @@ $line-height-0: 1.42857143; //default
 
 //variable font-weight
 $fw-normal: normal;
-$fw-bold-0: 500;
-$fw-bold-1: 600;
-$fw-bold-2: 700;
+$fw-bold-0: 300;
+$fw-bold-1: 400;
+$fw-bold-2: 500;
+$fw-bold-3: 700;
 $fw-bold: bold;
 
 
 //break points
 $breakpoints:(
-    'extra-large': 1280px,
-    'large' : 1024px,
+    'extra-large' : 1400px,
+    'extra extra-large' : 1200px,
+    'large' : 992px,
     'medium' : 768px,
-    'small' : 480px,
+    'small' : 576px,
 )

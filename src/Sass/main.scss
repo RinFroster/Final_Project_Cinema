@@ -11,10 +11,16 @@
 @import './Base/customize';
 
 //Components
-@import './Components/NavbarHome';
-@import './Components/HomePage';
+@import './Components/CarouselArrow';
+@import './Components/MovieArrow';
 //Layout
-
+@import './Layouts/NavbarHome';
+@import './Layouts/HomePage';
+@import './Layouts/MovieDetailPage';
+@import './Layouts/MovieItem';
+@import './Layouts/Carousel';
+@import './Layouts/MovieList';
+@import './Layouts/BuyTicketTool';
 
 //Page
 
