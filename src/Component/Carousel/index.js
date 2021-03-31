@@ -8,8 +8,8 @@ import {CarouselPrevArrow,CarouselNextArrow} from "./../Arrow";
 function Carousel(){
     const settings = {
         dots: true,
-        slideToShow: 1,
-        slideToScroll: 1,
+        slidesToShow: 1,
+        slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 10000,
         infinite: true,
@@ -19,7 +19,16 @@ function Carousel(){
         swipeToSlide: true,
         nextArrow: <CarouselNextArrow/>,
         prevArrow: <CarouselPrevArrow/>,
-        className: "carousel"
+        className: "carousel",
+        responsive: [
+            {
+                breakpoint: 240,
+                settings:{
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+        ]
     };
     return (
         <section className="carousel__container">

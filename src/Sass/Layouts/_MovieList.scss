@@ -1,6 +1,7 @@
 .movie{
     background-color: #1a1d24;
-    padding-top: 5rem;
+    padding-top: 10rem;
+    z-index: 0;
     .movie__card__container{
         overflow: hidden;
         width: 86.4%;
@@ -10,16 +11,15 @@
             border: none;
             justify-content: center;
             .nav-item{
-                margin: 0 2rem;
                 &:focus{
                     outline: none;
                 }
                 .nav-link{
-                    background-color: #1a1d24;
+                    background-color: $bg-base-color;
                     @include styleText($fs-6,$text-on-base-color,$fw-bold-2);
                     transition: all 0.5s;
                     padding: 0;
-                    border: 1px solid #1a1d24;
+                    border: 1px solid $bg-base-color;
                     position: relative;
                     // nav-link underline
                     &::after{
@@ -51,61 +51,185 @@
                 }
             }
         }
-        .slider{
-            padding: 0 5rem;
-            max-width: 1350px;
-            width: 420px;
-            margin: 0 auto;
-            .slick-list{
-                overflow: visible;
-            }
-            .slick-slide{
-                height: 45rem;
-                // background-color: #344c65;
-                // box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-                border-radius: 0.5rem;
-                transform: scale(0.85);
-                transition: transform ease 0.3s;
-                color: $text-on-base-color;
-                cursor: pointer;
-                &:not(.slick-current){
-                  filter: brightness(0.5);
+        .tab-content{
+            .tab-pane{
+                width: 80%;
+                margin: 0 auto;
+                .slider{
+                    padding: 0 5rem;
+                    width: 420px;
+                    margin: 0 auto;
+                    .slick-list{
+                        overflow: visible;
+                    }
+                    .slick-slide{
+                        height: 45rem;
+                        border-radius: 0.5rem;
+                        transform: scale(0.85);
+                        transition: transform ease 0.3s;
+                        color: $text-on-base-color;
+                        cursor: pointer;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .slick-current.slick-slide{
+                        transform: scale(0.95);
+                        position: relative;
+                        z-index: 1;
+                    }
+                    .slick-track {
+                        padding-top: 2rem;
+                        padding-bottom: 2rem;
+                        overflow: hidden;
+                    }
                 }
-                img{
-                    width: 100%;
-                    height: 100%;
+                .slick-dots{
+                    position: absolute;
+                    bottom: 2rem;
+                    left: 0;
+                    li{
+                        margin: 0 0.25rem;
+                    }
+                    button{
+                        width: 1rem;
+                        height: 1rem;
+                        padding: 0;
+                        background-color: $dot-not-active;
+                        border-radius: 100%;
+                        text-indent: -9999px;
+                        border: none;
+                    }
+                    li.slick-active button{
+                        background-color: $item-hover;
+                    }
                 }
-            }
-            .slick-current.slick-slide{
-                transform: scale(0.9);
-                position: relative;
-                z-index: 1;
-            }
-            .slick-track {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-                overflow: hidden;
-            }
-        }
-        .slick-dots{
-            position: absolute;
-            bottom: 2rem;
-            left: 0;
-            li{
-                margin: 0 0.25rem;
-            }
-            button{
-                width: 1rem;
-                height: 1rem;
-                padding: 0;
-                background-color: $dot-not-active;
-                border-radius: 100%;
-                text-indent: -9999px;
-                border: none;
-            }
-            li.slick-active button{
-                background-color: $item-hover;
             }
         }
     } 
 }
+
+// Responsive for screen > 320px and < 480px
+@include responsive ('extra-small'){
+    .movie{
+        padding-top: 1rem;
+        .movie__card__container{
+            width: 100%;
+            .nav-tabs.navCenter{
+                .nav-item{
+                    margin: 0;
+                    &:nth-child(1){
+                        margin-right: 1.5rem;
+                    }
+                    &:nth-child(2){
+                        margin-left: 1.5rem;
+                    }
+                    .nav-link{
+                        font-size: $fs-3;
+                    }
+                }
+            }
+            .tab-content{
+                width: 90%;
+                margin: 0 auto;
+                .tab-pane{
+                    width: 100%;
+                    .slider{
+                        width: 100%;
+                        margin: 0 auto;
+                        overflow: hidden;
+                        padding: 0;
+                        height: 40rem;
+                        .slick-slide{
+                            transform: scale(0.8);
+                            margin-top: -2rem;
+                        }
+                        .slick-current.slick-slide{
+                            transform: scale(0.8);
+                        }
+                        .slick-track{
+                            padding: 0;
+                        }
+                    }
+                    .slick-dots{
+                        bottom: 0;
+                        left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive for screen > 480px and < 576px
+@include responsive ('very-small'){
+    .movie{
+        .movie__card__container{
+            .nav-tabs.navCenter{
+                .nav-item{
+                    &:nth-child(1){
+                        margin-right: 2rem;
+                    }
+                    &:nth-child(2){
+                        margin-left: 2rem;
+                    }
+                    .nav-link{
+                        font-size: $fs-5;
+                    }
+                }
+            }
+            .tab-content{
+                width: 100%;
+                .tab-pane{
+                    .slider{
+                        width: 90%;
+                        margin: 0 auto;
+                        overflow: hidden;
+                        padding: 3rem 0;
+                        .slick-slide{
+                            transform: scale(0.9);
+                        }
+                        .slick-current.slick-slide{
+                            transform: scale(0.9);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive for screen < 576px and > 320px
+@include responsive ('small'){
+    .movie{
+        padding-top: 3rem;
+        .movie__card__container{
+            width: 90%;
+            .nav-tabs.navCenter{
+                .nav-item{
+                    margin: 0 2rem 0 0.5rem;
+                }
+            }
+            .tab-content{
+                width: 97%;
+                margin: 0 auto;
+                .tab-pane{
+                    width: 100%;
+                    .slider{             
+                        width: 70%;
+                        .slick-list{
+                            margin: 0 -7rem;
+                        }
+                        .slick-slide{
+                            transform: scale(0.9);
+                        }
+                        .slick-current.slick-slide{
+                            transform: scale(0.9);
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }

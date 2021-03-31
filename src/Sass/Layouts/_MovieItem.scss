@@ -31,7 +31,7 @@
                 width: 90%;
                 height: 15%;
                 padding: 1.5rem 0;
-                border-radius: 0.25rem;
+                border-radius: 0.5rem;
                 letter-spacing: 0.1rem;
                 @include styleText($fs-1,$text-on-base-color,$fw-bold-1);
                 border: 1px solid #fff;
@@ -61,6 +61,7 @@
         .movieInfo__firstRow{
             .movieName{
                 @include styleText($fs-4,$text-on-base-color,$fw-bold-2);
+                word-break: break;
                 &:hover{
                     color: $item-hover;
                 }
@@ -75,5 +76,48 @@
             }
         }
         
+    }
+}
+
+// Responsive for screen > 320px and < 480px
+@include responsive ('extra-small'){
+    .movie__card{
+        .movie__img{
+            img{
+                height: 35rem !important;
+            }
+        }
+        .movieInfo__container{
+            padding: 0.5rem 0;
+            .movieInfo__firstRow{
+                margin-bottom: 0.5rem;
+                .movieName{
+                    font-size: $fs-5;
+                }
+            }
+            .movieInfo__secondRow{
+                .movieTime{
+                    font-size: $fs-2;
+                }
+            }
+        }
+    }
+}
+
+// Responsive for screen > 480px and < 576px
+@include responsive ('very-small'){
+    .movie__card{
+        .movie__img{
+            img{
+                height: 30rem !important;
+            }
+        }
+        .movieInfo__container{
+            .movieInfo__firstRow{
+                .movieName{
+                    font-size: $fs-4;
+                }
+            }
+        }
     }
 }

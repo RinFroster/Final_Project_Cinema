@@ -3,7 +3,7 @@ import { memo } from "react";
 
 function BuyTicketTool() {
   return (
-    <section className="tool__nav">
+    <section className="tool__nav noneOnMobile">
       <div className="nav__container">
       <div class="dropdown -selectFilm">
         <button
