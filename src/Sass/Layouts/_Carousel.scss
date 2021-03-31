@@ -1,7 +1,7 @@
 .carousel__container{
     overflow: hidden;
     .carousel{
-        margin: 0.8rem 0;
+        margin-top: 0.8rem;
         max-height: 50rem;
         position: relative;
         .slick-list{
@@ -21,7 +21,6 @@
         }
         .slick-current.slick-slide{
             position: relative;
-            z-index: 1;
         }
         .slick-track {
             padding-top: 53px;
@@ -45,6 +44,62 @@
             }
             li.slick-active button{
                 background-color: $item-hover;
+            }
+        }
+    }
+}
+
+// Responsive for screen > 320px and < 480px
+@include responsive ('extra-small'){
+    .carousel__container{
+        .carousel{
+            max-height: 25rem;
+            .slick-slide{
+                height: 20rem;
+                padding: 1rem;
+            }
+            .slick-dots{
+                left: 0.5rem;
+                bottom: 0;
+                button{
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+        }
+    }
+}
+
+// Responsive for screen > 480px and < 576px
+@include responsive ('very-small'){
+    .carousel__container{
+        .carousel{
+            max-height: 30rem;
+            .slick-slide{
+                height: 25rem;
+                padding: 1rem;
+            }
+            .slick-dots{
+                left: 0.5rem;
+                bottom: 0;
+                button{
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+        }
+    }
+}
+
+// Responsive for screen < 576px and > 320px 
+@include responsive ('small'){
+    .carousel__container{
+        max-height: 35rem;
+        .carousel{
+            max-height: 35rem;
+            .slick-slide{
+                height: 40rem;
+                padding: 2rem;
             }
         }
     }

@@ -2,7 +2,7 @@
 // variable color
 $header-primary:  rgba(255,255,255,.95);
 $text-base-color: #000;
-$bg-base-color: #000;
+$bg-base-color: #1a1d24;
 $text-on-header-first: #000;
 $text-on-header-second: #9b9b9b;
 $button-location-color: #fff;
@@ -73,9 +73,11 @@ $fw-bold: bold;
 
 //break points
 $breakpoints:(
-    'extra-large' : 1400px,
-    'extra extra-large' : 1200px,
+    'extra extra-large' : 1400px,
+    'extra-large' : 1200px,
     'large' : 992px,
     'medium' : 768px,
     'small' : 576px,
+    'very-small' : 480px,
+    'extra-small' : 320px,
 )

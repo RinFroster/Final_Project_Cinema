@@ -5,8 +5,8 @@
   height: 10rem !important;
   line-height: 12rem !important;
   text-align: center !important;
-  z-index: 1;
   transform: rotate(180deg) !important;
+  z-index: 1;
 }
 .movie__next__arrow {
   top: 45% !important;
@@ -15,7 +15,7 @@
   height: 10rem !important;
   line-height: 12rem !important;
   text-align: center !important;
-  z-index: 100;
+  z-index: 1;
 }
 .movie__prev__arrow:before,
 .movie__next__arrow:before {
@@ -23,4 +23,38 @@
   content: url(https://tarkikromanski.github.io/files/arrow-slider.png) !important;
   background-color: transparent;
   border: none;
+}
+
+// Responsive for screen > 320px and < 480px
+@include responsive ('extra-small'){
+  .movie__prev__arrow{
+    left: -1.5rem !important;
+    top: 30.2% !important;
+  }
+  .movie__next__arrow{
+    right: -1.5rem !important;
+    top: 44% !important;
+  }
+}
+
+// Responsive for screen > 480px and < 576px
+@include responsive ('very-small'){
+  .movie__prev__arrow{
+    left: -0.8rem !important;
+    top: 30.2% !important;
+  }
+  .movie__next__arrow{
+    right: -0.8rem !important;
+    top: 44% !important;
+  }
+}
+
+// Responsive for screen < 576px and > 240px
+@include responsive ('small'){
+    .movie__prev__arrow{
+      left: -9.9rem !important;
+    }
+    .movie__next__arrow{
+      right: -9.9rem !important;
+    }
 }

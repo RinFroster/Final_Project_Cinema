@@ -13,12 +13,12 @@ function MovieItem() {
       <img src={pic} alt="test" className="img-fluid"/>
     </div>
     <div className="movieInfo__container">
-      <row className="movieInfo__firstRow">
+      <div className="movieInfo__firstRow">
         <div className="movieName">Gái Già Lắm Chiêu</div>
-      </row>
-      <row className="movieInfo__secondRow">
+      </div>
+      <div className="movieInfo__secondRow">
         <div className="movieTime">115 Phút</div>
-      </row>
+      </div>
     </div>
   </div>
   );
