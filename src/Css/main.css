@@ -217,7 +217,7 @@ html, body {
 
 .navbar__container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .navbar__container .container-fluid {
@@ -1339,7 +1339,7 @@ p {
 
 .tool__nav {
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .tool__nav .nav__container {

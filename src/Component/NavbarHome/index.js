@@ -27,16 +27,6 @@ function NavbarHome() {
 
   const [isVisible, setVisible] = useState(false);
 
-  // const handleOnBlur = () => {
-  //   const navbarTogglerIcon = document.getElementById("toggler__icon");
-  //   const onBlurClass = document.getElementById("navbarSupportedContent");
-  //   navbarTogglerIcon.classList.remove("active");
-  //   onBlurClass.classList.remove("show");
-  //   setActiveClass(!addActiveClass);
-  //   setVisible(prevState => !prevState.isVisible);
-  //   console.log("handleOnBlur running");
-  // };
-
   useEffect(() => {
     document.addEventListener("mousedown",handleClickOutside);
     return () => {
@@ -54,9 +44,9 @@ function NavbarHome() {
     }
   };
     
-  const chooseLocation = () => {
+  const chooseLocation = (e) => {
     const buttonSelected = document.getElementById("dropdownMenu2");
-    const itemSelected = document.getElementById("HaNoi");
+    const itemSelected = document.getElementById(e.target.id);
     buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
   }
   
@@ -139,160 +129,160 @@ function NavbarHome() {
                         Hồ Chí Minh
                       </button>
                       <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <button id="HCM" className="dropdown-item" type="button" onClick={chooseLocation}>
+                        <button className="dropdown-item" type="button" id="1" onClick={chooseLocation}>
                           Hồ Chí Minh
                         </button>
                         <button  className="dropdown-item" type="button" >
-                          <div id="HaNoi" onClick={chooseLocation}>Hà Nội</div>
+                          <div id="2" onClick={chooseLocation}>Hà Nội</div>
                         </button>
-                        <button onclick="input(2)" className="dropdown-item" type="button">
+                        <button id="3" onClick={chooseLocation} className="dropdown-item" type="button">
                           Đà Nẵng
                         </button>
-                        <button onclick="input(3)" className="dropdown-item" type="button">
+                        <button id="4" onClick={chooseLocation} className="dropdown-item" type="button">
                           Hải Phòng
                         </button>
-                        <button onclick="input(4)" className="dropdown-item" type="button">
+                        <button id="5" onClick={chooseLocation} className="dropdown-item" type="button">
                           Biên Hoà
                         </button>
-                        <button onclick="input(5)" className="dropdown-item" type="button">
+                        <button id="6" onClick={chooseLocation} className="dropdown-item" type="button">
                           Nha Trang
                         </button>
-                        <button onclick="input(6)" className="dropdown-item" type="button">
+                        <button id="7" onClick={chooseLocation} className="dropdown-item" type="button">
                           Bình Dương
                         </button>
-                        <button onclick="input(7)" className="dropdown-item" type="button">
+                        <button id="8" onClick={chooseLocation} className="dropdown-item" type="button">
                           Phan Thiết
                         </button>
-                        <button onclick="input(8)" className="dropdown-item" type="button">
+                        <button id="9" onClick={chooseLocation} className="dropdown-item" type="button">
                           Hạ Long
                         </button>
-                        <button onclick="input(9)" className="dropdown-item" type="button">
+                        <button id="10" onClick={chooseLocation} className="dropdown-item" type="button">
                           Cần Thơ
                         </button>
-                        <button onclick="input(10)" className="dropdown-item" type="button">
+                        <button id="11" onClick={chooseLocation} className="dropdown-item" type="button">
                           Vũng Tàu
                         </button>
-                        <button onclick="input(11)" className="dropdown-item" type="button">
+                        <button id="12" onClick={chooseLocation} className="dropdown-item" type="button">
                           Quy Nhơn
                         </button>
-                        <button onclick="input(12)" className="dropdown-item" type="button">
+                        <button id="13" onClick={chooseLocation} className="dropdown-item" type="button">
                           Huế
                         </button>
-                        <button onclick="input(13)" className="dropdown-item" type="button">
+                        <button id="14" onClick={chooseLocation} className="dropdown-item" type="button">
                           Long Xuyên
                         </button>
-                        <button onclick="input(14)" className="dropdown-item" type="button">
+                        <button id="15" onClick={chooseLocation} className="dropdown-item" type="button">
                           Thái Nguyên
                         </button>
-                        <button onclick="input(15)" className="dropdown-item" type="button">
+                        <button id="16" onClick={chooseLocation} className="dropdown-item" type="button">
                           Buôn Ma Thuôt
                         </button>
-                        <button onclick="input(16)" className="dropdown-item" type="button">
+                        <button id="17" onClick={chooseLocation} className="dropdown-item" type="button">
                           Bắc Giang
                         </button>
-                        <button onclick="input(17)" className="dropdown-item" type="button">
+                        <button id="18" onClick={chooseLocation} className="dropdown-item" type="button">
                           Bến Tre
                         </button>
-                        <button onclick="input(18)" className="dropdown-item" type="button">
+                        <button id="19" onClick={chooseLocation} className="dropdown-item" type="button">
                           Việt Trì
                         </button>
-                        <button onclick="input(19)" className="dropdown-item" type="button">
+                        <button id="20" onClick={chooseLocation} className="dropdown-item" type="button">
                           Ninh Bình
                         </button>
-                        <button onclick="input(20)" className="dropdown-item" type="button">
+                        <button id="21" onClick={chooseLocation} className="dropdown-item" type="button">
                           Thái Bình
                         </button>
-                        <button onclick="input(21)" className="dropdown-item" type="button">
+                        <button id="22" onClick={chooseLocation} className="dropdown-item" type="button">
                           Vinh
                         </button>
-                        <button onclick="input(22)" className="dropdown-item" type="button">
+                        <button id="23" onClick={chooseLocation} className="dropdown-item" type="button">
                           Bảo Lộc
                         </button>
-                        <button onclick="input(23)" className="dropdown-item" type="button">
+                        <button id="24" onClick={chooseLocation} className="dropdown-item" type="button">
                           Đà Lạt
                         </button>
-                        <button onclick="input(24)" className="dropdown-item" type="button">
+                        <button id="25" onClick={chooseLocation} className="dropdown-item" type="button">
                           Trà Vinh
                         </button>
-                        <button onclick="input(25)" className="dropdown-item" type="button">
+                        <button id="26" onClick={chooseLocation} className="dropdown-item" type="button">
                           Yên Bái
                         </button>
-                        <button onclick="input(26)" className="dropdown-item" type="button">
+                        <button id="27" onClick={chooseLocation} className="dropdown-item" type="button">
                           Kiên Giang
                         </button>
-                        <button onclick="input(27)" className="dropdown-item" type="button">
+                        <button id="28" onClick={chooseLocation} className="dropdown-item" type="button">
                           Vĩnh Long
                         </button>
-                        <button onclick="input(28)" className="dropdown-item" type="button">
+                        <button id="29" onClick={chooseLocation} className="dropdown-item" type="button">
                           Cà Mau
                         </button>
-                        <button onclick="input(29)" className="dropdown-item" type="button">
+                        <button id="30" onClick={chooseLocation} className="dropdown-item" type="button">
                           Hậu Giang
                         </button>
-                        <button onclick="input(30)" className="dropdown-item" type="button">
+                        <button id="31" onClick={chooseLocation} className="dropdown-item" type="button">
                           Tây Ninh
                         </button>
-                        <button onclick="input(31)" className="dropdown-item" type="button">
+                        <button id="32" onClick={chooseLocation} className="dropdown-item" type="button">
                           Tuyên Quang
                         </button>
-                        <button onclick="input(32)" className="dropdown-item" type="button">
+                        <button id="33" onClick={chooseLocation} className="dropdown-item" type="button">
                           Thanh Hoá
                         </button>
-                        <button onclick="input(33)" className="dropdown-item" type="button">
+                        <button id="34" onClick={chooseLocation} className="dropdown-item" type="button">
                           Nam Định
                         </button>
-                        <button onclick="input(34)" className="dropdown-item" type="button">
+                        <button id="35" onClick={chooseLocation} className="dropdown-item" type="button">
                           Hải Dương
                         </button>
-                        <button onclick="input(35)" className="dropdown-item" type="button">
+                        <button id="36" onClick={chooseLocation} className="dropdown-item" type="button">
                           Gia Lai
                         </button>
-                        <button onclick="input(36)" className="dropdown-item" type="button">
+                        <button id="37" onClick={chooseLocation} className="dropdown-item" type="button">
                           Hà Tĩnh
                         </button>
-                        <button onclick="input(37)" className="dropdown-item" type="button">
+                        <button id="38" onClick={chooseLocation} className="dropdown-item" type="button">
                           Phú Yên
                         </button>
-                        <button onclick="input(38)" className="dropdown-item" type="button">
+                        <button id="39" onClick={chooseLocation} className="dropdown-item" type="button">
                           Bạc Liêu
                         </button>
-                        <button onclick="input(39)" className="dropdown-item" type="button">
+                        <button id="40" onClick={chooseLocation} className="dropdown-item" type="button">
                           Long An
                         </button>
-                        <button onclick="input(40)" className="dropdown-item" type="button">
+                        <button id="41" onClick={chooseLocation} className="dropdown-item" type="button">
                           Đồng Hới
                         </button>
-                        <button onclick="input(41)" className="dropdown-item" type="button">
+                        <button id="42" onClick={chooseLocation} className="dropdown-item" type="button">
                           Hà Nam
                         </button>
-                        <button onclick="input(42)" className="dropdown-item" type="button">
+                        <button id="43" onClick={chooseLocation} className="dropdown-item" type="button">
                           Bắc Ninh
                         </button>
-                        <button onclick="input(43)" className="dropdown-item" type="button">
+                        <button id="44" onClick={chooseLocation} className="dropdown-item" type="button">
                           Quảng Trị
                         </button>
-                        <button onclick="input(44)" className="dropdown-item" type="button">
+                        <button id="45" onClick={chooseLocation} className="dropdown-item" type="button">
                           Kon Tum
                         </button>
-                        <button onclick="input(45)" className="dropdown-item" type="button">
+                        <button id="46" onClick={chooseLocation} className="dropdown-item" type="button">
                           Sóc Trăng
                         </button>
-                        <button onclick="input(46)" className="dropdown-item" type="button">
+                        <button id="47" onClick={chooseLocation} className="dropdown-item" type="button">
                           Sơn La
                         </button>
-                        <button onclick="input(47)" className="dropdown-item" type="button">
+                        <button id="48" onClick={chooseLocation} className="dropdown-item" type="button">
                           Lạng Sơn
                         </button>
-                        <button onclick="input(48)" className="dropdown-item" type="button">
+                        <button id="49" onClick={chooseLocation} className="dropdown-item" type="button">
                           Quảng Ngãi
                         </button>
-                        <button onclick="input(49)" className="dropdown-item" type="button">
+                        <button id="50" onClick={chooseLocation} className="dropdown-item" type="button">
                           Mỹ Tho
                         </button>
-                        <button onclick="input(50)" className="dropdown-item" type="button">
+                        <button id="51" onClick={chooseLocation} className="dropdown-item" type="button">
                           Đồng Tháp
                         </button>
-                        <button onclick="input(51)" className="dropdown-item" type="button">
+                        <button id="52" onClick={chooseLocation} className="dropdown-item" type="button">
                           Hưng Yên
                         </button>
                       </ul>
