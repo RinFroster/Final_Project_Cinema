@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import {CarouselPrevArrow,CarouselNextArrow} from "./../Arrow";
+import FirstCarousel from "./../../Asset/Carousel__img/an-quy.png";
 
 function Carousel(){
     const settings = {
@@ -33,11 +34,11 @@ function Carousel(){
     return (
         <section className="carousel__container">
             <Slider  {...settings}>
-                <div className="carousel__item">1</div>
-                <div className="carousel__item">2</div>
-                <div className="carousel__item">3</div>
-                <div className="carousel__item">4</div>
-                <div className="carousel__item">5</div>
+                <img src={FirstCarousel} alt="FirstCarousel"/>
+                <img src={FirstCarousel} alt="FirstCarousel"/>
+                <img src={FirstCarousel} alt="FirstCarousel"/>
+                <img src={FirstCarousel} alt="FirstCarousel"/>
+                <img src={FirstCarousel} alt="FirstCarousel"/>
             </Slider>
         </section>
     );

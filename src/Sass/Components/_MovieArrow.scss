@@ -1,60 +1,107 @@
 .movie__prev__arrow {
-  top: 35% !important;
-  left: -37rem !important;
-  width: 5rem !important;
-  height: 10rem !important;
-  line-height: 12rem !important;
+  width: 3rem !important;
+  height: 6rem !important;
   text-align: center !important;
-  transform: rotate(180deg) !important;
   z-index: 1;
 }
 .movie__next__arrow {
-  top: 45% !important;
-  right: -37rem !important;
-  width: 5rem !important;
-  height: 10rem !important;
-  line-height: 12rem !important;
+  width: 3rem !important;
+  height: 6rem !important;
   text-align: center !important;
   z-index: 1;
 }
-.movie__prev__arrow:before,
+.movie__prev__arrow:before {
+  content: url(./../Asset/Prev__Next__Arrows/chevron-left-solid.svg) !important;
+  border: none;
+}
 .movie__next__arrow:before {
-  font-family: none !important;
-  content: url(https://tarkikromanski.github.io/files/arrow-slider.png) !important;
-  background-color: transparent;
+  content: url(./../Asset/Prev__Next__Arrows/chevron-right-solid.svg) !important;
   border: none;
 }
 
 // Responsive for screen > 320px and < 480px
 @include responsive ('extra-small'){
   .movie__prev__arrow{
-    left: -1.5rem !important;
-    top: 30.2% !important;
+    width: 2rem !important;
+    height: 4rem !important;
+    top: 43% !important;
+    left: 2rem !important;
   }
   .movie__next__arrow{
-    right: -1.5rem !important;
-    top: 44% !important;
+    width: 2rem !important;
+    height: 4rem !important;
+    top: 43% !important;
+    right: 2rem !important;
   }
 }
 
 // Responsive for screen > 480px and < 576px
 @include responsive ('very-small'){
   .movie__prev__arrow{
-    left: -0.8rem !important;
-    top: 30.2% !important;
+    left: 1rem !important;
   }
   .movie__next__arrow{
-    right: -0.8rem !important;
-    top: 44% !important;
+
+    right: 1rem !important;
   }
 }
 
 // Responsive for screen < 576px and > 240px
 @include responsive ('small'){
     .movie__prev__arrow{
-      left: -9.9rem !important;
+      top: 40% !important;
+      left: 2rem !important;
     }
     .movie__next__arrow{
-      right: -9.9rem !important;
+      top: 40% !important;
+      right: 2rem !important;
     }
+}
+
+// Responsive for screen > 768px and < 992px 
+@include responsive ('medium'){
+  .movie__prev__arrow{
+    top: 40% !important;
+    left: 6rem !important;
+  }
+  .movie__next__arrow{
+    top: 40% !important;
+    right: 6rem !important;
+  }
+}
+
+// Responsive for screen > 992px and < 1200px 
+@include responsive ('large'){
+  .movie__prev__arrow{
+    top: 40% !important;
+    left: 3rem !important;
+  }
+  .movie__next__arrow{
+    top: 40% !important;
+    right: 3rem !important;
+  }
+}
+
+// Responsive for screen > 1200px and < 1400px 
+@include responsive ('extra-large'){
+  .movie__prev__arrow{
+    top: 40% !important;
+    left: 8rem !important;
+  }
+  .movie__next__arrow{
+    top: 40% !important;
+    right: 8rem !important;
+  }
+}
+
+// Responsive for screen > 1400px
+@include responsive ('extra extra-large'){
+  .movie__prev__arrow{
+    top: 42% !important;
+    left: 9rem !important;
+  }
+  .movie__next__arrow{
+    top: 42% !important;
+    right: 9rem !important;
+  }
 }

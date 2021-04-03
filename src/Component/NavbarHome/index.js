@@ -1,6 +1,7 @@
 import React, { memo, useRef, useState, useEffect } from "react";
 // import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from './../../Asset/img/Logo.png';
 import {
   faMapMarkerAlt,
   faUserCircle,
@@ -62,10 +63,12 @@ function NavbarHome() {
   return (
     <section className="navbar__container">
       <div className="container-fluid">
-        <nav className="navbar navbar-expand-md">
+        <nav className="navbar navbar-expand-lg">
           {/* Brand */}
           <div className="left">
-            <div className="logo">CINEMA</div>
+            <div className="logo">
+              <img src={logo} alt="Logo"/>
+            </div>
           </div>
           {/* Toggler/collapsibe Button */}
           <button
