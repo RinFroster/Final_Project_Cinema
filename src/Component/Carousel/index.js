@@ -24,7 +24,7 @@ function Carousel(){
     return (
         <section className="carousel__container">
             <Slider  {...settings}>
-                <div className="carousel__item">1</div>
+                <div className="carousel__item"></div>
                 <div className="carousel__item">2</div>
                 <div className="carousel__item">3</div>
                 <div className="carousel__item">4</div>

@@ -1,0 +1,51 @@
+.News {
+    width: 70% !important;
+    font-size: 20px;
+    padding-top: 120px;
+    .nav {
+        border: none;
+        justify-content: center;
+        justify-items: center;
+        .nav-item {
+            .nav-link{
+                border: none;
+                color: $bg-base-color;
+                font-size: 20px;
+                line-height: 24px;
+                height: 24px;
+                transition: all .2s;
+                font-weight: 500;
+            }
+            :hover {
+                font-size: 24px;
+                text-decoration: none;
+            }
+            .active {
+                border: none;
+                color: #fa5238;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@include responsive("large") {
+    .News {
+        width: 100% !important;
+    }
+}
+@include responsive("small") {
+    .nav-item {
+        .nav-link{
+            
+            font-size: 15px !important;
+            
+        }
+        :hover {
+            font-size: 18px !important;
+        }
+        .active {
+            font-size: 20px !important;
+        }
+    }
+}
