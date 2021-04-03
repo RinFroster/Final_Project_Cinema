@@ -4,7 +4,7 @@
   .nav__container {
     display: flex;
     justify-content: flex-start;
-    max-width: 940px;
+    max-width: 94rem;
     width: 100%;
     margin: 0 auto;
     align-items: center;
@@ -73,7 +73,7 @@
       }
       .dropdown-toggle::after {
         position: absolute;
-        right: 0.5rem;
+        right: 1rem;
         top: 50%;
       }
     }
@@ -109,7 +109,7 @@
         }
       }
       & .-disabled {
-        background-color: $buy-button-disabled;
+        background-color: $bg-base-color;
         border: none;
         text-transform: uppercase;
         border-radius: 4px;
@@ -120,7 +120,7 @@
         padding: 1rem 2.5rem;
         @include styleText($fs-3, $button-text-color, $fw-bold-2);
         &:hover {
-          background-color: $buy-button-disabled;
+          background-color: $bg-base-color;
         }
       }
     }
@@ -152,9 +152,9 @@
   }
 }
 
-// Responsive for screen < 576px and > 240px
-@include responsive ('small'){
+// Responsive for screen > 1200px and < 1400xpx
+@include responsive ('extra-large'){
   .noneOnMobile{
-    display: none;
+    display: block;
   }
 }

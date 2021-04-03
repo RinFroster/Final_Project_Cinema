@@ -26,8 +26,6 @@ function MovieList() {
     infinite: true,
     speed: 300,
     dots: true,
-    centerMode: false,
-    focusOnSelect: false,
     autoplay: false,
     prevArrow: <MoviePrevArrow />,
     nextArrow: <MovieNextArrow />,
@@ -35,11 +33,55 @@ function MovieList() {
     mobileFirst:true,
     responsive: [
       {
+        breakpoint: 1600,
+        settings:{
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          autoplay: true,
+          draggable: false,
+          focusOnSelect: false,
+          swipe: true,
+          swipeToSlide: true,
+        }
+      },
+      {
+        breakpoint: 1399,
+        settings:{
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          autoplay: true,
+          draggable: true,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+      {
+        breakpoint: 1199,
+        settings:{
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          autoplay: true,
+          draggable: true,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings:{
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          autoplay: true,
+          draggable: true,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+      {
         breakpoint: 767,
         settings:{
           slidesToShow: 2,
           slidesToScroll: 1,
-          centerMode: false,
           autoplay: false,
           draggable: false,
           focusOnSelect: false,
@@ -51,7 +93,6 @@ function MovieList() {
         settings:{
           slidesToShow: 2,
           slidesToScroll: 1,
-          centerMode: false,
           autoplay: false,
           draggable: false,
           focusOnSelect: false,
@@ -63,7 +104,6 @@ function MovieList() {
         settings:{
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerMode: false,
           autoplay: false,
           draggable: false,
           focusOnSelect: false,
@@ -116,6 +156,7 @@ function MovieList() {
               <MovieItem />
               <MovieItem />
               <MovieItem />
+              <MovieItem />
             </Slider>
           </div>
           <div
@@ -125,6 +166,7 @@ function MovieList() {
             aria-labelledby="upComingFilm"
           >
             <Slider {...settings}>
+              <MovieItem />
               <MovieItem />
               <MovieItem />
               <MovieItem />

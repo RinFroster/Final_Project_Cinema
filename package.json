@@ -23,7 +23,6 @@
     "react-slick": "^0.28.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "sass-loader": "^11.0.1",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^1.1.0"
   },
