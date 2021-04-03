@@ -13,5 +13,4 @@
 html,body{
     font-family: $ff-0;
     @include styleText(62.5%,$text-base-color,$fw-normal);
-    background-color: $bg-base-color;
 }

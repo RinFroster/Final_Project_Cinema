@@ -8,15 +8,6 @@ import Slider from "react-slick";
 import { MoviePrevArrow, MovieNextArrow } from "./../Arrow";
 
 function MovieList() {
-  // const elements = document.getElementsByClassName("slick-slide");
-  // const requireClass = document.getElementsByClassName("slick-current");
-  // const removeClass = document.getElementsByClassName("movie__description");
-  // const removeClassNotActive = () => {
-  //   if(elements.classList.contains(requireClass)){
-  //     removeClass.classList.remove("-hover");
-  //   }
-  // };
-  const [slideIndex,setState] = useState(0);
   // componentDidMount() {
   //   this.props.fetchListMovie();
   // }
@@ -29,25 +20,100 @@ function MovieList() {
   // }
   const settings = {
     className: "slider",
-    slideToShow: 3,
-    slideToScroll: 1,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     arrows: true,
     infinite: true,
     speed: 300,
     dots: true,
-    centerMode: true,
-    focusOnSelect: true,
-    autoplay: true,
+    autoplay: false,
     prevArrow: <MoviePrevArrow />,
     nextArrow: <MovieNextArrow />,
     autoplaySpeed: 10000,
-    afterChange: () => 
-      setState( () => 
-        (slideIndex + 1 )),
+    mobileFirst:true,
+    responsive: [
+      {
+        breakpoint: 1600,
+        settings:{
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          autoplay: true,
+          draggable: false,
+          focusOnSelect: false,
+          swipe: true,
+          swipeToSlide: true,
+        }
+      },
+      {
+        breakpoint: 1399,
+        settings:{
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          autoplay: true,
+          draggable: true,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+      {
+        breakpoint: 1199,
+        settings:{
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          autoplay: true,
+          draggable: true,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings:{
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          autoplay: true,
+          draggable: true,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+      {
+        breakpoint: 767,
+        settings:{
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          autoplay: false,
+          draggable: false,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+      {
+        breakpoint: 575,
+        settings:{
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          autoplay: false,
+          draggable: false,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+      {
+        breakpoint: 479,
+        settings:{
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: false,
+          draggable: false,
+          focusOnSelect: false,
+          swipe: true,
+        }
+      },
+    ]
   };
   return (
     <section className="movie" name="homeMovie">
-      <p>Total updates: {slideIndex} </p>
       <div className="movie__card__container">
         <ul className="nav nav-tabs navCenter" id="myTab" role="tablist">
           <li className="nav-item">
@@ -90,6 +156,7 @@ function MovieList() {
               <MovieItem />
               <MovieItem />
               <MovieItem />
+              <MovieItem />
             </Slider>
           </div>
           <div
@@ -99,6 +166,7 @@ function MovieList() {
             aria-labelledby="upComingFilm"
           >
             <Slider {...settings}>
+              <MovieItem />
               <MovieItem />
               <MovieItem />
               <MovieItem />

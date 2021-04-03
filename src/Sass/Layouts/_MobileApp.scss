@@ -67,10 +67,19 @@
 }
 
 // Reponsive
-@include responsive("extra-large") {
-    
-}
 @include responsive("large") {
+    #AppHome {
+        p {
+            text-align: left;
+        }
+        .buttonLeft {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+}
+@include responsive("extra-small") {
     #AppHome {
         p {
             text-align: center !important;

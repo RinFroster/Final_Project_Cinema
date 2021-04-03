@@ -2,7 +2,7 @@
 // variable color
 $header-primary:  rgba(255,255,255,.95);
 $text-base-color: #000;
-$bg-base-color: #000;
+$bg-base-color: #1a1d24;
 $text-on-header-first: #000;
 $text-on-header-second: #9b9b9b;
 $button-location-color: #fff;
@@ -17,6 +17,7 @@ $nav-tab-active: #fa5238;
 $item-hover: #fb4226;
 $item-active: #fb4226;
 $dot-not-active:#d8d8d8;
+$movie-card-hover: linear-gradient(to top,#000,transparent 100%);
 $buy-ticket-button-hover: linear-gradient(to left,#fb4226,#ce3017 100%);
 $text-on-base-color: #fff;
 $movie-type-p: #00ac4d;
@@ -73,9 +74,11 @@ $fw-bold: bold;
 
 //break points
 $breakpoints:(
-    'extra-large' : 1400px,
-    'extra extra-large' : 1200px,
+    'extra extra-large' : 1400px,
+    'extra-large' : 1200px,
     'large' : 992px,
     'medium' : 768px,
     'small' : 576px,
+    'very-small' : 480px,
+    'extra-small' : 320px,
 )
