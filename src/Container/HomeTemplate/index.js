@@ -4,6 +4,10 @@ import NavbarHome from "./../../Component/NavbarHome";
 import MovieList from "./../../Component/MovieList";
 import Carousel from "./../../Component/Carousel";
 import BuyTicketTool from "./../../Component/BuyTicketTool";
+import Theater from "../../Component/Theater";
+import News from "../../Component/News";
+import MobileApp from "../../Component/MobileApp";
+import Footer from "../../Component/Footer";
 // import { scrollToTop } from "react-scroll/modules/mixins/animate-scroll";
 
 // scrollToTop(){
@@ -17,6 +21,10 @@ function HomeLayout(props) {
       <Carousel/>
       <BuyTicketTool/>
       <MovieList/>
+      <Theater />
+      <News />
+      <MobileApp />
+      <Footer />
       {props.children}
     </div>
   );

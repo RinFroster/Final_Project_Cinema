@@ -1,0 +1,170 @@
+.theaterItem {
+    .theaterItem__content {
+        padding: 15px;
+        padding-left: 20px;
+        width: 100%;
+        position: relative;
+        cursor: pointer;
+        // opacity: .5;
+        // cursor: pointer;
+        transition: all 0.2s;
+        span {
+            line-height: 1.4;
+            display: block;
+        }
+        img {
+            width: 50px;
+            // height:50px;
+            float: left;
+        }
+        .theaterItem__span {
+            padding-left: 60px;
+            .cinema {
+                font-size: 14px;
+                .colorcinema {
+                    display: inline-block !important;
+                    color: #8bc541;
+                }
+            }
+            .infoCinema {
+                font-size: 12px;
+                color: #949494;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .infoCinema__Detail a {
+                color: #fb4226 !important;
+                font-size: 12px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+        ::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: calc(100% - 40px);
+            transform: translateX(-50%);
+            border-bottom: 1px solid #fff;
+            border-color: rgba(238, 238, 238, 0.88);
+        }
+    }
+    .theaterItem__item {
+        .theaterItem__movie {
+            padding: 15px;
+            padding-left: 20px;
+            width: 100%;
+            position: relative;
+            // opacity: .5;
+            cursor: pointer;
+            transition: all 0.2s;
+            span {
+                line-height: 1.4;
+                display: block;
+            }
+            img {
+                width: 50px;
+                // height:50px;
+                float: left;
+            }
+            .theaterItem__moviespan {
+                width: 100%;
+                padding-left: 65px;
+                padding-top: 6px;
+                .cinema__movie {
+                    font-size: 14px;
+                    display: block;
+                    font-family: "SF Medium";
+                    line-height: 22px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    color: #000;
+                    .btnCinema {
+                        background-color: #fb4226;
+                        color: #fff;
+                        border-radius: 4px;
+                        padding: 0 5px;
+                        float: left;
+                        margin-right: 5px;
+                        font-size: 12px;
+                        min-width: 33px;
+                        text-align: center;
+                    }
+                }
+            }
+          
+            .movie__span {
+                margin: 0;
+                line-height: 1.7;
+                font-size: 12px;
+                color: #9b9b9b;
+            }
+        }
+        .theater__2D {
+            float: left;
+            clear: both;
+            width: 100%;
+            transition: height 0.3s ease-in-out;
+            padding-top: 15px;
+            padding-left: 20px;
+            .theaterItem__header {
+                float: left;
+                width: 100%;
+                font-family: 'SF Medium';
+                font-size: 16px;
+                color: #000;
+                margin-bottom: 5px;
+                font-weight: 700;
+            }
+            .theater__sessions {
+                cursor: pointer;
+                .sessions__btn {
+                    width: calc(25% - 10px);
+                    float: left;
+                    font-family: 'SF Medium';
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin: 0 10px 10px 0;
+                    padding: 5px 0;
+                    transition: all .2s;
+                    text-decoration: none;
+                    display: block;
+                    text-align: center;
+                    background-color: rgba(246,246,246,.5);
+                    border-radius: 7px;
+                    color: #9b9b9b;
+                    border: 1px solid #e4e4e4;
+                    .sessions__span {
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: #108f3e;
+                    }
+                    :hover {
+                        text-decoration: none;
+                        cursor: pointer;
+                        color: #fb4226;
+                    }
+                }
+            }
+        }
+        ::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: calc(100% - 40px);
+            transform: translateX(-50%);
+            border-bottom: 1px solid #fff;
+            border-color: rgba(238, 238, 238, 0.88);
+        }
+    }
+    
+}
+
+@include responsive("small") {
+    .theaterItem__movie {
+        padding-left: 0 !important;
+    }
+}

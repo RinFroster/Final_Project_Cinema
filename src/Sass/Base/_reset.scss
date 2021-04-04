@@ -4,6 +4,11 @@
     box-sizing: border-box !important;
     scroll-behavior: smooth;
 }
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
 
 html,body{
     font-family: $ff-0;

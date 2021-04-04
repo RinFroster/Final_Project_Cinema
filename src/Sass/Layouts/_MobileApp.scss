@@ -1,0 +1,93 @@
+#AppHome {
+    background: url("./../Asset/img/MobileApp/backapp.jpg");
+    background-size: contain;
+    padding: 120px 0 80px 0;
+    .AppmaxWith {
+        max-width: 940px;
+        float: none;
+        margin: 0 auto;
+        clear: both;
+        .left {
+            padding-top: 60px;
+            .textLeft {
+                color: #fff;
+                font-weight: 700;
+                font-size: xx-large;
+            }
+            .textSmallLeft {
+                color: #fff;
+                font-size: medium;
+            }
+            .buttonLeft {
+                background-color: #fb4226;
+                padding: 10px 20px;
+                color: #fff;
+                font-size: medium;
+                font-weight: 700;
+                border: none;
+                border-radius: 4px;
+            }
+            .textAppUnder {
+                color: #fff;
+                padding-top: 10px;
+                font-size: 15px;
+                font-weight: 500;
+                .taga {
+                    color: #fff;
+                    border-bottom: 1px solid #fff;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+        }
+        .right {
+            padding: 0;
+            .phone-img {
+                padding: 0 28%;
+                position: relative;
+            }
+            .img-responsive {
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+            .App_img {
+                position: absolute;
+                padding: 1.5% 29.3% 0 29.3%;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.slick-prev:before, .slick-next:before {
+    display: none;
+}
+
+// Reponsive
+@include responsive("large") {
+    #AppHome {
+        p {
+            text-align: left;
+        }
+        .buttonLeft {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+}
+@include responsive("extra-small") {
+    #AppHome {
+        p {
+            text-align: center !important;
+        }
+        .buttonLeft {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+}

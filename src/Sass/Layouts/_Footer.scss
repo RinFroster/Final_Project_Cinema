@@ -1,0 +1,111 @@
+#footer {
+    background-color: #222;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #949494;
+    .MainFooter {
+        max-width: 940px;
+        float: none;
+        margin: auto;
+        clear: both;
+        .row {
+            .noPaddingLeft {
+                padding-left: 0;
+            }
+            .fontSizeP a {
+                font-size: 12px!important;
+                font-size: 80%;
+                font-weight: 700;
+                white-space: nowrap;
+                color: #949494;
+                display: block;
+                transition: all .2s;
+                line-height: 2.3;
+            }
+            .textCenter {
+                text-align: center;
+            }
+        }
+        
+        .hrFooter {
+            border-top: 1px solid #4a4a4a;
+            // margin-top: 20px;
+            // margin-bottom: 20px;
+            // border: 0;
+        }
+    }
+    .imgFooter {
+        text-align: center;
+        padding: 0;
+        .vngIcon {
+            width: 80px;
+            height: auto;
+        }
+        .imgBoCo {
+            width: 130px;
+            float: right;
+        }
+    }
+    .infoFooter {
+        color: #fff;
+        white-space: nowrap;
+        font-size: 70%;
+        span {
+            display: block;
+            line-height: 1.8;
+            color: #949494;
+            font-size: 12px;
+            font-weight: 400;
+            a {
+                text-decoration: none;
+            }
+        }
+        span:first-child {
+            color: #fff;
+        }
+    }
+}
+.footer__title {
+    color: #fff;
+    font-size: 14px;
+}
+.iconConnect {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+:hover {
+        opacity: .7;
+    }
+}
+
+.iconApp {
+    background: 0 0;
+    height: 30px;
+    width: auto;
+    margin: 5px;
+}
+
+// REPONSIVE
+@include responsive("large") {
+    #footer {
+        .hideOnMobile {
+            display: none !important;
+        }
+        .infoFooter span {
+            text-align: center;
+            white-space: initial;
+        }
+        .imgFooter {
+            .imgBoCo {
+                display: block;
+                margin:0 auto;
+                float: none;
+            }
+        }
+       
+       
+    }
+    
+}
