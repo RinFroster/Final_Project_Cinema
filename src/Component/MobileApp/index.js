@@ -2,17 +2,17 @@ import React from 'react';
 import Slider  from "react-slick";
 export default function MobileApp() {
     const settings = {
-        dots: true,
+        dots: false,
         slideToShow: 1,
         slideToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
         infinite: true,
         speed: 500,
-        arrows: true,
+        arrows: false,
         swipe: true,
         swipeToSlide: true,
-        className: "carousel"
+        className: "carousel__app"
       };
     return (
         <section className="MobileApp" id="MobileApp">

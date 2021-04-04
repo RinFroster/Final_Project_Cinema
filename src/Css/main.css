@@ -222,14 +222,14 @@ html, body {
 
 .navbar__container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .navbar__container .container-fluid {
   padding-left: 0;
 }
 
-.navbar__container .container-fluid .navbar {
+.navbar__container .container-fluid .navbar__header {
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -238,22 +238,22 @@ html, body {
   width: 100%;
 }
 
-.navbar__container .container-fluid .navbar:hover {
+.navbar__container .container-fluid .navbar__header:hover {
   background-color: #fff;
 }
 
-.navbar__container .container-fluid .navbar .left .logo {
+.navbar__container .container-fluid .navbar__header .left .logo {
   height: 6rem;
   width: 6rem;
   line-height: 1.42857;
 }
 
-.navbar__container .container-fluid .navbar .left .logo img {
+.navbar__container .container-fluid .navbar__header .left .logo img {
   height: 100%;
   width: 100%;
 }
 
-.navbar__container .container-fluid .navbar .navbar-toggler {
+.navbar__container .container-fluid .navbar__header .toggler__header {
   position: absolute;
   left: 1rem;
   top: 1rem;
@@ -266,7 +266,7 @@ html, body {
   z-index: 1;
 }
 
-.navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon {
+.navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon {
   content: "";
   position: absolute;
   top: 1.75rem;
@@ -280,7 +280,7 @@ html, body {
   transition: all ease-in-out 0.3s;
 }
 
-.navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon::before {
+.navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon::before {
   position: absolute;
   top: -1rem;
   display: block;
@@ -292,7 +292,7 @@ html, body {
   transition: all ease-in-out 0.3s;
 }
 
-.navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon::after {
+.navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon::after {
   position: absolute;
   bottom: -1rem;
   display: block;
@@ -304,39 +304,39 @@ html, body {
   transition: all ease-in-out 0.3s;
 }
 
-.navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon.active {
+.navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon.active {
   background-color: rgba(255, 255, 255, 0.95);
 }
 
-.navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon.active::before {
+.navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon.active::before {
   top: 0;
   transform: rotate(45deg);
   background-color: #fa5238;
   transition: all ease-in-out 0.3s;
 }
 
-.navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon.active::after {
+.navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon.active::after {
   bottom: 0;
   transform: translateY(-10%) rotate(-45deg);
   background-color: #fa5238;
   transition: all ease-in-out 0.3s;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse {
+.navbar__container .container-fluid .navbar__header .collapse__header {
   align-items: center;
   position: relative;
   transition: all 0.7s;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse:focus {
+.navbar__container .container-fluid .navbar__header .collapse__header:focus {
   outline: none;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header {
   position: absolute;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link {
   font-size: 15px;
   color: #000;
   font-weight: 500;
@@ -346,30 +346,30 @@ html, body {
   position: relative;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link:hover {
   color: #fb4226;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
   position: absolute;
   display: flex;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .map__icon {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .map__icon {
   font-size: 20px;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown {
   position: relative;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .btn-secondary.focus,
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .btn-secondary:focus {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .btn-secondary.focus,
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .btn-secondary:focus {
   box-shadow: none;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .btn-secondary,
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .btn__location {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .btn-secondary,
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .btn__location {
   background-color: inherit;
   border: none;
   font-size: 15px;
@@ -378,11 +378,11 @@ html, body {
   padding: 0;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-toggle::after {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-toggle::after {
   margin-left: 0;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-menu {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-menu {
   border-radius: 5px;
   position: absolute;
   max-height: 30rem;
@@ -392,32 +392,32 @@ html, body {
   text-align: center;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-menu .dropdown-item {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-menu .dropdown-item {
   font-size: 15px;
   padding-left: 2rem;
 }
 
-.navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-menu .dropdown-item:hover {
+.navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-menu .dropdown-item:hover {
   color: #fff;
   background-color: #60c5ef;
 }
 
-.navbar__container .container-fluid .navbar .right {
+.navbar__container .container-fluid .navbar__header .right {
   color: #9b9b9b;
   position: absolute;
   right: 17rem;
 }
 
-.navbar__container .container-fluid .navbar .right .user__account {
+.navbar__container .container-fluid .navbar__header .right .user__account {
   position: relative;
   cursor: pointer;
 }
 
-.navbar__container .container-fluid .navbar .right .user__account .user__avatar {
+.navbar__container .container-fluid .navbar__header .right .user__account .user__avatar {
   font-size: 36px;
 }
 
-.navbar__container .container-fluid .navbar .right .user__account .user__account__name {
+.navbar__container .container-fluid .navbar__header .right .user__account .user__account__name {
   font-size: 15px;
   color: #9b9b9b;
   font-weight: 500;
@@ -425,11 +425,11 @@ html, body {
   line-height: 5rem;
 }
 
-.navbar__container .container-fluid .navbar .right .user__account .user__account__name:hover {
+.navbar__container .container-fluid .navbar__header .right .user__account .user__account__name:hover {
   color: #fb4226;
 }
 
-.navbar__container .container-fluid .navbar .right .user__account::after {
+.navbar__container .container-fluid .navbar__header .right .user__account::after {
   content: "";
   position: absolute;
   right: 0;
@@ -441,36 +441,36 @@ html, body {
 }
 
 @media screen and (min-width: 320px) {
-  .navbar__container .container-fluid .navbar {
+  .navbar__container .container-fluid .navbar__header {
     padding: 0;
   }
-  .navbar__container .container-fluid .navbar .left {
+  .navbar__container .container-fluid .navbar__header .left {
     position: absolute;
     left: 42%;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler {
+  .navbar__container .container-fluid .navbar__header .toggler__header {
     width: 15%;
     left: 0.5rem;
     padding: 0;
     max-width: 5rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon {
     left: 1rem;
     width: 2.5rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon::before {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon::before {
     width: 2.5rem;
     top: -0.8rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon::after {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon::after {
     width: 2.5rem;
     bottom: -0.8rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse {
+  .navbar__container .container-fluid .navbar__header .collapse__header {
     width: 100%;
     height: 100%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header {
     top: 5.5rem;
     left: -1rem;
     background-color: rgba(255, 255, 255, 0.95);
@@ -478,14 +478,14 @@ html, body {
     height: 17rem;
     max-width: 25rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link {
     text-align: left;
     padding-left: 26%;
     font-size: 15px;
     color: #000;
     font-weight: 500;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link::after {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link::after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -497,98 +497,98 @@ html, body {
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link:hover {
     color: #fb4226;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover::after {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link:hover::after {
     width: 100%;
     left: 0;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
     left: 27%;
     bottom: 1.5rem;
     align-items: center;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .map__icon {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .map__icon {
     display: none;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .btn__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .btn__location {
     font-size: 15px;
     color: #000;
     font-weight: 500;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .btn__location:hover {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .btn__location:hover {
     color: #fb4226;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-toggle::after {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-toggle::after {
     margin-left: 1rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-menu {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-menu {
     width: 24rem;
     max-height: 25rem;
     left: 0;
     top: -13rem;
   }
-  .navbar__container .container-fluid .navbar .right {
+  .navbar__container .container-fluid .navbar__header .right {
     top: 1rem;
     right: 1rem;
   }
-  .navbar__container .container-fluid .navbar .right .user__account {
+  .navbar__container .container-fluid .navbar__header .right .user__account {
     display: block;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__avatar {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__avatar {
     position: absolute;
     left: 45%;
     font-size: 20px;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__account__name {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__account__name {
     padding-top: 0.5rem;
     font-size: 13px;
     width: 100%;
   }
-  .navbar__container .container-fluid .navbar .right .user__account::after {
+  .navbar__container .container-fluid .navbar__header .right .user__account::after {
     display: none;
   }
 }
 
 @media screen and (min-width: 480px) {
-  .navbar__container .container-fluid .navbar .left {
+  .navbar__container .container-fluid .navbar__header .left {
     left: 43%;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler {
+  .navbar__container .container-fluid .navbar__header .toggler__header {
     width: 10%;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon {
     left: 0.7rem;
     width: 3rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon::before {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon::before {
     width: 3rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon::after {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon::after {
     width: 3rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header {
     max-width: 24.5rem;
     width: 55%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link {
     padding-left: 20%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
     left: 20%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-menu {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-menu {
     width: 40rem;
   }
-  .navbar__container .container-fluid .navbar .right .user__account {
+  .navbar__container .container-fluid .navbar__header .right .user__account {
     display: flex;
     padding: 0;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__avatar {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__avatar {
     height: 2.5rem;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__account__name {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__account__name {
     padding-top: 2rem;
     height: 2.5rem;
     line-height: 2.5rem;
@@ -596,82 +596,82 @@ html, body {
 }
 
 @media screen and (min-width: 576px) {
-  .navbar__container .container-fluid .navbar .left {
+  .navbar__container .container-fluid .navbar__header .left {
     left: 44.5%;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler {
+  .navbar__container .container-fluid .navbar__header .toggler__header {
     width: 8%;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon {
     width: 3rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon::before {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon::before {
     width: 3rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler .navbar__toggler__icon::after {
+  .navbar__container .container-fluid .navbar__header .toggler__header .navbar__toggler__icon::after {
     width: 3rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header {
     top: 5.6rem;
     left: 0;
     width: 48%;
     height: 20rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link {
     padding-left: 15%;
     font-size: 18px;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
     left: 15%;
     bottom: 10%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .btn__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .btn__location {
     font-size: 18px;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-menu {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-menu {
     top: -15.2rem;
     left: 55%;
   }
-  .navbar__container .container-fluid .navbar .right .user__account {
+  .navbar__container .container-fluid .navbar__header .right .user__account {
     padding: 0;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__avatar {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__avatar {
     font-size: 24px;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__account__name {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__account__name {
     font-size: 15px;
     color: #9b9b9b;
     font-weight: 500;
     padding-top: 2.5rem;
   }
-  .navbar__container .container-fluid .navbar .right .user__account ::after {
+  .navbar__container .container-fluid .navbar__header .right .user__account ::after {
     content: none;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .navbar__container .container-fluid .navbar .left {
+  .navbar__container .container-fluid .navbar__header .left {
     left: 45.8%;
   }
-  .navbar__container .container-fluid .navbar .navbar-toggler {
+  .navbar__container .container-fluid .navbar__header .toggler__header {
     width: 6%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link {
     padding-left: 9%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
     left: 9%;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__avatar {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__avatar {
     font-size: 24px;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .navbar__container .container-fluid .navbar .left {
+  .navbar__container .container-fluid .navbar__header .left {
     left: 1rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header {
     background-color: inherit;
     left: 35%;
     top: 0;
@@ -679,87 +679,87 @@ html, body {
     max-width: 100%;
     width: 100%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item {
     height: 100%;
     margin-right: 2%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link {
     padding: 0;
     text-align: center;
     height: 6rem;
     line-height: 6rem;
     font-size: 15px;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .nav-item .nav-link::after {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .nav__item .nav__link::after {
     display: none;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
     left: 52%;
     top: 0;
     color: #9b9b9b;
     margin-right: 0 !important;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .map__icon {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .map__icon {
     display: block;
     font-size: 20px;
     margin-right: 0.5rem;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .btn__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .btn__location {
     font-size: 15px;
     color: #9b9b9b;
     font-weight: normal;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location .dropdown .dropdown-menu {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location .dropdown .dropdown-menu {
     top: 4rem;
     left: -4rem;
     width: 14rem;
     max-height: 30rem;
   }
-  .navbar__container .container-fluid .navbar .right {
+  .navbar__container .container-fluid .navbar__header .right {
     right: 14%;
     top: 1.8rem;
   }
-  .navbar__container .container-fluid .navbar .right .user__account {
+  .navbar__container .container-fluid .navbar__header .right .user__account {
     display: flex;
     justify-content: center;
     padding: 0 1rem;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__avatar {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__avatar {
     position: relative;
     left: 0;
     margin-right: 0.5rem;
   }
-  .navbar__container .container-fluid .navbar .right .user__account .user__account__name {
+  .navbar__container .container-fluid .navbar__header .right .user__account .user__account__name {
     font-size: 15px;
     color: #9b9b9b;
     font-weight: normal;
     padding: 0;
   }
-  .navbar__container .container-fluid .navbar .right .user__account::after {
+  .navbar__container .container-fluid .navbar__header .right .user__account::after {
     display: block;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header {
     left: 38%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
     left: 51%;
   }
-  .navbar__container .container-fluid .navbar .right {
+  .navbar__container .container-fluid .navbar__header .right {
     right: 12%;
   }
 }
 
 @media screen and (min-width: 1400px) {
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header {
     left: 38%;
   }
-  .navbar__container .container-fluid .navbar .navbar-collapse .navbar-nav .select__location {
+  .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
     left: 52%;
   }
-  .navbar__container .container-fluid .navbar .right {
+  .navbar__container .container-fluid .navbar__header .right {
     right: 11%;
   }
 }
@@ -807,29 +807,50 @@ p {
   overflow: hidden;
 }
 
-.movie__card .movie__img .movie__overlay .movie__trailer, .movie__card .movie__img .movie__overlay .movie__buyTicket, .movie__card .movie__img .movie__overlay .movie__detail {
-  width: calc(100%/3);
+.movie__card .movie__img .movie__overlay .movie__trailer,
+.movie__card .movie__img .movie__overlay .movie__buyTicket,
+.movie__card .movie__img .movie__overlay .movie__detail {
+  width: calc(100% / 3);
   padding: 1rem 0;
 }
 
-.movie__card .movie__img .movie__overlay .movie__trailer .trailer__icon, .movie__card .movie__img .movie__overlay .movie__trailer .buyTicket__icon, .movie__card .movie__img .movie__overlay .movie__trailer .detail__icon, .movie__card .movie__img .movie__overlay .movie__buyTicket .trailer__icon, .movie__card .movie__img .movie__overlay .movie__buyTicket .buyTicket__icon, .movie__card .movie__img .movie__overlay .movie__buyTicket .detail__icon, .movie__card .movie__img .movie__overlay .movie__detail .trailer__icon, .movie__card .movie__img .movie__overlay .movie__detail .buyTicket__icon, .movie__card .movie__img .movie__overlay .movie__detail .detail__icon {
+.movie__card .movie__img .movie__overlay .movie__trailer .trailer__icon,
+.movie__card .movie__img .movie__overlay .movie__trailer .buyTicket__icon,
+.movie__card .movie__img .movie__overlay .movie__trailer .detail__icon,
+.movie__card .movie__img .movie__overlay .movie__buyTicket .trailer__icon,
+.movie__card .movie__img .movie__overlay .movie__buyTicket .buyTicket__icon,
+.movie__card .movie__img .movie__overlay .movie__buyTicket .detail__icon,
+.movie__card .movie__img .movie__overlay .movie__detail .trailer__icon,
+.movie__card .movie__img .movie__overlay .movie__detail .buyTicket__icon,
+.movie__card .movie__img .movie__overlay .movie__detail .detail__icon {
   font-size: 18px;
   color: #1a1d24;
+  margin-bottom: 0.5rem;
 }
 
-.movie__card .movie__img .movie__overlay .movie__trailer .trailer__icon:hover, .movie__card .movie__img .movie__overlay .movie__trailer .buyTicket__icon:hover, .movie__card .movie__img .movie__overlay .movie__trailer .detail__icon:hover, .movie__card .movie__img .movie__overlay .movie__buyTicket .trailer__icon:hover, .movie__card .movie__img .movie__overlay .movie__buyTicket .buyTicket__icon:hover, .movie__card .movie__img .movie__overlay .movie__buyTicket .detail__icon:hover, .movie__card .movie__img .movie__overlay .movie__detail .trailer__icon:hover, .movie__card .movie__img .movie__overlay .movie__detail .buyTicket__icon:hover, .movie__card .movie__img .movie__overlay .movie__detail .detail__icon:hover {
-  color: #fb4226;
-}
-
-.movie__card .movie__img .movie__overlay .movie__trailer .movie__service, .movie__card .movie__img .movie__overlay .movie__buyTicket .movie__service, .movie__card .movie__img .movie__overlay .movie__detail .movie__service {
-  text-decoration: none;
-  list-style-type: none;
+.movie__card .movie__img .movie__overlay .movie__trailer .movie__service,
+.movie__card .movie__img .movie__overlay .movie__buyTicket .movie__service,
+.movie__card .movie__img .movie__overlay .movie__detail .movie__service {
   font-size: 10px;
   color: #000;
   font-weight: 500;
 }
 
-.movie__card .movie__img .movie__overlay:hover {
+.movie__card .movie__img .movie__overlay .movie__trailer:hover .movie__service,
+.movie__card .movie__img .movie__overlay .movie__buyTicket:hover .movie__service,
+.movie__card .movie__img .movie__overlay .movie__detail:hover .movie__service {
+  color: #fb4226;
+}
+
+.movie__card .movie__img .movie__overlay .movie__trailer:hover .trailer__icon,
+.movie__card .movie__img .movie__overlay .movie__trailer:hover .buyTicket__icon,
+.movie__card .movie__img .movie__overlay .movie__trailer:hover .detail__icon,
+.movie__card .movie__img .movie__overlay .movie__buyTicket:hover .trailer__icon,
+.movie__card .movie__img .movie__overlay .movie__buyTicket:hover .buyTicket__icon,
+.movie__card .movie__img .movie__overlay .movie__buyTicket:hover .detail__icon,
+.movie__card .movie__img .movie__overlay .movie__detail:hover .trailer__icon,
+.movie__card .movie__img .movie__overlay .movie__detail:hover .buyTicket__icon,
+.movie__card .movie__img .movie__overlay .movie__detail:hover .detail__icon {
   color: #fb4226;
 }
 
@@ -844,7 +865,9 @@ p {
   top: 0;
   left: 0;
   padding: 0.25rem 1rem;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  overflow: hidden;
   background-color: #00ac4d;
   font-size: 14px;
   color: #fff;
@@ -854,7 +877,8 @@ p {
 }
 
 .movie__card .movie__img img {
-  height: 100%;
+  height: 30rem !important;
+  max-height: 30rem;
   border-radius: 1rem;
 }
 
@@ -882,7 +906,7 @@ p {
     max-height: 41rem;
     margin: 0 auto;
   }
-  .movie__card .movie__img .movie__description.movie__overlay {
+  .movie__card .movie__img .movie__overlay {
     display: none;
   }
   .movie__card .movieInfo__container {
@@ -916,8 +940,8 @@ p {
     max-width: 23rem;
     width: 90%;
   }
-  .movie__card .movie__img .movie__description.movie__overlay {
-    display: block;
+  .movie__card .movie__img .movie__overlay {
+    display: flex;
   }
   .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 15px;
@@ -1210,6 +1234,7 @@ p {
 @media screen and (min-width: 320px) {
   .movie {
     background-attachment: inherit;
+    padding: 2rem 0;
   }
   .movie .movie__card__container {
     width: 100%;
@@ -1229,16 +1254,13 @@ p {
     overflow: hidden;
     padding: 0;
     height: 37rem;
-    padding-top: 2rem;
+    padding-top: 3rem;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
     overflow: hidden;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider .slick-track {
     padding: 0;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slick-dots {
-    bottom: 0;
   }
 }
 
@@ -1251,9 +1273,6 @@ p {
   }
   .movie .movie__card__container .nav-tabs.navCenter .nav-item .nav-link {
     font-size: 18px;
-  }
-  .movie .movie__card__container .tab-content {
-    padding: 1rem 0;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider {
     width: 100%;
@@ -1269,13 +1288,13 @@ p {
 
 @media screen and (min-width: 576px) {
   .movie {
-    padding-top: 3rem;
+    padding: 3rem 0;
   }
   .movie .movie__card__container .nav-tabs.navCenter .nav-item .nav-link {
     font-size: 20px;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider {
-    height: 44rem;
+    height: 38rem;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
     margin: 0 7%;
@@ -1290,6 +1309,7 @@ p {
     font-size: 24px;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider {
+    padding-top: 3.5rem;
     height: 39rem;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
@@ -1305,7 +1325,8 @@ p {
     background-attachment: fixed;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider {
-    height: 40rem;
+    padding-top: 4rem;
+    height: 39.5rem;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
     margin: 0 5%;
@@ -1317,10 +1338,11 @@ p {
 
 @media screen and (min-width: 1200px) {
   .movie {
-    padding-top: 10rem;
+    padding: 10rem 0 3rem 0;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider {
-    height: 42rem;
+    padding-top: 5rem;
+    height: 46rem;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
     margin: 0 8%;
@@ -1332,7 +1354,7 @@ p {
 
 @media screen and (min-width: 1400px) {
   .movie .movie__card__container .tab-content .tab-pane .slider {
-    height: 45rem;
+    height: 43rem;
   }
   .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
     margin: 0 8%;
@@ -1344,7 +1366,7 @@ p {
 
 .tool__nav {
   position: relative;
-  z-index: 1;
+  z-index: 0;
 }
 
 .tool__nav .nav__container {
@@ -1825,18 +1847,6 @@ p {
   }
 }
 
-@media screen and (min-width: 576px) {
-  .nav-item .nav-link {
-    font-size: 15px !important;
-  }
-  .nav-item :hover {
-    font-size: 18px !important;
-  }
-  .nav-item .active {
-    font-size: 20px !important;
-  }
-}
-
 .NewItem__header {
   padding-top: 20px;
   font-size: 24px;
@@ -2043,10 +2053,6 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-}
-
-.slick-prev:before, .slick-next:before {
-  display: none;
 }
 
 @media screen and (min-width: 992px) {

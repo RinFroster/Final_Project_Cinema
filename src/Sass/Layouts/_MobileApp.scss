@@ -62,10 +62,6 @@
     }
 }
 
-.slick-prev:before, .slick-next:before {
-    display: none;
-}
-
 // Reponsive
 @include responsive("large") {
     #AppHome {

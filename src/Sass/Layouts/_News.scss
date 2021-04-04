@@ -34,18 +34,4 @@
         width: 100% !important;
     }
 }
-@include responsive("small") {
-    .nav-item {
-        .nav-link{
-            
-            font-size: 15px !important;
-            
-        }
-        :hover {
-            font-size: 18px !important;
-        }
-        .active {
-            font-size: 20px !important;
-        }
-    }
-}
+
