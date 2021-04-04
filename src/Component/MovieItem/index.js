@@ -17,15 +17,15 @@ function MovieItem(props) {
       <div className="movie__overlay movie-hover">
         <div className="movie__trailer">
           <Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>
-          <p className="movie__service">Trailer</p>
+          <div className="movie__service">Trailer</div>
         </div>
         <div className="movie__buyTicket">
           <Link><FontAwesomeIcon icon={faTicketAlt} className="buyTicket__icon"/></Link>
-          <p className="movie__service">Mua Vé</p>
+          <div className="movie__service">Mua Vé</div>
         </div>
         <div className="movie__detail">
           <Link><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
-          <p className="movie__service">Chi Tiết</p>
+          <div className="movie__service">Chi Tiết</div>
         </div>
       </div>
       <img src={movie.hinhAnh} alt="test" className="img-fluid"/>

@@ -13,7 +13,7 @@ function MovieList(props) {
   }, [])
 
   const renderHTML = () => {
-    const {data} = props.movie;
+    const { data } = props;
     return (data&&data.map((item) => {
       return <MovieItem key={item.maPhim} movie={item}/>
     }))
@@ -25,7 +25,7 @@ function MovieList(props) {
     arrows: true,
     infinite: true,
     speed: 300,
-    dots: true,
+    dots: false,
     autoplay: false,
     prevArrow: <MoviePrevArrow />,
     nextArrow: <MovieNextArrow />,
@@ -40,8 +40,7 @@ function MovieList(props) {
           autoplay: true,
           draggable: false,
           focusOnSelect: false,
-          swipe: true,
-          swipeToSlide: true,
+          swipe: false,
         }
       },
       {
@@ -50,9 +49,9 @@ function MovieList(props) {
           slidesToShow: 5,
           slidesToScroll: 1,
           autoplay: true,
-          draggable: true,
+          draggable: false,
           focusOnSelect: false,
-          swipe: true,
+          swipe: false,
         }
       },
       {
@@ -61,9 +60,9 @@ function MovieList(props) {
           slidesToShow: 4,
           slidesToScroll: 1,
           autoplay: true,
-          draggable: true,
+          draggable: false,
           focusOnSelect: false,
-          swipe: true,
+          swipe: false,
         }
       },
       {
@@ -115,7 +114,6 @@ function MovieList(props) {
   return (
     <section className="movie" name="homeMovie">
       <div className="movie__card__container">
-      {renderHTML}
         <ul className="nav nav-tabs navCenter" id="myTab" role="tablist">
           <li className="nav-item">
             <a
@@ -152,7 +150,7 @@ function MovieList(props) {
             aria-labelledby="nowShowingFilm"
           >
             <Slider {...settings}>
-            {renderHTML}
+            {renderHTML()}
             </Slider>
           </div>
           <div
@@ -162,7 +160,7 @@ function MovieList(props) {
             aria-labelledby="upComingFilm"
           >
             <Slider {...settings}>
-            {renderHTML}
+            {renderHTML()}
             </Slider>
           </div>
         </div>

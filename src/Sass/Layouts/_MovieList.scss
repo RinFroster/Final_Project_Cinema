@@ -113,6 +113,7 @@
 @include responsive ('extra-small'){
     .movie{
         background-attachment: inherit;
+        padding: 2rem 0;
         .movie__card__container{
             width: 100%;
             .nav-tabs.navCenter{
@@ -136,16 +137,13 @@
                         overflow: hidden;
                         padding: 0;
                         height: 37rem;
-                        padding-top: 2rem;
+                        padding-top: 3rem;
                         .slick-list{
                             overflow: hidden;
                         }
                         .slick-track{
                             padding: 0;
                         }
-                    }
-                    .slick-dots{
-                        bottom: 0;
                     }
                 }
             }
@@ -171,7 +169,6 @@
                 }
             }
             .tab-content{
-                padding: 1rem 0;
                 .tab-pane{
                     .slider{
                         width: 100%;
@@ -192,7 +189,7 @@
 // Responsive for screen > 576px and < 768px
 @include responsive ('small'){
     .movie{
-        padding-top: 3rem;
+        padding: 3rem 0;
         .movie__card__container{
             .nav-tabs.navCenter{
                 .nav-item{
@@ -204,7 +201,7 @@
             .tab-content{
                 .tab-pane{
                     .slider{
-                        height: 44rem;
+                        height: 38rem;
                         .slick-list{
                             margin: 0 7%;
                         }
@@ -232,6 +229,7 @@
             .tab-content{
                 .tab-pane{
                     .slider{
+                        padding-top: 3.5rem;
                         height: 39rem;
                         .slick-list{
                             margin: 0 10%;
@@ -254,7 +252,8 @@
             .tab-content{
                 .tab-pane{
                     .slider{
-                        height: 40rem;
+                        padding-top: 4rem;
+                        height: 39.5rem;
                         .slick-list{
                             margin: 0 5%;
                         }
@@ -271,12 +270,13 @@
 // Responsive for screen > 1200px and < 1400px 
 @include responsive ('extra-large'){
     .movie{
-        padding-top: 10rem;
+        padding: 10rem 0 3rem 0;
         .movie__card__container{
             .tab-content{
                 .tab-pane{
                     .slider{
-                        height: 42rem;
+                        padding-top: 5rem;
+                        height: 46rem;
                         .slick-list{
                             margin: 0 8%;
                         }
@@ -297,7 +297,7 @@
             .tab-content{
                 .tab-pane{
                     .slider{
-                        height: 45rem;
+                        height: 43rem;
                         .slick-list{
                             margin: 0 8%;
                         }

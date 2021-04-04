@@ -53,7 +53,7 @@ function NavbarHome() {
   return (
     <section className="navbar__container">
       <div className="container-fluid">
-        <nav className="navbar navbar-expand-lg">
+        <nav className="navbar navbar-expand-lg navbar__header">
           {/* Brand */}
           <div className="left">
             <div className="logo">
@@ -64,7 +64,7 @@ function NavbarHome() {
           <button
             type="button"
             onClick={handleOnClick}
-            className="navbar-toggler"
+            className="navbar-toggler toggler__header"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
@@ -72,57 +72,57 @@ function NavbarHome() {
             aria-label="Toggle navigation"
             ref={dropdownButton}
           >
-            <span className={`navbar__toggler__icon ${addActiveClass ? "active" : ""}`} id="toggler__icon"/>
+            <span className={`navbar__toggler__icon${addActiveClass ? "active" : ""}`} id="toggler__icon"/>
           </button>
           {/* Navbar links */}
-          <div className={`collapse navbar-collapse ${isVisible ? "show" : ""}`} id="navbarSupportedContent"  tabIndex="0" ref={dropdown}>
+          <div className={`collapse navbar-collapse collapse__header ${isVisible ? "show" : ""}`} id="navbarSupportedContent"  tabIndex="0" ref={dropdown}>
               {/* {state && ( */}
-                <ul className="navbar-nav">
-                  <li className="nav-item">
+                <ul className="navbar-nav nav__header">
+                  <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
                       to="homeMovie"
                       spy={true}
                       duration={500}
-                      className="nav-link"
+                      className="nav-link nav__link"
                     >
                       Lịch Chiếu
                     </Link>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
                       to="homeMovie"
                       spy={true}
                       duration={500}
-                      className="nav-link"
+                      className="nav-link nav__link"
                     >
                       Cụm Rạp
                     </Link>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
                       to="homeMovie"
                       spy={true}
                       duration={500}
-                      className="nav-link"
+                      className="nav-link nav__link"
                     >
                       Tin Tức
                     </Link>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
                       to="homeMovie"
                       spy={true}
                       duration={500}
-                      className="nav-link"
+                      className="nav-link nav__link"
                     >
                       Ứng Dụng
                     </Link>
                   </li>
-                  <li className="nav-item select__location" id="location">
+                  <li className="nav-item select__location nav__item" id="location">
                     <FontAwesomeIcon icon={faMapMarkerAlt} className="map__icon" />
                     <div className="dropdown">
                       <button className="btn btn-secondary dropdown-toggle btn__location" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onClick={chooseLocation}>
