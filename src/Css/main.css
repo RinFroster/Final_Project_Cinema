@@ -1865,21 +1865,6 @@ p {
   }
 }
 
-<<<<<<< HEAD
-@media screen and (min-width: 480px) {
-  .nav-item .nav-link {
-    font-size: 14px !important;
-  }
-  .nav-item :hover {
-    font-size: 16px !important;
-  }
-  .nav-item .active {
-    font-size: 18px !important;
-  }
-}
-
-=======
->>>>>>> cbeb4e39bbde54f204f92fdb43b32ef265d44b89
 .NewItem__header {
   padding-top: 20px;
   font-size: 24px;
