@@ -41,7 +41,7 @@
             }
         }
         .right {
-            padding: 0;
+            padding: 0;       
             .phone-img {
                 padding: 0 28%;
                 position: relative;
@@ -51,7 +51,7 @@
                 max-width: 100%;
                 height: auto;
             }
-            .App_img {
+            .App__img {
                 position: absolute;
                 padding: 1.5% 29.3% 0 29.3%;
                 top: 0;
@@ -73,8 +73,7 @@
             text-align: left;
         }
         .buttonLeft {
-            display: block;
-            margin: 0 auto;
+            padding: 10px 20px;
         }
     }
 
@@ -82,7 +81,7 @@
 @include responsive("extra-small") {
     #AppHome {
         p {
-            text-align: center !important;
+            text-align: center ;
         }
         .buttonLeft {
             display: block;

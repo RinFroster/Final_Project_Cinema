@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider  from "react-slick";
 export default function MobileApp() {
-    const settings = {
+    const appMobile = {
         dots: true,
         slideToShow: 1,
         slideToScroll: 1,
@@ -12,7 +12,6 @@ export default function MobileApp() {
         arrows: true,
         swipe: true,
         swipeToSlide: true,
-        className: "carousel"
       };
     return (
         <section className="MobileApp" id="MobileApp">
@@ -31,10 +30,10 @@ export default function MobileApp() {
                                <a className="taga"> IOS</a> &  <a className="taga">Android </a></p> 
                            </div>
                            <div className="col-md-6 right">
-                           <img className ="img-responsive phone-img" src={require("./../../Asset/img/MobileApp/mobile.png").default}/>
-                                <div className="App_img">
-                                <Slider {...settings} >
-                                    <img  src={require("./../../Asset/img/MobileApp/slide1.jpg").default}/>
+                                <img className ="img-responsive phone-img" src={require("./../../Asset/img/MobileApp/mobile.png").default}/>
+                                <div className="App__img">
+                                 <Slider {...appMobile} >
+                                    <img className="img__mobile" src={require("./../../Asset/img/MobileApp/slide1.jpg").default}/>
                                     <img  src={require("./../../Asset/img/MobileApp/slide2.jpg").default}/>
                                     <img  src={require("./../../Asset/img/MobileApp/slide3.jpg").default}/>
                                     <img  src={require("./../../Asset/img/MobileApp/slide4.jpg").default}/>
@@ -44,7 +43,7 @@ export default function MobileApp() {
                                     <img  src={require("./../../Asset/img/MobileApp/slide8.jpg").default}/>
                                  </Slider>
                                 </div>  
-                               
+                                
                            </div>
                        </div>
                    </div>

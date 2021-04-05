@@ -168,3 +168,18 @@
         padding-left: 0 !important;
     }
 }
+
+// @include responsive("very-small") {
+//     .theaterItem__item {
+//         .theater__2D {
+//             .theater__sessions {
+//                 .sessions__btn {
+//                     width: calc(25% - -5px);
+//                     .sessions__span {
+//                         font-size: 14px;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }   
