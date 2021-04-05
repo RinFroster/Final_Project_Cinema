@@ -9,7 +9,7 @@ export default function MobileApp() {
         autoplaySpeed: 3000,
         infinite: true,
         speed: 500,
-        arrows: true,
+        arrows: false,
         swipe: true,
         swipeToSlide: true,
       };

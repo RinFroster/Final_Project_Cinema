@@ -1,23 +1,23 @@
-import React, { memo, useCallback, useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import MovieItem from "./../MovieItem";
-// import { actListMovieApi } from "./modules/action";
-// import { connect } from "react-redux";
+import { actListMovieApi } from "./modules/action";
+import { connect } from "react-redux";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { MoviePrevArrow, MovieNextArrow } from "./../Arrow";
 
-function MovieList() {
-  // componentDidMount() {
-  //   this.props.fetchListMovie();
-  // }
+function MovieList(props) {
+  useEffect(() => {
+    props.fetchListMovie();
+  }, [])
 
-  // renderHTML = () => {
-  //   const {data} = this.props;
-  //   return (data&&data.map((item) => {
-  //     return <MovieItem key={index} movie={item}/>
-  //   }))
-  // }
+  const renderHTML = () => {
+    const { data } = props;
+    return (data&&data.map((item) => {
+      return <MovieItem key={item.maPhim} movie={item}/>
+    }))
+  }
   const settings = {
     className: "slider",
     slidesToShow: 1,
@@ -25,7 +25,7 @@ function MovieList() {
     arrows: true,
     infinite: true,
     speed: 300,
-    dots: true,
+    dots: false,
     autoplay: false,
     prevArrow: <MoviePrevArrow />,
     nextArrow: <MovieNextArrow />,
@@ -40,8 +40,7 @@ function MovieList() {
           autoplay: true,
           draggable: false,
           focusOnSelect: false,
-          swipe: true,
-          swipeToSlide: true,
+          swipe: false,
         }
       },
       {
@@ -50,9 +49,9 @@ function MovieList() {
           slidesToShow: 5,
           slidesToScroll: 1,
           autoplay: true,
-          draggable: true,
+          draggable: false,
           focusOnSelect: false,
-          swipe: true,
+          swipe: false,
         }
       },
       {
@@ -61,9 +60,9 @@ function MovieList() {
           slidesToShow: 4,
           slidesToScroll: 1,
           autoplay: true,
-          draggable: true,
+          draggable: false,
           focusOnSelect: false,
-          swipe: true,
+          swipe: false,
         }
       },
       {
@@ -151,12 +150,7 @@ function MovieList() {
             aria-labelledby="nowShowingFilm"
           >
             <Slider {...settings}>
-              <MovieItem />
-              <MovieItem />
-              <MovieItem />
-              <MovieItem />
-              <MovieItem />
-              <MovieItem />
+            {renderHTML()}
             </Slider>
           </div>
           <div
@@ -166,36 +160,27 @@ function MovieList() {
             aria-labelledby="upComingFilm"
           >
             <Slider {...settings}>
-              <MovieItem />
-              <MovieItem />
-              <MovieItem />
-              <MovieItem />
-              <MovieItem />
-              <MovieItem />
+            {renderHTML()}
             </Slider>
           </div>
         </div>
       </div>
     </section>
-    
-    // <div className="container">
-    //   {this.renderHTML()}
-    // </div>
   );
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     loading: state.listMovieReducer.loading,
-//     data: state.listMovieReducer.data,
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+    // loading: state.listMovieReducer.loading,
+    data: state.listMovieReducer.data,
+  };
+};
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     fetchListMovie: () => {
-//       dispatch(actListMovieApi());
-//     },
-//   };
-// };
-export default memo(MovieList);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchListMovie: () => {
+      dispatch(actListMovieApi());
+    },
+  };
+};
+export default connect(mapStateToProps,mapDispatchToProps)(MovieList);

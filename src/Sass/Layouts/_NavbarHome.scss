@@ -1,9 +1,9 @@
 .navbar__container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   .container-fluid {
     padding-left: 0;
-    .navbar {
+    .navbar__header {
       background-color: $header-primary;
       box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.3);
       position: fixed;
@@ -24,7 +24,7 @@
           }
         }
       }
-      .navbar-toggler {
+      .toggler__header {
         position: absolute;
         left: 1rem;
         top: 1rem;
@@ -86,17 +86,17 @@
             }
         }
       }
-      .navbar-collapse {
+      .collapse__header {
         align-items: center;
         position: relative;
         transition: all 0.7s;
         &:focus{
           outline: none;
         }
-        .navbar-nav {
+        .nav__header {
             position: absolute;
-            .nav-item {
-                .nav-link {
+            .nav__item {
+                .nav__link {
                 @include styleText($fs-3, $text-base-color, $fw-bold-2);
                 text-decoration: none;
                 transition: all ease-in-out 0.2s;
@@ -191,13 +191,13 @@
 @include responsive ('extra-small'){
   .navbar__container{
     .container-fluid{
-      .navbar{
+      .navbar__header{
         padding: 0;
         .left{
           position: absolute;
           left: 42%;
         }
-        .navbar-toggler{
+        .toggler__header{
           width: 15%;
           left: 0.5rem;
           padding: 0;
@@ -215,18 +215,18 @@
             }
           }
         }
-        .navbar-collapse{
+        .collapse__header{
           width: 100%;
           height: 100%;       
-          .navbar-nav{
+          .nav__header{
             top: 5.5rem;
             left: -1rem;
             background-color: $header-primary;
             width: 54%;
             height: 17rem;
             max-width: 25rem;
-            .nav-item{
-              .nav-link{
+            .nav__item{
+              .nav__link{
                   text-align: left;
                   padding-left: 26%;
                   @include styleText($fs-3,$text-base-color,$fw-bold-2);
@@ -307,11 +307,11 @@
 @include responsive('very-small'){
   .navbar__container{
     .container-fluid{
-      .navbar{
+      .navbar__header{
         .left{
           left: 43%;
         }
-        .navbar-toggler{
+        .toggler__header{
           width: 10%;
           .navbar__toggler__icon{
             left: 0.7rem;
@@ -324,12 +324,12 @@
             }
           }
         }
-        .navbar-collapse{
-          .navbar-nav{
+        .collapse__header{
+          .nav__header{
             max-width: 24.5rem;
             width: 55%;
-            .nav-item{
-              .nav-link{
+            .nav__item{
+              .nav__link{
                 padding-left: 20%;
               }
             }
@@ -366,11 +366,11 @@
 @include responsive ('small'){
     .navbar__container{
         .container-fluid{
-            .navbar{
+            .navbar__header{
               .left{
                 left: 44.5%;
               }
-                .navbar-toggler{
+                .toggler__header{
                     width: 8%;
                     .navbar__toggler__icon{
                         width: 3rem;
@@ -382,14 +382,14 @@
                         }
                     }
                 }
-                .navbar-collapse{
-                    .navbar-nav{
+                .collapse__header{
+                    .nav__header{
                         top: 5.6rem;
                         left: 0;
                         width: 48%;
                         height: 20rem;
-                        .nav-item{
-                            .nav-link{
+                        .nav__item{
+                            .nav__link{
                                 padding-left: 15%;
                                 font-size: $fs-4;
                             }
@@ -434,17 +434,17 @@
 @include responsive ('medium'){
   .navbar__container{
     .container-fluid{
-      .navbar{
+      .navbar__header{
         .left{
           left: 45.8%;
         }
-        .navbar-toggler{
+        .toggler__header{
           width: 6%;
         }
-        .navbar-collapse{
-          .navbar-nav{
-            .nav-item{
-              .nav-link{
+        .collapse__header{
+          .nav__header{
+            .nav__item{
+              .nav__link{
                 padding-left: 9%;
               }
             }
@@ -469,22 +469,22 @@
 @include responsive ('large'){
   .navbar__container{
     .container-fluid{
-      .navbar{
+      .navbar__header{
         .left{
           left: 1rem;
         }
-        .navbar-collapse{
-          .navbar-nav{
+        .collapse__header{
+          .nav__header{
             background-color: inherit;
             left: 35%;
             top: 0;
             height: 100%;
             max-width: 100%;
             width: 100%;
-            .nav-item{
+            .nav__item{
               height: 100%;
               margin-right: 2%;
-              .nav-link{
+              .nav__link{
                 padding: 0;
                 text-align: center;
                 height: 6rem;
@@ -549,9 +549,9 @@
 @include responsive ('extra-large'){
   .navbar__container{
     .container-fluid{
-      .navbar{
-        .navbar-collapse{
-          .navbar-nav{
+      .navbar__header{
+        .collapse__header{
+          .nav__header{
             left: 38%;
             .select__location{
               left: 51%;
@@ -570,9 +570,9 @@
 @include responsive ('extra extra-large'){
   .navbar__container{
     .container-fluid{
-      .navbar{
-        .navbar-collapse{
-          .navbar-nav{
+      .navbar__header{
+        .collapse__header{
+          .nav__header{
             left: 38%;
             .select__location{
               left: 52%;
