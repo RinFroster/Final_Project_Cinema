@@ -9,16 +9,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { MoviePrevArrow, MovieNextArrow } from "./../Arrow";
-import { actListMovieApiNowShowing } from "./modules/action";
+import { actListMovieApiComingSoon } from "./modules/action";
 import { connect } from "react-redux";
 
-function MovieItemNS(props) {
+function MovieItemCS(props) {
   useEffect(() => {
-    props.fetchListMovieNS();
+    props.fetchListMovieCS();
     console.log(props);
   }, []);
-  const renderHTMLNS = () => {
-    const { data } = props;
+  const renderHTMLCS = () => {
+    const { data } = props ;
     console.log(data);
     return (data&&data.map((item) => {
       return (
@@ -145,27 +145,28 @@ function MovieItemNS(props) {
       },
     ],
   };
-  // const { movieNS } = props;
+  // const { movieCS } = props;
   return (
     
   <Slider {...settings}>
-    {renderHTMLNS()}
+    {renderHTMLCS()}
   </Slider>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
     // loading: state.listMovieReducer.loading,
-    data: state.listMovieReducerNS.data,
+    data: state.listMovieReducerCS.data,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchListMovieNS: () => {
-      dispatch(actListMovieApiNowShowing());
+    fetchListMovieCS: () => {
+      dispatch(actListMovieApiComingSoon());
     },
   };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(MovieItemNS);
+export default connect(mapStateToProps,mapDispatchToProps)(MovieItemCS);
