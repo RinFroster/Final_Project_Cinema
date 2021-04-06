@@ -1,116 +1,9 @@
 import React, { useState, useEffect } from "react";
-import MovieItem from "./../MovieItem";
-import { actListMovieApi } from "./modules/action";
-import { connect } from "react-redux";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import { MoviePrevArrow, MovieNextArrow } from "./../Arrow";
+import MovieItemNS from "./../MovieItem";
+import MovieItemCS from "./../MovieItemCS";
 
-function MovieList(props) {
-  useEffect(() => {
-    props.fetchListMovie();
-  }, [])
 
-  const renderHTML = () => {
-    const { data } = props;
-    return (data&&data.map((item) => {
-      return <MovieItem key={item.maPhim} movie={item}/>
-    }))
-  }
-  const settings = {
-    className: "slider",
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    infinite: true,
-    speed: 300,
-    dots: false,
-    autoplay: false,
-    prevArrow: <MoviePrevArrow />,
-    nextArrow: <MovieNextArrow />,
-    autoplaySpeed: 10000,
-    mobileFirst:true,
-    responsive: [
-      {
-        breakpoint: 1600,
-        settings:{
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          autoplay: true,
-          draggable: false,
-          focusOnSelect: false,
-          swipe: false,
-        }
-      },
-      {
-        breakpoint: 1399,
-        settings:{
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          autoplay: true,
-          draggable: false,
-          focusOnSelect: false,
-          swipe: false,
-        }
-      },
-      {
-        breakpoint: 1199,
-        settings:{
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          autoplay: true,
-          draggable: false,
-          focusOnSelect: false,
-          swipe: false,
-        }
-      },
-      {
-        breakpoint: 991,
-        settings:{
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          autoplay: true,
-          draggable: true,
-          focusOnSelect: false,
-          swipe: true,
-        }
-      },
-      {
-        breakpoint: 767,
-        settings:{
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          autoplay: false,
-          draggable: false,
-          focusOnSelect: false,
-          swipe: true,
-        }
-      },
-      {
-        breakpoint: 575,
-        settings:{
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          autoplay: false,
-          draggable: false,
-          focusOnSelect: false,
-          swipe: true,
-        }
-      },
-      {
-        breakpoint: 479,
-        settings:{
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: false,
-          draggable: false,
-          focusOnSelect: false,
-          swipe: true,
-        }
-      },
-    ]
-  };
+function MovieList() {
   return (
     <section className="movie" name="homeMovie">
       <div className="movie__card__container">
@@ -149,9 +42,7 @@ function MovieList(props) {
             role="tabpanel"
             aria-labelledby="nowShowingFilm"
           >
-            <Slider {...settings}>
-            {renderHTML()}
-            </Slider>
+              <MovieItemNS/>
           </div>
           <div
             className="tab-pane fade"
@@ -159,9 +50,7 @@ function MovieList(props) {
             role="tabpanel"
             aria-labelledby="upComingFilm"
           >
-            <Slider {...settings}>
-            {renderHTML()}
-            </Slider>
+            <MovieItemCS/>
           </div>
         </div>
       </div>
@@ -169,18 +58,5 @@ function MovieList(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    // loading: state.listMovieReducer.loading,
-    data: state.listMovieReducer.data,
-  };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchListMovie: () => {
-      dispatch(actListMovieApi());
-    },
-  };
-};
-export default connect(mapStateToProps,mapDispatchToProps)(MovieList);
+export default MovieList;

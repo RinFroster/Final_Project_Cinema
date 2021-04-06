@@ -158,64 +158,60 @@ html, body {
 
 @media screen and (min-width: 480px) {
   .movie__prev__arrow {
-    left: 1rem !important;
+    top: 50% !important;
+    left: 2rem !important;
   }
   .movie__next__arrow {
-    right: 1rem !important;
+    top: 50% !important;
+    right: 2rem !important;
   }
 }
 
 @media screen and (min-width: 576px) {
   .movie__prev__arrow {
-    top: 40% !important;
     left: 2rem !important;
   }
   .movie__next__arrow {
-    top: 40% !important;
     right: 2rem !important;
   }
 }
 
 @media screen and (min-width: 768px) {
   .movie__prev__arrow {
-    top: 40% !important;
-    left: 6rem !important;
+    left: 4rem !important;
   }
   .movie__next__arrow {
-    top: 40% !important;
-    right: 6rem !important;
+    right: 4rem !important;
   }
 }
 
 @media screen and (min-width: 992px) {
   .movie__prev__arrow {
-    top: 40% !important;
     left: 3rem !important;
   }
   .movie__next__arrow {
-    top: 40% !important;
     right: 3rem !important;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .movie__prev__arrow {
-    top: 40% !important;
-    left: 8rem !important;
+    top: 45% !important;
+    left: 4rem !important;
   }
   .movie__next__arrow {
-    top: 40% !important;
-    right: 8rem !important;
+    top: 45% !important;
+    right: 4rem !important;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .movie__prev__arrow {
-    top: 42% !important;
+    top: 45% !important;
     left: 9rem !important;
   }
   .movie__next__arrow {
-    top: 42% !important;
+    top: 45% !important;
     right: 9rem !important;
   }
 }
@@ -784,6 +780,60 @@ p {
   font-size: 15px;
 }
 
+.slider {
+  margin: 0 auto;
+}
+
+.slider .slick-list {
+  overflow: visible;
+}
+
+.slider .slick-slide {
+  border-radius: 0.5rem;
+  transition: transform ease 0.3s;
+  color: #fff;
+  cursor: pointer;
+}
+
+.slider .slick-slide img {
+  width: 100%;
+  height: 100%;
+}
+
+.slider .slick-current.slick-slide {
+  position: relative;
+}
+
+.slider .slick-track {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  overflow: hidden;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+}
+
+.slick-dots li {
+  margin: 0 0.25rem;
+}
+
+.slick-dots button {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  background-color: #d8d8d8;
+  border-radius: 100%;
+  text-indent: -9999px;
+  border: none;
+}
+
+.slick-dots li.slick-active button {
+  background-color: #fb4226;
+}
+
 .movie__card {
   transition: all 0.3s;
 }
@@ -901,74 +951,138 @@ p {
 }
 
 @media screen and (min-width: 320px) {
-  .movie__card {
-    max-width: 18rem;
+  .slider {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+    padding-top: 3rem;
+  }
+  .slider .slick-list {
+    overflow: hidden;
+    margin: 0 20%;
+  }
+  .slider .slick-list .movie__card {
+    max-width: 20rem;
     max-height: 41rem;
+    display: block !important;
     margin: 0 auto;
   }
-  .movie__card .movie__img .movie__overlay {
+  .slider .slick-list .movie__card .movie__img .movie__overlay {
     display: none;
   }
-  .movie__card .movieInfo__container {
+  .slider .slick-list .movie__card .movieInfo__container {
     padding: 0.5rem 0;
   }
-  .movie__card .movieInfo__container .movieInfo__row {
+  .slider .slick-list .movie__card .movieInfo__container .movieInfo__row {
     margin-bottom: 0.5rem;
   }
-  .movie__card .movieInfo__container .movieInfo__row .movie__name p {
+  .slider .slick-list .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 14px;
   }
 }
 
 @media screen and (min-width: 480px) {
-  .movie__card {
-    max-width: 19rem;
+  .slider {
+    width: 100%;
+    height: 39rem;
   }
-  .movie__card .movieInfo__container .movieInfo__row .movie__name p {
+  .slider .slick-list {
+    margin: 0 8%;
+  }
+  .slider .slick-list .movie__card {
+    max-width: 19rem;
+    margin: 0 auto;
+  }
+  .slider .slick-list .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 15px;
+  }
+  .slick-dots {
+    bottom: 0;
   }
 }
 
 @media screen and (min-width: 576px) {
-  .movie__card {
+  .slider {
+    height: 38rem;
+  }
+  .slider .slick-list {
+    margin: 0 7%;
+  }
+  .slider .slick-list .movie__card {
     max-width: 22rem;
+  }
+  .slick-dots {
+    bottom: 0;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .movie__card {
-    max-width: 23rem;
-    width: 90%;
+  .slider {
+    padding-top: 3.5rem;
+    height: 43rem;
   }
-  .movie__card .movie__img .movie__overlay {
+  .slider .slick-list .movie__card {
+    max-width: 19rem;
+  }
+  .slider .slick-list .movie__card .movie__img .movie__overlay {
     display: flex;
   }
-  .movie__card .movieInfo__container .movieInfo__row .movie__name p {
+  .slider .slick-list .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 15px;
+  }
+  .slick-dots {
+    bottom: 0;
   }
 }
 
 @media screen and (min-width: 992px) {
-  .movie__card {
-    max-width: 22rem;
+  .slider {
+    padding-top: 4rem;
+    height: 46rem;
   }
-  .movie__card .movieInfo__container .movieInfo__row .movie__name p {
+  .slider .slick-list {
+    margin: 0 5%;
+  }
+  .slider .slick-list .movie__card {
+    max-width: 20rem;
+  }
+  .slider .slick-list .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 15px;
+  }
+  .slick-dots {
+    bottom: 0;
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .movie__card {
-    max-width: 22rem;
+  .slider {
+    padding-top: 5rem;
+    height: 50rem;
   }
-  .movie__card .movieInfo__container {
+  .slider .slick-list .movie__card {
+    max-width: 20rem;
+  }
+  .slider .slick-list .movie__card .movieInfo__container {
     padding: 1rem;
   }
-  .movie__card .movieInfo__container .movieInfo__row {
+  .slider .slick-list .movie__card .movieInfo__container .movieInfo__row {
     margin-bottom: 0;
   }
-  .movie__card .movieInfo__container .movieInfo__row .movie__name p {
+  .slider .slick-list .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 1.6rem;
+  }
+  .slick-dots {
+    bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .slider .slick-list {
+    margin: 0 8%;
+  }
+  .slick-dots {
+    bottom: 0;
   }
 }
 
@@ -1177,60 +1291,6 @@ p {
   transition: all ease-in-out 0.3s;
 }
 
-.movie .movie__card__container .tab-content .tab-pane .slider {
-  margin: 0 auto;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
-  overflow: visible;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slider .slick-slide {
-  border-radius: 0.5rem;
-  transition: transform ease 0.3s;
-  color: #fff;
-  cursor: pointer;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slider .slick-slide img {
-  width: 100%;
-  height: 100%;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slider .slick-current.slick-slide {
-  position: relative;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slider .slick-track {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  overflow: hidden;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slick-dots {
-  position: absolute;
-  bottom: 2rem;
-  left: 0;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slick-dots li {
-  margin: 0 0.25rem;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slick-dots button {
-  width: 1rem;
-  height: 1rem;
-  padding: 0;
-  background-color: #d8d8d8;
-  border-radius: 100%;
-  text-indent: -9999px;
-  border: none;
-}
-
-.movie .movie__card__container .tab-content .tab-pane .slick-dots li.slick-active button {
-  background-color: #fb4226;
-}
-
 @media screen and (min-width: 320px) {
   .movie {
     background-attachment: inherit;
@@ -1248,20 +1308,6 @@ p {
   .movie .movie__card__container .nav-tabs.navCenter .nav-item .nav-link {
     font-size: 15px;
   }
-  .movie .movie__card__container .tab-content .tab-pane .slider {
-    width: 90%;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0;
-    height: 37rem;
-    padding-top: 3rem;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
-    overflow: hidden;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider .slick-track {
-    padding: 0;
-  }
 }
 
 @media screen and (min-width: 480px) {
@@ -1274,16 +1320,6 @@ p {
   .movie .movie__card__container .nav-tabs.navCenter .nav-item .nav-link {
     font-size: 18px;
   }
-  .movie .movie__card__container .tab-content .tab-pane .slider {
-    width: 100%;
-    height: 39rem;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
-    margin: 0 7%;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slick-dots {
-    bottom: 0;
-  }
 }
 
 @media screen and (min-width: 576px) {
@@ -1293,30 +1329,11 @@ p {
   .movie .movie__card__container .nav-tabs.navCenter .nav-item .nav-link {
     font-size: 20px;
   }
-  .movie .movie__card__container .tab-content .tab-pane .slider {
-    height: 38rem;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
-    margin: 0 7%;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slick-dots {
-    bottom: 0;
-  }
 }
 
 @media screen and (min-width: 768px) {
   .movie .movie__card__container .nav-tabs.navCenter .nav-item .nav-link {
     font-size: 24px;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider {
-    padding-top: 3.5rem;
-    height: 39rem;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
-    margin: 0 10%;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slick-dots {
-    bottom: 0;
   }
 }
 
@@ -1324,43 +1341,11 @@ p {
   .movie {
     background-attachment: fixed;
   }
-  .movie .movie__card__container .tab-content .tab-pane .slider {
-    padding-top: 4rem;
-    height: 39.5rem;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
-    margin: 0 5%;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slick-dots {
-    bottom: 0;
-  }
 }
 
 @media screen and (min-width: 1200px) {
   .movie {
     padding: 10rem 0 3rem 0;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider {
-    padding-top: 5rem;
-    height: 46rem;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
-    margin: 0 8%;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slick-dots {
-    bottom: 0;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .movie .movie__card__container .tab-content .tab-pane .slider {
-    height: 43rem;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slider .slick-list {
-    margin: 0 8%;
-  }
-  .movie .movie__card__container .tab-content .tab-pane .slick-dots {
-    bottom: 0;
   }
 }
 
