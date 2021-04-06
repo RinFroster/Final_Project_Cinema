@@ -36,22 +36,38 @@
 @include responsive("large") {
     .theater {
         width: 100% !important;
+        .theater__content {
+            .nav-pills {
+                .nav-link{
+                    // border-top: 1px dotted #ebebec;
+                    border-right:none;
+                    text-align: center;
+                    padding: 20px;
+                    position: relative;
+                    img {
+                        width: 50px;
+                    }  
+                    
+                }
+            }
+        }
+        
     }
     .container {
         width: 100% !important;
     }
 }   
-@include responsive("medium") {
+@include responsive("very-small") {
     .theater__content {
         .nav-pills {
             .nav-link{
                 // border-top: 1px dotted #ebebec;
-                border-right: 1px solid #ebebec;
+                border-right:none;
                 text-align: center;
                 padding: 20px;
                 position: relative;
                 img {
-                    width: 35px;
+                    width: 30px;
                 }  
                 
             }

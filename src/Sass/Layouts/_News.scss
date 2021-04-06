@@ -32,6 +32,18 @@
 @include responsive("large") {
     .News {
         width: 100% !important;
+        .nav-item {
+            .nav-link{
+                
+                font-size: 30px !important;
+                
+            }
+            :hover {
+                font-size: 24px !important;
+            }
+            .active {
+                font-size: 30px !important;
+            }
+        }
     }
 }
-

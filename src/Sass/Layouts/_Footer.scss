@@ -87,11 +87,35 @@
     margin: 5px;
 }
 
+
+
 // REPONSIVE
 @include responsive("large") {
     #footer {
         .hideOnMobile {
-            display: none !important;
+            display: block !important;
+        }
+        .infoFooter span {
+            text-align: left !important;
+            white-space: initial;
+        }
+        .imgFooter {
+            .imgBoCo {
+                display: block;
+                margin:0 auto;
+                float: none;
+            }
+        }
+       
+       
+    }
+    
+}
+
+@include responsive("extra-small") {
+    #footer {
+        .hideOnMobile {
+            display: none;
         }
         .infoFooter span {
             text-align: center;
@@ -102,6 +126,11 @@
                 display: block;
                 margin:0 auto;
                 float: none;
+            }
+            .vngIcon {
+                display: block;
+                margin: auto;
+                margin-bottom: 20px;
             }
         }
        

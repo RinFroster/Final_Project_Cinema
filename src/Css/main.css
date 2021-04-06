@@ -1594,20 +1594,29 @@ p {
   .theater {
     width: 100% !important;
   }
+  .theater .theater__content .nav-pills .nav-link {
+    border-right: none;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+  }
+  .theater .theater__content .nav-pills .nav-link img {
+    width: 50px;
+  }
   .container {
     width: 100% !important;
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px) {
   .theater__content .nav-pills .nav-link {
-    border-right: 1px solid #ebebec;
+    border-right: none;
     text-align: center;
     padding: 20px;
     position: relative;
   }
   .theater__content .nav-pills .nav-link img {
-    width: 35px;
+    width: 30px;
   }
 }
 
@@ -1830,6 +1839,15 @@ p {
   .News {
     width: 100% !important;
   }
+  .News .nav-item .nav-link {
+    font-size: 30px !important;
+  }
+  .News .nav-item :hover {
+    font-size: 24px !important;
+  }
+  .News .nav-item .active {
+    font-size: 30px !important;
+  }
 }
 
 .NewItem__header {
@@ -2032,7 +2050,7 @@ p {
   height: auto;
 }
 
-#AppHome .AppmaxWith .right .App_img {
+#AppHome .AppmaxWith .right .App__img {
   position: absolute;
   padding: 1.5% 29.3% 0 29.3%;
   top: 0;
@@ -2045,14 +2063,13 @@ p {
     text-align: left;
   }
   #AppHome .buttonLeft {
-    display: block;
-    margin: 0 auto;
+    padding: 10px 20px;
   }
 }
 
 @media screen and (min-width: 320px) {
   #AppHome p {
-    text-align: center !important;
+    text-align: center;
   }
   #AppHome .buttonLeft {
     display: block;
@@ -2160,7 +2177,22 @@ p {
 
 @media screen and (min-width: 992px) {
   #footer .hideOnMobile {
-    display: none !important;
+    display: block !important;
+  }
+  #footer .infoFooter span {
+    text-align: left !important;
+    white-space: initial;
+  }
+  #footer .imgFooter .imgBoCo {
+    display: block;
+    margin: 0 auto;
+    float: none;
+  }
+}
+
+@media screen and (min-width: 320px) {
+  #footer .hideOnMobile {
+    display: none;
   }
   #footer .infoFooter span {
     text-align: center;
@@ -2170,6 +2202,11 @@ p {
     display: block;
     margin: 0 auto;
     float: none;
+  }
+  #footer .imgFooter .vngIcon {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
   }
 }
 /*# sourceMappingURL=main.css.map */

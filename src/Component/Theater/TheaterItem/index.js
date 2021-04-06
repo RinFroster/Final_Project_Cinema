@@ -6,7 +6,7 @@ export default function TheaterItem() {
 
   return (
     <div className="row theaterItem">
-      <div className="col-12 col-sm-5 col-md-4" style={{ padding: 0 }}>
+      <div className="col-12 col-sm-12 col-md-4" style={{ padding: 0 }}>
         <div className="theaterItem__content">
           <img
             src={
@@ -68,7 +68,7 @@ export default function TheaterItem() {
           </div>
         </div>
       </div>
-      <div className="col-12 col-sm-7 col-md-8">
+      <div className="col-12 col-sm-12 col-md-8">
         <div className="theaterItem__item">
           <div
             className="theaterItem__movie"
