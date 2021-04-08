@@ -118,6 +118,7 @@
     text-align: center;
     .movieInfo__row {
       .movie__name {
+        text-transform: capitalize;
         p {
           @include styleText($fs-4, $text-base-color, $fw-bold-2);
           word-break: break;
