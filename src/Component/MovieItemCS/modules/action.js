@@ -6,7 +6,7 @@ export const actListMovieApiComingSoon = () => {
     dispatch(actListMovieCSRequest());
     Axios({
       url:
-        "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP12",
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP09",
       method: "GET",
     })
       .then((result) => {
