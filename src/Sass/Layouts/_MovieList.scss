@@ -30,10 +30,10 @@
                         bottom: 0;
                         content: "";
                         display: block;
-                        height: 2px;
+                        height: 0.2rem;
                         left: 50%;
                         position: absolute;
-                        background: $bg-base-color;
+                        background-color: $bg-base-color;
                         transition: width 0.3s ease 0s, left 0.3s ease 0s;
                         width: 0%;
                     }

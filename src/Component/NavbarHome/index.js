@@ -72,7 +72,7 @@ function NavbarHome() {
             aria-label="Toggle navigation"
             ref={dropdownButton}
           >
-            <span className={`navbar__toggler__icon${addActiveClass ? "active" : ""}`} id="toggler__icon"/>
+            <span className={`navbar__toggler__icon ${addActiveClass ? "active" : ""}`} id="toggler__icon"/>
           </button>
           {/* Navbar links */}
           <div className={`collapse navbar-collapse collapse__header ${isVisible ? "show" : ""}`} id="navbarSupportedContent"  tabIndex="0" ref={dropdown}>

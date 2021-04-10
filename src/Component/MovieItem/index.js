@@ -15,11 +15,9 @@ import { connect } from "react-redux";
 function MovieItemNS(props) {
   useEffect(() => {
     props.fetchListMovieNS();
-    console.log(props);
   }, []);
   const renderHTMLNS = () => {
     const { data } = props;
-    console.log(data);
     return (data&&data.map((item) => {
       return (
         <div className="movie__card" key={item.maPhim}>

@@ -15,11 +15,9 @@ import { connect } from "react-redux";
 function MovieItemCS(props) {
   useEffect(() => {
     props.fetchListMovieCS();
-    console.log(props);
   }, []);
   const renderHTMLCS = () => {
     const { data } = props ;
-    console.log(data);
     return (data&&data.map((item) => {
       return (
         <div className="movie__card" key={item.maPhim}>
