@@ -64,6 +64,9 @@
     }
     .theater__wrapMovie{
         padding-right: 0;
+        max-height: 66.5rem;
+        overflow-y: auto;
+        overflow-x: hidden;
         .theaterItem__item {
             .theaterItem__movie {
                 padding: 2rem 0;

@@ -1,5 +1,6 @@
 import './App.css';
-import {BrowserRouter, Route, Switch } from 'react-router-dom';
+// Route
+import {BrowserRouter, Switch } from 'react-router-dom';
 import {routeHome} from './Route';
 import HomeTemplate from "./Container/HomeTemplate";
 // import AdminTemplate from "./Container/AdminTemplate";

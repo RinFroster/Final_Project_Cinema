@@ -22,7 +22,6 @@ export default function TheaterItem() {
     // const chosenMovie = document.getElementById;
     const movie = e.target.id;
     setShow(movie);
-    console.log(movie);
   }
 
   return (
@@ -162,6 +161,114 @@ export default function TheaterItem() {
           </div>
           <Collapse in={!open}>
             <div className="theater__2D" id="example-collapse-text2">
+              <div className="theaterItem__header">2D Digital</div>
+              <div className="theater__sessionsContainer">
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              </div>
+            </div>
+          </Collapse>
+        </div>
+        <div className="theaterItem__item">
+          <div
+            className="theaterItem__movie"
+            onClick={() => setOpen(!open)}
+            aria-controls="example-collapse-text3"
+            aria-expanded={!open}
+          >
+            <img
+              src={
+                require("./../../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
+                  .default
+              }
+              alt=""/>
+            <div className="theaterItem__moviespan">
+              <span className="cinema__movie">
+                <span className="btnCinema">C13</span>
+                Godzilla vs. Kong
+              </span>
+              <span className="movie__span">100 phút - TIX 8.7 - IMDb 7.4</span>
+            </div>
+          </div>
+          <Collapse in={!open}>
+            <div className="theater__2D" id="example-collapse-text3">
+              <div className="theaterItem__header">2D Digital</div>
+              <div className="theater__sessionsContainer">
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              <div className="theater__sessions">
+                <a className="sessions__btn">
+                  <span className="sessions__span">15:05</span>~ 16:45
+                </a>
+              </div>
+              </div>
+            </div>
+          </Collapse>
+        </div>
+        <div className="theaterItem__item">
+          <div
+            className="theaterItem__movie"
+            onClick={() => setOpen(!open)}
+            aria-controls="example-collapse-text3"
+            aria-expanded={!open}
+          >
+            <img
+              src={
+                require("./../../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
+                  .default
+              }
+              alt=""/>
+            <div className="theaterItem__moviespan">
+              <span className="cinema__movie">
+                <span className="btnCinema">C13</span>
+                Godzilla vs. Kong
+              </span>
+              <span className="movie__span">100 phút - TIX 8.7 - IMDb 7.4</span>
+            </div>
+          </div>
+          <Collapse in={!open}>
+            <div className="theater__2D" id="example-collapse-text3">
               <div className="theaterItem__header">2D Digital</div>
               <div className="theater__sessionsContainer">
               <div className="theater__sessions">
