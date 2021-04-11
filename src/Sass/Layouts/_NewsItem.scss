@@ -270,6 +270,7 @@
 @include responsive ('large'){
     .newItem__header{
         .newItem__postRow{
+            padding: 1rem 1.5rem;
             .newItem__rightPost{
                 .newItem__post{
                     .post__title{

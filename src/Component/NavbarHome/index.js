@@ -92,7 +92,7 @@ function NavbarHome() {
                   <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
-                      to="homeMovie"
+                      to="theater"
                       spy={true}
                       duration={500}
                       className="nav-link nav__link"
@@ -103,7 +103,7 @@ function NavbarHome() {
                   <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
-                      to="homeMovie"
+                      to="news"
                       spy={true}
                       duration={500}
                       className="nav-link nav__link"
@@ -114,7 +114,7 @@ function NavbarHome() {
                   <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
-                      to="homeMovie"
+                      to="mobileApp"
                       spy={true}
                       duration={500}
                       className="nav-link nav__link"

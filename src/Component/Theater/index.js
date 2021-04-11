@@ -3,7 +3,7 @@ import TheaterItem from './TheaterItem'
 
 export default function Theater() {
     return (
-      <section className="theater">
+      <section className="theater" name="theater">
           <div className="theater__container">
             <div className="theater__box">
               <div className="nav flex-column nav-pills col-lg-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
