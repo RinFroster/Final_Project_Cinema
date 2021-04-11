@@ -2,7 +2,7 @@ import React from 'react';
 import NewsItem from './NewsItem';
 export default function News() {
     return (
-        <section className="container news" id="News">
+        <section className="container news" id="News" name="news">
             <ul class="nav nav-tabs news__tab" id="myNews" role="tablist">
                 <li class="nav-item news__item" role="presentation">
                     <a class="nav-link news__link active" id="home-tab" data-toggle="tab" href="#news__24h" role="tab" aria-controls="news__24h" aria-selected="true">Điện ảnh 24h</a>

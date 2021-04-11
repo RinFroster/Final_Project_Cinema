@@ -501,7 +501,7 @@ html, body {
     left: 0;
   }
   .navbar__container .container-fluid .navbar__header .collapse__header .nav__header .select__location {
-    left: 27%;
+    left: 26%;
     bottom: 1.5rem;
     align-items: center;
   }
@@ -2278,6 +2278,9 @@ p {
 }
 
 @media screen and (min-width: 992px) {
+  .newItem__header .newItem__postRow {
+    padding: 1rem 1.5rem;
+  }
   .newItem__header .newItem__postRow .newItem__rightPost .newItem__post .post__title p {
     font-size: 15px;
   }
@@ -2306,29 +2309,27 @@ p {
 #AppHome {
   background: url("./../Asset/img/MobileApp/backapp.jpg");
   background-size: contain;
-  padding: 120px 0 80px 0;
 }
 
 #AppHome .AppmaxWith {
-  max-width: 940px;
-  float: none;
+  max-width: 94rem;
   margin: 0 auto;
-  clear: both;
 }
 
 #AppHome .AppmaxWith .left {
-  padding-top: 60px;
+  padding-top: 6rem;
 }
 
 #AppHome .AppmaxWith .left .textLeft {
+  font-size: 3.4rem;
   color: #fff;
   font-weight: 700;
-  font-size: xx-large;
 }
 
 #AppHome .AppmaxWith .left .textSmallLeft {
+  font-size: 18px;
   color: #fff;
-  font-size: medium;
+  font-weight: 500;
 }
 
 #AppHome .AppmaxWith .left .buttonLeft {
@@ -2338,14 +2339,14 @@ p {
   font-size: medium;
   font-weight: 700;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.4rem;
 }
 
 #AppHome .AppmaxWith .left .textAppUnder {
-  color: #fff;
-  padding-top: 10px;
   font-size: 15px;
+  color: #fff;
   font-weight: 500;
+  padding-top: 1rem;
 }
 
 #AppHome .AppmaxWith .left .textAppUnder .taga {
@@ -2378,105 +2379,96 @@ p {
   width: 100%;
 }
 
-@media screen and (min-width: 992px) {
-  #AppHome p {
-    text-align: left;
-  }
-  #AppHome .buttonLeft {
-    padding: 10px 20px;
-  }
+#AppHome .AppmaxWith .right .App__img .mobileApp__carousel .slick-list {
+  border-radius: 2.5rem;
 }
 
 @media screen and (min-width: 320px) {
-  #AppHome p {
+  #AppHome {
+    padding: 1rem 0 8rem 0;
+  }
+  #AppHome .AppmaxWith .left {
     text-align: center;
   }
-  #AppHome .buttonLeft {
-    display: block;
-    margin: 0 auto;
+  #AppHome .AppmaxWith .left .textLeft {
+    font-size: 24px;
+  }
+  #AppHome .AppmaxWith .left .textSmallLeft {
+    font-size: 14px;
+  }
+  #AppHome .AppmaxWith .right .App__img .mobileApp__carousel .slick-list {
+    border-radius: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  #AppHome .AppmaxWith .left .textLeft {
+    font-size: 24px;
+  }
+  #AppHome .AppmaxWith .left .textSmallLeft {
+    font-size: 15px;
+  }
+  #AppHome .AppmaxWith .right .App__img .mobileApp__carousel .slick-list {
+    border-radius: 2.1rem;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  #AppHome .AppmaxWith .left .textSmallLeft {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #AppHome .AppmaxWith .right .App__img .mobileApp__carousel .slick-list {
+    border-radius: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #AppHome .AppmaxWith .left .textLeft {
+    font-size: 3rem;
+  }
+  #AppHome .AppmaxWith .right .App__img .mobileApp__carousel .slick-list {
+    border-radius: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #AppHome {
+    padding: 12rem 0 8rem 0;
+  }
+  #AppHome .AppmaxWith .left {
+    text-align: left;
+  }
+  #AppHome .AppmaxWith .left .textLeft {
+    font-size: 3.4rem;
+  }
+  #AppHome .AppmaxWith .left .textSmallLeft {
+    font-size: 18px;
+    padding: 0;
   }
 }
 
 #footer {
   background-color: #222;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   color: #949494;
 }
 
-#footer .MainFooter {
-  max-width: 940px;
-  float: none;
+#footer .mainFooter {
+  max-width: 94rem;
   margin: auto;
-  clear: both;
 }
 
-#footer .MainFooter .row .noPaddingLeft {
-  padding-left: 0;
-}
-
-#footer .MainFooter .row .fontSizeP a {
-  font-size: 12px !important;
-  font-size: 80%;
-  font-weight: 700;
-  white-space: nowrap;
-  color: #949494;
-  display: block;
-  transition: all .2s;
-  line-height: 2.3;
-}
-
-#footer .MainFooter .row .textCenter {
-  text-align: center;
-}
-
-#footer .MainFooter .hrFooter {
-  border-top: 1px solid #4a4a4a;
-}
-
-#footer .imgFooter {
-  text-align: center;
-  padding: 0;
-}
-
-#footer .imgFooter .vngIcon {
-  width: 80px;
-  height: auto;
-}
-
-#footer .imgFooter .imgBoCo {
-  width: 130px;
-  float: right;
-}
-
-#footer .infoFooter {
-  color: #fff;
-  white-space: nowrap;
-  font-size: 70%;
-}
-
-#footer .infoFooter span {
-  display: block;
-  line-height: 1.8;
-  color: #949494;
+#footer .mainFooter .row .footer__title {
   font-size: 12px;
-  font-weight: 400;
-}
-
-#footer .infoFooter span a {
-  text-decoration: none;
-}
-
-#footer .infoFooter span:first-child {
   color: #fff;
+  font-weight: 500;
 }
 
-.footer__title {
-  color: #fff;
-  font-size: 14px;
-}
-
-.iconConnect {
+#footer .mainFooter .row .iconConnect {
   border-radius: 50%;
   height: 30px;
   width: 30px;
@@ -2484,49 +2476,156 @@ p {
   margin-bottom: 10px;
 }
 
-.iconConnect :hover {
+#footer .mainFooter .row .iconConnect :hover {
   opacity: .7;
 }
 
-.iconApp {
+#footer .mainFooter .row .iconApp {
   background: 0 0;
   height: 30px;
   width: auto;
   margin: 5px;
 }
 
-@media screen and (min-width: 992px) {
-  #footer .hideOnMobile {
-    display: block !important;
-  }
-  #footer .infoFooter span {
-    text-align: left !important;
-    white-space: initial;
-  }
-  #footer .imgFooter .imgBoCo {
-    display: block;
-    margin: 0 auto;
-    float: none;
-  }
+#footer .mainFooter .row .footer__service {
+  display: flex;
+}
+
+#footer .mainFooter .row .noPaddingLeft {
+  width: 50%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#footer .mainFooter .row .fontSizeP a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: #949494;
+  display: block;
+  transition: all 0.3s;
+  line-height: 2.3;
+}
+
+#footer .mainFooter .row .hideOnMobile .footer__title {
+  padding-left: 1.5rem;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+}
+
+#footer .mainFooter .row .textCenter {
+  text-align: center;
+}
+
+#footer .mainFooter .hrFooter {
+  border-top: 1px solid #4a4a4a;
+}
+
+#footer .mainFooter .company__info .imgFooter {
+  text-align: center;
+  padding: 0;
+}
+
+#footer .mainFooter .company__info .imgFooter .vngIcon {
+  width: 8rem;
+  height: auto;
+}
+
+#footer .mainFooter .company__info .imgFooter .imgBoCo {
+  width: 13rem;
+  float: right;
+}
+
+#footer .mainFooter .company__info .infoFooter {
+  color: #fff;
+  white-space: nowrap;
+}
+
+#footer .mainFooter .company__info .infoFooter span {
+  display: block;
+  line-height: 1.8;
+  color: #949494;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+#footer .mainFooter .company__info .infoFooter span a {
+  text-decoration: none;
+}
+
+#footer .mainFooter .company__info .infoFooter span:first-child {
+  color: #fff;
 }
 
 @media screen and (min-width: 320px) {
-  #footer .hideOnMobile {
-    display: none;
+  #footer .mainFooter .row .footer__service .flexOnMobile {
+    display: flex;
+    justify-content: center;
   }
-  #footer .infoFooter span {
-    text-align: center;
-    white-space: initial;
+  #footer .mainFooter .row .footer__service .flexOnMobile a {
+    margin: 0 1rem;
   }
-  #footer .imgFooter .imgBoCo {
+  #footer .mainFooter .row .centerOnMobile {
+    padding: 1rem 0;
+    margin: 0 auto;
+  }
+  #footer .mainFooter .company__info {
+    padding: 1rem 0 2rem 0;
+  }
+  #footer .mainFooter .company__info .imgFooter .imgBoCo {
     display: block;
     margin: 0 auto;
     float: none;
   }
-  #footer .imgFooter .vngIcon {
+  #footer .mainFooter .company__info .imgFooter .vngIcon {
     display: block;
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
+  }
+  #footer .mainFooter .company__info .infoFooter {
+    padding: 0;
+  }
+  #footer .mainFooter .company__info .infoFooter span {
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    white-space: initial;
+  }
+  #footer .hideOnMobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  #footer .mainFooter .row .footer__service {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #footer .mainFooter .row .footer__service .flexOnMobile {
+    display: block;
+  }
+  #footer .mainFooter .row .centerOnMobile {
+    padding: 0;
+  }
+  #footer .mainFooter .company__info .infoFooter {
+    padding: 0 2rem;
+  }
+  #footer .mainFooter .company__info .imgFooter .imgBoCo {
+    display: block;
+    margin: 0 auto;
+    float: none;
+  }
+  #footer .hideOnMobile {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #footer .mainFooter .company__info .infoFooter span {
+    text-align: left;
   }
 }
 /*# sourceMappingURL=main.css.map */
