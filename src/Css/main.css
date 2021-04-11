@@ -1216,6 +1216,10 @@ p {
   .carousel__container .carousel {
     max-height: 55rem;
   }
+  .carousel__container .carousel .slick-track {
+    height: 100%;
+    max-height: 55rem;
+  }
   .carousel__container .carousel .slick-slide img {
     height: 55rem;
   }
@@ -2303,6 +2307,14 @@ p {
   .newItem__header .newItem__postRow .newItem__rightPost {
     padding-left: 0;
     padding-right: 1.5rem;
+  }
+  #popup-root [role=tooltip].popup-content {
+    width: 100%;
+    max-width: 71.3rem;
+    left: 23.5% !important;
+  }
+  #popup-root [role=tooltip].popup-content svg {
+    display: none;
   }
 }
 

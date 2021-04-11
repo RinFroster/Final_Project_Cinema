@@ -307,4 +307,14 @@
             }
         }
     }
+    #popup-root{
+        [role=tooltip].popup-content{
+            width: 100%;
+            max-width: 71.3rem;
+            left: 23.5% !important;
+            svg{
+                display: none;
+            }
+        }
+    }
 }
