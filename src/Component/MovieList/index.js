@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { MoviePrevArrow, MovieNextArrow } from "./../Arrow";
 
+
 function MovieList(props) {
   useEffect(() => {
     props.fetchListMovie();

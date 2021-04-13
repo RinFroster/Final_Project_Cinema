@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import {routeHome} from './Route';
 import HomeTemplate from "./Container/HomeTemplate";
 // import AdminTemplate from "./Container/AdminTemplate";
+import Loader from "./Component/Loader/index";
 
 function App() {
   const showLayoutHome = (route) => {
@@ -26,6 +27,7 @@ function App() {
   
   return (
     <BrowserRouter>
+    <Loader />
       <Switch>
         {showLayoutHome(routeHome)}
         {/* {showLayoutAdmin(routeAdmin)} */}

@@ -8,6 +8,7 @@ import Theater from "../../Component/Theater";
 import News from "../../Component/News";
 import MobileApp from "../../Component/MobileApp";
 import Footer from "../../Component/Footer";
+import Loader from "../../Component/Loader";
 // import { scrollToTop } from "react-scroll/modules/mixins/animate-scroll";
 
 // scrollToTop(){
