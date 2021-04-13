@@ -1,12 +1,11 @@
 import React, { memo, useRef, useState, useEffect } from "react";
-// import { NavLink } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from './../../Asset/img/Logo.png';
 import {
   faMapMarkerAlt,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { render } from "react-dom";
 import {
   Link,
   animateScroll as scroll,

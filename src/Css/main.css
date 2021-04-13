@@ -778,9 +778,91 @@ p {
   color: blue;
 }
 
-.test {
-  color: red;
+.detail__section {
+  padding: 10% 0;
+  background-image: url(./../Asset/img/bg5.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.detail__section .detail__movie__container {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+}
+
+.detail__section .detail__movie__container .detail__movie__img {
+  max-width: 25%;
+  max-height: 35rem;
+}
+
+.detail__section .detail__movie__container .detail__movie__img img {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.detail__section .detail__movie__container .detail__movie__textArea {
+  position: absolute;
+  top: 30%;
+  left: 28%;
+}
+
+.detail__section .detail__movie__container .detail__movie__textArea .detail__movie__date {
   font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.detail__section .detail__movie__container .detail__movie__textArea .detail__movie__info {
+  display: flex;
+}
+
+.detail__section .detail__movie__container .detail__movie__textArea .detail__movie__info .detail__movie__ageType {
+  margin-top: 0.3rem;
+  max-height: 20%;
+  height: 20%;
+  padding: 0.5rem 3rem;
+  border-radius: 0.5rem;
+  background-color: #00ac4d;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+}
+
+.detail__section .detail__movie__container .detail__movie__textArea .detail__movie__info .detail__movie__name {
+  font-size: 24px;
+  color: #000;
+  font-weight: 500;
+  padding: 0 1rem;
+}
+
+.detail__section .detail__movie__container .detail__movie__textArea .detail__movie__time {
+  font-size: 14px;
+  color: #000;
+  font-weight: 500;
+}
+
+.detail__section .detail__movie__container .detail__movie__textArea .buyTicket__btn {
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 500;
+  background-color: #fb4226;
+  border: none;
+  transition: all 0.3s;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.7rem 2.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail__section .detail__movie__container .detail__movie__textArea .buyTicket__btn:hover {
+  background-color: #b42a14;
 }
 
 .slider {
@@ -1038,8 +1120,18 @@ p {
   .slider .slick-list .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 15px;
   }
-  .slick-dots {
-    bottom: 0;
+  #popup-root .movie__popup-content {
+    width: 100%;
+    max-width: 63.6rem;
+    left: 8.4% !important;
+    top: 95% !important;
+  }
+  #popup-root .movie__popup-content svg {
+    display: none;
+  }
+  #popup-root .movie__popup-content .movie__popup__video {
+    width: 62.3rem;
+    height: 40rem;
   }
 }
 
@@ -1057,8 +1149,13 @@ p {
   .slider .slick-list .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 15px;
   }
-  .slick-dots {
-    bottom: 0;
+  #popup-root .movie__popup-content {
+    max-width: 88.2rem;
+    left: 5.5% !important;
+    top: 105% !important;
+  }
+  #popup-root .movie__popup-content .movie__popup__video {
+    width: 87rem;
   }
 }
 
@@ -1079,8 +1176,13 @@ p {
   .slider .slick-list .movie__card .movieInfo__container .movieInfo__row .movie__name p {
     font-size: 1.6rem;
   }
-  .slick-dots {
-    bottom: 0;
+  #popup-root .movie__popup-content {
+    max-width: 97.2rem;
+    left: 13% !important;
+    top: 120% !important;
+  }
+  #popup-root .movie__popup-content .movie__popup__video {
+    width: 96rem;
   }
 }
 
@@ -1088,8 +1190,13 @@ p {
   .slider .slick-list {
     margin: 0 8%;
   }
-  .slick-dots {
-    bottom: 0;
+  #popup-root .movie__popup-content {
+    max-width: 97.2rem;
+    left: 15% !important;
+    top: 140% !important;
+  }
+  #popup-root .movie__popup-content .movie__popup__video {
+    width: 96rem;
   }
 }
 
@@ -1147,6 +1254,7 @@ p {
   }
   .carousel__container .carousel .slick-slide img {
     height: 20rem;
+    width: 100%;
   }
   .carousel__container .carousel .slick-dots {
     left: 0.5rem;
@@ -1198,6 +1306,19 @@ p {
   .carousel__container .carousel .slick-dots {
     left: 0;
   }
+  #popup-root .carousel__popup-content {
+    width: 100%;
+    max-width: 69.2rem;
+    left: 5% !important;
+    top: 12% !important;
+  }
+  #popup-root .carousel__popup-content svg {
+    display: none;
+  }
+  #popup-root .carousel__popup-content .carousel__popup__video {
+    width: 68rem;
+    height: 40rem;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -1209,6 +1330,13 @@ p {
   }
   .carousel__container .carousel .slick-dots {
     bottom: -4rem;
+  }
+  #popup-root .carousel__popup-content {
+    max-width: 89.2rem;
+  }
+  #popup-root .carousel__popup-content .carousel__popup__video {
+    width: 88rem;
+    height: 38.5rem;
   }
 }
 
@@ -1225,6 +1353,27 @@ p {
   }
   .carousel__container .carousel .slick-dots {
     bottom: 3%;
+  }
+  #popup-root .carousel__popup-content {
+    max-width: 89.2rem;
+    left: 16% !important;
+    top: 16% !important;
+  }
+  #popup-root .carousel__popup-content .carousel__popup__video {
+    width: 88rem;
+    height: 42rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  #popup-root .carousel__popup-content {
+    max-width: 99.2rem;
+    left: 16% !important;
+    top: 20% !important;
+  }
+  #popup-root .carousel__popup-content .carousel__popup__video {
+    width: 98rem;
+    height: 42rem;
   }
 }
 
@@ -2307,14 +2456,6 @@ p {
   .newItem__header .newItem__postRow .newItem__rightPost {
     padding-left: 0;
     padding-right: 1.5rem;
-  }
-  #popup-root [role=tooltip].popup-content {
-    width: 100%;
-    max-width: 71.3rem;
-    left: 23.5% !important;
-  }
-  #popup-root [role=tooltip].popup-content svg {
-    display: none;
   }
 }
 

@@ -46,6 +46,7 @@
             .slick-slide{
                 img{
                     height: 20rem;
+                    width: 100%;
                 }
             }
             .slick-dots{
@@ -115,6 +116,21 @@
             }
         }
     }
+    #popup-root{
+        .carousel__popup-content{
+            width: 100%;
+            max-width: 69.2rem;
+            left: 5% !important;
+            top: 12% !important;
+            svg{
+                display: none;
+            }
+            .carousel__popup__video{
+                width: 68rem;
+                height: 40rem;
+            }
+        }
+    }
 }
 
 // Responsive for screen > 992px and < 1200px 
@@ -129,6 +145,15 @@
             }
             .slick-dots{
                 bottom: -4rem;
+            }
+        }
+    }
+    #popup-root{
+        .carousel__popup-content{
+            max-width: 89.2rem;
+            .carousel__popup__video{
+                width: 88rem;
+                height: 38.5rem;
             }
         }
     }
@@ -152,5 +177,30 @@
                 bottom: 3%;
             }
         }
-    } 
+    }
+    #popup-root{
+        .carousel__popup-content{
+            max-width: 89.2rem;
+            left: 16% !important;
+            top: 16% !important;
+            .carousel__popup__video{
+                width: 88rem;
+                height: 42rem;
+            }
+        }
+    }
+}
+
+@include responsive('extra extra-large'){
+    #popup-root{
+        .carousel__popup-content{
+            max-width: 99.2rem;
+            left: 16% !important;
+            top: 20% !important;
+            .carousel__popup__video{
+                width: 98rem;
+                height: 42rem;
+            }
+        }
+    }
 }
