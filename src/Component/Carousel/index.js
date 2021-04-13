@@ -37,20 +37,20 @@ function Carousel(){
     return (
         <section className="carousel__container">
             <Slider  {...settings}>
-                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center">
-                    <div><iframe width="700" height="400" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center" className="carousel__popup">
+                    <div><iframe className="carousel__popup__video" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </Popup>
-                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center">
-                    <div><iframe width="700" height="400" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center" className="carousel__popup">
+                    <div><iframe className="carousel__popup__video" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </Popup>
-                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center">
-                    <div><iframe width="700" height="400" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center" className="carousel__popup">
+                    <div><iframe className="carousel__popup__video" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </Popup>
-                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center">
-                    <div><iframe width="700" height="400" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center" className="carousel__popup">
+                    <div><iframe className="carousel__popup__video" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </Popup>
-                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center">
-                    <div><iframe width="700" height="400" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <Popup trigger={<img src={FirstCarousel} alt="FirstCarousel"/>} position="center" className="carousel__popup">
+                    <div><iframe className="carousel__popup__video" src="https://www.youtube.com/embed/98W8bv_8Kz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 </Popup>
             </Slider>
         </section>

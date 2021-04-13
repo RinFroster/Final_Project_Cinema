@@ -11,6 +11,7 @@ import Slider from "react-slick";
 import { MoviePrevArrow, MovieNextArrow } from "./../Arrow";
 import { actListMovieApiComingSoon } from "./modules/action";
 import { connect } from "react-redux";
+import Popup from 'reactjs-popup';
 
 function MovieItemCS(props) {
   useEffect(() => {
@@ -25,7 +26,9 @@ function MovieItemCS(props) {
       <div className="movie__age">C18</div>
       <div className="movie__overlay movie-hover">
         <div className="movie__trailer">
-          <Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>
+        <Popup trigger={<Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>} position="center" className="movie__popup">
+            <div><iframe className="movie__popup__video" src={item.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          </Popup>
           <div className="movie__service">Trailer</div>
         </div>
         <div className="movie__buyTicket">

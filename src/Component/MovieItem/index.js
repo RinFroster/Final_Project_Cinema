@@ -27,8 +27,8 @@ function MovieItemNS(props) {
       <div className="movie__age">C18</div>
       <div className="movie__overlay movie-hover">
         <div className="movie__trailer">
-          <Popup trigger={<Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>} position="center">
-            <div><iframe width="700" height="400" src={item.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <Popup trigger={<Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>} position="center" className="movie__popup">
+            <div><iframe className="movie__popup__video" src={item.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
           </Popup>
           <div className="movie__service">Trailer</div>
         </div>
@@ -37,7 +37,7 @@ function MovieItemNS(props) {
           <div className="movie__service">Mua Vé</div>
         </div>
         <div className="movie__detail">
-          <Link><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
+          <Link to={`/detail/${item.maPhim}`}><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
           <div className="movie__service">Chi Tiết</div>
         </div>
       </div>
