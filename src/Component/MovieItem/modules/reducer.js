@@ -6,19 +6,19 @@ let initialState = {
   err: null,
 };
 
-const listMovieReducer = (state = initialState, action) => {
+const listMovieReducerNS = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.LIST_MOVIE_REQUEST:
+    case ActionType.LIST_MOVIENS_REQUEST:
       // state.loading = true;
       state.data = null;
       state.err = null;
       return { ...state };
-    case ActionType.LIST_MOVIE_SUCCESS:
+    case ActionType.LIST_MOVIENS_SUCCESS:
       // state.loading = false;
       state.data = action.payload;
       state.err = null;
       return { ...state };
-    case ActionType.LIST_MOVIE_FAILED:
+    case ActionType.LIST_MOVIENS_FAILED:
       // state.loading = false;
       state.data = null;
       state.err = action.payload;
@@ -28,5 +28,5 @@ const listMovieReducer = (state = initialState, action) => {
       return { ...state };
   }
 };
+export default listMovieReducerNS
 
-export default listMovieReducer;

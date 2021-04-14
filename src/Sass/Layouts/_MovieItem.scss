@@ -1,3 +1,48 @@
+.slider{
+  margin: 0 auto;
+  .slick-list{
+      overflow: visible;
+  }
+  .slick-slide{
+      border-radius: 0.5rem;
+      transition: transform ease 0.3s;
+      color: $text-on-base-color;
+      cursor: pointer;
+      img{
+          width: 100%;
+          height: 100%;
+      }
+  }
+  .slick-current.slick-slide{
+      position: relative;
+  }
+  .slick-track {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      overflow: hidden;
+  }
+}
+.slick-dots{
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  li{
+      margin: 0 0.25rem;
+  }
+  button{
+      width: 1rem;
+      height: 1rem;
+      padding: 0;
+      background-color: $dot-not-active;
+      border-radius: 100%;
+      text-indent: -9999px;
+      border: none;
+  }
+  li.slick-active button{
+      background-color: $item-hover;
+  }
+}
+
 .movie__card {
   transition: all 0.3s;
   .movie__img {
@@ -73,6 +118,7 @@
     text-align: center;
     .movieInfo__row {
       .movie__name {
+        text-transform: capitalize;
         p {
           @include styleText($fs-4, $text-base-color, $fw-bold-2);
           word-break: break;
@@ -88,104 +134,210 @@
 
 // Responsive for screen > 320px and < 480px
 @include responsive("extra-small") {
-  .movie__card {
-    max-width: 18rem;
-    max-height: 41rem;
+  .slider{
+    width: 90%;
     margin: 0 auto;
-    .movie__img {
-      .movie__overlay {
-        display: none;
-      }
-    }
-    .movieInfo__container {
-      padding: 0.5rem 0;
-      .movieInfo__row {
-        margin-bottom: 0.5rem;
-        .movie__name {
-          p {
-            font-size: $fs-2;
+    overflow: hidden;
+    padding: 0;
+    padding-top: 3rem;
+    .slick-list{
+        overflow: hidden;
+        margin:  0 20%;
+        .movie__card {
+          max-width: 20rem;
+          max-height: 41rem;
+          display: block !important;
+          margin: 0 auto;
+          .movie__img {
+            .movie__overlay {
+              display: none;
+            }
+          }
+          .movieInfo__container {
+            padding: 0.5rem 0;
+            .movieInfo__row {
+              margin-bottom: 0.5rem;
+              .movie__name {
+                p {
+                  font-size: $fs-2;
+                }
+              }
+            }
           }
         }
-      }
     }
-  }
+}
+  
 }
 
 // Responsive for screen > 480px and < 576px
 @include responsive("very-small") {
-  .movie__card {
-    max-width: 19rem;
-    .movieInfo__container {
-      .movieInfo__row {
-        .movie__name {
-          p {
-            font-size: $fs-3;
+  .slider{
+    width: 100%;
+    height: 39rem;
+    .slick-list{
+        margin: 0 8%;
+        .movie__card {
+          max-width: 19rem;
+          margin: 0 auto;
+          .movieInfo__container {
+            .movieInfo__row {
+              .movie__name {
+                p {
+                  font-size: $fs-3;
+                }
+              }
+            }
           }
         }
-      }
     }
-  }
+}
+.slick-dots{
+    bottom: 0;
+}
+  
 }
 
 // Responsive for screen > 576px and < 768px
 @include responsive("small") {
-  .movie__card {
-    max-width: 22rem;
-  }
+  .slider{
+    height: 38rem;
+    .slick-list{
+        margin: 0 7%;
+        .movie__card {
+          max-width: 22rem;
+        }
+    }
+}
+.slick-dots{
+    bottom: 0;
+}
 }
 
 // Responsive for screen > 768px and < 992px
 @include responsive("medium") {
-  .movie__card {
-    max-width: 23rem;
-    width: 90%;
-    .movie__img {
-      .movie__overlay {
-        display: flex;
-      }
-    }
-    .movieInfo__container {
-      .movieInfo__row {
-        .movie__name {
-          p {
-            font-size: $fs-3;
+  .slider{
+    padding-top: 3.5rem;
+    height: 43rem;
+    .slick-list{
+      .movie__card {
+        max-width: 19rem;
+        .movie__img {
+          .movie__overlay {
+            display: flex;
+          }
+        }
+        .movieInfo__container {
+          .movieInfo__row {
+            .movie__name {
+              p {
+                font-size: $fs-3;
+              }
+            }
           }
         }
       }
+    }
+  }
+  #popup-root{
+    .movie__popup-content{
+        width: 100%;
+        max-width: 63.6rem;
+        left: 8.4% !important;
+        top: 95% !important;
+        svg{
+            display: none;
+        }
+        .movie__popup__video{
+            width: 62.3rem;
+            height: 40rem;
+        }
     }
   }
 }
 
 // Responsive for screen > 992px and < 1200px
 @include responsive("large") {
-  .movie__card {
-    max-width: 22rem;
-    .movieInfo__container {
-      .movieInfo__row {
-        .movie__name {
-          p {
-            font-size: $fs-3;
+  .slider{
+    padding-top: 4rem;
+    height: 46rem;
+    .slick-list{
+        margin: 0 5%;
+        .movie__card {
+          max-width: 20rem;
+          .movieInfo__container {
+            .movieInfo__row {
+              .movie__name {
+                p {
+                  font-size: $fs-3;
+                }
+              }
+            }
           }
         }
-      }
+    }
+  }
+  #popup-root{
+    .movie__popup-content{
+        max-width: 88.2rem;
+        left: 5.5% !important;
+        top: 105% !important;
+        .movie__popup__video{
+            width: 87rem;
+        }
     }
   }
 }
 
 // Responsive for screen > 1200px and < 1400px
 @include responsive("extra-large") {
-  .movie__card {
-    max-width: 22rem;
-    .movieInfo__container {
-      padding: 1rem;
-      .movieInfo__row {
-        margin-bottom: 0;
-        .movie__name {
-          p {
-            font-size: 1.6rem;
+  .slider{
+    padding-top: 5rem;
+    height: 50rem;
+    .slick-list{
+        .movie__card {
+          max-width: 20rem;
+          .movieInfo__container {
+            padding: 1rem;
+            .movieInfo__row {
+              margin-bottom: 0;
+              .movie__name {
+                p {
+                  font-size: 1.6rem;
+                }
+              }
+            }
           }
         }
-      }
+    }
+  }
+  #popup-root{
+    .movie__popup-content{
+        max-width: 97.2rem;
+        left: 13% !important;
+        top: 120% !important;
+        .movie__popup__video{
+            width: 96rem;
+        }
+    }
+  }
+}
+
+// Responsive for screen > 1400px
+@include responsive ('extra extra-large'){
+  .slider{
+    .slick-list{
+        margin: 0 8%;
+    }
+  }
+  #popup-root{
+    .movie__popup-content{
+        max-width: 97.2rem;
+        left: 15% !important;
+        top: 140% !important;
+        .movie__popup__video{
+            width: 96rem;
+        }
     }
   }
 }

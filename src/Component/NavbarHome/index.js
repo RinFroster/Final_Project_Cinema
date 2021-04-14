@@ -1,12 +1,11 @@
 import React, { memo, useRef, useState, useEffect } from "react";
-// import { NavLink } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from './../../Asset/img/Logo.png';
 import {
   faMapMarkerAlt,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { render } from "react-dom";
 import {
   Link,
   animateScroll as scroll,
@@ -72,7 +71,7 @@ function NavbarHome() {
             aria-label="Toggle navigation"
             ref={dropdownButton}
           >
-            <span className={`navbar__toggler__icon${addActiveClass ? "active" : ""}`} id="toggler__icon"/>
+            <span className={`navbar__toggler__icon ${addActiveClass ? "active" : ""}`} id="toggler__icon"/>
           </button>
           {/* Navbar links */}
           <div className={`collapse navbar-collapse collapse__header ${isVisible ? "show" : ""}`} id="navbarSupportedContent"  tabIndex="0" ref={dropdown}>
@@ -92,7 +91,7 @@ function NavbarHome() {
                   <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
-                      to="homeMovie"
+                      to="theater"
                       spy={true}
                       duration={500}
                       className="nav-link nav__link"
@@ -103,7 +102,7 @@ function NavbarHome() {
                   <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
-                      to="homeMovie"
+                      to="news"
                       spy={true}
                       duration={500}
                       className="nav-link nav__link"
@@ -114,7 +113,7 @@ function NavbarHome() {
                   <li className="nav-item nav__item">
                     <Link
                       activeClass="active"
-                      to="homeMovie"
+                      to="mobileApp"
                       spy={true}
                       duration={500}
                       className="nav-link nav__link"

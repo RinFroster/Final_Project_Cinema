@@ -9,17 +9,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { MoviePrevArrow, MovieNextArrow } from "./../Arrow";
-import { actListMovieApiNowShowing } from "./modules/action";
+import { actListMovieApiComingSoon } from "./modules/action";
 import { connect } from "react-redux";
 import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
-function MovieItemNS(props) {
+function MovieItemCS(props) {
   useEffect(() => {
-    props.fetchListMovieNS();
+    props.fetchListMovieCS();
   }, []);
-  const renderHTMLNS = () => {
-    const { data } = props;
+  const renderHTMLCS = () => {
+    const { data } = props ;
     return (data&&data.map((item) => {
       return (
         <div className="movie__card" key={item.maPhim}>
@@ -27,7 +26,7 @@ function MovieItemNS(props) {
       <div className="movie__age">C18</div>
       <div className="movie__overlay movie-hover">
         <div className="movie__trailer">
-          <Popup trigger={<Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>} position="center" className="movie__popup">
+        <Popup trigger={<Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>} position="center" className="movie__popup">
             <div><iframe className="movie__popup__video" src={item.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
           </Popup>
           <div className="movie__service">Trailer</div>
@@ -37,7 +36,7 @@ function MovieItemNS(props) {
           <div className="movie__service">Mua Vé</div>
         </div>
         <div className="movie__detail">
-          <Link to={`/detail/${item.maPhim}`}><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
+          <Link><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
           <div className="movie__service">Chi Tiết</div>
         </div>
       </div>
@@ -147,27 +146,28 @@ function MovieItemNS(props) {
       },
     ],
   };
-  // const { movieNS } = props;
+  // const { movieCS } = props;
   return (
     
   <Slider {...settings}>
-    {renderHTMLNS()}
+    {renderHTMLCS()}
   </Slider>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
     // loading: state.listMovieReducer.loading,
-    data: state.listMovieReducerNS.data,
+    data: state.listMovieReducerCS.data,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchListMovieNS: () => {
-      dispatch(actListMovieApiNowShowing());
+    fetchListMovieCS: () => {
+      dispatch(actListMovieApiComingSoon());
     },
   };
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(MovieItemNS);
+export default connect(mapStateToProps,mapDispatchToProps)(MovieItemCS);
