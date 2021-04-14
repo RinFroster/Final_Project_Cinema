@@ -1,4 +1,4 @@
-import * as ActionType from "./constant";
+import * as ActionType from "./Constant";
 import Axios from "axios";
 
 export const actDetailMovieApi = (id) => {

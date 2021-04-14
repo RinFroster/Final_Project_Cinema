@@ -3,9 +3,9 @@ import MovieItemNS from "./../MovieItem";
 import MovieItemCS from "./../MovieItemCS";
 
 function MovieList(props) {
-  useEffect(() => {
-    props.fetchListMovie();
-  }, [])
+  // useEffect(() => {
+  //   props.fetchListMovie();
+  // }, [])
   return (
     <section className="movie" name="homeMovie">
       <div className="movie__card__container">

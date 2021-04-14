@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import listMovieReducer from "./../../Component/MovieList/modules/reducer";
 import listMovieReducerCS from "./../../Component/MovieItemCS/modules/reducer";
+import listMovieReducerNS from "./../../Component/MovieItem/modules/reducer";
 import listMovieCarouselReducer from "./../../Component/Carousel/modules/reducer";
-import detailMovieReducer from "./../../Container/HomeTemplate/Movie_Detail_Page/modules/reducer";
+import detailMovieReducer from "./../../Container/HomeTemplate/Movie_Detail_Page/Modules/Reducer";
 import LoaderReducer from "./../../Component/Loader/modules/LoaderReducer"
 import ListCinemaReducer from "./../../Component/Theater/modules/ListCinemaReducer"
 import ListTheaterReducer from "./../../Component/TheaterItem/modules/ListTheaterReducer"

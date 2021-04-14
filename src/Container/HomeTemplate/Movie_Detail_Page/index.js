@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import Footer from "./../../../Component/Footer";
-import {actDetailMovieApi} from "./modules/action";
+import {actDetailMovieApi} from "./Modules/Action";
 import { Link } from "react-router-dom";
 import {connect} from "react-redux";
 import { NavItem } from 'react-bootstrap';

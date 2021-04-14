@@ -1,4 +1,4 @@
-import * as ActionType from "./constant";
+import * as ActionType from "./Constant";
 
 let initialState = {
     data: null,
