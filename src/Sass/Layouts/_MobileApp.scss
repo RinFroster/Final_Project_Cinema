@@ -1,22 +1,16 @@
 #AppHome {
     background: url("./../Asset/img/MobileApp/backapp.jpg");
     background-size: contain;
-    padding: 120px 0 80px 0;
     .AppmaxWith {
-        max-width: 940px;
-        float: none;
+        max-width: 94rem;
         margin: 0 auto;
-        clear: both;
         .left {
-            padding-top: 60px;
+            padding-top: 6rem;
             .textLeft {
-                color: #fff;
-                font-weight: 700;
-                font-size: xx-large;
+                @include styleText(3.4rem,$text-on-base-color,$fw-bold-3);
             }
             .textSmallLeft {
-                color: #fff;
-                font-size: medium;
+                @include styleText($fs-4,$text-on-base-color,$fw-bold-2);
             }
             .buttonLeft {
                 background-color: #fb4226;
@@ -25,13 +19,11 @@
                 font-size: medium;
                 font-weight: 700;
                 border: none;
-                border-radius: 4px;
+                border-radius: 0.4rem;
             }
             .textAppUnder {
-                color: #fff;
-                padding-top: 10px;
-                font-size: 15px;
-                font-weight: 500;
+                @include styleText($fs-3,$text-on-base-color,$fw-bold-2);
+                padding-top: 1rem;
                 .taga {
                     color: #fff;
                     border-bottom: 1px solid #fff;
@@ -57,32 +49,135 @@
                 top: 0;
                 left: 0;
                 width: 100%;
+                .mobileApp__carousel{
+                    .slick-list{
+                        border-radius: 2.5rem;
+                    }
+                }
             }
         }
     }
 }
 
-// Reponsive
-@include responsive("large") {
+// Responsive for screen > 320px and < 480px
+@include responsive ('extra-small'){
     #AppHome {
-        p {
-            text-align: left;
-        }
-        .buttonLeft {
-            padding: 10px 20px;
+        padding: 1rem 0 8rem 0;
+        .AppmaxWith{
+            .left{
+                text-align: center;
+                .textLeft{
+                    font-size: $fs-6;
+                }
+                .textSmallLeft{
+                    font-size: $fs-2;
+                }
+            }
+            .right{
+                .App__img{
+                    .mobileApp__carousel{
+                        .slick-list{
+                            border-radius: 1.5rem;
+                        }
+                    }
+                }
+            }
         }
     }
-
 }
-@include responsive("extra-small") {
-    #AppHome {
-        p {
-            text-align: center ;
-        }
-        .buttonLeft {
-            display: block;
-            margin: 0 auto;
+
+// Responsive for screen > 480px and < 576px
+@include responsive ('very-small'){
+    #AppHome{
+        .AppmaxWith{
+            .left{
+                .textLeft{
+                    font-size: $fs-6;
+                }
+                .textSmallLeft{
+                    font-size: $fs-3;
+                }
+            }
+            .right{
+                .App__img{
+                    .mobileApp__carousel{
+                        .slick-list{
+                            border-radius: 2.1rem;
+                        }
+                    }
+                }
+            }
         }
     }
+}
 
+// Responsive for screen < 576px and > 240px
+@include responsive ('small'){
+    #AppHome{
+        .AppmaxWith{
+            .left{
+                .textSmallLeft{
+                    padding: 0 1rem;
+                }
+            }
+        }
+    }
+}
+
+// Responsive for screen > 768px and < 992px 
+@include responsive ('medium'){
+    #AppHome{
+        .AppmaxWith{
+            .right{
+                .App__img{
+                    .mobileApp__carousel{
+                        .slick-list{
+                            border-radius: 3.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive for screen > 992px and < 1200px 
+@include responsive ('large'){
+    #AppHome {
+        .AppmaxWith{
+            .left{
+                .textLeft{
+                    font-size: 3rem;
+                }
+            }
+            .right{
+                .App__img{
+                    .mobileApp__carousel{
+                        .slick-list{
+                            border-radius: 2.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsive for screen > 1200px and < 1400px 
+@include responsive ('extra-large'){
+    #AppHome {
+        padding: 12rem 0 8rem 0;
+        .AppmaxWith{
+            .left{
+                text-align: left;
+                .textLeft{
+                    font-size: 3.4rem;
+                }
+                .textSmallLeft{
+                    font-size: $fs-4;
+                    padding: 0;
+                }
+            }
+        }
+    }
 }
