@@ -1,9 +1,13 @@
 import * as ActionType from "./constant";
 import Axios from "axios";
+import { DISPLAY_LOADER, HIDE_LOADER } from "../../Loader/modules/constant";
 
 
 export const actListCinemaApi = () =>{
     return (dispatch) =>{
+        dispatch({
+            type: DISPLAY_LOADER,
+        })
         dispatch(actListCinemaRequest())
         Axios({
             url: "https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap",
@@ -11,6 +15,9 @@ export const actListCinemaApi = () =>{
         })
         .then((res)=>{
             dispatch(actListCinemaSuccess(res.data));
+            dispatch({
+                type: HIDE_LOADER,
+            })
         })
         .catch((err)=>{
             dispatch(actListCinemaFailed(err))

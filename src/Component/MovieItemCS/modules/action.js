@@ -1,8 +1,12 @@
 import * as ActionType from "./constant";
 import Axios from "axios";
+import { DISPLAY_LOADER } from "../../Loader/modules/constant";
 
 export const actListMovieApiComingSoon = () => {
   return (dispatch) => {
+    dispatch({
+      type:DISPLAY_LOADER,
+    })
     dispatch(actListMovieCSRequest());
     Axios({
       url:
@@ -11,6 +15,9 @@ export const actListMovieApiComingSoon = () => {
     })
       .then((result) => {
         dispatch(actListMovieCSSuccess(result.data));
+        dispatch({
+          type:HIDE_LOADER,
+        })
       })
       .catch((err) => {
         dispatch(actListMovieCSFailed(err));

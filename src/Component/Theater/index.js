@@ -18,11 +18,6 @@ export default function Theater(props) {
     fetchListCinema();
     return () => {};
   }, []);
-
-  // const fetchListTheater = (ma) =>{
-  //   dispatch(actListTheaterApi(ma));
-  // }
-
   const renderListCinema = () => {
     // console.log(data)
     return (
