@@ -27,7 +27,6 @@
                 @include styleText($fs-3,$text-base-color,$fw-bold-2);
             }
             .detail__movie__info{
-                display: flex;
                 .detail__movie__ageType{
                     margin-top: 0.3rem;
                     max-height: 20%;
