@@ -817,10 +817,6 @@ p {
   font-weight: 500;
 }
 
-.detail__section .detail__movie__container .detail__movie__textArea .detail__movie__info {
-  display: flex;
-}
-
 .detail__section .detail__movie__container .detail__movie__textArea .detail__movie__info .detail__movie__ageType {
   margin-top: 0.3rem;
   max-height: 20%;
@@ -863,6 +859,258 @@ p {
 
 .detail__section .detail__movie__container .detail__movie__textArea .buyTicket__btn:hover {
   background-color: #b42a14;
+}
+
+.detail__tab .detailTab__container {
+  padding: 5rem 0;
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.detail__tab .detailTab__container .detailTab__box {
+  display: flex;
+  border: 1px solid #ebebec;
+  border-radius: 0.4rem;
+  background-color: #fff;
+}
+
+.detail__tab .detailTab__container .detailTab__box .detailTab__pills {
+  padding-right: 0;
+  border-right: 1px solid #ebebec;
+}
+
+.detail__tab .detailTab__container .detailTab__box .detailTab__pills .detailTab__link {
+  text-align: left;
+  padding: 2rem 0;
+  padding-left: 2rem;
+  position: relative;
+  display: flex;
+  opacity: 0.5;
+}
+
+.detail__tab .detailTab__container .detailTab__box .detailTab__pills .detailTab__link .detailTab__icon {
+  max-width: 5rem;
+  max-height: 5rem;
+  width: 100%;
+  height: 100%;
+  margin-right: 1rem;
+}
+
+.detail__tab .detailTab__container .detailTab__box .detailTab__pills .detailTab__link .detailTab__theaterName {
+  font-size: 14px;
+  color: #000;
+  font-weight: 500;
+  padding-top: 1.5rem;
+}
+
+.detail__tab .detailTab__container .detailTab__box .detailTab__pills .detailTab__link:hover {
+  opacity: 1;
+}
+
+.detail__tab .detailTab__container .detailTab__box .detailTab__pills ::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: calc(100% - 4rem);
+  transform: translateX(-50%);
+  border-bottom: 1px solid #000;
+  border-color: rgba(238, 238, 238, 0.88);
+}
+
+.detail__tab .detailTab__container .detailTab__box .detailTab__pills .detailTab__link.active {
+  opacity: 1;
+  background: none;
+}
+
+.detail__tab .detailTab__container .detailTab__box .tab-content {
+  padding: 0;
+}
+
+@media screen and (min-width: 320px) {
+  .detailTab {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .detailTab {
+    display: block;
+  }
+  .detailTab .detailTab__container {
+    padding: 5rem 0;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .detailTab .detailTab__container .detailTab__box .nav-pills ::after {
+    width: calc(100% - 2rem);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .detailTab .detailTab__container {
+    width: 80%;
+  }
+  .detailTab .detailTab__container .detailTab__box .nav-pills ::after {
+    width: calc(100% - 4rem);
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .detailTab .detailTab__container {
+    width: 81.5%;
+  }
+}
+
+.tabPaneItem .tabPaneItem__date__container {
+  text-align: center;
+  padding-top: 0.3rem;
+  padding-left: 0;
+  padding-right: 0;
+  max-height: 14rem;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.tabPaneItem .tabPaneItem__date__container .tabPaneItem__dateOfWeek {
+  width: 198.79999999999998%;
+  display: inline-flex;
+}
+
+.tabPaneItem .tabPaneItem__date__container .tabPaneItem__date {
+  width: 9.8rem;
+  cursor: pointer;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0;
+  padding-top: 1rem;
+}
+
+.tabPaneItem .tabPaneItem__date__container .tabPaneItem__date p {
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.tabPaneItem .tabPaneItem__date__container .tabPaneItem__date.active {
+  background-color: #fff;
+}
+
+.tabPaneItem .tabPaneItem__date__container .tabPaneItem__date.active p {
+  color: #fb4226;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container {
+  padding-right: 0;
+  max-height: 76.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__movie {
+  padding: 2rem 0;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__movie img {
+  max-width: 5rem;
+  width: 100%;
+  max-height: 5rem;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__movie .tabPaneItem__movieSpan {
+  padding-left: 1rem;
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__movie .tabPaneItem__movieSpan .tabPaneItem__cinema {
+  display: block;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__movie .tabPaneItem__movieSpan .tabPaneItem__cinema .tabPaneItem__colorCinema {
+  display: inline-block;
+  color: #8bc541;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__movie .tabPaneItem__movieSpan .tabPaneItem__infoCinema {
+  font-size: 14px;
+  font-weight: 400;
+  color: #949494;
+  margin-right: 0.5rem;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__movie .tabPaneItem__movieSpan .tabPaneItem__infoCinema__location a {
+  font-size: 13px;
+  color: #fb4226;
+  text-decoration: none;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__2D {
+  width: 100%;
+  transition: height 0.3s ease-in-out;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__2D .theaterItem__header {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__2D .theater__sessionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__2D .theater__sessionsContainer .theater__sessions {
+  cursor: pointer;
+  width: calc(100% / 4.5);
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__2D .theater__sessionsContainer .theater__sessions .sessions__btn {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.5rem 0;
+  transition: all .2s;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  background-color: rgba(246, 246, 246, 0.5);
+  border-radius: 0.7rem;
+  color: #9b9b9b;
+  border: 1px solid #e4e4e4;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__2D .theater__sessionsContainer .theater__sessions .sessions__btn .sessions__span {
+  font-size: 18px;
+  font-weight: 500;
+  color: #108f3e;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__2D .theater__sessionsContainer .theater__sessions .sessions__btn :hover {
+  color: #fb4226;
+}
+
+.tabPaneItem .tabPaneItem__showTime__container .tabPaneItem__showTime::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 95%;
+  transform: translateX(-50%);
+  border-bottom: 1px solid #fff;
+  border-color: rgba(238, 238, 238, 0.88);
 }
 
 .slider {
