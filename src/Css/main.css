@@ -800,7 +800,7 @@ p {
 }
 
 .detail__section .detail__movie__container .detail__movie__img img {
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   width: 100%;
   height: 100%;
 }
