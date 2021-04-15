@@ -1,6 +1,6 @@
 import * as ActionType from "./constant";
 import Axios from "axios";
-import { DISPLAY_LOADER } from "../../Loader/modules/constant";
+import { DISPLAY_LOADER, HIDE_LOADER } from "../../Loader/modules/constant";
 
 export const actListMovieApiComingSoon = () => {
   return (dispatch) => {
