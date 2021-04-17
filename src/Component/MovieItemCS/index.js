@@ -36,7 +36,7 @@ function MovieItemCS(props) {
           <div className="movie__service">Mua Vé</div>
         </div>
         <div className="movie__detail">
-          <Link><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
+          <Link to={`/detail/${item.maPhim}`}><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
           <div className="movie__service">Chi Tiết</div>
         </div>
       </div>
