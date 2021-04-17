@@ -84,12 +84,7 @@ export default function Theater(props) {
     <section className="theater" name="theater">
       <div className="theater__container">
         <div className="theater__box">
-          <div
-            className="nav flex-column nav-pills col-lg-2"
-            id="v-pills-tab"
-            role="tablist"
-            aria-orientation="vertical"
-          >
+          <div className="nav flex-column nav-pills col-lg-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             {renderListCinema()}
           </div>
         <div className="col-md-10  tab-content " id="v-pills-tabContent">

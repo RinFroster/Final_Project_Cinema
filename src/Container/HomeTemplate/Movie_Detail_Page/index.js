@@ -3,6 +3,7 @@ import {actDetailMovieApi} from "./modules/action";
 import { Link } from "react-router-dom";
 import {connect} from "react-redux";
 import DetailTabPane from "./../../../Component/DetailTabPane";
+import MovieInfo from "./../../../Component/MovieInfo";
 
 function MovieDetail(props) {
     useEffect(() => {
@@ -26,7 +27,24 @@ function MovieDetail(props) {
                   <Link><button className="btn btn-secondary buyTicket__btn">Mua Vé</button></Link>
               </div>
           </div>
-          <DetailTabPane/>
+          <div className="detailPage__tab__container">
+            <ul class="nav nav-tabs detailPage__tab" id="myNews" role="tablist">
+                  <li class="nav-item detailPage__tab__item" role="presentation">
+                      <a class="nav-link detailPage__tab__link active" id="home-tab" data-toggle="tab" href="#news__24h" role="tab" aria-controls="news__24h" aria-selected="true">Lịch Chiếu</a>
+                  </li>
+                  <li class="nav-item detailPage__tab__item" role="presentation">
+                      <a class="nav-link detailPage__tab__link" id="profile-tab" data-toggle="tab" href="#news__review" role="tab" aria-controls="news__review" aria-selected="false">Thông Tin</a>
+                  </li>
+            </ul>
+            <div class="tab-content detailPage__tab__content" id="myTabContent">
+              <div className="tab-pane fade show active" id="news__24h" role="tabpanel" aria-labelledby="news__24h">
+                <DetailTabPane/>
+              </div>
+              <div className="tab-pane fade" id="news__review" role="tabpanel" aria-labelledby="news__review">
+                <MovieInfo/>
+              </div>
+            </div>
+          </div>
       </section>
     )
 }

@@ -19,7 +19,7 @@ function NavbarHome() {
   const handleOnClick = () => {
     if(addActiveClass === false){
       setActiveClass(true);
-    }else{
+    }else if(addActiveClass === true){
       setActiveClass(false);
     }
   };
