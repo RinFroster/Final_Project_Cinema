@@ -19,43 +19,16 @@ export default function Theater(props) {
     return () => {};
   }, []);
   const renderListCinema = () => {
-    // console.log(data)
-    return (
-      data &&
-      data.map((item, index) => {
+    return (data && data.map((item, index) => {
         if (index == 0) {
           return (
-            <a
-              key={item.biDanh}
-              className="nav-link active"
-              id={item.maHeThongRap}
-              data-toggle="pill"
-              href={"#" + item.biDanh}
-              role="tab"
-              aria-controls={item.maHeThongRap}
-              onClick={() => {
-                setcinema({ indexCinema: index });
-              }}
-              aria-selected="true"
-            >
+            <a key={item.biDanh} className="nav-link theater__icon__link active" id={item.maHeThongRap} data-toggle="pill" href={"#" + item.biDanh} role="tab" aria-controls={item.maHeThongRap} onClick={() => {setcinema({ indexCinema: index });}} aria-selected="true">
               <img src={item.logo} className="theater__icon" />
             </a>
           );
         } else {
           return (
-            <a
-              key={item.biDanh}
-              className="nav-link "
-              id={item.maHeThongRap}
-              data-toggle="pill"
-              href={"#" + item.biDanh}
-              role="tab"
-              aria-controls={item.maHeThongRap}
-              onClick={() => {
-                setcinema({ indexCinema: index });
-              }}
-              aria-selected="false"
-            >
+            <a key={item.biDanh} className="nav-link theater__icon__link" id={item.maHeThongRap} data-toggle="pill" href={"#" + item.biDanh} role="tab" aria-controls={item.maHeThongRap} onClick={() => {setcinema({ indexCinema: index });}} aria-selected="false">
               <img src={item.logo} className="theater__icon" />
             </a>
           );
