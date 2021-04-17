@@ -2499,13 +2499,18 @@ p {
   border-right: 1px solid #ebebec;
 }
 
-.theater .theater__container .theater__box .nav-pills .nav-link {
+.theater .theater__container .theater__box .nav-pills .theater__icon__link {
   text-align: center;
   padding: 2rem;
   position: relative;
+  opacity: 0.5;
 }
 
-.theater .theater__container .theater__box .nav-pills .nav-link .theater__icon {
+.theater .theater__container .theater__box .nav-pills .theater__icon__link:hover {
+  opacity: 1;
+}
+
+.theater .theater__container .theater__box .nav-pills .theater__icon__link .theater__icon {
   max-width: 5rem;
   max-height: 5rem;
   width: 100%;
@@ -2523,7 +2528,8 @@ p {
   border-color: rgba(238, 238, 238, 0.88);
 }
 
-.theater .theater__container .theater__box .nav-pills .nav-link.active, .theater .theater__container .theater__box .nav-pills .show > .nav-link {
+.theater .theater__container .theater__box .nav-pills .theater__icon__link.active, .theater .theater__container .theater__box .nav-pills .show > .theater__icon__link {
+  opacity: 1;
   background: none;
 }
 

@@ -27,43 +27,26 @@ function TheaterItem(props) {
   };
 
   const handleShow = (e) => {
-    // const chosenMovie = document.getElementById;
     const movie = e.target.id;
     setShow(movie);
   };
 
   let { data } = props;
   console.log(data);
-  // const { cinema } = props;
-  // console.log("cinema",cinema)
 
   useEffect(() => {
     console.log(props);
     const id = props.cinema;
-    // console.log(id)
     props.fetchListTheater(id);
     props.fetchShowTime(id);
   }, []);
   const renderTheaterItem = () => {
     const { data } = props;
-    // console.log(data)
-    return (
-      data &&
-      data.map((item, index) => {
+    return (data && data.map((item,index) => {
+      if(index === 0){
         return (
-          <div
-            key={item.maCumRap}
-            className="theaterItem__content active"
-            id="theater1"
-            onClick={handleClick}
-          >
-            <img
-              src={
-                require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
-                  .default
-              }
-              alt=" "
-            />
+          <div key={item.maCumRap} className="theaterItem__content active" id={item.maCumRap} onClick={handleClick}>
+            <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=" "/>
             <div className="theaterItem__span">
               <span className="cinema">
                 <span className="colorcinema">{item.tenCumRap}</span>
@@ -75,6 +58,22 @@ function TheaterItem(props) {
             </div>
           </div>
         );
+      }else{
+        return (
+          <div key={item.maCumRap} className="theaterItem__content" id={item.maCumRap} onClick={handleClick}>
+            <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=" "/>
+            <div className="theaterItem__span">
+              <span className="cinema">
+                <span className="colorcinema">{item.tenCumRap}</span>
+              </span>
+              <span className="infoCinema">{item.diaChi}</span>
+              <span className="infoCinema__Detail">
+                <a>[chi tiết]</a>
+              </span>
+            </div>
+          </div>
+        );
+      }
       })
     );
   };
