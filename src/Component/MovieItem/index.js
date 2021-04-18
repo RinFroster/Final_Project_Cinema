@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import { memo } from "react";
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -24,6 +23,7 @@ function MovieItemNS(props) {
       return (
         <div className="movie__card" key={item.maPhim}>
     <div className="movie__img">
+      <div className="movie-gradient"></div>
       <div className="movie__age">C18</div>
       <div className="movie__overlay movie-hover">
         <div className="movie__trailer">
@@ -33,7 +33,7 @@ function MovieItemNS(props) {
           <div className="movie__service">Trailer</div>
         </div>
         <div className="movie__buyTicket">
-          <Link><FontAwesomeIcon icon={faTicketAlt} className="buyTicket__icon"/></Link>
+          <Link to={`/detail/${item.maPhim}`}><FontAwesomeIcon icon={faTicketAlt} className="buyTicket__icon"/></Link>
           <div className="movie__service">Mua Vé</div>
         </div>
         <div className="movie__detail">
@@ -46,7 +46,7 @@ function MovieItemNS(props) {
     <div className="movieInfo__container">
       <div className="movieInfo__row">
         <div className="movie__name">
-          <p>{item.tenPhim}</p>
+          <Link to={`/detail/${item.maPhim}`}><p>{item.tenPhim}</p></Link>
         </div>
       </div>
     </div>

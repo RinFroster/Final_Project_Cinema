@@ -25,7 +25,6 @@ export const actShowTimeApi = (ma) =>{
             url:`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${ma}&maNhom=GP01`,
             method:'GET',
         })
-        console.log(data, status)
     }
     catch(err){
 

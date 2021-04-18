@@ -12,6 +12,7 @@
             display: inline-flex;
         }
         .tabPaneItem__date{
+            transition: all 0.3s;
             p{
                 @include styleText($fs-3,$text-base-color,$fw-bold-2);
             }
@@ -23,6 +24,9 @@
                 p{
                     color: $item-active;
                 }
+            }
+            &:hover p{
+                color: $item-active;
             }
         }
     }

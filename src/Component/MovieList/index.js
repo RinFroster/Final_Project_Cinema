@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import MovieItemNS from "./../MovieItem";
 import MovieItemCS from "./../MovieItemCS";
 
-function MovieList(props) {
-  // useEffect(() => {
-  //   props.fetchListMovie();
-  // }, [])
+function MovieList() {
   return (
-    <section className="movie" name="homeMovie">
+    <section className="movie" name="homeMovie" id="homeMovie">
       <div className="movie__card__container">
         <ul className="nav nav-tabs navCenter" id="myTab" role="tablist">
           <li className="nav-item">
