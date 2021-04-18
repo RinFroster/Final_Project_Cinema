@@ -45,7 +45,7 @@ function MovieItemCS(props) {
     <div className="movieInfo__container">
       <div className="movieInfo__row">
         <div className="movie__name">
-          <p>{item.tenPhim}</p>
+          <Link to={`/detail/${item.maPhim}`}><p>{item.tenPhim}</p></Link>
         </div>
       </div>
     </div>

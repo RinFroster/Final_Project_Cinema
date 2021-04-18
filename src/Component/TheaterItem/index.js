@@ -32,10 +32,8 @@ function TheaterItem(props) {
   };
 
   let { data } = props;
-  console.log(data);
 
   useEffect(() => {
-    console.log(props);
     const id = props.cinema;
     props.fetchListTheater(id);
     props.fetchShowTime(id);
