@@ -108,7 +108,7 @@
           background-color: $buy-button-enabled-hover;
         }
       }
-      & .-disabled {
+      & .disabled {
         background-color: $bg-base-color;
         border: none;
         text-transform: uppercase;

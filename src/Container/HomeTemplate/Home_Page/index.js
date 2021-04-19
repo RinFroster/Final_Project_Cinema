@@ -8,14 +8,14 @@ import MobileApp from "../../../Component/MobileApp";
 
 function HomePage(){
   return (
-    <div className="homePage">
+    <body>
       <Carousel/>
       <BuyTicketTool/>
       <MovieList/>
       <Theater />
       <News />
       <MobileApp />
-    </div>
+    </body>
   );
 }
 
