@@ -54,7 +54,7 @@ export default function Theater(props) {
     );
   };
   return (
-    <section className="theater" name="theater">
+    <section className="theater" name="theater" id="theater">
       <div className="theater__container">
         <div className="theater__box">
           <div className="nav flex-column nav-pills col-lg-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">

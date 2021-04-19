@@ -171,9 +171,22 @@ html, body {
   }
 }
 
+#btnBackToTop {
+  position: fixed;
+  bottom: 5%;
+  right: 1%;
+  transition: all 0.3s;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: none;
+  cursor: pointer;
+  z-index: 99;
+}
+
 .navbar__container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .navbar__container .container-fluid {
@@ -292,7 +305,7 @@ html, body {
   color: #000;
   font-weight: 500;
   text-decoration: none;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.3s;
   cursor: pointer;
   position: relative;
 }
@@ -2017,6 +2030,7 @@ p {
     max-width: 63.6rem;
     left: 8.4% !important;
     top: 95% !important;
+    z-index: 2 !important;
   }
   #popup-root .movie__popup-content svg {
     display: none;
@@ -2245,6 +2259,7 @@ p {
     max-width: 69.2rem;
     left: 5% !important;
     top: 12% !important;
+    z-index: 2 !important;
   }
   #popup-root .carousel__popup-content svg {
     display: none;
@@ -2601,7 +2616,7 @@ p {
   background-color: #b30000;
 }
 
-.tool__nav .nav__container .buy__button .-disabled {
+.tool__nav .nav__container .buy__button .disabled {
   background-color: #1a1d24;
   border: none;
   text-transform: uppercase;
@@ -2616,7 +2631,7 @@ p {
   font-weight: 500;
 }
 
-.tool__nav .nav__container .buy__button .-disabled:hover {
+.tool__nav .nav__container .buy__button .disabled:hover {
   background-color: #1a1d24;
 }
 

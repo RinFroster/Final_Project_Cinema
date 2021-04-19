@@ -1,6 +1,6 @@
 .navbar__container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   .container-fluid {
     padding-left: 0;
     .navbar__header {
@@ -99,7 +99,7 @@
                 .nav__link {
                 @include styleText($fs-3, $text-base-color, $fw-bold-2);
                 text-decoration: none;
-                transition: all ease-in-out 0.2s;
+                transition: all ease-in-out 0.3s;
                 cursor: pointer;
                 position: relative;
                 &:hover {

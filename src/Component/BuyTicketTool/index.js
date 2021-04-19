@@ -1,35 +1,49 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function BuyTicketTool() {
   const chooseMovie = (e) => {
     const buttonSelected = document.getElementById("buyTicketDropdownMovie");
     const itemSelected = document.getElementById(e.target.id);
+    const getId = document.getElementById("buyTicketDropdownTheater");
+    if(getId){
+      getId.classList.remove("disabled");
+    }
     buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
+
   }
   const chooseTheater = (e) => {
     const buttonSelected = document.getElementById("buyTicketDropdownTheater");
     const itemSelected = document.getElementById(e.target.id);
     buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
+    const getId = document.getElementById("buyTicketDropdownDate");
+    if(getId){
+      getId.classList.remove("disabled");
+    }
   }
   const chooseDate = (e) => {
     const buttonSelected = document.getElementById("buyTicketDropdownDate");
     const itemSelected = document.getElementById(e.target.id);
     buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
+    const getId = document.getElementById("buyTicketDropdownPremiere");
+    if(getId){
+      getId.classList.remove("disabled");
+    }
   }
   const choosePremiere = (e) => {
     const buttonSelected = document.getElementById("buyTicketDropdownPremiere");
     const itemSelected = document.getElementById(e.target.id);
     buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
-  }
-  const chooseMovieToActivateTheater = (e) => {
-    const checkedId = e.target.id;
-    console.log(checkedId);
+    const getId = document.getElementById("btnBuyTicket");
+    if(getId){
+      getId.classList.remove("disabled");
+    }
   }
   return (
     <section className="tool__nav noneOnMobile">
       <div className="nav__container">
       <div class="dropdown -selectFilm">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="buyTicketDropdownMovie" data-toggle="dropdown" aria-expanded="false" onChange={chooseMovieToActivateTheater}>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="buyTicketDropdownMovie" data-toggle="dropdown" aria-expanded="false">
           Phim
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -87,11 +101,10 @@ function BuyTicketTool() {
       </div>
       <div class="dropdown -selectCinema">
         <button
-          class="btn btn-secondary dropdown-toggle "
+          class="btn btn-secondary dropdown-toggle disabled"
           type="button"
           id="buyTicketDropdownTheater"
-          data-toggle
-="dropdown"
+          data-toggle="dropdown"
           aria-expanded="false"
         >
           Rạp
@@ -116,11 +129,10 @@ function BuyTicketTool() {
       </div>
       <div class="dropdown -selectDate">
         <button
-          class="btn btn-secondary dropdown-toggle "
+          class="btn btn-secondary dropdown-toggle disabled"
           type="button"
           id="buyTicketDropdownDate"
-          data-toggle
-="dropdown"
+          data-toggle="dropdown"
           aria-expanded="false"
         >
           Ngày Xem
@@ -145,7 +157,7 @@ function BuyTicketTool() {
       </div>
       <div class="dropdown -selectSession">
         <button
-          class="btn btn-secondary dropdown-toggle "
+          class="btn btn-secondary dropdown-toggle disabled"
           type="button"
           id="buyTicketDropdownPremiere"
           data-toggle="dropdown"
@@ -172,7 +184,7 @@ function BuyTicketTool() {
         </ul>
       </div>
       <div className="buy__button">
-        <button className="btn btn-secondary -disabled -enabled">Mua Vé Ngay</button>
+        <Link to="/checkout"><button className="btn btn-secondary -enabled disabled" id="btnBuyTicket">Mua Vé Ngay</button></Link>
       </div>
     </div>
     </section>
