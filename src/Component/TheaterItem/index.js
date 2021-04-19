@@ -1,17 +1,20 @@
-import Collapse from "react-bootstrap/Collapse";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { actListTheaterApi, actShowTimeApi } from "./modules/action";
 import { connect } from "react-redux";
+import ShowTimes from "../ShowTimes";
 
 function TheaterItem(props) {
-  const [open, setOpen] = useState(false);
+  
   const [active, setActive] = useState(null);
   const [show, setShow] = useState(null);
-  const [showTime, setShowTime] = useState({ indexShow: 1 });
+  const [showTime, setShowTime] = useState({ indexShow: 0 });
   const [DSRap, setDSRap] = useState({
     listShowTime: [],
   });
+
+
+  let { data } = props;
 
   const handleClick = (e) => {
     const otherTheater = document.getElementsByClassName(
@@ -32,55 +35,104 @@ function TheaterItem(props) {
     setShow(movie);
   };
 
-  let { data } = props;
-  console.log(data);
-  // const { cinema } = props;
-  // console.log("cinema",cinema)
-
   useEffect(() => {
-    console.log(props);
+    // console.log(props)
     const id = props.cinema;
-    // console.log(id)
     props.fetchListTheater(id);
-    props.fetchShowTime(id);
+   
   }, []);
   const renderTheaterItem = () => {
+    // console.log(props)
     const { data } = props;
-    // console.log(data)
-    return (
-      data &&
-      data.map((item, index) => {
-        return (
-          <div
-            key={item.maCumRap}
-            className="theaterItem__content active"
-            id="theater1"
-            onClick={handleClick}
-          >
-            <img
-              src={
-                require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
-                  .default
-              }
-              alt=" "
-            />
-            <div className="theaterItem__span">
-              <span className="cinema">
-                <span className="colorcinema">{item.tenCumRap}</span>
-              </span>
-              <span className="infoCinema">{item.diaChi}</span>
-              <span className="infoCinema__Detail">
-                <a>[chi tiết]</a>
-              </span>
+    if(data) {
+      const [ lstCumRap ] = data;
+      return lstCumRap.lstCumRap && lstCumRap.lstCumRap.map((item, index)=>{
+        // console.log(item)
+        if(index === 0) {
+          return (
+            <div
+              key={item.maCumRap}
+              className="theaterItem__content active"
+              id={item.maCumRap}
+              aria-controls = {item.maCumRap}
+              onClick={handleClick, ()=>{
+                setShowTime({indexShow: index});
+              }}
+              aria-selected="true"
+            >
+              <img
+                src={
+                  require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
+                    .default
+                }
+                alt=" "
+              />
+              <div className="theaterItem__span">
+                <span className="cinema">
+                  <span className="colorcinema">{item.tenCumRap}</span>
+                </span>
+                <span className="infoCinema">{item.diaChi}</span>
+                <span className="infoCinema__Detail">
+                  <a>[chi tiết]</a>
+                </span>
+              </div>
             </div>
-          </div>
-        );
-      })
-    );
+          );
+        }
+        else {
+          return (
+            <div
+              key={item.maCumRap}
+              className="theaterItem__content"
+              id={item.maCumRap}
+              aria-controls = {item.maCumRap}
+              onClick={handleClick, ()=>{
+                setShowTime({indexShow: index});
+              }}
+              aria-selected="true"
+            >
+              <img
+                src={
+                  require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
+                    .default
+                }
+                alt=" "
+              />
+              <div className="theaterItem__span">
+                <span className="cinema">
+                  <span className="colorcinema">{item.tenCumRap}</span>
+                </span>
+                <span className="infoCinema">{item.diaChi}</span>
+                <span className="infoCinema__Detail">
+                  <a>[chi tiết]</a>
+                </span>
+              </div>
+            </div>
+          );
+        }
+             
+         })
+    }
+      
   };
   const renderShowTime = () => {
-    DSRap.listShowTime = props.data;
-    console.log(DSRap.listShowTime);
+    // const { data } = props;
+    // console.log(data)
+    // if(data){
+    //   const datalisst = [...data.lstCumRap ]
+    // }
+    
+      // return (
+      //   data.lstCumRap && (
+      //     <div
+      //      className = "show active"
+      //     id= {data.lstCumRap.maCumRap}
+      //     aria-labelledby = {data.lstCumRap[showTime.indexShow].maCumRap}
+      //   >
+      //       <ShowTimes key = {data.lstCumRap.maCumRap} show = {data.lstCumRap[showTime.indexShow].danhSachPhim} />  
+      //       </div>
+      //   )
+      //   )
   };
 
   return (
@@ -89,66 +141,8 @@ function TheaterItem(props) {
         {renderTheaterItem()}
       </div>
       <div className="col-lg-8 theater__wrapMovie">
-        <div className="theaterItem__item">
-          <div
-            className="theaterItem__movie"
-            onClick={() => setOpen(!open)}
-            aria-controls="example-collapse-text1"
-            aria-expanded={open}
-          >
-            <img
-              src={
-                require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
-                  .default
-              }
-            />
-            <div className="theaterItem__moviespan">
-              <span className="cinema__movie">
-                <span className="btnCinema">C13</span>
-                Godzilla vs. Kong
-              </span>
-              <span className="movie__span">100 phút - TIX 8.7 - IMDb 7.4</span>
-            </div>
-          </div>
-          <Collapse in={open}>
-            <div className="theater__2D" id="example-collapse-text1">
-              <div className="theaterItem__header">2D Digital</div>
-              <div className="theater__sessionsContainer">
-              <div className="theater__sessions">
-                <a className="sessions__btn">
-                  <span className="sessions__span">15:05</span>~ 16:45
-                </a>
-              </div>
-              <div className="theater__sessions">
-                <a className="sessions__btn">
-                  <span className="sessions__span">15:05</span>~ 16:45
-                </a>
-              </div>
-              <div className="theater__sessions">
-                <a className="sessions__btn">
-                  <span className="sessions__span">15:05</span>~ 16:45
-                </a>
-              </div>
-              <div className="theater__sessions">
-                <a className="sessions__btn">
-                  <span className="sessions__span">15:05</span>~ 16:45
-                </a>
-              </div>
-              <div className="theater__sessions">
-                <a className="sessions__btn">
-                  <span className="sessions__span">15:05</span>~ 16:45
-                </a>
-              </div>
-              <div className="theater__sessions">
-                <a className="sessions__btn">
-                  <span className="sessions__span">15:05</span>~ 16:45
-                </a>
-              </div>
-              </div>
-            </div>
-          </Collapse>
+            {renderShowTime()}
         </div>
-      </div>
     </div>
   );
 }
@@ -164,10 +158,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchListTheater: (id) => {
       dispatch(actListTheaterApi(id));
     },
-    fetchShowTime: (ma) => {
-      dispatch(actShowTimeApi(ma));
-    },
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TheaterItem);
+export default memo(connect(mapStateToProps, mapDispatchToProps)(TheaterItem));

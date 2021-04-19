@@ -3,6 +3,7 @@ import TheaterItem from "../TheaterItem";
 import { useSelector, useDispatch } from "react-redux";
 import { actListCinemaApi, actListTheaterApi } from "./modules/action";
 import { Link } from "react-router-dom";
+import ShowTimes from "../ShowTimes";
 
 export default function Theater(props) {
   const [open, setOpen] = useState(false);

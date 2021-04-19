@@ -6,7 +6,6 @@ export default function Loader() {
     const { isLoading } = useSelector(state => state.LoaderReducer);
     // console.log(isLoading);
     if(isLoading) {
-        console.log(isLoading);
         return (
             <div className ="Loader">
                 <img src={logo} />

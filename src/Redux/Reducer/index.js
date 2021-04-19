@@ -5,7 +5,8 @@ import listMovieCarouselReducer from "./../../Component/Carousel/modules/reducer
 import detailMovieReducer from "./../../Container/HomeTemplate/Movie_Detail_Page/Modules/Reducer";
 import LoaderReducer from "./../../Component/Loader/modules/LoaderReducer"
 import ListCinemaReducer from "./../../Component/Theater/modules/ListCinemaReducer"
-import ListTheaterReducer from "./../../Component/TheaterItem/modules/ListTheaterReducer"
+import ListTheaterReducer from "./../../Component/TheaterItem/modules/ListTheaterReducer";
+import ShowTimeReducer from "./../../Component/ShowTimes/modules/ShowTimeReducer";
 
 const rootReducer = combineReducers({
     listMovieReducerNS,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     LoaderReducer,
     ListCinemaReducer,
     ListTheaterReducer,
+    ShowTimeReducer,
 });
 
 export default rootReducer;

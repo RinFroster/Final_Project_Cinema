@@ -2,7 +2,6 @@ import React, {useRef} from "react";
 import { Route } from "react-router-dom";
 import NavbarHome from "./../../Component/NavbarHome";
 import Footer from "../../Component/Footer";
-import Loader from "../../Component/Loader";
 // import { scrollToTop } from "react-scroll/modules/mixins/animate-scroll";
 
 // scrollToTop(){

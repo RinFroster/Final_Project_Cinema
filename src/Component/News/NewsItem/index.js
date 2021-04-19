@@ -23,7 +23,7 @@ export default function NewsItem() {
             </div>
             <div className="col-12 col-md-6 newItem__header__second">
                 <div className="newItem__img">
-                    <a><img src={require("./../../../Asset/img/NewsIcon/lyhai.png").default} alt=""/></a>
+                    <a><img src={require("./../../../Asset/img/NewsIcon/mortal-kombat.png").default} alt=""/></a>
                 </div>
                 <a className="newItem__title" href="#"><p>Ấn định chắc nịch ngày khởi chiếu 16.04, Lý Hải tung clip Lật Mặt: 48H đậm chất </p></a>
                 <p className="newItem__p">Bên cạnh những kịch bản gốc mới mẻ và đầy bất ngờ, 
@@ -43,7 +43,7 @@ export default function NewsItem() {
             <div className="row newItem__row newItem__postRow">
                 <div className="col-12 col-md-4 newItem__smallPost">
                     <div className="newItem__postImg">
-                        <a><img src={require("./../../../Asset/img/NewsIcon/lyhai.png").default} alt=""/></a>
+                        <a><img src={require("./../../../Asset/img/NewsIcon/promising-young-woman.png").default} alt=""/></a>
                     </div>
                     <a className="newItem__title" href="#"><p>Ấn định chắc nịch ngày khởi chiếu 16.04, Lý Hải tung clip Lật Mặt: 48H đậm chất </p></a>
                     <p className="newItem__p">Trước thềm khởi chiếu 16.04 này, Lý Hải bất ngờ tung clip rượt đuổi gay cấn thót tim fans hâm mộ</p>
@@ -60,7 +60,7 @@ export default function NewsItem() {
                 </div>
                 <div className="col-12 col-md-4 newItem__smallPost">
                     <div className="newItem__postImg">
-                        <a><img src={require("./../../../Asset/img/NewsIcon/lyhai.png").default} alt=""/></a>
+                        <a><img src={require("./../../../Asset/img/NewsIcon/vua-dep-lai.png").default} alt=""/></a>
                     </div>
                     <a className="newItem__title" href="#"><p>Ấn định chắc nịch ngày khởi chiếu 16.04, Lý Hải tung clip Lật Mặt: 48H đậm chất </p></a>
                     <p className="newItem__p">Trước thềm khởi chiếu 16.04 này, Lý Hải bất ngờ tung clip rượt đuổi gay cấn thót tim fans hâm mộ</p>
@@ -79,25 +79,25 @@ export default function NewsItem() {
                 <div className=" col-12 col-md-4 newItem__rightPost">
                     <div className="newItem__post">
                         <div className="post__img">
-                            <a><img src={require("./../../../Asset/img/NewsIcon/lyhai.png").default} alt=""/></a>
+                            <a><img src={require("./../../../Asset/img/NewsIcon/khai-truong-rap-xin-gia-ngon-chuan-xi-tai-sai-gon.jpg").default} alt=""/></a>
                         </div>
                         <a className="post__title"><p>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</p></a>
                     </div>
                     <div className="newItem__post">
                         <div className="post__img">
-                            <a><img src={require("./../../../Asset/img/NewsIcon/lyhai.png").default} alt=""/></a>
+                            <a><img src={require("./../../../Asset/img/NewsIcon/boc-tem.png").default} alt=""/></a>
                         </div>
                         <a className="post__title"><p>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</p></a>
                     </div>
                     <div className="newItem__post">
                         <div className="post__img">
-                            <a><img src={require("./../../../Asset/img/NewsIcon/lyhai.png").default} alt=""/></a>
+                            <a><img src={require("./../../../Asset/img/NewsIcon/tiec-trang-mau.png").default} alt=""/></a>
                         </div>
                         <a className="post__title"><p>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</p></a>
                     </div>
                     <div className="newItem__post">
                         <div className="post__img">
-                            <a><img src={require("./../../../Asset/img/NewsIcon/lyhai.png").default} alt=""/></a>
+                            <a><img src={require("./../../../Asset/img/NewsIcon/ngo-thanh-van.jpg").default} alt=""/></a>
                         </div>
                         <a className="post__title"><p>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</p></a>
                     </div>
