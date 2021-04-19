@@ -6,10 +6,10 @@ import {
   faMapMarkerAlt,
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  Link,
-  animateScroll as scroll,
-} from "react-scroll";
+// import {
+//   Link,
+//   animateScroll as scroll,
+// } from "react-scroll";
 
 function NavbarHome() {
   const [addActiveClass, setActiveClass] = useState(false);
@@ -19,7 +19,7 @@ function NavbarHome() {
   const handleOnClick = () => {
     if(addActiveClass === false){
       setActiveClass(true);
-    }else{
+    }else if(addActiveClass === true){
       setActiveClass(false);
     }
   };
@@ -50,7 +50,7 @@ function NavbarHome() {
   }
   
   return (
-    <section className="navbar__container">
+    <header className="navbar__container">
       <div className="container-fluid">
         <nav className="navbar navbar-expand-lg navbar__header">
           {/* Brand */}
@@ -78,7 +78,7 @@ function NavbarHome() {
               {/* {state && ( */}
                 <ul className="navbar-nav nav__header">
                   <li className="nav-item nav__item">
-                    <Link
+                    {/* <Link
                       activeClass="active"
                       to="homeMovie"
                       spy={true}
@@ -86,10 +86,11 @@ function NavbarHome() {
                       className="nav-link nav__link"
                     >
                       Lịch Chiếu
-                    </Link>
+                    </Link> */}
+                    <a className="nav-link nav__link" href="/#homeMovie">Lịch Chiếu</a>
                   </li>
                   <li className="nav-item nav__item">
-                    <Link
+                    {/* <Link
                       activeClass="active"
                       to="theater"
                       spy={true}
@@ -97,10 +98,11 @@ function NavbarHome() {
                       className="nav-link nav__link"
                     >
                       Cụm Rạp
-                    </Link>
+                    </Link> */}
+                    <a className="nav-link nav__link" href="/#theater">Cụm Rạp</a>
                   </li>
                   <li className="nav-item nav__item">
-                    <Link
+                    {/* <Link
                       activeClass="active"
                       to="news"
                       spy={true}
@@ -108,10 +110,11 @@ function NavbarHome() {
                       className="nav-link nav__link"
                     >
                       Tin Tức
-                    </Link>
+                    </Link> */}
+                    <a className="nav-link nav__link" href="/#news">Tin Tức</a>
                   </li>
                   <li className="nav-item nav__item">
-                    <Link
+                    {/* <Link
                       activeClass="active"
                       to="mobileApp"
                       spy={true}
@@ -119,7 +122,8 @@ function NavbarHome() {
                       className="nav-link nav__link"
                     >
                       Ứng Dụng
-                    </Link>
+                    </Link> */}
+                    <a className="nav-link nav__link" href="/#MobileApp">Ứng Dụng</a>
                   </li>
                   <li className="nav-item select__location nav__item" id="location">
                     <FontAwesomeIcon icon={faMapMarkerAlt} className="map__icon" />
@@ -131,8 +135,8 @@ function NavbarHome() {
                         <button className="dropdown-item" type="button" id="1" onClick={chooseLocation}>
                           Hồ Chí Minh
                         </button>
-                        <button  className="dropdown-item" type="button" >
-                          <div id="2" onClick={chooseLocation}>Hà Nội</div>
+                        <button  className="dropdown-item" type="button" id="2" onClick={chooseLocation}>
+                          Hà Nội
                         </button>
                         <button id="3" onClick={chooseLocation} className="dropdown-item" type="button">
                           Đà Nẵng
@@ -298,7 +302,7 @@ function NavbarHome() {
             </div>
         </nav>
       </div>
-    </section>
+    </header>
   );
 }
 export default memo(NavbarHome);

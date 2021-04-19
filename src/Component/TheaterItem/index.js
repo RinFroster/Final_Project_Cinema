@@ -30,13 +30,12 @@ function TheaterItem(props) {
   };
 
   const handleShow = (e) => {
-    // const chosenMovie = document.getElementById;
     const movie = e.target.id;
     setShow(movie);
   };
 
+
   useEffect(() => {
-    // console.log(props)
     const id = props.cinema;
     props.fetchListTheater(id);
    
@@ -113,7 +112,6 @@ function TheaterItem(props) {
              
          })
     }
-      
   };
   const renderShowTime = () => {
     // const { data } = props;

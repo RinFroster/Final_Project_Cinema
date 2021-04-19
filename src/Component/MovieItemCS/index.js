@@ -22,34 +22,35 @@ function MovieItemCS(props) {
     return (data&&data.map((item) => {
       return (
         <div className="movie__card" key={item.maPhim}>
-    <div className="movie__img">
-      <div className="movie__age">C18</div>
-      <div className="movie__overlay movie-hover">
-        <div className="movie__trailer">
-        <Popup trigger={<Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>} position="center" className="movie__popup">
-            <div><iframe className="movie__popup__video" src={item.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-          </Popup>
-          <div className="movie__service">Trailer</div>
-        </div>
-        <div className="movie__buyTicket">
-          <Link><FontAwesomeIcon icon={faTicketAlt} className="buyTicket__icon"/></Link>
-          <div className="movie__service">Mua Vé</div>
-        </div>
-        <div className="movie__detail">
-          <Link><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
-          <div className="movie__service">Chi Tiết</div>
+          <div className="movie__img">
+            <div className="movie-gradient"></div>
+            <div className="movie__age">C18</div>
+            <div className="movie__overlay movie-hover">
+              <div className="movie__trailer">
+                <Popup trigger={<Link><FontAwesomeIcon icon={faPlayCircle} className="trailer__icon"/></Link>} position="center" className="movie__popup">
+                  <div><iframe className="movie__popup__video" src={item.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                </Popup>
+                <div className="movie__service">Trailer</div>
+              </div>
+              <div className="movie__buyTicket">
+                <Link to={`/detail/${item.maPhim}`}><FontAwesomeIcon icon={faTicketAlt} className="buyTicket__icon"/></Link>
+                <div className="movie__service">Mua Vé</div>
+              </div>
+              <div className="movie__detail">
+                <Link to={`/detail/${item.maPhim}`}><FontAwesomeIcon icon={faInfoCircle} className="detail__icon"/></Link>
+                <div className="movie__service">Chi Tiết</div>
+              </div>
+            </div>
+            <img src={item.hinhAnh} alt="test" className="img-fluid"/>
+          </div>
+        <div className="movieInfo__container">
+          <div className="movieInfo__row">
+            <div className="movie__name">
+              <Link to={`/detail/${item.maPhim}`}><p>{item.tenPhim}</p></Link>
+            </div>
+          </div>
         </div>
       </div>
-      <img src={item.hinhAnh} alt="test" className="img-fluid"/>
-    </div>
-    <div className="movieInfo__container">
-      <div className="movieInfo__row">
-        <div className="movie__name">
-          <p>{item.tenPhim}</p>
-        </div>
-      </div>
-    </div>
-  </div>
       )
     }))
   }

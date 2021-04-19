@@ -1,6 +1,6 @@
 .tool__nav {
   position: relative;
-  z-index: 0;
+  z-index: 1;
   .nav__container {
     display: flex;
     justify-content: flex-start;
@@ -44,7 +44,7 @@
       }
       .dropdown-menu{
         top: 75%;
-        width: 100%;
+        max-width: 61rem;
         max-height: 30rem;
         overflow-y: scroll;
         li{
@@ -108,7 +108,7 @@
           background-color: $buy-button-enabled-hover;
         }
       }
-      & .-disabled {
+      & .disabled {
         background-color: $bg-base-color;
         border: none;
         text-transform: uppercase;

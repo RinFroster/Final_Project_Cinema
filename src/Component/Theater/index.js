@@ -20,43 +20,16 @@ export default function Theater(props) {
     return () => {};
   }, []);
   const renderListCinema = () => {
-    // console.log(data)
-    return (
-      data &&
-      data.map((item, index) => {
+    return (data && data.map((item, index) => {
         if (index == 0) {
           return (
-            <a
-              key={item.biDanh}
-              className="nav-link active"
-              id={item.maHeThongRap}
-              data-toggle="pill"
-              href={"#" + item.biDanh}
-              role="tab"
-              aria-controls={item.maHeThongRap}
-              onClick={() => {
-                setcinema({ indexCinema: index });
-              }}
-              aria-selected="true"
-            >
+            <a key={item.biDanh} className="nav-link theater__icon__link active" id={item.maHeThongRap} data-toggle="pill" href={"#" + item.biDanh} role="tab" aria-controls={item.maHeThongRap} onClick={() => {setcinema({ indexCinema: index });}} aria-selected="true">
               <img src={item.logo} className="theater__icon" />
             </a>
           );
         } else {
           return (
-            <a
-              key={item.biDanh}
-              className="nav-link "
-              id={item.maHeThongRap}
-              data-toggle="pill"
-              href={"#" + item.biDanh}
-              role="tab"
-              aria-controls={item.maHeThongRap}
-              onClick={() => {
-                setcinema({ indexCinema: index });
-              }}
-              aria-selected="false"
-            >
+            <a key={item.biDanh} className="nav-link theater__icon__link" id={item.maHeThongRap} data-toggle="pill" href={"#" + item.biDanh} role="tab" aria-controls={item.maHeThongRap} onClick={() => {setcinema({ indexCinema: index });}} aria-selected="false">
               <img src={item.logo} className="theater__icon" />
             </a>
           );
@@ -82,15 +55,10 @@ export default function Theater(props) {
     );
   };
   return (
-    <section className="theater" name="theater">
+    <section className="theater" name="theater" id="theater">
       <div className="theater__container">
         <div className="theater__box">
-          <div
-            className="nav flex-column nav-pills col-lg-2"
-            id="v-pills-tab"
-            role="tablist"
-            aria-orientation="vertical"
-          >
+          <div className="nav flex-column nav-pills col-lg-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             {renderListCinema()}
           </div>
         <div className="col-md-10  tab-content " id="v-pills-tabContent">

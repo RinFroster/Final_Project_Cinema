@@ -13,10 +13,15 @@
 //Components
 @import './Components/CarouselArrow';
 @import './Components/MovieArrow';
+@import './Components/BtnBackToTop';
 //Layout
 @import './Layouts/NavbarHome';
 @import './Layouts/HomePage';
 @import './Layouts/MovieDetailPage';
+@import './Layouts/DetailTabPane';
+@import './Layouts/DetailTabPaneItem';
+@import './Layouts/DetailTabPaneDate';
+@import './Layouts/MovieInfo';
 @import './Layouts/MovieItem';
 @import './Layouts/Carousel';
 @import './Layouts/MovieList';
