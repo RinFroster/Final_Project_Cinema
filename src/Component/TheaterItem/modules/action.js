@@ -6,7 +6,7 @@ export const  actListTheaterApi = (id) =>{
     return async (dispatch)=>{
         dispatch(actListTheaterRequest);
         await Axios({
-            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${id}&maNhom=GP01`,
+            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${id}`,
             method:"GET",
         })
         .then((res)=>{

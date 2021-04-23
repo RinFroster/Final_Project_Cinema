@@ -1,7 +1,13 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import Collapse from "react-bootstrap/Collapse";
 
-export default function DetailTabPaneItemMobile() {
+export default function DetailTabPaneItemMobile(props) {
+    useEffect(() => {
+        // const id = props.cinema;
+        // console.log(id)
+        return () => {
+        }
+    }, [])
     const [openDetailCollapse, setOpenDetailCollapse] = useState(false);
     return (
         <div className="tabPaneItem__showTime__containerMobile tab-content" id="v-pills-tabContentMobile">

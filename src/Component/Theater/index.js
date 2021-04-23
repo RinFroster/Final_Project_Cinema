@@ -36,7 +36,7 @@ export default function Theater(props) {
         }
       })
     );
-  };
+  };  
   const renderListCinemaSystem = () => {
     return (
       data && (

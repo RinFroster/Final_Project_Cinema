@@ -3,18 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { actListTheaterApi, actShowTimeApi } from "./modules/action";
 import { connect } from "react-redux";
 import ShowTimes from "../ShowTimes";
+import { data } from "jquery";
 
 function TheaterItem(props) {
   
   const [active, setActive] = useState(null);
   const [show, setShow] = useState(null);
   const [showTime, setShowTime] = useState({ indexShow: 0 });
-  const [DSRap, setDSRap] = useState({
-    listShowTime: [],
-  });
 
-
-  let { data } = props;
 
   const handleClick = (e) => {
     const otherTheater = document.getElementsByClassName(
@@ -40,19 +36,19 @@ function TheaterItem(props) {
     props.fetchListTheater(id);
    
   }, []);
+
   const renderTheaterItem = () => {
-    // console.log(props)
     const { data } = props;
-    if(data) {
-      const [ lstCumRap ] = data;
-      return lstCumRap.lstCumRap && lstCumRap.lstCumRap.map((item, index)=>{
-        // console.log(item)
-        if(index === 0) {
+      return (data && data.map((item, index)=> {
           return (
             <div
               key={item.maCumRap}
               className="theaterItem__content active"
-              id={item.maCumRap}
+              id={ "cinema" + data.maCumRap}
+              data-toggle="list"
+              role= "tab"
+              aria-controls="home"
+              href={"#Cinema" + item.maCumRap}
               aria-controls = {item.maCumRap}
               onClick={handleClick, ()=>{
                 setShowTime({indexShow: index});
@@ -77,60 +73,23 @@ function TheaterItem(props) {
               </div>
             </div>
           );
-        }
-        else {
-          return (
-            <div
-              key={item.maCumRap}
-              className="theaterItem__content"
-              id={item.maCumRap}
-              aria-controls = {item.maCumRap}
-              onClick={handleClick, ()=>{
-                setShowTime({indexShow: index});
-              }}
-              aria-selected="true"
-            >
-              <img
-                src={
-                  require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
-                    .default
-                }
-                alt=" "
-              />
-              <div className="theaterItem__span">
-                <span className="cinema">
-                  <span className="colorcinema">{item.tenCumRap}</span>
-                </span>
-                <span className="infoCinema">{item.diaChi}</span>
-                <span className="infoCinema__Detail">
-                  <a>[chi tiết]</a>
-                </span>
-              </div>
-            </div>
-          );
-        }
-             
-         })
-    }
-  };
+        })
+      )};
   const renderShowTime = () => {
-    // const { data } = props;
-    // console.log(data)
-    // if(data){
-    //   const datalisst = [...data.lstCumRap ]
-    // }
-    
-      // return (
-      //   data.lstCumRap && (
-      //     <div
-      //      className = "show active"
-      //     id= {data.lstCumRap.maCumRap}
-      //     aria-labelledby = {data.lstCumRap[showTime.indexShow].maCumRap}
-      //   >
-      //       <ShowTimes key = {data.lstCumRap.maCumRap} show = {data.lstCumRap[showTime.indexShow].danhSachPhim} />  
-      //       </div>
-      //   )
-      //   )
+    const { data } = props;   
+      return (
+        data && (
+          <div
+           className = "show active"
+          id= { "Cinema" + data[showTime.indexShow].maCumRap}
+          role="tabpanel"
+          aria-labelledby = {"cinema" + data[showTime.indexShow].maCumRap}
+        >
+            <ShowTimes key = {data[showTime.indexShow].biDanh} maCumRap = {data[showTime.indexShow].maCumRap} 
+            danhSachRap = {data[showTime.indexShow].danhSachRap} nameCinema = {props.cinema} />  
+            </div>
+        )
+        )
   };
 
   return (

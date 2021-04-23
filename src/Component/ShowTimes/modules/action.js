@@ -5,7 +5,7 @@ export const actShowTimeApi = (ma) =>{
     return (dispatch) =>{
         dispatch(actShowTimeRequest);
         Axios({
-            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${ma}&maNhom=GP01`,
+            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${ma}`,
             method:'GET',
         })   
         .then(res=>{

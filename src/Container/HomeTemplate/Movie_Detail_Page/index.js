@@ -50,7 +50,7 @@ function MovieDetail(props) {
             </ul>
             <div class="tab-content detailPage__tab__content" id="myTabContent">
               <div className="tab-pane fade show active" id="news__24h" role="tabpanel" aria-labelledby="news__24h">
-                <DetailTabPane/>
+                <DetailTabPane maPhim = {props}/>
               </div>
               <div className="tab-pane fade" id="news__review" role="tabpanel" aria-labelledby="news__review">
                 <MovieInfo/>
