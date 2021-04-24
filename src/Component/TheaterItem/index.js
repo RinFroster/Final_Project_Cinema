@@ -64,7 +64,7 @@ function TheaterItem(props) {
               />
               <div className="theaterItem__span">
                 <span className="cinema">
-                  <span className="colorcinema">{item.tenCumRap}</span>
+                  <span className="colorCinema">{item.tenCumRap}</span>
                 </span>
                 <span className="infoCinema">{item.diaChi}</span>
                 <span className="infoCinema__Detail">

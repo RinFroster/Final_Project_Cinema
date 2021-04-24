@@ -1,6 +1,8 @@
 import React from 'react'
+import { useParams } from 'react-router';
 
-function MovieInfo() {
+function MovieInfo(props) {
+    const {maPhimInfo} = props;
     return (
         <div className="movieInfo__container">
             <div className="movieInfo__left col-sm-12 col-md-6">
@@ -31,7 +33,7 @@ function MovieInfo() {
             <div className="movieInfo__right col-lg-6">
                 <div className="movieInfo__right__title">Nội Dung</div>
                 <div className="movieInfo__right__content">
-                    Khi hai kẻ thù truyền kiếp gặp nhau trong một trận chiến ngoạn mục, số phận của cả thế giới vẫn còn bị bỏ ngỏ… Bị đưa khỏi Đảo Đầu Lâu, Kong cùng Jia, một cô bé mồ côi có mối liên kết mạnh mẽ với mình và đội bảo vệ đặc biệt hướng về mái nhà mới. Bất ngờ, nhóm đụng độ phải Godzilla hùng mạnh, tạo ra một làn sóng hủy diệt trên toàn cầu. Thực chất, cuộc chiến giữa hai kẻ khổng lồ dưới sự thao túng của các thế lực vô hình mới chỉ là điểm khởi đầu để khám phá những bí ẩn nằm sâu trong tâm Trái đất.
+                    {maPhimInfo&&maPhimInfo}
                 </div>
             </div>
         </div>

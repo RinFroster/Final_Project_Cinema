@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import {
+  Link,
+  animateScroll as scroll,
+} from "react-scroll";
 
 export default function Footer() {
     return (
@@ -86,6 +90,10 @@ export default function Footer() {
                    </div>
                 </div>
            </div>
+           <Link to="header" spy={true} duration={500} className="btnBackToTop">
+               <img src={require("./../../Asset/Prev__Next__Arrows/arrowup.png").default}/>
+               <p className="backToTopText">Back To Top</p>
+           </Link>
        </footer>
     )
 }

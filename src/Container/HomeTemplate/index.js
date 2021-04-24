@@ -2,7 +2,6 @@ import React from "react";
 import { Route } from "react-router-dom";
 import NavbarHome from "./../../Component/NavbarHome";
 import Footer from "../../Component/Footer";
-import BackToTopButton from "./../../Component/BackToTopButton";
 
 function HomeLayout(props) {
   return (
@@ -10,7 +9,6 @@ function HomeLayout(props) {
       <NavbarHome />
       {props.children}
       <Footer />
-      <BackToTopButton/>
     </>
   );
 }
