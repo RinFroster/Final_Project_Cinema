@@ -20,7 +20,7 @@ export default function ShowTimesItem(props) {
     return lstLichChieuTheoPhim.map((item) => {
       return (
         <div key={item.maCumRap} className="theater__sessions">
-          <a className="sessions__btn">
+          <Link to="/checkout" className="sessions__btn">
             <span className="sessions__span">
               {new Date(item.ngayChieuGioChieu).getHours() +
                 ":" +
@@ -30,7 +30,7 @@ export default function ShowTimesItem(props) {
             {new Date(item.ngayChieuGioChieu).getHours() +
                 ":" +
                 new Date(item.ngayChieuGioChieu).getMinutes()}
-          </a>
+          </Link>
         </div>
       );
     });
@@ -47,7 +47,7 @@ export default function ShowTimesItem(props) {
             aria-expanded={open}
           >
             <img src={item.hinhAnh} />
-            <div className="theaterItem__moviespan">
+            <div className="theaterItem__movieSpan">
               <span className="cinema__movie">
                 <span className="btnCinema">C13</span>
                 {item.tenPhim}

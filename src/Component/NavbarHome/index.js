@@ -50,7 +50,7 @@ function NavbarHome() {
   }
   
   return (
-    <header className="navbar__container">
+    <header className="navbar__container" id="header">
       <div className="container-fluid">
         <nav className="navbar navbar-expand-lg navbar__header">
           {/* Brand */}

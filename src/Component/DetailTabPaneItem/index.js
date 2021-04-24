@@ -9,15 +9,12 @@ function DetailTabPaneItem(props) {
 
     useEffect(() => {
         const id = props.cinameDestop;
-        // const maPhim = props.maPhim.match.params;
-        // console.log(maPhim)
         props.fetchListDetailItem(id);
         return () => {
         }
     }, [])
 
     const { data ,maPhim } = props;
-    //  console.log(maPhim)
     const renderTheaterItem = ()=> {
         return (data && data.map((item,index)=>{
             return (    

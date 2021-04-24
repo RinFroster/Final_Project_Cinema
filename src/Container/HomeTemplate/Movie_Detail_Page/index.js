@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {actDetailMovieApi} from "./Modules/Action";
+import {actDetailMovieApi} from "./modules/action";
 import {connect} from "react-redux";
 import DetailTabPane from "./../../../Component/DetailTabPane";
 import MovieInfo from "./../../../Component/MovieInfo";
@@ -17,6 +17,7 @@ function MovieDetail(props) {
         props.fetchDetailMovie(id);
     }, [])
     const {data} = props;
+    console.log(data);
     return (
       <section className="detail__section">
           <div className="detail__movie__container">
@@ -50,10 +51,10 @@ function MovieDetail(props) {
             </ul>
             <div class="tab-content detailPage__tab__content" id="myTabContent">
               <div className="tab-pane fade show active" id="news__24h" role="tabpanel" aria-labelledby="news__24h">
-                <DetailTabPane maPhim = {props}/>
+                <DetailTabPane maPhim = {data&&data.maPhim}/>
               </div>
               <div className="tab-pane fade" id="news__review" role="tabpanel" aria-labelledby="news__review">
-                <MovieInfo/>
+                <MovieInfo maPhimInfo = {data&&data.moTa}/>
               </div>
             </div>
           </div>

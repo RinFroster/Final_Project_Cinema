@@ -11,11 +11,11 @@ function DetailTabPane(props) {
   const [cinema, setcinema] = useState({ indexCinema: 0 });
 
   useEffect(() => {
-    const id = props.maPhim.match.params.id;
     props.fetchListCinema()
     return () => {
     }
   }, [])
+  
   
   // Bốc tách data từ trong props
   const {data} = props; 
@@ -47,7 +47,7 @@ function DetailTabPane(props) {
       data && (
         <div  className="tab-pane fade show active" id={data[cinema.indexCinema].maHeThongRap} role="tabpanel" aria-labelledby={data[cinema.indexCinema].maHeThongRap}>
         <DetailTabPaneDate/>
-        <DetailTabPaneItem  maPhim = {props.maPhim.match.params.id} key={data[cinema.indexCinema].biDanh}  cinameDestop = {data[cinema.indexCinema].maHeThongRap}/>
+        <DetailTabPaneItem  maPhim = {props.maPhim} key={data[cinema.indexCinema].biDanh}  cinameDestop = {data[cinema.indexCinema].maHeThongRap}/>
       </div>
       )
     )
@@ -75,30 +75,6 @@ function DetailTabPane(props) {
               </div>
               <div className=" col-lg-9 tab-content detailTab__content" id="v-pills-tabContent">
                 {renderListCinemaSystemDestop()}
-                  {/* <div className="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="BHD">
-                    <DetailTabPaneDate/>
-                    <DetailTabPaneItemMobile/>
-                  </div>
-                  <div className="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="CINE">
-                    <DetailTabPaneDate/>
-                    <DetailTabPaneItem/>
-                  </div>
-                  <div className="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="DDC">
-                    <DetailTabPaneDate/>
-                    <DetailTabPaneItem/>
-                  </div>
-                  <div className="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="MEGAGS">
-                    <DetailTabPaneDate/>
-                    <DetailTabPaneItem/>
-                  </div>
-                  <div className="tab-pane fade" id="d-cine" role="tabpanel" aria-labelledby="DCINE">
-                    <DetailTabPaneDate/>
-                    <DetailTabPaneItem/>
-                  </div>
-                  <div className="tab-pane fade" id="lotte" role="tabpanel" aria-labelledby="LOTTE">
-                    <DetailTabPaneDate/>
-                    <DetailTabPaneItem/>
-                  </div> */}
               </div>
 
               {/* Mobile Design */}
@@ -113,61 +89,6 @@ function DetailTabPane(props) {
                         <a class="dropdown-item dropdown__item" href="#"><DetailTabPaneItemMobile/></a>
                       </div>
                     </div>
-
-                    {/* <div className="nav__link__container">
-                      <div className="nav-link detailTab__linkMobile dropdown-toggle dropdown__toggle" id="CINE" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src={require("./../../Asset/img/theater/f32670fd0eb083c9c4c804f0f3a252ed.png").default} alt="" className="detailTab__iconMobile"/>
-                        <span className="detailTab__theaterNameMobile">Cine Star</span>
-                        <FontAwesomeIcon icon={faChevronRight} className="icon__right"/>
-                      </div>
-                      <div class="dropdown-menu dropdown__menu" aria-labelledby="CINE">
-                        <a class="dropdown-item dropdown__item" href="#"><DetailTabPaneItemMobile/></a>
-                      </div>
-                    </div>
-
-                    <div className="nav__link__container">
-                      <div className="nav-link detailTab__linkMobile dropdown-toggle dropdown__toggle" id="DDC" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src={require("./../../Asset/img/theater/DDC.png").default} alt="" className="detailTab__iconMobile"/>
-                        <span className="detailTab__theaterNameMobile">BHD Star Cineplex</span>
-                        <FontAwesomeIcon icon={faChevronRight} className="icon__right"/>
-                      </div>
-                      <div class="dropdown-menu dropdown__menu" aria-labelledby="DDC">
-                          <a class="dropdown-item dropdown__item" href="#"><DetailTabPaneItemMobile/></a>
-                      </div>
-                    </div>
-
-                    <div className="nav__link__container">
-                      <div className="nav-link detailTab__linkMobile dropdown-toggle dropdown__toggle" id="MEGAGS" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src={require("./../../Asset/img/theater/Mage.png").default} alt="" className="detailTab__iconMobile"/>
-                        <span className="detailTab__theaterNameMobile">BHD Star Cineplex</span>
-                        <FontAwesomeIcon icon={faChevronRight} className="icon__right"/>
-                      </div>
-                      <div class="dropdown-menu dropdown__menu" aria-labelledby="MEGAGS">
-                        <a class="dropdown-item dropdown__item" href="#"><DetailTabPaneItemMobile/></a>
-                      </div>
-                    </div>
-
-                    <div className="nav__link__container">
-                      <div className="nav-link detailTab__linkMobile dropdown-toggle dropdown__toggle" id="DCINE" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src={require("./../../Asset/img/theater/dcine-ben-thanh.png").default} alt="" className="detailTab__iconMobile"/>
-                        <span className="detailTab__theaterNameMobile">BHD Star Cineplex</span>
-                        <FontAwesomeIcon icon={faChevronRight} className="icon__right"/>
-                      </div>
-                      <div class="dropdown-menu dropdown__menu" aria-labelledby="DCINE">
-                        <a class="dropdown-item dropdown__item" href="#"><DetailTabPaneItemMobile/></a>
-                      </div>
-                    </div>
-                    
-                    <div className="nav__link__container">
-                      <div className="nav-link detailTab__linkMobile dropdown-toggle dropdown__toggle" id="LOTTE" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src={require("./../../Asset/img/theater/lotte.png").default} alt="" className="detailTab__iconMobile"/>
-                        <span className="detailTab__theaterNameMobile">BHD Star Cineplex</span>
-                        <FontAwesomeIcon icon={faChevronRight} className="icon__right"/>
-                      </div>
-                      <div class="dropdown-menu dropdown__menu" aria-labelledby="LOTTE">
-                        <a class="dropdown-item dropdown__item" href="#"><DetailTabPaneItemMobile/></a>
-                      </div>
-                    </div> */}
                   </div>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from "react-redux";
 import { actShowTimeApi } from '../ShowTimes/modules/action';
+import { Link } from "react-router-dom";
 
 function DetailTabPaneItemShowTime(props) {
     useEffect(() => {
@@ -25,12 +26,12 @@ function DetailTabPaneItemShowTime(props) {
                         if (itemDS.maPhim === props.maPhim)
                             console.log(itemDS)
                             return (itemDS.lstLichChieuTheoPhim.map((itemP) => {
-                                console.log(itemP)
+                                // console.log(itemP)
                                 return (
                                        <div className="theater__sessions">
-                                        <a className="sessions__btn">
+                                        <Link to="/checkout" className="sessions__btn">
                                             <span className="sessions__span">{itemP.ngayChieuGioChieu.slice(11,16)}</span>~ 16:45
-                                        </a>
+                                        </Link>
                                     </div>      
                                 )
                             }))
