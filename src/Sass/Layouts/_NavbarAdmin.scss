@@ -1,0 +1,77 @@
+.navbarAdmin{
+    padding: 0 !important;
+    background-color: $header-primary;
+    padding-right: 1rem !important;
+    box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.3);
+    position: fixed;
+    transition: all 0.3s;
+    width: 100%;
+    position: relative;
+    .navbarAdmin__container{
+        justify-content: space-between;
+        .navbarAdmin__brand{
+            .navbarAdmin__logo{
+                height: 6rem;
+                width: 6rem;
+                img{
+                  height: 100%;
+                  width: 100%;
+                }
+            }
+        }
+        .navbarAdmin__collapse{
+            justify-content: center;
+            height: 100%;
+            .navbarAdmin__nav{
+                .navbarAdmin__dropdown{
+                    width: 100%;
+                    margin-right: 2rem;
+                    cursor: pointer;
+                    .navbarAdmin__dropdownToggle{
+                        text-transform: capitalize;
+                        @include styleText($fs-3,$text-base-color,$fw-bold-2);
+                        &::after{
+                            margin-left: 0.5rem;
+                            vertical-align: 0.25rem;
+                        }
+                        &:hover{
+                            color:$item-active;
+                        }
+                    }
+                    .navbarAdmin__dropdownMenu{
+                        .navbarAdmin__dropdownItem{
+                            text-transform: capitalize;
+                            @include styleText($fs-3,$text-base-color,$fw-bold-2);
+                            &:hover{
+                                color:$item-active;
+                                background-color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .navbarAdmin__user{
+            display: flex;
+            cursor: pointer;
+            .navbarAdmin__logo{
+                width: 3rem;
+                height: 3rem;
+                margin-right: 0.5rem;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 100%;
+                }
+            }
+            .navbarAdmin__userName{
+                @include styleText($fs-2,$text-on-header-second,$fw-bold-2);
+                line-height: 2;
+                height: 100%;
+                &:hover{
+                    color: $item-active;
+                }
+            }
+        }
+    }
+}

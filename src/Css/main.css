@@ -4772,4 +4772,97 @@ footer .btnBackToTop .backToTopText:hover {
     max-height: 72.5rem;
   }
 }
+
+.navbarAdmin {
+  padding: 0 !important;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding-right: 1rem !important;
+  box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.3);
+  position: fixed;
+  transition: all 0.3s;
+  width: 100%;
+  position: relative;
+}
+
+.navbarAdmin .navbarAdmin__container {
+  justify-content: space-between;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__brand .navbarAdmin__logo {
+  height: 6rem;
+  width: 6rem;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__brand .navbarAdmin__logo img {
+  height: 100%;
+  width: 100%;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse {
+  justify-content: center;
+  height: 100%;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown {
+  width: 100%;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownToggle {
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownToggle::after {
+  margin-left: 0.5rem;
+  vertical-align: 0.25rem;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownToggle:hover {
+  color: #fb4226;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownMenu .navbarAdmin__dropdownItem {
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownMenu .navbarAdmin__dropdownItem:hover {
+  color: #fb4226;
+  background-color: #fff;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__user {
+  display: flex;
+  cursor: pointer;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__logo {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__logo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__userName {
+  font-size: 14px;
+  color: #9b9b9b;
+  font-weight: 500;
+  line-height: 2;
+  height: 100%;
+}
+
+.navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__userName:hover {
+  color: #fb4226;
+}
 /*# sourceMappingURL=main.css.map */

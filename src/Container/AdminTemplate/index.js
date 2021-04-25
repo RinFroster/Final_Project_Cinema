@@ -4,10 +4,10 @@ import NavbarAdmin from "./../../Component/NavbarAdmin";
 
 function AdminLayout(props){
     return(
-        <div>
+        <>
             <NavbarAdmin/>
             {props.children}
-        </div>
+        </>
     )
 }
 
