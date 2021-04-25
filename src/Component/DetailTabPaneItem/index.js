@@ -63,8 +63,6 @@ function DetailTabPaneItem(props) {
             )
         )
     }
-    // maPhim = {props.maPhim}
-    const [openDetailCollapse, setOpenDetailCollapse] = useState(false);
 
     return (
         <div className="tabPaneItem__container">
