@@ -1150,6 +1150,7 @@ p {
 
 .detail__tab .detailTab__container .detailTab__box .detailTab__pills .detailTab__link {
   text-align: left;
+  text-transform: capitalize;
   padding: 2rem 0;
   padding-left: 2rem;
   position: relative;
@@ -1310,6 +1311,11 @@ p {
   max-height: 76.5rem;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.tabPaneItem__showTime__container .tabPaneItem__showTime {
+  width: 100%;
+  position: relative;
 }
 
 .tabPaneItem__showTime__container .tabPaneItem__showTime .tabPaneItem__movie {
@@ -2825,6 +2831,19 @@ p {
   overflow-x: hidden;
 }
 
+.theater__item .theater__wrapMovie .theaterItem__item .theaterItem__row {
+  width: 100%;
+  position: relative;
+}
+
+.theater__item .theater__wrapMovie .theaterItem__item .theaterItem__row::after {
+  content: "";
+  position: absolute;
+  width: 95%;
+  border-bottom: 1px solid #fff;
+  border-color: rgba(238, 238, 238, 0.88);
+}
+
 .theater__item .theater__wrapMovie .theaterItem__item .theaterItem__movie {
   padding: 2rem 0;
   width: 100%;
@@ -2881,7 +2900,7 @@ p {
 
 .theater__item .theater__wrapMovie .theaterItem__item .theater__2D {
   width: 100%;
-  transition: height 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   padding-top: 1rem;
 }
 
@@ -2929,16 +2948,6 @@ p {
 
 .theater__item .theater__wrapMovie .theaterItem__item .theater__2D .theater__sessionsContainer .theater__sessions .sessions__btn :hover {
   color: #fb4226;
-}
-
-.theater__item .theater__wrapMovie .theaterItem__item::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  width: 95%;
-  transform: translateX(-50%);
-  border-bottom: 1px solid #fff;
-  border-color: rgba(238, 238, 238, 0.88);
 }
 
 @media screen and (min-width: 992px) {

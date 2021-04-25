@@ -38,12 +38,20 @@ export default function ShowTimesItem(props) {
 
   const renderItem = () => {
     return props.danhSachPhim.map((item) => {
+      const handleShowTimeMovie = () => {
+        const getTheaterItemRow = document.getElementById(item.maPhim);
+        if(!(getTheaterItemRow&&getTheaterItemRow.classList.contains("show"))){
+          getTheaterItemRow.classList.add("show");
+        }else{
+          getTheaterItemRow.classList.remove("show");
+        }
+        console.log(getTheaterItemRow);
+      }
       return (
-        <>
+        <div className="theaterItem__row" onClick={handleShowTimeMovie}>
           <div
             className="theaterItem__movie"
-            onClick={() => setOpen(!open)}
-            aria-controls="example-collapse-text1"
+            aria-controls={item.maPhim}
             aria-expanded={open}
           >
             <img src={item.hinhAnh} />
@@ -56,14 +64,14 @@ export default function ShowTimesItem(props) {
             </div>
           </div>
           <Collapse in={!open}>
-            <div className="theater__2D" id="example-collapse-text1">
+            <div className="theater__2D" id={item.maPhim}>
               <div className="theaterItem__header">2D Digital</div>
               <div className="theater__sessionsContainer">
                 {renderBtn(item.lstLichChieuTheoPhim, item.maPhim)}
               </div>
             </div>
           </Collapse>
-        </>
+        </div>
       );
     });
   };
