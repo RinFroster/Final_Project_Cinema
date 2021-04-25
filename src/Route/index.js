@@ -1,6 +1,7 @@
 import HomePage from "./../Container/HomeTemplate/Home_Page";
 import MovieDetail from "./../Container/HomeTemplate/Movie_Detail_Page";
 import CheckoutPage from "../Container/CheckoutTemplate/CheckoutPage";
+import AdminPage from "../Container/AdminTemplate/AdminPage";
 const routeHome = [
     {
         path: '/',
@@ -16,14 +17,18 @@ const routeHome = [
 
 const routeCheckout = [
     {
-        path: "/checkout",
+        path: "/checkout/:id",
         component: CheckoutPage,
         exact: false,
     },
 ]
 
-// const routeAdmin = [
+const routeAdmin = [
+    {
+        path: "/admin",
+        component: AdminPage,
+        exact: false,
+    },
+]
 
-// ]
-
-export {routeHome,routeCheckout};
+export {routeHome,routeCheckout,routeAdmin};

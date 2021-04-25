@@ -63,8 +63,7 @@ function DetailTabPaneItem(props) {
             )
         )
     }
-   
-
+    
     return (
         <div className="tabPaneItem__container">
             <div className="tabPaneItem__showTime__container tab-content" id="v-pills-tabContent">

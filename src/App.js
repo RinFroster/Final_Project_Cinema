@@ -1,10 +1,10 @@
 import './App.css';
 // Route
 import {BrowserRouter, Switch } from 'react-router-dom';
-import {routeHome,routeCheckout} from './Route';
+import {routeHome,routeCheckout,routeAdmin} from './Route';
 import HomeTemplate from "./Container/HomeTemplate";
 import CheckoutTemplate from "./Container/CheckoutTemplate";
-// import AdminTemplate from "./Container/AdminTemplate";
+import AdminTemplate from "./Container/AdminTemplate";
 import Loader from "./Component/Loader/index";
 
 function App() {
@@ -26,15 +26,15 @@ function App() {
       })
     }
   }
-  // const showLayoutAdmin = (route) => {
-  //   if(route && route.length > 0){
-  //     return route.map((index,item)=>{
-  //       return (
-  //         <AdminTemplate key={index} exact={item.exact} path={item.path} Component={item.component}/>
-  //       )
-  //     })
-  //   }
-  // }
+  const showLayoutAdmin = (route) => {
+    if(route && route.length > 0){
+      return route.map((item, index)=>{
+        return (
+          <AdminTemplate key={index} exact={item.exact} path={item.path} Component={item.component}/>
+        )
+      })
+    }
+  }
   
   return (
     <BrowserRouter>
@@ -42,7 +42,7 @@ function App() {
       <Switch>
         {showLayoutHome(routeHome)}
         {showLayoutCheckout(routeCheckout)}
-        {/* {showLayoutAdmin(routeAdmin)} */}
+        {showLayoutAdmin(routeAdmin)} 
       </Switch>
     </BrowserRouter>
   );

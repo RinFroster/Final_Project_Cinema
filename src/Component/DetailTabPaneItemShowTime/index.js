@@ -25,7 +25,7 @@ function DetailTabPaneItemShowTime(props) {
                                 // console.log(itemP)
                                 return (
                                        <div className="theater__sessions">
-                                        <Link to="/checkout" className="sessions__btn">
+                                        <Link to={`/checkout/${itemDS.maPhim}`} className="sessions__btn">
                                             <span className="sessions__span">{itemP.ngayChieuGioChieu.slice(11,16)}</span>~ 16:45
                                         </Link>
                                     </div>      
