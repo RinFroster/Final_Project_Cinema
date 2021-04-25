@@ -17,7 +17,6 @@ function MovieDetail(props) {
         props.fetchDetailMovie(id);
     }, [])
     const {data} = props;
-    console.log(data);
     return (
       <section className="detail__section">
           <div className="detail__movie__container">

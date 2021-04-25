@@ -9,18 +9,11 @@ export default function ShowTimesItem(props) {
     const { danhSachPhim } = props;
   });
 
-  // const addHour = (gio, h) => {
-  //   time.hours = gio + h;
-  //   setTime({
-  //     hours: time,
-  //   });
-  // };
-
   const renderBtn = (lstLichChieuTheoPhim, maPhim) => {
     return lstLichChieuTheoPhim.map((item) => {
       return (
         <div key={item.maCumRap} className="theater__sessions">
-          <Link to="/checkout" className="sessions__btn">
+          <Link to={`/checkout/${maPhim}`} className="sessions__btn">
             <span className="sessions__span">
               {new Date(item.ngayChieuGioChieu).getHours() +
                 ":" +
