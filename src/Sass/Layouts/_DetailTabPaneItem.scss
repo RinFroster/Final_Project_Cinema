@@ -4,6 +4,8 @@
     overflow-y: auto;
     overflow-x: hidden;
     .tabPaneItem__showTime{
+        width: 100%;
+        position: relative;
         .tabPaneItem__movie{
             padding: 2rem 0;
             width: 100%;
