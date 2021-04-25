@@ -56,15 +56,14 @@ function DetailTabPaneItem(props) {
             <div className="tabPaneItem__2D" id= {data[showTime.indexShow].maCumRap}>
                   <DetailTabPaneItemShowTime 
                   key ={data[showTime.indexShow].maCumRap} maCumRap = {data[showTime.indexShow].maCumRap}
-                    nameCinema = {props.cinameDestop}  danhSachRap = {data[showTime.indexShow].danhSachRap}
+                  maPhim = {props.maPhim} nameCinema = {props.cinameDestop}  danhSachRap = {data[showTime.indexShow].danhSachRap}
                   />  
             </div>
     
             )
         )
     }
-    // maPhim = {props.maPhim}
-    const [openDetailCollapse, setOpenDetailCollapse] = useState(false);
+   
 
     return (
         <div className="tabPaneItem__container">

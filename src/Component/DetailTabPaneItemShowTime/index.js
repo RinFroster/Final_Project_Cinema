@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function DetailTabPaneItemShowTime(props) {
     useEffect(() => {
-        const { maCumRap, danhSachRap, nameCinema } = props;
+        const { maCumRap, danhSachRap, nameCinema, maPhim} = props;
         props.fetchListDetailShowTime(nameCinema);
         return () => {
         }
@@ -19,7 +19,7 @@ function DetailTabPaneItemShowTime(props) {
                     // console.log(itemCR)
                     return (itemCR.danhSachPhim.map((itemDS) => {
                         // console.log(itemDS)
-                        if (itemDS.maPhim === props.ma.maPhim)
+                        if (itemDS.maPhim === props.maPhim)
                             console.log(itemDS)
                             return (itemDS.lstLichChieuTheoPhim.map((itemP) => {
                                 // console.log(itemP)
@@ -53,7 +53,7 @@ function DetailTabPaneItemShowTime(props) {
 const mapStateToProps = (state) => {
     return {
         data: state.ShowTimeReducer.data,
-        ma: state.listMovieReducerCS.data,
+        // ma: state.listMovieReducerCS.data,
     }
 
 }
@@ -61,7 +61,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchListDetailShowTime: (ma) => {
             dispatch(actShowTimeApi(ma, "&maNhom=GP1"))
-        }
+        },
     }
 
 }
