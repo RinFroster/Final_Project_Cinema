@@ -47,11 +47,12 @@ function DetailTabPane(props) {
       data && (
         <div  className="tab-pane fade show active" id={data[cinema.indexCinema].maHeThongRap} role="tabpanel" aria-labelledby={data[cinema.indexCinema].maHeThongRap}>
         <DetailTabPaneDate/>
-        <DetailTabPaneItem  maPhim = {props.maPhim} key={data[cinema.indexCinema].biDanh}  cinameDestop = {data[cinema.indexCinema].maHeThongRap}/>
+        <DetailTabPaneItem  key={data[cinema.indexCinema].biDanh}  cinameDestop = {data[cinema.indexCinema].maHeThongRap}/>
       </div>
       )
     )
   }
+  // maPhim = {props.maPhim}
 
   const renderListCinemaMobile = () =>{
     return (data && data.map((item, index)=>{

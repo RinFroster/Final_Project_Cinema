@@ -14,7 +14,7 @@ function DetailTabPaneItem(props) {
         }
     }, [])
 
-    const { data ,maPhim } = props;
+    const { data } = props;
     const renderTheaterItem = ()=> {
         return (data && data.map((item,index)=>{
             return (    
@@ -43,13 +43,14 @@ function DetailTabPaneItem(props) {
             <div className="tabPaneItem__2D" id="collapse-text1"  id= { "Cinema" + data[showTime.indexShow].maCumRap}  aria-labelledby = {"cinema" + data[showTime.indexShow].maCumRap}>
                   <DetailTabPaneItemShowTime 
                   key ={data[showTime.indexShow].maCumRap} maCumRap = {data[showTime.indexShow].maCumRap}
-                    nameCinema = {props.cinameDestop} maPhim = {props.maPhim} danhSachRap = {data[showTime.indexShow].danhSachRap}
+                    nameCinema = {props.cinameDestop}  danhSachRap = {data[showTime.indexShow].danhSachRap}
                   />  
             </div>
     
             )
         )
     }
+    // maPhim = {props.maPhim}
     const [openDetailCollapse, setOpenDetailCollapse] = useState(false);
     return (
         <div className="tabPaneItem__container">

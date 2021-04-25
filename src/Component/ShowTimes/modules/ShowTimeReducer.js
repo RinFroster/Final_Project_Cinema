@@ -18,8 +18,8 @@ export default (state = initialState, action) => {
     case TypeAction.SHOWTIMES_FAILED:
         state.data = null;
         state.err= action.payload;
-      return { ...state };
+      return { ...state};
     default:
-      return state;
+      return {...state};
   }
 };

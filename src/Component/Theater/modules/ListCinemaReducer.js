@@ -20,6 +20,6 @@ export default (state = initialState, action) => {
         state.err = action.payload;
         return { ...state}
     default:
-        return state
+        return {...state}
     }
 }
