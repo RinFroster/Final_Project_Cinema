@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useRef, memo } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { actListTheaterApi, actShowTimeApi } from "./modules/action";
+import React, { useState, useEffect, memo } from "react";
+import { actListTheaterApi } from "./modules/action";
 import { connect } from "react-redux";
 import ShowTimes from "../ShowTimes";
-import { data } from "jquery";
 
 function TheaterItem(props) {
   
@@ -23,6 +21,7 @@ function TheaterItem(props) {
     if (theater) {
       chosenTheater.classList.add("active");
     }
+    console.log(chosenTheater);
   };
 
   const handleShow = (e) => {
@@ -40,28 +39,10 @@ function TheaterItem(props) {
   const renderTheaterItem = () => {
     const { data } = props;
       return (data && data.map((item, index)=> {
+        if(index===0){
           return (
-            <div
-              key={item.maCumRap}
-              className="theaterItem__content active"
-              id={ "cinema" + data.maCumRap}
-              data-toggle="list"
-              role= "tab"
-              aria-controls="home"
-              href={"#Cinema" + item.maCumRap}
-              aria-controls = {item.maCumRap}
-              onClick={handleClick, ()=>{
-                setShowTime({indexShow: index});
-              }}
-              aria-selected="true"
-            >
-              <img
-                src={
-                  require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png")
-                    .default
-                }
-                alt=" "
-              />
+            <div key={item.maCumRap} className="theaterItem__content active" id={ "cinema" + item.maCumRap} data-toggle="pill" role= "tab" aria-controls="home" href={"#Cinema" + item.maCumRap} aria-controls = {item.maCumRap} onClick={handleClick, ()=>{setShowTime({indexShow: index});}} aria-selected="true">
+              <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=""/>
               <div className="theaterItem__span">
                 <span className="cinema">
                   <span className="colorCinema">{item.tenCumRap}</span>
@@ -73,6 +54,22 @@ function TheaterItem(props) {
               </div>
             </div>
           );
+        }else{
+          return (
+            <div key={item.maCumRap} className="theaterItem__content" id={ "cinema" + item.maCumRap} data-toggle="pill" role= "tab" aria-controls="home" href={"#Cinema" + item.maCumRap} aria-controls = {item.maCumRap} onClick={handleClick, ()=>{setShowTime({indexShow: index});}} aria-selected="false">
+              <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=""/>
+              <div className="theaterItem__span">
+                <span className="cinema">
+                  <span className="colorCinema">{item.tenCumRap}</span>
+                </span>
+                <span className="infoCinema">{item.diaChi}</span>
+                <span className="infoCinema__Detail">
+                  <a>[chi tiết]</a>
+                </span>
+              </div>
+            </div>
+          );
+        }
         })
       )};
   const renderShowTime = () => {

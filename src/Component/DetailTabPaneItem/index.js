@@ -6,33 +6,47 @@ import { actListTheaterApi } from '../TheaterItem/modules/action';
 
 function DetailTabPaneItem(props) {
     const [showTime, setShowTime] = useState({indexShow: 0})
-
+    const [openDetailCollapse, setOpenDetailCollapse] = useState(false);
     useEffect(() => {
         const id = props.cinameDestop;
         props.fetchListDetailItem(id);
         return () => {
         }
     }, [])
-
-    const { data ,maPhim } = props;
+    
+    const { data } = props;
     const renderTheaterItem = ()=> {
         return (data && data.map((item,index)=>{
-            return (    
-                <div className="tabPaneItem__movie" key={item.maCumRap}  id={ "cinema" + data.maCumRap} href={"#Cinema" + item.maCumRap}   aria-controls = {item.maCumRap}  onClick ={()=>setShowTime({indexShow: index})} >
-                <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=""/>
-                <div className="tabPaneItem__movieSpan" onClick={() =>setOpenDetailCollapse(!openDetailCollapse)} aria-expanded={!openDetailCollapse}>
-                    <span className="tabPaneItem__cinema">
-                        <span className="tabPaneItem__colorCinema">{item.tenCumRap}</span>
-                    </span>
-                    <span className="tabPaneItem__infoCinema">
-                        {" "}
-                        {item.diaChi}
-                    </span>
-                    <span className="tabPaneItem__infoCinema__location">
-                        <a>[Bản Đồ]</a>
-                    </span>
+            const handleShowTimeMovie = () => {
+                const getTabPaneItem = document.getElementById(item.maCumRap);
+                if(!(getTabPaneItem&&getTabPaneItem.classList.contains("show"))){
+                    getTabPaneItem.classList.add("show");
+                }else{
+                    getTabPaneItem.classList.remove("show");
+                }
+                console.log(getTabPaneItem);
+            }
+            return (
+                <div className="col-lg-12 tabPaneItem__showTime" id={item.maCumRap + "Theater"} onClick={handleShowTimeMovie}>
+                    <div className="tabPaneItem__movie" key={item.maCumRap}  id={item.maCumRap + "Cinema"} aria-controls = {item.maCumRap} aria-expanded={!openDetailCollapse} onClick ={()=>setShowTime({indexShow: index})} >
+                        <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=""/>
+                        <div className="tabPaneItem__movieSpan">
+                            <span className="tabPaneItem__cinema">
+                                <span className="tabPaneItem__colorCinema">{item.tenCumRap}</span>
+                            </span>
+                            <span className="tabPaneItem__infoCinema">
+                                {" "}
+                                {item.diaChi}
+                            </span>
+                            <span className="tabPaneItem__infoCinema__location">
+                                <a>[Bản Đồ]</a>
+                            </span>
+                        </div>
+                    </div>
+                    <Collapse in={!openDetailCollapse}>
+                        {renderShowTime()}
+                    </Collapse>
                 </div>
-            </div>
             )
         }))
         
@@ -40,7 +54,7 @@ function DetailTabPaneItem(props) {
     const renderShowTime = () =>{ 
         return (
             data && (
-            <div className="tabPaneItem__2D" id="collapse-text1"  id= { "Cinema" + data[showTime.indexShow].maCumRap}  aria-labelledby = {"cinema" + data[showTime.indexShow].maCumRap}>
+            <div className="tabPaneItem__2D" id= {data[showTime.indexShow].maCumRap}>
                   <DetailTabPaneItemShowTime 
                   key ={data[showTime.indexShow].maCumRap} maCumRap = {data[showTime.indexShow].maCumRap}
                     nameCinema = {props.cinameDestop} maPhim = {props.maPhim} danhSachRap = {data[showTime.indexShow].danhSachRap}
@@ -50,18 +64,12 @@ function DetailTabPaneItem(props) {
             )
         )
     }
-    const [openDetailCollapse, setOpenDetailCollapse] = useState(false);
     return (
         <div className="tabPaneItem__container">
             <div className="tabPaneItem__showTime__container tab-content" id="v-pills-tabContent">
                 <div className="tab-pane fade show active" id="v-pills-t2" role="tabpanel" aria-labelledby="v-pills-t2-tab">
-                    <div className="col-lg-12 tabPaneItem__showTime">
-                        {renderTheaterItem()}
-                        <Collapse in={!openDetailCollapse}>
-                           {renderShowTime()}
-                        </Collapse>
-                  </div>
-                  </div>
+                    {renderTheaterItem()}
+                </div>
                 <div className="tab-pane fade" id="v-pills-t3" role="tabpanel" aria-labelledby="v-pills-t3-tab">
                     <div className="col-lg-12 tabPaneItem__showTime">
                         <div className="tabPaneItem__movie" onClick={() => setOpenDetailCollapse(!openDetailCollapse)} aria-controls="collapse-text1" aria-expanded={!openDetailCollapse}>
