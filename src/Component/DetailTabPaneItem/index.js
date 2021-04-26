@@ -45,7 +45,7 @@ function DetailTabPaneItem(props) {
                     <Collapse in={!openDetailCollapse}>
                         {renderShowTime()}
                     </Collapse>
-                </div>
+                </div> 
             )
         }))
         
