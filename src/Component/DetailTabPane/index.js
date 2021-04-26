@@ -41,7 +41,6 @@ function DetailTabPane(props) {
      
     }))
   }
-
   const renderListCinemaSystemDestop =()=>{
     return (
       data && (
@@ -54,16 +53,42 @@ function DetailTabPane(props) {
   }
   // maPhim = {props.maPhim}
 
+
+  // render logo mobile 
   const renderListCinemaMobile = () =>{
     return (data && data.map((item, index)=>{
+      if(index===0) {
       return (
-        <div key ={item.biDanh} className="nav-link detailTab__linkMobile dropdown-toggle dropdown__toggle" id={item.maHeThongRap} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div key ={item.biDanh} className="nav-link detailTab__linkMobile dropdown-toggle dropdown__toggle" id={item.maHeThongRap} aria-controls={item.maHeThongRap} onClick={()=>{setcinema({indexCinema: index})}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src={item.logo} alt="" className="detailTab__iconMobile"/>
-          <span className="detailTab__theaterNameMobile">BHD Star Cineplex</span>
+          <span className="detailTab__theaterNameMobile">{item.tenHeThongRap}</span>
           <FontAwesomeIcon icon={faChevronRight} className="icon__right"/>
         </div>
       )
+      }
+      else {
+        return (
+          <div key ={item.biDanh} className="nav-link detailTab__linkMobile dropdown-toggle dropdown__toggle" href={"#" + item.biDanh} id={item.maHeThongRap} aria-controls={item.maHeThongRap} onClick={()=>{setcinema({indexCinema: index})}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src={item.logo} alt="" className="detailTab__iconMobile"/>
+            <span className="detailTab__theaterNameMobile">{item.tenHeThongRap}</span>
+            <FontAwesomeIcon icon={faChevronRight} className="icon__right"/>
+          </div>
+        )
+      }
     }))
+  }
+
+  const renderListCinemaSystemMobile = () =>{
+      return (
+        data && (
+          <div class="dropdown-menu dropdown__menu" href={"#" + data[cinema.indexCinema].biDanh} id ={data[cinema.indexCinema].maHeThongRap} aria-labelledby={data[cinema.indexCinema].maHeThongRap}>
+          <a class="dropdown-item dropdown__item">
+            <DetailTabPaneItemMobile key = {data[cinema.indexCinema].biDanh} cinameMobile = {data[cinema.indexCinema].maHeThongRap} />
+            </a>
+            </div>
+        )
+      )
+
   }
   
     return (
@@ -86,9 +111,10 @@ function DetailTabPane(props) {
                   <div className="dropdown">
                     <div className="nav__link__container">
                       {renderListCinemaMobile()}
-                      <div class="dropdown-menu dropdown__menu" aria-labelledby="BHD">
+                      {renderListCinemaSystemMobile()}
+                      {/* <div class="dropdown-menu dropdown__menu" aria-labelledby="BHD">
                         <a class="dropdown-item dropdown__item" href="#"><DetailTabPaneItemMobile/></a>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
               </div>

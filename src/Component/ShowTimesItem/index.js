@@ -15,14 +15,10 @@ export default function ShowTimesItem(props) {
         <div key={item.maCumRap} className="theater__sessions">
           <Link to={`/checkout/${maPhim}`} className="sessions__btn">
             <span className="sessions__span">
-              {new Date(item.ngayChieuGioChieu).getHours() +
-                ":" +
-                new Date(item.ngayChieuGioChieu).getMinutes()}
+              {item.ngayChieuGioChieu.slice(11, 16)}
             </span>
             ~
-            {new Date(item.ngayChieuGioChieu).getHours() +
-                ":" +
-                new Date(item.ngayChieuGioChieu).getMinutes()}
+            {item.ngayChieuGioChieu.slice(11, 16)}
           </Link>
         </div>
       );
