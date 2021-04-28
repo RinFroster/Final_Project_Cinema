@@ -24,8 +24,8 @@ function DetailTabPaneItemShowTime(props) {
                             return (itemDS.lstLichChieuTheoPhim.map((itemP) => {
                                 // console.log(itemP)
                                 return (
-                                       <div className="theater__sessions">
-                                        <Link to={`/checkout/${itemDS.maPhim}`} className="sessions__btn">
+                                       <div className="theater__sessions" key={itemP.maLichChieu}>
+                                        <Link to={`/checkout/${itemP.maLichChieu}`} className="sessions__btn">
                                             <span className="sessions__span">{itemP.ngayChieuGioChieu.slice(11,16)}</span>~ 16:45
                                         </Link>
                                     </div>      

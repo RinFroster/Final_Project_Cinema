@@ -81,6 +81,7 @@
                             display: flex;
                             opacity: 1;
                             width: 100%;
+                            text-transform: capitalize;
                             &::after{
                                 display: none;
                             }
@@ -101,8 +102,10 @@
                                 right: 1.5rem;
                                 top: 40%;
                                 transition: all ease-in-out 0.3s;
-                                transform: rotate(90deg);
                             }
+                        }
+                        .dropdown-toggle[aria-expanded="true"] .icon__right {
+                            transform: rotate(90deg);
                         }
                         .dropdown__menu{
                             transform: none !important;

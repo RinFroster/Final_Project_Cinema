@@ -5,6 +5,7 @@ import BuyTicketTool from "./../../../Component/BuyTicketTool";
 import Theater from "../../../Component/Theater";
 import News from "../../../Component/News";
 import MobileApp from "../../../Component/MobileApp";
+import ScrollToTop from "./../../../Component/ScrollToTop";
 
 function HomePage(){
   return (
@@ -15,6 +16,7 @@ function HomePage(){
       <Theater />
       <News />
       <MobileApp />
+      <ScrollToTop/>
     </>
   );
 }

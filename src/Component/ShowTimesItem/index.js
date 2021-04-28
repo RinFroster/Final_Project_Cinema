@@ -13,7 +13,7 @@ export default function ShowTimesItem(props) {
     return lstLichChieuTheoPhim.map((item) => {
       return (
         <div key={item.maCumRap} className="theater__sessions">
-          <Link to={`/checkout/${maPhim}`} className="sessions__btn">
+          <Link to={`/checkout/${item.maLichChieu}`} className="sessions__btn">
             <span className="sessions__span">
               {item.ngayChieuGioChieu.slice(11, 16)}
             </span>
@@ -37,7 +37,7 @@ export default function ShowTimesItem(props) {
         console.log(getTheaterItemRow);
       }
       return (
-        <div className="theaterItem__row" onClick={handleShowTimeMovie}>
+        <div className="theaterItem__row" onClick={handleShowTimeMovie} key={item.tenPhim}>
           <div
             className="theaterItem__movie"
             aria-controls={item.maPhim}
