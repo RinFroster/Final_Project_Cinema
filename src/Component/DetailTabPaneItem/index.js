@@ -26,7 +26,7 @@ function DetailTabPaneItem(props) {
                 console.log(getTabPaneItem);
             }
             return (
-                <div className="col-lg-12 tabPaneItem__showTime" id={item.maCumRap + "Theater"} onClick={handleShowTimeMovie}>
+                <div className="col-lg-12 tabPaneItem__showTime" key={item.maCumRap} id={item.maCumRap + "Theater"} onClick={handleShowTimeMovie}>
                     <div className="tabPaneItem__movie" key={item.maCumRap}  id={item.maCumRap + "Cinema"} aria-controls = {item.maCumRap} aria-expanded={!openDetailCollapse} onClick ={()=>setShowTime({indexShow: index})} >
                         <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=""/>
                         <div className="tabPaneItem__movieSpan">

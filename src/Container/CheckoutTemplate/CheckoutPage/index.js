@@ -1,15 +1,148 @@
 import React,{useState,useEffect} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faTimes,
-    faUserCircle
+    faTimes
   } from "@fortawesome/free-solid-svg-icons";
 import { Scrollbars } from 'react-custom-scrollbars';
 import Countdown from "react-countdown";
 import {Link} from "react-router-dom";
+import {actCheckoutMovie} from "./modules/action";
+import { connect } from 'react-redux';
 
-export default function CheckoutPage() {
+function CheckoutPage(props) {
+    const getParams = props.match.params.id;
+    useEffect(() => {
+        props.fetchCheckout(getParams)
+    }, [])
+    const {data} = props;
+    // console.log(data&&data.danhSachGhe)
+    
+    // render DS A
+    const renderSeatListA = () => {
+        return(data&&data.danhSachGhe.map((item)=>{
+            if(item.stt<17){
+                return(
+                    <span className="listSeat__seatWrapper" key={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe} value={item.giaVe}>
+                            {"A" + (item.tenGhe - 0)}
+                        </button>
+                    </span>
+                )
+            }
+        }))
+    }
+    // render DS B
+    const renderSeatListB = () => {
+        return(data&&data.danhSachGhe.map((item)=>{
+            if(item.stt>17&&item.stt<34){
+                return(
+                    <span className="listSeat__seatWrapper" key={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                            {"B" + (item.tenGhe - 17)}
+                        </button>
+                    </span>
+                )
+            }
+        }))
+    }
+
+    // render DS C
+    const renderSeatListC = () => {
+        return(data&&data.danhSachGhe.map((item)=>{
+            if(item.stt>34&&item.stt<51){
+                return(
+                    <span className="listSeat__seatWrapper" key={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                            {"C" + (item.tenGhe - 34)}
+                        </button>
+                    </span>
+                )
+            }
+        }))
+    }
+
+    // render DS D
+    const renderSeatListD = () => {
+        return(data&&data.danhSachGhe.map((item)=>{
+            if(item.stt>51&&item.stt<68){
+                return(
+                    <span className="listSeat__seatWrapper" key={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                            {"D" + (item.tenGhe - 51)}
+                        </button>
+                    </span>
+                )
+            }
+        }))
+    }
+    
+    // render DS E
+    const renderSeatListE = () => {
+        return(data&&data.danhSachGhe.map((item)=>{
+            if(item.stt>68&&item.stt<85){
+                return(
+                    <span className="listSeat__seatWrapper" key={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                            {"E" + (item.tenGhe - 68)}
+                        </button>
+                    </span>
+                )
+            }
+        }))
+    }
+    
+    // render DS F
+    const renderSeatListF = () => {
+        return(data&&data.danhSachGhe.map((item)=>{
+            if(item.stt>85&&item.stt<102){
+                return(
+                    <span className="listSeat__seatWrapper" key={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                            {"F" + (item.tenGhe - 85)}
+                        </button>
+                    </span>
+                )
+            }
+        }))
+    }
+    
+    // render DS G
+    const renderSeatListG = () => {
+        return(data&&data.danhSachGhe.map((item)=>{
+            if(item.stt>102&&item.stt<119){
+                return(
+                    <span className="listSeat__seatWrapper" key={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                            {"G" + (item.tenGhe - 102)}
+                        </button>
+                    </span>
+                )
+            }
+        }))
+    }
+    
+    // render DS H
+    const renderSeatListH = () => {
+        return(data&&data.danhSachGhe.map((item)=>{
+            if(item.stt>119&&item.stt<136){
+                return(
+                    <span className="listSeat__seatWrapper" key={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                            {"H" + (item.tenGhe - 119)}
+                        </button>
+                    </span>
+                )
+            }
+        }))
+    }
+
     const [listSeat,setListSeat] = useState([]);
+    const [listSeatForPrice,setListSeatForPrice] = useState([]);
+    const [price,setPrice] = useState([]);
+    let sumPrice = 0;
+    const [email,setEmail] = useState("");
+    const [phone,setPhone] = useState(null);
+
     const handleChooseSeat = (e) => {
         const getSeatId = e.target.id;
         const findSeat = document.getElementById(e.target.id);
@@ -21,30 +154,53 @@ export default function CheckoutPage() {
         const renderSeat = document.getElementsByClassName("number")[0];
         const renderSeatMobile = document.getElementsByClassName("seatChosenMobile")[0];
         const getContinueBtn = document.getElementsByClassName("continueBtn")[0];
-        // setListSeat((arr)=>[...arr,`${getSeatId}`]);
-        // setArray(listSeat);
-        // console.log(array);
         if(findSeat.classList.contains("chosenSeat")){
             findSeat.classList.remove("chosenSeat");
-            getNoticeId.style.display = "block";
-            getPaymentMethod.style.display = "none";
-            getBuyBtn.classList.remove("active");
-            renderSeatMobile.innerHTML = "";
-            renderSeat.innerHTML = "";
-            getPrice.innerHTML = "0 đ";
-            getTotalPrice.innerHTML = "0 đ";
-            getContinueBtn.classList.add("disabled");
+            price&&price.splice(-1,1);
+            listSeat&&listSeat.splice(-1,1);
+            if(price&&price.length === 0){
+                sumPrice = 0;
+                getNoticeId.style.display = "block";
+                getPaymentMethod.style.display = "none";
+                getBuyBtn.classList.remove("active");
+                getContinueBtn.classList.add("disabled");
+            }else{
+                price&&price.map(()=>{
+                    sumPrice = price.reduce((b,item) => b + item);
+                })
+            }
+            getPrice.innerHTML = sumPrice + "đ";
+            getTotalPrice.innerHTML = sumPrice + "đ";
         }else{
+            data&&data.danhSachGhe.map((item)=>{
+                if(getSeatId==item.maGhe){
+                    listSeatForPrice.push(item)
+                    listSeatForPrice&&listSeatForPrice.map((item2)=>{
+                        listSeatForPrice.splice(0,1);
+                        price.push(item2.giaVe);
+                        price&&price.map(()=>{
+                            sumPrice = price.reduce((a,item) => a + item );
+                        })
+                    })
+                }
+            })
             findSeat.classList.add("chosenSeat");
+            listSeat.push(findSeat.innerHTML);
+            if(listSeat.length > 10){
+                listSeat.splice(10);
+                findSeat.classList.remove("chosenSeat");
+                alert("no more than 10");
+            }
             getNoticeId.style.display = "none";
             getPaymentMethod.style.display = "block";
-            renderSeatMobile.innerHTML = getSeatId;
-            renderSeat.innerHTML = getSeatId;
-            getPrice.innerHTML = "45.000 đ";
-            getTotalPrice.innerHTML = "45.000 đ";
             getContinueBtn.classList.remove("disabled");
+            getPrice.innerHTML = sumPrice + "đ";
+            getTotalPrice.innerHTML = sumPrice + "đ";
         }
+        renderSeatMobile.innerHTML = listSeat;
+        renderSeat.innerHTML = listSeat;
     }
+
     const handleOption = (e) => {
         const findChosen = e.target.id;
         const getListPayment = document.getElementById("listChildren");
@@ -57,8 +213,8 @@ export default function CheckoutPage() {
     const handleClickOption = () => {
         const getBtn = document.getElementsByClassName("btnBuy")[0];
         getBtn.classList.add("active");
-        const getContinueBtnMobile = document.getElementsByClassName("continueBtn")[0];
-        getContinueBtnMobile.classList.remove("disabled");
+        const getBuyTicketMobile = document.getElementById("continueBtnMobile1");
+        getBuyTicketMobile.classList.remove("disabled");
     }
     const handleChooseBank = (e) => {
         const getBankId = e.target.id;
@@ -69,12 +225,15 @@ export default function CheckoutPage() {
     }
     const handleClickContinueBtn = (e) => {
         const getContinueBtnMobile = document.getElementById(e.target.id);
+        const getBuyTicketMobile = document.getElementById("continueBtnMobile1");
         const getBuyTicketOption = document.getElementsByClassName("buyTicketOption__container")[0];
         const getTitleProgressbar = document.getElementsByClassName("stepTitle")[0];
-        getBuyTicketOption.style.display = "block";
-        getTitleProgressbar.innerHTML = "03. thanh toán";
-        getContinueBtnMobile.innerHTML = "đặt vé";
-        getContinueBtnMobile.classList.add("disabled");
+        if(getContinueBtnMobile&&getBuyTicketMobile&&getBuyTicketOption&&getTitleProgressbar){
+            getBuyTicketOption.style.display = "block";
+            getTitleProgressbar.innerHTML = "03. thanh toán";
+            getContinueBtnMobile.style.display = "none";
+            getBuyTicketMobile.classList.remove("visible");
+        }
     }
     const handleCheckCoupon = () => {
         const getCouponInput = document.getElementsByClassName("discountCouponCheckout")[0];
@@ -118,7 +277,9 @@ export default function CheckoutPage() {
             </span>
           );
         }
-      };
+    };
+
+    //render
     return (
         <section id="checkoutPage">
             <div className="progressBar__container">
@@ -151,11 +312,6 @@ export default function CheckoutPage() {
                 </div>
             </div>
 
-            <div className="movie__bg">
-                <div className="modalLeft"></div>
-                <img src={require("./../../../Asset/Carousel__img/an-quy.png").default}/>
-            </div>
-
             <div className="checkoutMain__container">
                 <div className="checkoutMain__theaterInfo">
                     <div className="leftTitle">
@@ -164,17 +320,14 @@ export default function CheckoutPage() {
                         </div>
                         <div className="contentCinema">
                             <p className="address">
-                                <span className="pCinema">BHD Star </span>
-                                <span className="cinemaName">- Vincom Quang Trung</span>
+                                <span className="cinemaName">{data&&data.thongTinPhim.tenCumRap}</span>
                             </p>
-                            <p className="hour">Hôm nay - 20:15 - RẠP 5</p>
+                            <p className="hour">{data&&data.thongTinPhim.ngayChieu} - {data&&data.thongTinPhim.gioChieu} - {data&&data.thongTinPhim.tenRap}</p>
                         </div>
                     </div>
                     <div className="rightTitle">
                         <p className="timeTitle">thời gian giữ ghế</p>
                         <p className="timeCount">
-                            {/* <span className="minute">00</span>:
-                            <span className="second">00</span> */}
                             <Countdown zeroPadTime={2} date={Date.now() + 300000} renderer={renderer} />
                         </p>
                     </div>
@@ -195,86 +348,7 @@ export default function CheckoutPage() {
                                                     <span className="listSeat__seatLine">a</span>
                                                 </span>
                                             </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A01">
-                                                    1
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A02">
-                                                    2
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A03">
-                                                    3
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A04">
-                                                    4
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A05">
-                                                    5
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A06">
-                                                    6
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A07">
-                                                    7
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A08">
-                                                    8
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A09">
-                                                    9
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A10">
-                                                    10
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A11">
-                                                    11
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A12">
-                                                    12
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A13">
-                                                    13
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="A14">
-                                                    14
-                                                </button>
-                                            </span>
+                                            {renderSeatListA()}
                                         </div>
                                         <div className="listSeat__rowSeat">
                                             <span className="listSeat__seatWrapper">
@@ -282,86 +356,7 @@ export default function CheckoutPage() {
                                                     <span className="listSeat__seatLine">b</span>
                                                 </span>
                                             </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B01">
-                                                    1
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B02">
-                                                    2
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B03">
-                                                    3
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B04">
-                                                    4
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B05">
-                                                    5
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B06">
-                                                    6
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B07">
-                                                    7
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B08">
-                                                    8
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B09">
-                                                    9
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B10">
-                                                    10
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B11">
-                                                    11
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B12">
-                                                    12
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B13">
-                                                    13
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="B14">
-                                                    14
-                                                </button>
-                                            </span>
+                                            {renderSeatListB()}
                                         </div>
                                         <div className="listSeat__rowSeat">
                                             <span className="listSeat__seatWrapper">
@@ -369,86 +364,7 @@ export default function CheckoutPage() {
                                                     <span className="listSeat__seatLine">c</span>
                                                 </span>
                                             </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C01">
-                                                    1
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C02">
-                                                    2
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C03">
-                                                    3
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C04">
-                                                    4
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C05">
-                                                    5
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C06">
-                                                    6
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C07">
-                                                    7
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C08">
-                                                    8
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C09">
-                                                    9
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C10">
-                                                    10
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C11">
-                                                    11
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C12">
-                                                    12
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C13">
-                                                    13
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="C14">
-                                                    14
-                                                </button>
-                                            </span>
+                                            {renderSeatListC()}
                                         </div>
                                         <div className="listSeat__rowSeat">
                                             <span className="listSeat__seatWrapper">
@@ -456,86 +372,7 @@ export default function CheckoutPage() {
                                                     <span className="listSeat__seatLine">d</span>
                                                 </span>
                                             </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D01">
-                                                    1
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D02">
-                                                    2
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D03">
-                                                    3
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D04">
-                                                    4
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D05">
-                                                    5
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="D06">
-                                                    6
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="D07">
-                                                    7
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="D08">
-                                                    8
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="D09">
-                                                    9
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D10">
-                                                    10
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D11">
-                                                    11
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D12">
-                                                    12
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D13">
-                                                    13
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="D14">
-                                                    14
-                                                </button>
-                                            </span>
+                                            {renderSeatListD()}
                                         </div>
                                         <div className="listSeat__rowSeat">
                                             <span className="listSeat__seatWrapper">
@@ -543,86 +380,7 @@ export default function CheckoutPage() {
                                                     <span className="listSeat__seatLine">e</span>
                                                 </span>
                                             </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E01">
-                                                    1
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E02">
-                                                    2
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E03">
-                                                    3
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E04">
-                                                    4
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E05">
-                                                    5
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="E06">
-                                                    6
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="E07">
-                                                    7
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="E08">
-                                                    8
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="E09">
-                                                    9
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E10">
-                                                    10
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E11">
-                                                    11
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E12">
-                                                    12
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E13">
-                                                    13
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="E14">
-                                                    14
-                                                </button>
-                                            </span>
+                                            {renderSeatListE()}
                                         </div>
                                         <div className="listSeat__rowSeat">
                                             <span className="listSeat__seatWrapper">
@@ -630,86 +388,7 @@ export default function CheckoutPage() {
                                                     <span className="listSeat__seatLine">f</span>
                                                 </span>
                                             </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F01">
-                                                    1
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F02">
-                                                    2
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F03">
-                                                    3
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F04">
-                                                    4
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F05">
-                                                    5
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="F06">
-                                                    6
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="F07">
-                                                    7
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="F08">
-                                                    8
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="F09">
-                                                    9
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F10">
-                                                    10
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F11">
-                                                    11
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F12">
-                                                    12
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F13">
-                                                    13
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="F14">
-                                                    14
-                                                </button>
-                                            </span>
+                                            {renderSeatListF()}
                                         </div>
                                         <div className="listSeat__rowSeat">
                                             <span className="listSeat__seatWrapper">
@@ -717,86 +396,7 @@ export default function CheckoutPage() {
                                                     <span className="listSeat__seatLine">g</span>
                                                 </span>
                                             </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G01">
-                                                    1
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G02">
-                                                    2
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G03">
-                                                    3
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G04">
-                                                    4
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G05">
-                                                    5
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="G06">
-                                                    6
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="G07">
-                                                    7
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="G08">
-                                                    8
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat seatVip" onClick={handleChooseSeat} id="G09">
-                                                    9
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G10">
-                                                    10
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G11">
-                                                    11
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G12">
-                                                    12
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G13">
-                                                    13
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="G14">
-                                                    14
-                                                </button>
-                                            </span>
+                                            {renderSeatListG()}
                                         </div>
                                         <div className="listSeat__rowSeat">
                                             <span className="listSeat__seatWrapper">
@@ -804,86 +404,7 @@ export default function CheckoutPage() {
                                                     <span className="listSeat__seatLine">h</span>
                                                 </span>
                                             </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H01">
-                                                    1
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H02">
-                                                    2
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H03">
-                                                    3
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H04">
-                                                    4
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H05">
-                                                    5
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H06">
-                                                    6
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H07">
-                                                    7
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H08">
-                                                    8
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H09">
-                                                    9
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H10">
-                                                    10
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper visible">
-                                                <button className="seat">
-                                                    0
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H11">
-                                                    11
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H12">
-                                                    12
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H13">
-                                                    13
-                                                </button>
-                                            </span>
-                                            <span className="listSeat__seatWrapper">
-                                                <button className="seat" onClick={handleChooseSeat} id="H14">
-                                                    14
-                                                </button>
-                                            </span>
+                                            {renderSeatListH()}
                                         </div>
                                 </div>
                             </div>
@@ -927,25 +448,26 @@ export default function CheckoutPage() {
             </div>
                 
                 {/* Mobile Continue Button */}
-                <div className="continueBtnMobile">
+                <form className="continueBtnMobile">
                     <div className="numberMobile">
                         <p className="seatChosenMobile"></p>
                     </div>
-                    <button className="btn btn-secondary continueBtn disabled" id="continueBtnMobile" onClick={handleClickContinueBtn}>Tiếp Tục</button>
-                </div>
+                    <button type="button" className="btn btn-secondary continueBtn disabled" id="continueBtnMobile" onClick={handleClickContinueBtn}>Tiếp Tục</button>
+                    <button type="submit" value="submit" className="btn btn-secondary continueBtn visible disabled" id="continueBtnMobile1">đặt vé</button>
+                </form>
             
-            <div className="buyTicketOption__container">
+            <form className="buyTicketOption__container">
                 <div className="buyTicketOption__scrollbars">
                 <CustomScrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
                     <div className="scrollBars">
                         <div className="total">0 đ</div>
                         <div className="filmInfo">
-                            <span className="ageType">C18</span> mortal kombat
+                            <span className="ageType">C18</span> {data&&data.thongTinPhim.tenPhim}
                             <div className="contentCinema">
                                 <div className="address">
-                                    <span className="pcinema">BHD star</span> <span className="cinemaName">- bitexco</span>
+                                    <span className="cinemaName">{data&&data.thongTinPhim.tenCumRap}</span>
                                 </div>
-                                <div className="hour">Hôm nay 20/04/2021 - 10:00 - RẠP 7</div>
+                                <div className="hour">{data&&data.thongTinPhim.ngayChieu}- {data&&data.thongTinPhim.gioChieu} - {data&&data.thongTinPhim.tenRap}</div>
                             </div>
                         </div>
                         <div className="chair">
@@ -954,15 +476,15 @@ export default function CheckoutPage() {
                         </div>
                         <div className="infoUser">
                             <label className="inputTitle" for="emailCheckout">E-Mail</label>
-                            <input className="emailCheckout" type="email" required/>
+                            <input className="emailCheckout" type="email" placeholder="Enter email here" required/>
                         </div>
                         <div className="infoUser">
                             <label className="inputTitle" for="phoneCheckout">Phone</label>
-                            <input className="phoneCheckout" type="tel" required/>
+                            <input className="phoneCheckout" type="tel" placeholder="Enter phone here" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
                         </div>
                         <div className="discountCoupon">
                             <label className="inputTitle" for="discountCouponCheckout">Mã Giảm Giá</label>
-                            <input className="discountCouponCheckout" onChange={handleCheckCoupon} type="text" placeholder="Nhập mã giảm giá tại đây..." required/>
+                            <input className="discountCouponCheckout" onChange={handleCheckCoupon} type="text" placeholder="Nhập mã giảm giá tại đây..."/>
                             <div className="applyDiscountCoupon disabled" onClick={handleClickCoupon}>áp dụng</div>
                         </div>
                         <div className="paymentMethod">
@@ -1053,8 +575,21 @@ export default function CheckoutPage() {
                     <span className="title">Vé đã mua không thể đổi hoặc hoàn tiền</span>
                     <span className="title">Mã vé sẽ được gửi qua tin nhắn <span className="notice__textSpan">ZMS</span> (tin nhắn Zalo) và <span className="notice__textSpan">Email</span> đã nhập.</span>
                 </div>
-                <button className="btn btn-secondary btnBuy">Đặt Vé</button>
-            </div>
+                <button type="submit" value="submit" className="btn btn-secondary btnBuy">Đặt Vé</button>
+            </form>
         </section>
     )
 }
+const mapStateToProps = (state) => {
+    return {
+        data: state.listCheckoutReducer.data,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchCheckout: (getParams) => {
+        dispatch(actCheckoutMovie(getParams));
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(CheckoutPage)

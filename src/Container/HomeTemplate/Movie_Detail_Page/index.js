@@ -40,19 +40,19 @@ function MovieDetail(props) {
               </div>
           </div>
           <div className="detailPage__tab__container">
-            <ul class="nav nav-tabs detailPage__tab" id="myNews" role="tablist">
-                  <li class="nav-item detailPage__tab__item" role="presentation">
-                      <a class="nav-link detailPage__tab__link active" id="home-tab" data-toggle="tab" href="#news__24h" role="tab" aria-controls="news__24h" aria-selected="true">Lịch Chiếu</a>
+            <ul className="nav nav-tabs detailPage__tab" id="detailTab" role="tablist">
+                  <li className="nav-item detailPage__tab__item" role="presentation">
+                      <a className="nav-link detailPage__tab__link active" id="home-tab" data-toggle="tab" href="#detailTabPane" role="tab" aria-controls="detailTabPane" aria-selected="true">Lịch Chiếu</a>
                   </li>
-                  <li class="nav-item detailPage__tab__item" role="presentation">
-                      <a class="nav-link detailPage__tab__link" id="profile-tab" data-toggle="tab" href="#news__review" role="tab" aria-controls="news__review" aria-selected="false">Thông Tin</a>
+                  <li className="nav-item detailPage__tab__item" role="presentation">
+                      <a className="nav-link detailPage__tab__link" id="profile-tab" data-toggle="tab" href="#movieInfo" role="tab" aria-controls="movieInfo" aria-selected="false">Thông Tin</a>
                   </li>
             </ul>
-            <div class="tab-content detailPage__tab__content" id="myTabContent">
-              <div className="tab-pane fade show active" id="news__24h" role="tabpanel" aria-labelledby="news__24h">
+            <div className="tab-content detailPage__tab__content" id="myTabContent">
+              <div className="tab-pane fade show active" id="detailTabPane" role="tabpanel" aria-labelledby="detailTabPane">
                 <DetailTabPane maPhim = {data&&data.maPhim}/>
               </div>
-              <div className="tab-pane fade" id="news__review" role="tabpanel" aria-labelledby="news__review">
+              <div className="tab-pane fade" id="movieInfo" role="tabpanel" aria-labelledby="movieInfo">
                 <MovieInfo maPhimInfo = {data&&data.moTa}/>
               </div>
             </div>

@@ -92,36 +92,6 @@
         }
     }
 }
-footer{
-    position: relative;
-    .btnBackToTop{
-        cursor: pointer;
-        position: absolute;
-        bottom: 3%;
-        right: 3%;
-        z-index: 3;
-        display: block;
-        text-decoration: none !important;
-        width: 8rem;
-        height: 6rem;
-        img{
-            position: absolute;
-            left: 25%;
-            top: 0;
-        }
-        .backToTopText{
-            position: absolute;
-            bottom: 0;
-            margin-top: 0.5rem;
-            text-align: center;
-            margin-bottom: 0;
-            @include styleText($fs-2,$text-on-base-color,$fw-bold-2);
-            &:hover{
-                color: $item-active;
-            }
-        }
-    }
-}
 
 // Responsive for screen > 320px and < 480px
 @include responsive ('extra-small'){

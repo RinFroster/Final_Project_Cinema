@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 function AdminPage() {
     return (
         <>
-           <p>Cowa Bunga!!!</p>
+
         </>
     )
 }

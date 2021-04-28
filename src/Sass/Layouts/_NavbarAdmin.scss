@@ -1,75 +1,73 @@
-.navbarAdmin{
-    padding: 0 !important;
-    background-color: $header-primary;
-    padding-right: 1rem !important;
-    box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.3);
+.controlNav{
+    height: 100%;
     position: fixed;
-    transition: all 0.3s;
-    width: 100%;
-    position: relative;
-    .navbarAdmin__container{
-        justify-content: space-between;
-        .navbarAdmin__brand{
-            .navbarAdmin__logo{
-                height: 6rem;
-                width: 6rem;
-                img{
-                  height: 100%;
-                  width: 100%;
-                }
-            }
-        }
-        .navbarAdmin__collapse{
-            justify-content: center;
-            height: 100%;
-            .navbarAdmin__nav{
-                .navbarAdmin__dropdown{
-                    width: 100%;
-                    margin-right: 2rem;
-                    cursor: pointer;
-                    .navbarAdmin__dropdownToggle{
-                        text-transform: capitalize;
-                        @include styleText($fs-3,$text-base-color,$fw-bold-2);
-                        &::after{
-                            margin-left: 0.5rem;
-                            vertical-align: 0.25rem;
-                        }
-                        &:hover{
-                            color:$item-active;
-                        }
-                    }
-                    .navbarAdmin__dropdownMenu{
-                        .navbarAdmin__dropdownItem{
-                            text-transform: capitalize;
-                            @include styleText($fs-3,$text-base-color,$fw-bold-2);
-                            &:hover{
-                                color:$item-active;
-                                background-color: #fff;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        .navbarAdmin__user{
+    background-color: #f8f9fa;
+    box-shadow: 0 0 1.5rem rgba(0,0,0,0.3);
+    width: 20%;
+    display: block;
+    z-index: 3;
+    .controlNav__container{
+        .controlNav__top{
+            height: 20%;
+            padding: 0 1rem;
             display: flex;
-            cursor: pointer;
-            .navbarAdmin__logo{
-                width: 3rem;
-                height: 3rem;
-                margin-right: 0.5rem;
+            position: relative;
+            .controlNav__logo{
+                max-height: 5.5rem;
+                max-width: 5.5rem;
+                margin-right: 1rem;
                 img{
                     width: 100%;
                     height: 100%;
-                    border-radius: 100%;
                 }
             }
-            .navbarAdmin__userName{
-                @include styleText($fs-2,$text-on-header-second,$fw-bold-2);
-                line-height: 2;
-                height: 100%;
-                &:hover{
-                    color: $item-active;
+            .controlNav__title{
+                @include styleText($fs-5,#3e515d,$fw-bold-2);
+                line-height: 3;
+            }
+            &::after{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 95%;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                border-bottom: 1px solid #dee2e6;
+            }
+        }
+        .controlNav__main{
+            padding: 1rem;
+            .controlNav__services{
+                .controlNav__nav{
+                    background-color: #f8f9fa;
+                    cursor: pointer;
+                    .controlNav__dropdownItem{
+                        text-transform: capitalize;
+                        border-radius: 0.5rem;
+                        display: flex;
+                        margin-bottom: 1rem;
+                        &:hover{
+                            background-color: #007bff;
+                        }
+                        &:hover .controlNav__dropdownLink,&:hover .controlNav__dropdownLink .controlNav__icon{
+                            color: $text-on-base-color;
+                        }
+                        .controlNav__dropdownLink{
+                            width: 100%;
+                            text-decoration: none;
+                            @include styleText($fs-4,#3e515d,$fw-bold-2);
+                            .controlNav__icon{
+                                color: #3e515d;
+                                margin-right: 1rem;
+                                width: 2rem;
+                                height: 2rem;
+                            }
+                        }
+                        .controlNav__dropdownLink.active,.controlNav__dropdownLink.active .controlNav__icon{
+                            color: #fff;
+                        }
+                    }
                 }
             }
         }

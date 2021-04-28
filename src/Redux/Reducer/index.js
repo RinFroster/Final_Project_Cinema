@@ -7,6 +7,8 @@ import LoaderReducer from "./../../Component/Loader/modules/LoaderReducer"
 import ListCinemaReducer from "./../../Component/Theater/modules/ListCinemaReducer"
 import ListTheaterReducer from "./../../Component/TheaterItem/modules/ListTheaterReducer";
 import ShowTimeReducer from "./../../Component/ShowTimes/modules/ShowTimeReducer";
+import listMovieAdminReducer from "./../../Container/AdminTemplate/MovieControlPage/modules/reducer";
+import listCheckoutReducer from "./../../Container/CheckoutTemplate/CheckoutPage/modules/reducer";
 
 const rootReducer = combineReducers({
     listMovieReducerNS,
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
     ListCinemaReducer,
     ListTheaterReducer,
     ShowTimeReducer,
+    listMovieAdminReducer,
+    listCheckoutReducer,
 });
 
 export default rootReducer;
