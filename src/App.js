@@ -1,11 +1,11 @@
 import './App.css';
-// Route
-import {BrowserRouter, Switch } from 'react-router-dom';
+import {BrowserRouter,Route,Switch } from 'react-router-dom';
 import {routeHome,routeCheckout,routeAdmin} from './Route';
 import HomeTemplate from "./Container/HomeTemplate";
 import CheckoutTemplate from "./Container/CheckoutTemplate";
 import AdminTemplate from "./Container/AdminTemplate";
 import Loader from "./Component/Loader/index";
+import PageNotFound from "./Container/PageNotFound";
 
 function App() {
   const showLayoutHome = (route) => {
@@ -42,7 +42,8 @@ function App() {
       <Switch>
         {showLayoutHome(routeHome)}
         {showLayoutCheckout(routeCheckout)}
-        {showLayoutAdmin(routeAdmin)} 
+        {showLayoutAdmin(routeAdmin)}
+        <Route path="" component={PageNotFound} />
       </Switch>
     </BrowserRouter>
   );

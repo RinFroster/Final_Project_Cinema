@@ -4970,6 +4970,7 @@ p {
   height: 6rem;
   display: flex;
   z-index: 3;
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
 }
 
 .adminHeader .searchForm {
@@ -5055,6 +5056,211 @@ p {
   }
   to {
     opacity: 1;
+  }
+}
+
+.modal__dialog {
+  margin: 0 auto !important;
+  margin-top: 20rem !important;
+}
+
+.modal-content {
+  border-radius: 1rem !important;
+}
+
+.modalError__header {
+  max-width: 8rem;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2rem;
+  border-bottom: none !important;
+}
+
+.modalError__header img {
+  width: 8rem;
+}
+
+.modalError__body {
+  text-align: center;
+}
+
+.modalError__body .seat-error-content {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalError__body .modalErrorInfo__text {
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalError__footer {
+  display: block !important;
+  text-align: center;
+  border-radius: 0 0 0.6rem 0.6rem;
+  margin: 0 1.5rem;
+  padding: 0 !important;
+}
+
+.modalError__footer .btnOk {
+  border-radius: 2rem;
+  cursor: pointer;
+  padding: 0.7rem 2.5rem;
+  background-color: transparent;
+  font-size: 1.6rem;
+  color: #fb4226;
+  font-weight: 500;
+  margin: 1.5rem 0;
+  border: 1.2px solid #fb4226;
+}
+
+.modalError__footer .btnOk:hover {
+  background-color: #fb4226;
+  color: #fff;
+}
+
+.modalConfirm__header {
+  display: block !important;
+  text-transform: capitalize;
+  text-align: center;
+  border-bottom: none !important;
+  font-size: 20px;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalConfirm__body {
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  font-weight: 400;
+  padding: 2rem 1rem !important;
+}
+
+.modalConfirm__footer {
+  padding: 1rem !important;
+  text-align: center;
+  justify-content: center !important;
+  border-top: none !important;
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalConfirm__footer .btnConfirm {
+  outline: none;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 0.4rem;
+  font-size: 18px;
+  display: flex;
+}
+
+.modalConfirm__footer .btnConfirm .btnConfirm__icon {
+  margin-right: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+.modalConfirm__footer .btnConfirm .modalBtn__text {
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 3rem;
+}
+
+.modalConfirm__footer .-btnClose {
+  background-color: #D42E2F;
+}
+
+.modalConfirm__footer .-btnClose:hover {
+  background-color: #c82333;
+}
+
+.modalConfirm__footer .-btnComplete {
+  background-color: #059862;
+}
+
+.modalConfirm__footer .-btnComplete:hover {
+  background-color: #218838;
+}
+
+.ModalComplete__dialog {
+  margin-top: 30rem !important;
+  max-width: 35rem !important;
+}
+
+.modalComplete__body {
+  display: flex;
+  padding: 1rem 2rem !important;
+}
+
+.modalComplete__body .modalComplete__icon {
+  font-size: 36px;
+  color: #059862;
+  margin-right: 1rem;
+  margin-top: 0.75rem;
+}
+
+.modalComplete__body .modalComplete__text {
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+  line-height: 5rem;
+}
+
+.modalTimeOut__body {
+  text-align: center;
+  cursor: pointer;
+}
+
+.modalTimeOut__body .modalTimeOut__text {
+  display: block;
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalTimeOut__body .modalTimeOut__refresh {
+  font-size: 1.6rem;
+  color: #fb4226;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 320px) {
+  .modal__dialog {
+    margin-top: 15rem !important;
+  }
+  .modalComplete__body {
+    padding: 1rem 1rem !important;
+  }
+  .modalComplete__body .modalComplete__text {
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+    line-height: 5rem;
+  }
+  .modalTimeOut__dialog {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .modalTimeOut__dialog {
+    width: 90% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .modalTimeOut__dialog {
+    width: 65rem !important;
+    max-width: 65rem !important;
   }
 }
 /*# sourceMappingURL=main.css.map */
