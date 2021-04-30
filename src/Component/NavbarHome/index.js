@@ -78,51 +78,15 @@ function NavbarHome() {
               {/* {state && ( */}
                 <ul className="navbar-nav nav__header">
                   <li className="nav-item nav__item">
-                    {/* <Link
-                      activeClass="active"
-                      to="homeMovie"
-                      spy={true}
-                      duration={500}
-                      className="nav-link nav__link"
-                    >
-                      Lịch Chiếu
-                    </Link> */}
                     <a className="nav-link nav__link" href="/#homeMovie">Lịch Chiếu</a>
                   </li>
                   <li className="nav-item nav__item">
-                    {/* <Link
-                      activeClass="active"
-                      to="theater"
-                      spy={true}
-                      duration={500}
-                      className="nav-link nav__link"
-                    >
-                      Cụm Rạp
-                    </Link> */}
                     <a className="nav-link nav__link" href="/#theater">Cụm Rạp</a>
                   </li>
                   <li className="nav-item nav__item">
-                    {/* <Link
-                      activeClass="active"
-                      to="news"
-                      spy={true}
-                      duration={500}
-                      className="nav-link nav__link"
-                    >
-                      Tin Tức
-                    </Link> */}
                     <a className="nav-link nav__link" href="/#news">Tin Tức</a>
                   </li>
                   <li className="nav-item nav__item">
-                    {/* <Link
-                      activeClass="active"
-                      to="mobileApp"
-                      spy={true}
-                      duration={500}
-                      className="nav-link nav__link"
-                    >
-                      Ứng Dụng
-                    </Link> */}
                     <a className="nav-link nav__link" href="/#MobileApp">Ứng Dụng</a>
                   </li>
                   <li className="nav-item select__location nav__item" id="location">

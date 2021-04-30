@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import {actFetchAdminMovie} from "./modules/action";
 import { connect } from "react-redux";
-// import Pagination from "react-js-pagination";
 // import WithModal from "./with-modal";
 
 function MovieControlPage(props) {
@@ -17,7 +16,6 @@ function MovieControlPage(props) {
     }, [])
     const {data} = props;
     console.log(data&&data.currentPage);
-    // let FormModal = WithModal(NhanVien);
     const renderAdminMovie = () => {
         return(data&&data.items.map((item) => {
             return(

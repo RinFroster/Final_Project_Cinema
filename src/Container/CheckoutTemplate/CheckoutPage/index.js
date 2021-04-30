@@ -8,6 +8,14 @@ import Countdown from "react-countdown";
 import {Link} from "react-router-dom";
 import {actCheckoutMovie} from "./modules/action";
 import { connect } from 'react-redux';
+import modalCheckoutPageError from "./modalCheckoutPage/modalErrorFullSeat";
+import modalErrorNotFirstSeat from "./modalCheckoutPage/modalErrorNotFirstSeat";
+import modalBodyFullSeat from "./modalCheckoutPage/modalBodyFullSeat";
+import modalBodyNotFirstSeat from "./modalCheckoutPage/modalBodyNotFirstSeat";
+import modalConfirm from "./modalCheckoutPage/modalConfirm";
+import modalTimeOut from "./modalCheckoutPage/modalTimeOut";
+import modalErrorInfo from "./modalCheckoutPage/modalErrorInfo";
+import $ from "jquery";
 
 function CheckoutPage(props) {
     const getParams = props.match.params.id;
@@ -15,15 +23,31 @@ function CheckoutPage(props) {
         props.fetchCheckout(getParams)
     }, [])
     const {data} = props;
-    // console.log(data&&data.danhSachGhe)
     
+    // Modal Error
+    let FormModal = modalCheckoutPageError(modalBodyFullSeat);
+    let FormModalNotFirstSeat = modalErrorNotFirstSeat(modalBodyNotFirstSeat);
+    let FormModalInfo = modalErrorInfo;
+    // Modal Confirm
+    let FormModalConfirm = modalConfirm;
+    // Modal Time Out
+    let FormModalTimeOut = modalTimeOut;
+    
+    setTimeout(function(){
+        $('#modelIdTimeOut').modal({show:true,backdrop:'static'});
+        $('#modelId').modal('hide');
+        $('#modelIdError').modal('hide');
+        $('#modelIdInfo').modal('hide');
+        $('#modelIdConfirm').modal('hide');
+    }, 300000);
+
     // render DS A
     const renderSeatListA = () => {
         return(data&&data.danhSachGhe.map((item)=>{
             if(item.stt<17){
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe} value={item.giaVe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe} >
                             {"A" + (item.tenGhe - 0)}
                         </button>
                     </span>
@@ -37,7 +61,7 @@ function CheckoutPage(props) {
             if(item.stt>17&&item.stt<34){
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
                             {"B" + (item.tenGhe - 17)}
                         </button>
                     </span>
@@ -52,7 +76,7 @@ function CheckoutPage(props) {
             if(item.stt>34&&item.stt<51){
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
                             {"C" + (item.tenGhe - 34)}
                         </button>
                     </span>
@@ -67,7 +91,7 @@ function CheckoutPage(props) {
             if(item.stt>51&&item.stt<68){
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
                             {"D" + (item.tenGhe - 51)}
                         </button>
                     </span>
@@ -82,7 +106,7 @@ function CheckoutPage(props) {
             if(item.stt>68&&item.stt<85){
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
                             {"E" + (item.tenGhe - 68)}
                         </button>
                     </span>
@@ -97,7 +121,7 @@ function CheckoutPage(props) {
             if(item.stt>85&&item.stt<102){
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
                             {"F" + (item.tenGhe - 85)}
                         </button>
                     </span>
@@ -112,7 +136,7 @@ function CheckoutPage(props) {
             if(item.stt>102&&item.stt<119){
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
                             {"G" + (item.tenGhe - 102)}
                         </button>
                     </span>
@@ -127,7 +151,7 @@ function CheckoutPage(props) {
             if(item.stt>119&&item.stt<136){
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} onClick={handleChooseSeat} id={item.maGhe}>
+                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
                             {"H" + (item.tenGhe - 119)}
                         </button>
                     </span>
@@ -154,23 +178,34 @@ function CheckoutPage(props) {
         const renderSeat = document.getElementsByClassName("number")[0];
         const renderSeatMobile = document.getElementsByClassName("seatChosenMobile")[0];
         const getContinueBtn = document.getElementsByClassName("continueBtn")[0];
+        const getSeatName = findSeat.innerHTML;
+        const getPrevSeat = document.getElementById((getSeatId)-1);
+        const getNextSeat = document.getElementById((parseInt(getSeatId) + 1));
         if(findSeat.classList.contains("chosenSeat")){
             findSeat.classList.remove("chosenSeat");
-            price&&price.splice(-1,1);
-            listSeat&&listSeat.splice(-1,1);
-            if(price&&price.length === 0){
-                sumPrice = 0;
-                getNoticeId.style.display = "block";
-                getPaymentMethod.style.display = "none";
-                getBuyBtn.classList.remove("active");
-                getContinueBtn.classList.add("disabled");
-            }else{
-                price&&price.map(()=>{
-                    sumPrice = price.reduce((b,item) => b + item);
-                })
-            }
-            getPrice.innerHTML = sumPrice + "đ";
-            getTotalPrice.innerHTML = sumPrice + "đ";
+            listSeat&&listSeat.map((item,index)=>{
+                if(findSeat.innerHTML===item){
+                    listSeat&&listSeat.splice(index,1);
+                    price&&price.map((item2,index2)=>{
+                        if(index===index2){
+                            price&&price.splice(index2,1);
+                            if(price&&price.length === 0){
+                                sumPrice = 0;
+                                getNoticeId.style.display = "block";
+                                getPaymentMethod.style.display = "none";
+                                getBuyBtn.classList.remove("active");
+                                getContinueBtn.classList.add("disabled");
+                            }else{
+                                price&&price.map(()=>{
+                                    sumPrice = price.reduce((b,item) => b + item);
+                                })
+                            }
+                            getPrice.innerHTML = sumPrice + "đ";
+                            getTotalPrice.innerHTML = sumPrice + "đ";
+                        }
+                    })
+                }
+            })
         }else{
             data&&data.danhSachGhe.map((item)=>{
                 if(getSeatId==item.maGhe){
@@ -182,15 +217,36 @@ function CheckoutPage(props) {
                             sumPrice = price.reduce((a,item) => a + item );
                         })
                     })
+                    findSeat.classList.add("chosenSeat");
+                    listSeat.push(getSeatName);
+                    if(listSeat.length > 10){
+                        $('#modelId').modal('show');
+                        listSeat.splice(10);
+                        price.splice(10);
+                        price&&price.map(()=>{
+                            sumPrice = price.reduce((a,item) => a + item );
+                        })
+                        findSeat.classList.remove("chosenSeat");
+                    }
                 }
             })
-            findSeat.classList.add("chosenSeat");
-            listSeat.push(findSeat.innerHTML);
-            if(listSeat.length > 10){
-                listSeat.splice(10);
-                findSeat.classList.remove("chosenSeat");
-                alert("no more than 10");
+            console.log(getSeatName.slice(1,3));
+            if(getSeatName.slice(1,3) === "1" || getSeatName.slice(1,3) === "16"){
+                console.log("condition number");
+            }else{
+                if(getPrevSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1) && getNextSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1)){
+                    if(getPrevSeat.innerHTML.slice(1,3)==="1"){
+                        if(!(getPrevSeat.classList.contains("chosenSeat"))){
+                            $('#modelIdError').modal('show');
+                        }
+                    }else if(getNextSeat.innerHTML.slice(1,3)==="16"){
+                        if(!(getNextSeat.classList.contains("chosenSeat"))){
+                            $('#modelIdError').modal('show');
+                        }
+                    }
+                }
             }
+            
             getNoticeId.style.display = "none";
             getPaymentMethod.style.display = "block";
             getContinueBtn.classList.remove("disabled");
@@ -199,6 +255,16 @@ function CheckoutPage(props) {
         }
         renderSeatMobile.innerHTML = listSeat;
         renderSeat.innerHTML = listSeat;
+    }
+
+    const handleClickBuy = () => {
+        const getEmail = document.getElementsByClassName("emailCheckout")[0];
+        const getPhone = document.getElementsByClassName("phoneCheckout")[0];
+        if( getEmail.value==="" || getPhone.value===""){
+            $('#modelIdInfo').modal('show');
+        }else{
+            $('#modelIdConfirm').modal('show');
+        }
     }
 
     const handleOption = (e) => {
@@ -213,8 +279,12 @@ function CheckoutPage(props) {
     const handleClickOption = () => {
         const getBtn = document.getElementsByClassName("btnBuy")[0];
         getBtn.classList.add("active");
-        const getBuyTicketMobile = document.getElementById("continueBtnMobile1");
-        getBuyTicketMobile.classList.remove("disabled");
+        const getEmail = document.getElementsByClassName("emailCheckout")[0];
+        const getPhone = document.getElementsByClassName("phoneCheckout")[0];
+        const getBuyBtnMobile = document.getElementById("continueBtnMobile1");
+        if( !(getEmail.value==="") || !(getPhone.value==="")){
+            getBuyBtnMobile.classList.remove("disabled");
+        }
     }
     const handleChooseBank = (e) => {
         const getBankId = e.target.id;
@@ -227,10 +297,10 @@ function CheckoutPage(props) {
         const getContinueBtnMobile = document.getElementById(e.target.id);
         const getBuyTicketMobile = document.getElementById("continueBtnMobile1");
         const getBuyTicketOption = document.getElementsByClassName("buyTicketOption__container")[0];
-        const getTitleProgressbar = document.getElementsByClassName("stepTitle")[0];
-        if(getContinueBtnMobile&&getBuyTicketMobile&&getBuyTicketOption&&getTitleProgressbar){
+        const getTitleProgressBar = document.getElementsByClassName("stepTitle")[0];
+        if(getContinueBtnMobile&&getBuyTicketMobile&&getBuyTicketOption&&getTitleProgressBar){
             getBuyTicketOption.style.display = "block";
-            getTitleProgressbar.innerHTML = "03. thanh toán";
+            getTitleProgressBar.innerHTML = "03. thanh toán";
             getContinueBtnMobile.style.display = "none";
             getBuyTicketMobile.classList.remove("visible");
         }
@@ -264,7 +334,9 @@ function CheckoutPage(props) {
           {...props}
         />
       );
+
     const Completionist = () => <span>00:00</span>;
+
     const renderer = ({ minutes, seconds, completed }) => {
         if (completed) {
           // Render a complete state
@@ -311,6 +383,12 @@ function CheckoutPage(props) {
                     </div>
                 </div>
             </div>
+
+            <FormModal/>
+            <FormModalNotFirstSeat/>
+            <FormModalConfirm/>
+            <FormModalTimeOut/>
+            <FormModalInfo/>
 
             <div className="checkoutMain__container">
                 <div className="checkoutMain__theaterInfo">
@@ -448,135 +526,135 @@ function CheckoutPage(props) {
             </div>
                 
                 {/* Mobile Continue Button */}
-                <form className="continueBtnMobile">
+                <div className="continueBtnMobile">
                     <div className="numberMobile">
                         <p className="seatChosenMobile"></p>
                     </div>
                     <button type="button" className="btn btn-secondary continueBtn disabled" id="continueBtnMobile" onClick={handleClickContinueBtn}>Tiếp Tục</button>
-                    <button type="submit" value="submit" className="btn btn-secondary continueBtn visible disabled" id="continueBtnMobile1">đặt vé</button>
-                </form>
+                    <button type="submit" value="submit" className="btn btn-secondary continueBtn visible disabled" id="continueBtnMobile1" onClick={handleClickBuy}>đặt vé</button>
+                </div>
             
-            <form className="buyTicketOption__container">
+            <div className="buyTicketOption__container">
                 <div className="buyTicketOption__scrollbars">
-                <CustomScrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
-                    <div className="scrollBars">
-                        <div className="total">0 đ</div>
-                        <div className="filmInfo">
-                            <span className="ageType">C18</span> {data&&data.thongTinPhim.tenPhim}
-                            <div className="contentCinema">
-                                <div className="address">
-                                    <span className="cinemaName">{data&&data.thongTinPhim.tenCumRap}</span>
+                    <CustomScrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
+                        <div className="scrollBars">
+                            <div className="total">0 đ</div>
+                            <div className="filmInfo">
+                                <span className="ageType">C18</span> {data&&data.thongTinPhim.tenPhim}
+                                <div className="contentCinema">
+                                    <div className="address">
+                                        <span className="cinemaName">{data&&data.thongTinPhim.tenCumRap}</span>
+                                    </div>
+                                    <div className="hour">{data&&data.thongTinPhim.ngayChieu}- {data&&data.thongTinPhim.gioChieu} - {data&&data.thongTinPhim.tenRap}</div>
                                 </div>
-                                <div className="hour">{data&&data.thongTinPhim.ngayChieu}- {data&&data.thongTinPhim.gioChieu} - {data&&data.thongTinPhim.tenRap}</div>
                             </div>
-                        </div>
-                        <div className="chair">
-                            <div className="chair__number">Ghế <span className="number"></span></div>
-                            <div className="chair__price">0 đ</div>
-                        </div>
-                        <div className="infoUser">
-                            <label className="inputTitle" for="emailCheckout">E-Mail</label>
-                            <input className="emailCheckout" type="email" placeholder="Enter email here" required/>
-                        </div>
-                        <div className="infoUser">
-                            <label className="inputTitle" for="phoneCheckout">Phone</label>
-                            <input className="phoneCheckout" type="tel" placeholder="Enter phone here" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
-                        </div>
-                        <div className="discountCoupon">
-                            <label className="inputTitle" for="discountCouponCheckout">Mã Giảm Giá</label>
-                            <input className="discountCouponCheckout" onChange={handleCheckCoupon} type="text" placeholder="Nhập mã giảm giá tại đây..."/>
-                            <div className="applyDiscountCoupon disabled" onClick={handleClickCoupon}>áp dụng</div>
-                        </div>
-                        <div className="paymentMethod">
-                            <div className="paymentMethod__title">Hình Thức Thanh Toán</div>
-                            <div className="paymentMethod__notice" id="notice">Vui lòng chọn ghế để hiển thị phương thức thanh toán phù hợp.</div>
-                            <div className="paymentMethod__container" id="paymentMethodContainer">
-                                <div className="paymentMethod__chosenMethod">
-                                    <div className="paymentParent">
-                                        <input className="radio" type="radio" name="method" value="option1" id="option1" onChange={handleOption} onClick={handleClickOption}></input>
-                                        <img className="icon" src={require("./../../../Asset/img/zaloPay.jpg").default}/>
-                                        <div className="titleChosen">thanh toán qua ZaloPay</div>
-                                    </div>
-                                </div>
-                                <div className="paymentMethod__chosenMethod">
-                                    <div className="paymentParent">
-                                        <input className="radio" type="radio" name="method" value="option2" id="option2" onChange={handleOption} onClick={handleClickOption}></input>
-                                        <img className="icon" src={require("./../../../Asset/img/otherPayment.png").default}/>
-                                        <div className="titleChosen">Visa, Master, JCB</div>
-                                    </div>
-                                </div>
-                                <div className="paymentMethod__chosenMethod">
-                                    <div className="paymentParent selectATM">
-                                        <input className="radio" type="radio" name="method" value="option3" id="option3" onChange={handleOption} onClick={handleClickOption}></input>
-                                        <img className="icon" src={require("./../../../Asset/img/atm.png").default}/>
-                                        <div className="titleChosen" id="titleChosen">thẻ ATM nội địa</div>
-                                    </div>
-                                    <div className="listChildren" id="listChildren">
-                                            <div className="row bankRow">
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="KienLongBank" src={require("./../../../Asset/CheckoutPage__img/bank1.jpg").default}/>
-                                                </a>
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="PVComBank" src={require("./../../../Asset/CheckoutPage__img/bank2.png").default}/>
-                                                </a>
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="ABBank" src={require("./../../../Asset/CheckoutPage__img/bank3.jpg").default}/>
-                                                </a>
-                                            </div>
-                                            <div className="row bankRow">
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="VietinBank" src={require("./../../../Asset/CheckoutPage__img/bank4.jpg").default}/>
-                                                </a>
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="BIDV" src={require("./../../../Asset/CheckoutPage__img/bank5.jpg").default}/>
-                                                </a>
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="OceanBank" src={require("./../../../Asset/CheckoutPage__img/bank6.jpg").default}/>
-                                                </a>
-                                            </div>
-                                            <div className="row bankRow">
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="HDBank" src={require("./../../../Asset/CheckoutPage__img/bank7.jpg").default}/>
-                                                </a>
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="TPBank" src={require("./../../../Asset/CheckoutPage__img/bank8.jpg").default}/>
-                                                </a>
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="VRB" src={require("./../../../Asset/CheckoutPage__img/bank9.jpg").default}/>
-                                                </a>
-                                            </div>
-                                            <div className="row bankRow">
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="VPBank" src={require("./../../../Asset/CheckoutPage__img/bank10.jpg").default}/>
-                                                </a>
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="SHB" src={require("./../../../Asset/CheckoutPage__img/bank11.jpg").default}/>
-                                                </a>
-                                                <a className="bank" onClick={handleChooseBank}>
-                                                    <img id="PublicBanVietNam" src={require("./../../../Asset/CheckoutPage__img/bank12.jpg").default}/>
-                                                </a>
-                                            </div>
+                            <div className="chair">
+                                <div className="chair__number">Ghế <span className="number"></span></div>
+                                <div className="chair__price">0 đ</div>
+                            </div>
+                            <div className="infoUser">
+                                <label className="inputTitle" for="emailCheckout">E-Mail</label>
+                                <input className="emailCheckout" type="email" placeholder="Enter email here" required/>
+                            </div>
+                            <div className="infoUser">
+                                <label className="inputTitle" for="phoneCheckout">Phone</label>
+                                <input className="phoneCheckout" type="tel" placeholder="Enter phone here" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
+                            </div>
+                            <div className="discountCoupon">
+                                <label className="inputTitle" for="discountCouponCheckout">Mã Giảm Giá</label>
+                                <input className="discountCouponCheckout" onChange={handleCheckCoupon} type="text" placeholder="Nhập mã giảm giá tại đây..."/>
+                                <div className="applyDiscountCoupon disabled" onClick={handleClickCoupon}>áp dụng</div>
+                            </div>
+                            <div className="paymentMethod">
+                                <div className="paymentMethod__title">Hình Thức Thanh Toán</div>
+                                <div className="paymentMethod__notice" id="notice">Vui lòng chọn ghế để hiển thị phương thức thanh toán phù hợp.</div>
+                                <div className="paymentMethod__container" id="paymentMethodContainer">
+                                    <div className="paymentMethod__chosenMethod">
+                                        <div className="paymentParent">
+                                            <input className="radio" type="radio" name="method" value="option1" id="option1" onChange={handleOption} onClick={handleClickOption}></input>
+                                            <img className="icon" src={require("./../../../Asset/img/zaloPay.jpg").default}/>
+                                            <div className="titleChosen">thanh toán qua ZaloPay</div>
                                         </div>
-                                </div>
-                                <div className="paymentMethod__chosenMethod">
-                                    <div className="paymentParent">
-                                        <input className="radio" type="radio" name="method" value="option4" id="option4" onChange={handleOption} onClick={handleClickOption}></input>
-                                        <img className="icon" src={require("./../../../Asset/img/payoo.png").default}/>
-                                        <div className="titleChosen">thanh toán tại cửa hàng tiện ích</div>
+                                    </div>
+                                    <div className="paymentMethod__chosenMethod">
+                                        <div className="paymentParent">
+                                            <input className="radio" type="radio" name="method" value="option2" id="option2" onChange={handleOption} onClick={handleClickOption}></input>
+                                            <img className="icon" src={require("./../../../Asset/img/otherPayment.png").default}/>
+                                            <div className="titleChosen">Visa, Master, JCB</div>
+                                        </div>
+                                    </div>
+                                    <div className="paymentMethod__chosenMethod">
+                                        <div className="paymentParent selectATM">
+                                            <input className="radio" type="radio" name="method" value="option3" id="option3" onChange={handleOption} onClick={handleClickOption}></input>
+                                            <img className="icon" src={require("./../../../Asset/img/atm.png").default}/>
+                                            <div className="titleChosen" id="titleChosen">thẻ ATM nội địa</div>
+                                        </div>
+                                        <div className="listChildren" id="listChildren">
+                                                <div className="row bankRow">
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="KienLongBank" src={require("./../../../Asset/CheckoutPage__img/bank1.jpg").default}/>
+                                                    </a>
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="PVComBank" src={require("./../../../Asset/CheckoutPage__img/bank2.png").default}/>
+                                                    </a>
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="ABBank" src={require("./../../../Asset/CheckoutPage__img/bank3.jpg").default}/>
+                                                    </a>
+                                                </div>
+                                                <div className="row bankRow">
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="VietinBank" src={require("./../../../Asset/CheckoutPage__img/bank4.jpg").default}/>
+                                                    </a>
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="BIDV" src={require("./../../../Asset/CheckoutPage__img/bank5.jpg").default}/>
+                                                    </a>
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="OceanBank" src={require("./../../../Asset/CheckoutPage__img/bank6.jpg").default}/>
+                                                    </a>
+                                                </div>
+                                                <div className="row bankRow">
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="HDBank" src={require("./../../../Asset/CheckoutPage__img/bank7.jpg").default}/>
+                                                    </a>
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="TPBank" src={require("./../../../Asset/CheckoutPage__img/bank8.jpg").default}/>
+                                                    </a>
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="VRB" src={require("./../../../Asset/CheckoutPage__img/bank9.jpg").default}/>
+                                                    </a>
+                                                </div>
+                                                <div className="row bankRow">
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="VPBank" src={require("./../../../Asset/CheckoutPage__img/bank10.jpg").default}/>
+                                                    </a>
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="SHB" src={require("./../../../Asset/CheckoutPage__img/bank11.jpg").default}/>
+                                                    </a>
+                                                    <a className="bank" onClick={handleChooseBank}>
+                                                        <img id="PublicBanVietNam" src={require("./../../../Asset/CheckoutPage__img/bank12.jpg").default}/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div className="paymentMethod__chosenMethod">
+                                        <div className="paymentParent">
+                                            <input className="radio" type="radio" name="method" value="option4" id="option4" onChange={handleOption} onClick={handleClickOption}></input>
+                                            <img className="icon" src={require("./../../../Asset/img/payoo.png").default}/>
+                                            <div className="titleChosen">thanh toán tại cửa hàng tiện ích</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </CustomScrollbars>
+                    </CustomScrollbars>
                 </div>
                 <div className="notice">
                     <img className="notice__icon" src={require("./../../../Asset/img/notice-icon.png").default}/>
                     <span className="title">Vé đã mua không thể đổi hoặc hoàn tiền</span>
                     <span className="title">Mã vé sẽ được gửi qua tin nhắn <span className="notice__textSpan">ZMS</span> (tin nhắn Zalo) và <span className="notice__textSpan">Email</span> đã nhập.</span>
                 </div>
-                <button type="submit" value="submit" className="btn btn-secondary btnBuy">Đặt Vé</button>
-            </form>
+                <button className="btn btn-secondary btnBuy" type="submit" value="submit" onClick={handleClickBuy}>Đặt Vé</button>
+            </div>
         </section>
     )
 }
