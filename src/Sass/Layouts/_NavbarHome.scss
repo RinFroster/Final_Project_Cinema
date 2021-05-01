@@ -166,6 +166,8 @@
           .user__account__name {
             @include styleText($fs-3, $text-on-header-second, $fw-bold-2);
             height: 5rem;
+            text-decoration: none;
+            text-transform: capitalize;
             line-height: 5rem;
             &:hover {
               color: $item-active;

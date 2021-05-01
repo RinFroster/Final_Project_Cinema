@@ -1,11 +1,11 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useSelector} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faTimes
   } from "@fortawesome/free-solid-svg-icons";
 import { Scrollbars } from 'react-custom-scrollbars';
 import Countdown from "react-countdown";
-import {Link} from "react-router-dom";
+import {Link,NavLink} from "react-router-dom";
 import {actCheckoutMovie} from "./modules/action";
 import { connect } from 'react-redux';
 import modalCheckoutPageError from "./modalCheckoutPage/modalErrorFullSeat";
@@ -16,6 +16,7 @@ import modalConfirm from "./modalCheckoutPage/modalConfirm";
 import modalTimeOut from "./modalCheckoutPage/modalTimeOut";
 import modalErrorInfo from "./modalCheckoutPage/modalErrorInfo";
 import $ from "jquery";
+import { TOKEN, USRELOGIN } from "../../../util/settings";
 
 function CheckoutPage(props) {
     const getParams = props.match.params.id;
@@ -23,6 +24,10 @@ function CheckoutPage(props) {
         props.fetchCheckout(getParams)
     }, [])
     const {data} = props;
+
+    // const { dataUser } = useSelector(state => state.LoginReducer);
+    // // // const {taiKhoan} = data;
+    // console.log(dataUser);
     
     // Modal Error
     let FormModal = modalCheckoutPageError(modalBodyFullSeat);
@@ -553,15 +558,15 @@ function CheckoutPage(props) {
                                 <div className="chair__price">0 đ</div>
                             </div>
                             <div className="infoUser">
-                                <label className="inputTitle" for="emailCheckout">E-Mail</label>
-                                <input className="emailCheckout" type="email" placeholder="Enter email here" required/>
+                                <label className="inputTitle" htmlFor="emailCheckout">E-Mail</label>
+                                <input className="emailCheckout" type="email" placeholder="Enter email here" pattern="/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i" required/>
                             </div>
                             <div className="infoUser">
-                                <label className="inputTitle" for="phoneCheckout">Phone</label>
+                                <label className="inputTitle" htmlFor="phoneCheckout">Phone</label>
                                 <input className="phoneCheckout" type="tel" placeholder="Enter phone here" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
                             </div>
                             <div className="discountCoupon">
-                                <label className="inputTitle" for="discountCouponCheckout">Mã Giảm Giá</label>
+                                <label className="inputTitle" htmlFor="discountCouponCheckout">Mã Giảm Giá</label>
                                 <input className="discountCouponCheckout" onChange={handleCheckCoupon} type="text" placeholder="Nhập mã giảm giá tại đây..."/>
                                 <div className="applyDiscountCoupon disabled" onClick={handleClickCoupon}>áp dụng</div>
                             </div>

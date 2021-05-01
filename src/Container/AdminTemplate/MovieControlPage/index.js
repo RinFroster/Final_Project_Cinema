@@ -3,19 +3,42 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import {actFetchAdminMovie} from "./modules/action";
 import { connect } from "react-redux";
-// import WithModal from "./with-modal";
+import ReactPaginate from 'react-paginate';
+import CreateShowTimesModal from "./modal/CreateShowTimes";
+import AddMovieModal from "./modal/AddMovie";
+import axios from "axios";
 
 function MovieControlPage(props) {
-    // const [active,setActive] = useState({activePage:1})
-    // const handlePageChange = (pageNumber) => {
-    //     console.log(`active page is ${pageNumber}`);
-    //     this.setState({activePage: pageNumber});
-    // }
+    const [pageCount, setPageCount] = useState(4);
+    const [currentPage, setCurrentPage] = useState(1);
     useEffect(() => {
-        props.fetchAdminMovieList()
-    }, [])
+        props.fetchAdminMovieList(currentPage);
+    }, [currentPage])
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+
+        axios({
+            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim`,
+            method: "DELETE",
+        })
+        .then((result)=>{
+            console.log(result);
+        })
+        .catch((err)=>{
+            console.log(err.response.data);
+        })
+    }
+
+    let FormModalCreateShowTimes = CreateShowTimesModal;
+    let FormModalAddMovie = AddMovieModal;
+
+    // function handling page change
+    const handlePageChange = (selectedObject) => {
+		setCurrentPage(selectedObject.selected);
+		props.fetchAdminMovieList(currentPage);
+	};
     const {data} = props;
-    console.log(data&&data.currentPage);
     const renderAdminMovie = () => {
         return(data&&data.items.map((item) => {
             return(
@@ -40,13 +63,13 @@ function MovieControlPage(props) {
                         <div className="movieShowControl__content movieGroup">{item.maNhom}</div>
                     </div>
                     <div className="col-lg-2 p-0 movieShowControl__item">                    
-                        <div className="movieShowControl__content movieDayPremire">{item.ngayKhoiChieu.slice(0,10)}</div>
+                        <div className="movieShowControl__content movieDayPremiere">{item.ngayKhoiChieu.slice(0,10)}</div>
                     </div>
                     <div className="col-lg-3 p-0 movieShowControl__item">
                         <div className="movieShowControl__content movieServices">
-                            <button type="button" className="btn btn-primary adminBtn createShow" data-toggle="modal" data-target="#myModal">Tạo Lịch Chiếu</button>
-                            <button type="button" className="btn btn-success adminBtn updateShow" data-toggle="modal" data-target="#myModal">Sửa</button>
-                            <button type="button" className="btn btn-danger adminBtn deleteShow" data-toggle="modal" data-target="#myModal">Xoá</button>
+                            <button className="btn btn-primary adminBtn createShow" data-toggle="modal" data-target="#modalCreateShowTimes">Tạo Lịch Chiếu</button>
+                            <button className="btn btn-success adminBtn updateShow" data-toggle="modal" data-target="#myModal">Sửa</button>
+                            <button className="btn btn-danger adminBtn deleteShow" id={item.maPhim} onClick={handleDelete}>Xoá</button>
                         </div>
                     </div>
                 </div>
@@ -55,7 +78,8 @@ function MovieControlPage(props) {
     }
     return (
         <div className="movieControl">
-            <div className="admin__services">Danh Sách Phim</div>
+            <div className="admin__title">Danh Sách Phim</div>
+            <div className="btn btn-primary admin__service" data-toggle="modal" data-target="#modalAddMovie">Thêm Phim</div>
             <div className="movieShowControl__container p-0 col-lg-12">
                 <div className="row movieShowControl__title__container p-0 col-lg-12">
                     <div className="col-lg-1 movieShowControl__title">
@@ -83,8 +107,10 @@ function MovieControlPage(props) {
                     </div>
                 </div>
                 {renderAdminMovie()}
+                <ReactPaginate pageCount={pageCount} pageRange={2} marginPagesDisplayed={2} onPageChange={handlePageChange} containerClassName={'movieControl__containerPagination'} previousLinkClassName={'pageNavigation'} nextLinkClassName={'pageNavigation'} breakClassName={'page'} pageLinkClassName={'pageBtn'} pageClassName={'page'} disabledClassNae={'pageDisabled'} activeClassName={'pageActive'}/>
             </div>
-            {/* <Pagination activePage={active} itemsCountPerPage ={10} totalItemsCount={24} pageRangeDisplayed ={5} onChange={handlePageChange}/> */}
+            <FormModalCreateShowTimes/>
+            <FormModalAddMovie/>
         </div>
     )
 }
@@ -95,8 +121,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchAdminMovieList: () => {
-        dispatch(actFetchAdminMovie());
+        fetchAdminMovieList: (currentPage) => {
+        dispatch(actFetchAdminMovie(currentPage));
       },
     };
   };

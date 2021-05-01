@@ -38,24 +38,27 @@ function Login(props) {
             <form onSubmit = {handleSubmit(handleLogin)}>
               {renderNoti()}
               <div className="form-group">
-                <label htmlFor="taiKhoan">Tài khoản</label>
+                <label htmlFor="taiKhoan" className="labelLogin">Tài khoản</label>
                 <input type="text" {...register("taiKhoan", {required: 'Tài khoản không được trống'})} className="form-control" name="taiKhoan" onChange = {handleOnChange}/>
                 {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
               </div>
               <div className="form-group">
-                <label htmlFor="matKhau">Mật khẩu</label>
+                <label htmlFor="matKhau" className="labelLogin">Mật khẩu</label>
                 <input type="password" {...register('matKhau',{required: 'Mật khẩu không được rỗng'})} className="form-control" name="matKhau" onChange = {handleOnChange}/>
                 {errors.matKhau && <span>{errors.matKhau.message}</span>}
               </div>
-              <div className="ml-2 mb-2">
-                <NavLink to="/Register">Đăng ký</NavLink>
+              <div className="btnLoginRegister__container">
+                <button className="btn btn-success btnRegister">
+                  <NavLink to="/Register" className="register">Register</NavLink>
+                </button>
+                <button type="submit" className="btn btn-success btnLogin">
+                  Login
+                </button>
               </div>
-              <button type="submit" className="btn btn-success">
-                Login
-              </button>
             </form>
-            </div>
+            <Link to="/" className="loginClose"></Link>
           </div>
+        </div>
     )
 }
 const mapStateToProps = (state) =>{
