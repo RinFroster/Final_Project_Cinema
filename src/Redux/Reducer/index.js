@@ -9,6 +9,8 @@ import ListTheaterReducer from "./../../Component/TheaterItem/modules/ListTheate
 import ShowTimeReducer from "./../../Component/ShowTimes/modules/ShowTimeReducer";
 import LoginReducer from "./../../Container/HomeTemplate/Login/module/LoginReducer";
 import RegisterReducer from "./../../Container/HomeTemplate/Register/module/RegisterReducer"
+import listMovieAdminReducer from "./../../Container/AdminTemplate/MovieControlPage/modules/reducer";
+import listCheckoutReducer from "./../../Container/CheckoutTemplate/CheckoutPage/modules/reducer";
 
 const rootReducer = combineReducers({
     listMovieReducerNS,
@@ -21,6 +23,9 @@ const rootReducer = combineReducers({
     ShowTimeReducer,
     LoginReducer,
     RegisterReducer, 
+    listMovieAdminReducer,
+    listCheckoutReducer,
+
 });
 
 export default rootReducer;

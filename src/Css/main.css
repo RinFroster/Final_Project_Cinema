@@ -1219,6 +1219,7 @@ p {
     display: flex;
     opacity: 1;
     width: 100%;
+    text-transform: capitalize;
   }
   .detail__tab .detailTab__container .detailTab__box .detailTab__pillsMobile .dropdown .detailTab__linkMobile::after {
     display: none;
@@ -1244,6 +1245,8 @@ p {
     right: 1.5rem;
     top: 40%;
     transition: all ease-in-out 0.3s;
+  }
+  .detail__tab .detailTab__container .detailTab__box .detailTab__pillsMobile .dropdown .dropdown-toggle[aria-expanded="true"] .icon__right {
     transform: rotate(90deg);
   }
   .detail__tab .detailTab__container .detailTab__box .detailTab__pillsMobile .dropdown .dropdown__menu {
@@ -3667,43 +3670,6 @@ p {
   color: #fff;
 }
 
-footer {
-  position: relative;
-}
-
-footer .btnBackToTop {
-  cursor: pointer;
-  position: absolute;
-  bottom: 3%;
-  right: 3%;
-  z-index: 3;
-  display: block;
-  text-decoration: none !important;
-  width: 8rem;
-  height: 6rem;
-}
-
-footer .btnBackToTop img {
-  position: absolute;
-  left: 25%;
-  top: 0;
-}
-
-footer .btnBackToTop .backToTopText {
-  position: absolute;
-  bottom: 0;
-  margin-top: 0.5rem;
-  text-align: center;
-  margin-bottom: 0;
-  font-size: 14px;
-  color: #fff;
-  font-weight: 500;
-}
-
-footer .btnBackToTop .backToTopText:hover {
-  color: #fb4226;
-}
-
 @media screen and (min-width: 320px) {
   #footer .mainFooter .row .footer__service .flexOnMobile {
     display: flex;
@@ -3872,15 +3838,6 @@ footer .btnBackToTop .backToTopText:hover {
   display: none;
 }
 
-#checkoutPage .movie__bg {
-  width: 5%;
-}
-
-#checkoutPage .movie__bg img {
-  width: 100%;
-  height: 100%;
-}
-
 #checkoutPage .checkoutMain__container {
   text-align: center;
 }
@@ -3907,12 +3864,6 @@ footer .btnBackToTop .backToTopText:hover {
 
 #checkoutPage .checkoutMain__container .checkoutMain__theaterInfo .leftTitle .contentCinema {
   text-align: left;
-}
-
-#checkoutPage .checkoutMain__container .checkoutMain__theaterInfo .leftTitle .contentCinema .address .pCinema {
-  font-size: 1.6rem;
-  color: #8bc541;
-  font-weight: 500;
 }
 
 #checkoutPage .checkoutMain__container .checkoutMain__theaterInfo .leftTitle .contentCinema .address .cinemaName {
@@ -3993,13 +3944,10 @@ footer .btnBackToTop .backToTopText:hover {
   text-align: center;
   outline: none;
   border: none;
+  background-color: #3e515d;
   font-size: 14px;
   color: #fff;
   font-weight: 500;
-}
-
-#checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .seat:hover {
-  background-color: #fb4226;
 }
 
 #checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .chosenSeat {
@@ -4144,13 +4092,16 @@ footer .btnBackToTop .backToTopText:hover {
   pointer-events: none;
 }
 
+#checkoutPage .continueBtnMobile .continueBtn.visible {
+  display: none;
+}
+
 #checkoutPage .buyTicketOption__container {
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
   background-color: #fff;
 }
 
 #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
-  height: 90rem;
   position: relative;
 }
 
@@ -4208,9 +4159,11 @@ footer .btnBackToTop .backToTopText:hover {
   display: flex;
   justify-content: space-between;
   padding-top: 1.25rem;
+  padding-right: 1rem;
 }
 
 #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .chair .chair__number {
+  max-width: 20rem;
   color: #fb4226;
 }
 
@@ -4493,9 +4446,6 @@ footer .btnBackToTop .backToTopText:hover {
     margin-bottom: 0;
     max-width: 16rem;
   }
-  #checkoutPage .checkoutMain__container .checkoutMain__theaterInfo .leftTitle .contentCinema .address .pCinema {
-    font-size: 15px;
-  }
   #checkoutPage .checkoutMain__container .checkoutMain__theaterInfo .leftTitle .contentCinema .address .cinemaName {
     font-size: 15px;
   }
@@ -4533,10 +4483,13 @@ footer .btnBackToTop .backToTopText:hover {
     height: 2.5rem;
     line-height: 2.5rem;
     font-size: 1.1rem;
-    background-color: #3e515d;
   }
-  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .seatVip {
+  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .Vip {
     background-color: #f7b500;
+  }
+  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .alreadyChosenSeat {
+    background-color: #e7eaec;
+    pointer-events: none;
   }
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap .noteSeat {
     margin-top: 5rem;
@@ -4564,6 +4517,12 @@ footer .btnBackToTop .backToTopText:hover {
     top: 0;
     left: 0;
     z-index: 2;
+  }
+  #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
+    height: 67rem;
+  }
+  #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .chair {
+    padding-right: 1rem;
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod {
     margin-bottom: 20%;
@@ -4649,7 +4608,7 @@ footer .btnBackToTop .backToTopText:hover {
 
 @media screen and (min-width: 768px) {
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap {
-    width: 80%;
+    width: 90%;
     margin-top: 2rem;
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
@@ -4671,7 +4630,7 @@ footer .btnBackToTop .backToTopText:hover {
     display: block;
   }
   #checkoutPage .checkoutMain__container {
-    width: 70%;
+    width: 75%;
     margin-top: 7rem;
     padding-top: 0.5rem;
   }
@@ -4692,8 +4651,14 @@ footer .btnBackToTop .backToTopText:hover {
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
     max-height: 46.5rem;
   }
+  #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .chair {
+    padding-right: 0.5rem;
+  }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .discountCoupon .applyDiscountCoupon {
     top: 0;
+  }
+  #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .listChildren .bankRow {
+    margin-left: 0 !important;
   }
   #checkoutPage .buyTicketOption__container .btnBuy {
     display: block;
@@ -4729,6 +4694,9 @@ footer .btnBackToTop .backToTopText:hover {
     height: 3.2rem;
     font-size: 14px;
   }
+  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .seat:hover {
+    background-color: #fb4226;
+  }
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap .noteSeat {
     margin-top: 2.5rem;
   }
@@ -4740,6 +4708,7 @@ footer .btnBackToTop .backToTopText:hover {
     margin-top: 1rem;
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
+    height: 90rem;
     max-height: 66.5rem;
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod {
@@ -4773,97 +4742,93 @@ footer .btnBackToTop .backToTopText:hover {
   }
 }
 
-.navbarAdmin {
-  padding: 0 !important;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding-right: 1rem !important;
-  box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.3);
+.controlNav {
+  height: 100%;
   position: fixed;
-  transition: all 0.3s;
-  width: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
+  width: 20%;
+  display: block;
+  z-index: 3;
+}
+
+.controlNav .controlNav__container .controlNav__top {
+  height: 20%;
+  padding: 0 1rem;
+  display: flex;
   position: relative;
 }
 
-.navbarAdmin .navbarAdmin__container {
-  justify-content: space-between;
+.controlNav .controlNav__container .controlNav__top .controlNav__logo {
+  max-height: 5.5rem;
+  max-width: 5.5rem;
+  margin-right: 1rem;
 }
 
-.navbarAdmin .navbarAdmin__container .navbarAdmin__brand .navbarAdmin__logo {
-  height: 6rem;
-  width: 6rem;
-}
-
-.navbarAdmin .navbarAdmin__container .navbarAdmin__brand .navbarAdmin__logo img {
-  height: 100%;
+.controlNav .controlNav__container .controlNav__top .controlNav__logo img {
   width: 100%;
-}
-
-.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse {
-  justify-content: center;
   height: 100%;
 }
 
-.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown {
-  width: 100%;
-  margin-right: 2rem;
+.controlNav .controlNav__container .controlNav__top .controlNav__title {
+  font-size: 20px;
+  color: #3e515d;
+  font-weight: 500;
+  line-height: 3;
+}
+
+.controlNav .controlNav__container .controlNav__top::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.controlNav .controlNav__container .controlNav__main {
+  padding: 1rem;
+}
+
+.controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav {
+  background-color: #f8f9fa;
   cursor: pointer;
 }
 
-.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownToggle {
+.controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav .controlNav__dropdownItem {
   text-transform: capitalize;
-  font-size: 15px;
-  color: #000;
-  font-weight: 500;
-}
-
-.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownToggle::after {
-  margin-left: 0.5rem;
-  vertical-align: 0.25rem;
-}
-
-.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownToggle:hover {
-  color: #fb4226;
-}
-
-.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownMenu .navbarAdmin__dropdownItem {
-  text-transform: capitalize;
-  font-size: 15px;
-  color: #000;
-  font-weight: 500;
-}
-
-.navbarAdmin .navbarAdmin__container .navbarAdmin__collapse .navbarAdmin__nav .navbarAdmin__dropdown .navbarAdmin__dropdownMenu .navbarAdmin__dropdownItem:hover {
-  color: #fb4226;
-  background-color: #fff;
-}
-
-.navbarAdmin .navbarAdmin__container .navbarAdmin__user {
+  border-radius: 0.5rem;
   display: flex;
-  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
-.navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__logo {
-  width: 3rem;
-  height: 3rem;
-  margin-right: 0.5rem;
+.controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav .controlNav__dropdownItem:hover {
+  background-color: #007bff;
 }
 
-.navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__logo img {
+.controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav .controlNav__dropdownItem:hover .controlNav__dropdownLink, .controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav .controlNav__dropdownItem:hover .controlNav__dropdownLink .controlNav__icon {
+  color: #fff;
+}
+
+.controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav .controlNav__dropdownItem .controlNav__dropdownLink {
   width: 100%;
-  height: 100%;
-  border-radius: 100%;
-}
-
-.navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__userName {
-  font-size: 14px;
-  color: #9b9b9b;
+  text-decoration: none;
+  font-size: 18px;
+  color: #3e515d;
   font-weight: 500;
-  line-height: 2;
-  height: 100%;
 }
 
-.navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__userName:hover {
-  color: #fb4226;
+.controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav .controlNav__dropdownItem .controlNav__dropdownLink .controlNav__icon {
+  color: #3e515d;
+  margin-right: 1rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav .controlNav__dropdownItem .controlNav__dropdownLink.active, .controlNav .controlNav__container .controlNav__main .controlNav__services .controlNav__nav .controlNav__dropdownItem .controlNav__dropdownLink.active .controlNav__icon {
+  color: #fff;
 }
 
 .signIn {
@@ -4914,5 +4879,438 @@ footer .btnBackToTop .backToTopText:hover {
 
 .register .register__content h3 {
   text-align: center;
+}
+
+.movieControl {
+  width: 80%;
+  padding: 2rem 1rem;
+  position: absolute;
+  background-color: #fff;
+  right: 0;
+  top: 6rem;
+  height: 100%;
+  z-index: 2;
+}
+
+.movieControl .admin__services {
+  text-align: left;
+  font-size: 36px;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.movieControl .movieShowControl__container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 0.4rem;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__title__container .movieShowControl__title {
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  font-weight: 700;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__title__container .movieShowControl__title .movieShowControl__titleIcon {
+  font-size: 18px;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item {
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  font-weight: 500;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieShowControl__content {
+  padding: 1rem 0;
+  height: 6rem;
+  line-height: 4rem;
+  cursor: pointer;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieShowControl__content img {
+  max-width: 8.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieShowControl__content:hover {
+  color: #fb4226;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieName, .movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieDes {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 98%;
+  padding-left: 0.5rem;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .moviePic {
+  padding: 1rem 1rem;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieServices {
+  padding: 1rem 1rem;
+  display: flex;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieServices .adminBtn {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  margin-right: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieServices .createShow:hover {
+  background-color: #0069d9;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieServices .updateShow:hover {
+  background-color: #059105;
+}
+
+.movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieServices .deleteShow:hover {
+  background-color: lightcoral;
+}
+
+.userPage {
+  width: 80%;
+  padding: 1rem;
+  position: absolute;
+  background: linear-gradient(-45deg, #f6339d, #33d7fe);
+  right: 0;
+  top: 6rem;
+  height: 100%;
+  z-index: 2;
+}
+
+.movieShowControl {
+  width: 80%;
+  padding: 1rem;
+  position: absolute;
+  background: linear-gradient(-45deg, #f6339d, #33d7fe);
+  right: 0;
+  top: 6rem;
+  height: 100%;
+  z-index: 2;
+}
+
+.adminHeader {
+  width: 80%;
+  position: fixed;
+  background: #3e515d;
+  right: 0;
+  top: 0;
+  height: 6rem;
+  display: flex;
+  z-index: 3;
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.adminHeader .searchForm {
+  width: 83%;
+  display: flex;
+}
+
+.adminHeader .searchForm .form__searchArea {
+  height: 100%;
+  padding: 0.75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.adminHeader .searchForm .form__searchArea:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.adminHeader .searchForm .form__searchArea:focus {
+  box-shadow: none;
+  background-color: #fff;
+}
+
+.adminHeader .searchForm .btnSearch__text {
+  cursor: pointer;
+  width: 5%;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.adminHeader .searchForm .btnSearch__text .search__icon {
+  font-size: 18px;
+  color: #fff;
+}
+
+.adminHeader .adminPage__user {
+  width: 17%;
+  display: flex;
+  padding: 0 1.5rem;
+  cursor: pointer;
+}
+
+.adminHeader .adminPage__user .adminPage__avatar {
+  line-height: 6rem;
+}
+
+.adminHeader .adminPage__user .adminPage__avatar img {
+  border-radius: 100%;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-right: 1rem;
+}
+
+.adminHeader .adminPage__user .adminPage__userName {
+  line-height: 6rem;
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.btnBackToTop {
+  cursor: pointer;
+  position: fixed;
+  bottom: 2rem;
+  right: 3rem;
+  animation: fadeIn 700ms ease-in-out 1s both;
+  z-index: 2;
+  text-decoration: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal__dialog {
+  margin: 0 auto !important;
+  margin-top: 20rem !important;
+}
+
+.modal-content {
+  border-radius: 1rem !important;
+}
+
+.modalError__header {
+  max-width: 8rem;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2rem;
+  border-bottom: none !important;
+}
+
+.modalError__header img {
+  width: 8rem;
+}
+
+.modalError__body {
+  text-align: center;
+}
+
+.modalError__body .seat-error-content {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalError__body .modalErrorInfo__text {
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalError__footer {
+  display: block !important;
+  text-align: center;
+  border-radius: 0 0 0.6rem 0.6rem;
+  margin: 0 1.5rem;
+  padding: 0 !important;
+}
+
+.modalError__footer .btnOk {
+  border-radius: 2rem;
+  cursor: pointer;
+  padding: 0.7rem 2.5rem;
+  background-color: transparent;
+  font-size: 1.6rem;
+  color: #fb4226;
+  font-weight: 500;
+  margin: 1.5rem 0;
+  border: 1.2px solid #fb4226;
+}
+
+.modalError__footer .btnOk:hover {
+  background-color: #fb4226;
+  color: #fff;
+}
+
+.modalConfirm__header {
+  display: block !important;
+  text-transform: capitalize;
+  text-align: center;
+  border-bottom: none !important;
+  font-size: 20px;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalConfirm__body {
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  font-weight: 400;
+  padding: 2rem 1rem !important;
+}
+
+.modalConfirm__footer {
+  padding: 1rem !important;
+  text-align: center;
+  justify-content: center !important;
+  border-top: none !important;
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalConfirm__footer .btnConfirm {
+  outline: none;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 0.4rem;
+  font-size: 18px;
+  display: flex;
+}
+
+.modalConfirm__footer .btnConfirm .btnConfirm__icon {
+  margin-right: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+.modalConfirm__footer .btnConfirm .modalBtn__text {
+  text-transform: capitalize;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 3rem;
+}
+
+.modalConfirm__footer .-btnClose {
+  background-color: #D42E2F;
+}
+
+.modalConfirm__footer .-btnClose:hover {
+  background-color: #c82333;
+}
+
+.modalConfirm__footer .-btnComplete {
+  background-color: #059862;
+}
+
+.modalConfirm__footer .-btnComplete:hover {
+  background-color: #218838;
+}
+
+.ModalComplete__dialog {
+  margin-top: 30rem !important;
+  max-width: 35rem !important;
+}
+
+.modalComplete__body {
+  display: flex;
+  padding: 1rem 2rem !important;
+}
+
+.modalComplete__body .modalComplete__icon {
+  font-size: 36px;
+  color: #059862;
+  margin-right: 1rem;
+  margin-top: 0.75rem;
+}
+
+.modalComplete__body .modalComplete__text {
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+  line-height: 5rem;
+}
+
+.modalTimeOut__body {
+  text-align: center;
+  cursor: pointer;
+}
+
+.modalTimeOut__body .modalTimeOut__text {
+  display: block;
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalTimeOut__body .modalTimeOut__refresh {
+  font-size: 1.6rem;
+  color: #fb4226;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 320px) {
+  .modal__dialog {
+    margin-top: 15rem !important;
+  }
+  .modalComplete__body {
+    padding: 1rem 1rem !important;
+  }
+  .modalComplete__body .modalComplete__text {
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+    line-height: 5rem;
+  }
+  .modalTimeOut__dialog {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .modalTimeOut__dialog {
+    width: 90% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .modalTimeOut__dialog {
+    width: 65rem !important;
+    max-width: 65rem !important;
+  }
 }
 /*# sourceMappingURL=main.css.map */

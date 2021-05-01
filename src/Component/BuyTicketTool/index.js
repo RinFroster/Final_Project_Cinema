@@ -42,66 +42,66 @@ function BuyTicketTool() {
   return (
     <section className="tool__nav noneOnMobile">
       <div className="nav__container">
-      <div class="dropdown -selectFilm">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="buyTicketDropdownMovie" data-toggle="dropdown" aria-expanded="false">
+      <div className="dropdown -selectFilm">
+        <button className="btn btn-secondary dropdown-toggle" type="button" id="buyTicketDropdownMovie" data-toggle="dropdown" aria-expanded="false">
           Phim
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li>
-            <a class="dropdown-item" id="chosenMovie1" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie1" onClick={chooseMovie}>
               Mortal Kombat - Cuộc Chiến Sinh Tử (C18)
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie2" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie2" onClick={chooseMovie}>
               Lật Mặt 48h
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie3" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie3" onClick={chooseMovie}>
               Godzilla vs Kong
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie4" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie4" onClick={chooseMovie}>
               Người Nhân Bản - Seobok (C16)
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie5" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie5" onClick={chooseMovie}>
               Bàn Tay Diệt Quỷ - Evil Expeller (C16)
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie6" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie6" onClick={chooseMovie}>
               1990 (C16)
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie7" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie7" onClick={chooseMovie}>
               Ong Nhí Phiêu Lưu Ký: Giải Cứu Công Chúa Kiến - Maya The Bee 3: The Golden Orb - P
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie8" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie8" onClick={chooseMovie}>
               Detective Conan: Scarlet Bullet - Thám Tử Lừng Danh Conan: Viên Đạn Đỏ - C13
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie9" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie9" onClick={chooseMovie}>
               The Hypnosis - Con Lắc Tà Thuật - C18
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenMovie10" onClick={chooseMovie}>
+            <a className="dropdown-item" href="#" id="chosenMovie10" onClick={chooseMovie}>
               Bạn Tôi- Our Friend
             </a>
           </li>
         </ul>
       </div>
-      <div class="dropdown -selectCinema">
+      <div className="dropdown -selectCinema">
         <button
-          class="btn btn-secondary dropdown-toggle disabled"
+          className="btn btn-secondary dropdown-toggle disabled"
           type="button"
           id="buyTicketDropdownTheater"
           data-toggle="dropdown"
@@ -109,27 +109,27 @@ function BuyTicketTool() {
         >
           Rạp
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li>
-            <a class="dropdown-item" id="chosenTheaterBHD" onClick={chooseTheater}>
+            <a className="dropdown-item" href="#" id="chosenTheaterBHD" onClick={chooseTheater}>
               BHD
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenTheaterCGV" onClick={chooseTheater}>
+            <a className="dropdown-item" href="#" id="chosenTheaterCGV" onClick={chooseTheater}>
               CGV
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenTheaterGalaxy" onClick={chooseTheater}>
+            <a className="dropdown-item" href="#" id="chosenTheaterGalaxy" onClick={chooseTheater}>
               GALAXY
             </a>
           </li>
         </ul>
       </div>
-      <div class="dropdown -selectDate">
+      <div className="dropdown -selectDate">
         <button
-          class="btn btn-secondary dropdown-toggle disabled"
+          className="btn btn-secondary dropdown-toggle disabled"
           type="button"
           id="buyTicketDropdownDate"
           data-toggle="dropdown"
@@ -137,27 +137,27 @@ function BuyTicketTool() {
         >
           Ngày Xem
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li>
-            <a class="dropdown-item" id="chosenDate1" onClick={chooseDate}>
+            <a className="dropdown-item" href="#" id="chosenDate1" onClick={chooseDate}>
               Action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenDate2" onClick={chooseDate}>
+            <a className="dropdown-item" href="#" id="chosenDate2" onClick={chooseDate}>
               Another action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenDate3" onClick={chooseDate}>
+            <a className="dropdown-item" href="#" id="chosenDate3" onClick={chooseDate}>
               Something else here
             </a>
           </li>
         </ul>
       </div>
-      <div class="dropdown -selectSession">
+      <div className="dropdown -selectSession">
         <button
-          class="btn btn-secondary dropdown-toggle disabled"
+          className="btn btn-secondary dropdown-toggle disabled"
           type="button"
           id="buyTicketDropdownPremiere"
           data-toggle="dropdown"
@@ -165,19 +165,19 @@ function BuyTicketTool() {
         >
           Suất Chiếu
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li>
-            <a class="dropdown-item" id="chosenPremiere1" onClick={choosePremiere}>
+            <a className="dropdown-item" href="#" id="chosenPremiere1" onClick={choosePremiere}>
               Action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenPremiere2" onClick={choosePremiere}>
+            <a className="dropdown-item" href="#" id="chosenPremiere2" onClick={choosePremiere}>
               Another action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" id="chosenPremiere3" onClick={choosePremiere}>
+            <a className="dropdown-item" href="#" id="chosenPremiere3" onClick={choosePremiere}>
               Something else here
             </a>
           </li>

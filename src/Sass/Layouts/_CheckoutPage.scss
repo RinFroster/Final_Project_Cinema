@@ -60,25 +60,6 @@
     .progressBar__containerMobile{
         display: none;
     }
-    .movie__bg{
-        width: 5%;
-        // .modalLeft{
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     bottom: 0;
-        //     right: 0;
-        //     opacity: 0.7;
-        //     background-color: #000;
-        //     &:hover{
-        //         opacity: 0;
-        //     }
-        // }
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
 
     .checkoutMain__container{
         text-align: center;
@@ -99,9 +80,6 @@
                 .contentCinema{
                     text-align: left;
                     .address{
-                        .pCinema{
-                            @include styleText(1.6rem,#8bc541,$fw-bold-2);
-                        }
                         .cinemaName{
                             @include styleText(1.6rem,$text-base-color,$fw-bold-2);
                         }
@@ -166,10 +144,8 @@
                             text-align: center;
                             outline: none;
                             border: none;
+                            background-color: #3e515d;
                             @include styleText($fs-2,$text-on-base-color,$fw-bold-2);
-                            &:hover{
-                                background-color: $item-active;
-                            }
                         }
                         .chosenSeat{
                             background-color: $item-active !important;
@@ -288,12 +264,14 @@
             background-color: #afafaf;
             pointer-events: none;
         }
+        .continueBtn.visible{
+            display: none;
+        }
     }
     .buyTicketOption__container{
         box-shadow: 0 0 1.5rem rgba(0,0,0,.3);
         background-color: #fff;
         .buyTicketOption__scrollbars{
-            height: 90rem;
             position: relative;
             .scrollBars{
                 padding-left: 5%;
@@ -335,7 +313,9 @@
                     display: flex;
                     justify-content: space-between;
                     padding-top: 1.25rem;
+                    padding-right: 1rem;
                     .chair__number{
+                        max-width: 20rem;
                         color: $item-active;
                         
                     }
@@ -396,7 +376,6 @@
                             margin-bottom: 0.5rem;
                             .paymentParent{
                                 position: relative;
-                                // display: flex;
                                 .radio{
                                     position: absolute;
                                     top: 25%;
@@ -444,14 +423,11 @@
                                 .bankRow{
                                     margin-left: 4rem !important;
                                     .bank{
-                                        // background-image: url("./../Asset/CheckoutPage__img/bank1.jpg");
                                         border: 1px solid #ccc;
                                         background-color: #fff;
                                         width: 6rem;
                                         height: 4rem;
                                         cursor: pointer;
-                                        // background-position: center center;
-                                        // background-repeat: no-repeat;
                                         background-size: 5rem auto;
                                         margin: 1.5rem 1.5rem 0 0;
                                         img{
@@ -593,9 +569,6 @@
                         .address{
                             margin-bottom: 0;
                             max-width: 16rem;
-                            .pCinema{
-                                font-size: $fs-3;
-                            }
                             .cinemaName{
                                 font-size: $fs-3;
                             }
@@ -634,10 +607,13 @@
                                             height: 2.5rem;
                                             line-height: 2.5rem;
                                             font-size: 1.1rem;
-                                            background-color: #3e515d;
                                         }
-                                        .seatVip{
+                                        .Vip{
                                             background-color: #f7b500;
+                                        }
+                                        .alreadyChosenSeat{
+                                            background-color: #e7eaec;
+                                            pointer-events: none;
                                         }
                                     }
                                 }
@@ -674,7 +650,11 @@
             left: 0;
             z-index: 2;
             .buyTicketOption__scrollbars{
+                height: 67rem;
                 .scrollBars{
+                    .chair{
+                        padding-right: 1rem;
+                    }
                     .paymentMethod{
                         margin-bottom: 20%;
                     }
@@ -816,7 +796,7 @@
     #checkoutPage{
         .checkoutMain__container{
             .checkoutMain__seatMap{
-                width: 80%;
+                width: 90%;
                 margin-top: 2rem;
             }
         }
@@ -842,7 +822,7 @@
             display: block;
         }
         .checkoutMain__container{
-            width: 70%;
+            width: 75%;
             margin-top: 7rem;
             padding-top: 0.5rem;
             .checkoutMain__seatMap{
@@ -864,9 +844,23 @@
             .buyTicketOption__scrollbars{
                 max-height: 46.5rem;
                 .scrollBars{
+                    .chair{
+                        padding-right: 0.5rem;
+                    }
                     .discountCoupon{
                         .applyDiscountCoupon{
                             top: 0;
+                        }
+                    }
+                    .paymentMethod{
+                        .paymentMethod__container{
+                            .paymentMethod__chosenMethod{
+                                .listChildren{
+                                    .bankRow{
+                                        margin-left: 0 !important;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -916,6 +910,9 @@
                                             width: 3.2rem;
                                             height: 3.2rem;
                                             font-size: $fs-2;
+                                            &:hover{
+                                                background-color: $item-active;
+                                            }
                                         }
                                     }
                                 }
@@ -937,6 +934,7 @@
         }
         .buyTicketOption__container{
             .buyTicketOption__scrollbars{
+                height: 90rem;
                 max-height: 66.5rem;
                 .scrollBars{
                     .paymentMethod{

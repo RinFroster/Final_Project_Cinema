@@ -27,7 +27,7 @@ function DetailTabPaneItemShowTimeMobile(props) {
                             return (itemDS.lstLichChieuTheoPhim.map((itemP) => {
                                 // console.log(itemP)
                                 return (
-                                    <div className="theater__sessionsMobile">
+                                    <div className="theater__sessionsMobile" key={itemP.maLichChieu}>
                                     <Link to={`/checkout/${itemDS.maPhim}`} className="sessions__btnMobile">
                                         <span className="sessions__spanMobile">{itemP.ngayChieuGioChieu.slice(11, 16)}</span>~ 16:45
                                     </Link>

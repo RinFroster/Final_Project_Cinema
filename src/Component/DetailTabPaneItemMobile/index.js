@@ -9,7 +9,6 @@ function DetailTabPaneItemMobile(props) {
     const [cinemaMobile, setCinemaMobile] = useState({indexCinema : 0})
     useEffect(() => {
         const id = props.cinameMobile;
-        console.log(id)
         props.fetchListCinemaSystemMobile(id);
         return () => {
         }
@@ -28,25 +27,25 @@ function DetailTabPaneItemMobile(props) {
                 console.log(getTabPaneItem);
             }
             return (
-                <div className="col-lg-12 tabPaneItem__showTimeMobile" onClick = {handleShowTimeMovie}>
-                <div className="tabPaneItem__movieMobile" key={item.maCumRap} id = {item.maCumRap}  aria-controls={item.maCumRap} onClick= {()=>{setCinemaMobile({indexCinema: index})}} aria-expanded={!openDetailCollapse}>
-                    <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=""/>
-                    <div className="tabPaneItem__movieSpanMobile">
-                        <span className="tabPaneItem__cinemaMobile">
-                            <span className="tabPaneItem__colorCinemaMobile">{item.tenCumRap}</span>- Bitexco
-                        </span>
-                        <span className="tabPaneItem__infoCinemaMobile">
-                            {" "}
-                           {item.diaChi}
-                        </span>
-                        <span className="tabPaneItem__infoCinema__locationMobile">
-                            <a>[Bản Đồ]</a>
-                        </span>
+                <div className="col-lg-12 tabPaneItem__showTimeMobile" onClick = {handleShowTimeMovie} key={item.maCumRap}>
+                    <div className="tabPaneItem__movieMobile" id = {item.maCumRap}  aria-controls={item.maCumRap} onClick= {()=>{setCinemaMobile({indexCinema: index})}} aria-expanded={!openDetailCollapse}>
+                        <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=""/>
+                        <div className="tabPaneItem__movieSpanMobile">
+                            <span className="tabPaneItem__cinemaMobile">
+                                <span className="tabPaneItem__colorCinemaMobile">{item.tenCumRap}</span>- Bitexco
+                            </span>
+                            <span className="tabPaneItem__infoCinemaMobile">
+                                {" "}
+                            {item.diaChi}
+                            </span>
+                            <span className="tabPaneItem__infoCinema__locationMobile">
+                                <a>[Bản Đồ]</a>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <Collapse in={!openDetailCollapse}>
-                          {renderShowTimeMobile()}
-                </Collapse>
+                    <Collapse in={!openDetailCollapse}>
+                            {renderShowTimeMobile()}
+                    </Collapse>
                 </div>
             )
         })

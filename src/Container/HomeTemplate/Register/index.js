@@ -35,7 +35,7 @@ function Register(props) {
   // if(err){
   //   return <div className="alert alert-danger">{err.response.err}</div>
   // }
-  // }
+  
   return (
     <div className="register">
       <div className="register__content">

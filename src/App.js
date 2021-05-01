@@ -48,8 +48,9 @@ function App() {
         {showLayoutAdmin(routeAdmin)} 
         <Route path="/Login" exact component={Login} />
         <Route path="/Register" exact component={Register} />
-        {/* Page not found */}
-        <Route path ="" component={PageNotFound} />
+        {showLayoutAdmin(routeAdmin)}
+        <Route path="" component={PageNotFound} />
+
       </Switch>
     </BrowserRouter>
   );

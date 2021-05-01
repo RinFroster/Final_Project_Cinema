@@ -80,62 +80,26 @@ function NavbarHome() {
             <span className={`navbar__toggler__icon ${addActiveClass ? "active" : ""}`} id="toggler__icon" />
           </button>
           {/* Navbar links */}
-          <div className={`collapse navbar-collapse collapse__header ${isVisible ? "show" : ""}`} id="navbarSupportedContent" tabIndex="0" ref={dropdown}>
-            {/* {state && ( */}
-            <ul className="navbar-nav nav__header">
-              <li className="nav-item nav__item">
-                {/* <Link
-                      activeClass="active"
-                      to="homeMovie"
-                      spy={true}
-                      duration={500}
-                      className="nav-link nav__link"
-                    >
-                      Lịch Chiếu
-                    </Link> */}
-                <a className="nav-link nav__link" href="/#homeMovie">Lịch Chiếu</a>
-              </li>
-              <li className="nav-item nav__item">
-                {/* <Link
-                      activeClass="active"
-                      to="theater"
-                      spy={true}
-                      duration={500}
-                      className="nav-link nav__link"
-                    >
-                      Cụm Rạp
-                    </Link> */}
-                <a className="nav-link nav__link" href="/#theater">Cụm Rạp</a>
-              </li>
-              <li className="nav-item nav__item">
-                {/* <Link
-                      activeClass="active"
-                      to="news"
-                      spy={true}
-                      duration={500}
-                      className="nav-link nav__link"
-                    >
-                      Tin Tức
-                    </Link> */}
-                <a className="nav-link nav__link" href="/#news">Tin Tức</a>
-              </li>
-              <li className="nav-item nav__item">
-                {/* <Link
-                      activeClass="active"
-                      to="mobileApp"
-                      spy={true}
-                      duration={500}
-                      className="nav-link nav__link"
-                    >
-                      Ứng Dụng
-                    </Link> */}
-                <a className="nav-link nav__link" href="/#MobileApp">Ứng Dụng</a>
-              </li>
-              <li className="nav-item select__location nav__item" id="location">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="map__icon" />
-                <div className="dropdown">
-                  <button className="btn btn-secondary dropdown-toggle btn__location" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onClick={chooseLocation}>
-                    Hồ Chí Minh
+          <div className={`collapse navbar-collapse collapse__header ${isVisible ? "show" : ""}`} id="navbarSupportedContent"  tabIndex="0" ref={dropdown}>
+              {/* {state && ( */}
+                <ul className="navbar-nav nav__header">
+                  <li className="nav-item nav__item">
+                    <a className="nav-link nav__link" href="/#homeMovie">Lịch Chiếu</a>
+                  </li>
+                  <li className="nav-item nav__item">
+                    <a className="nav-link nav__link" href="/#theater">Cụm Rạp</a>
+                  </li>
+                  <li className="nav-item nav__item">
+                    <a className="nav-link nav__link" href="/#news">Tin Tức</a>
+                  </li>
+                  <li className="nav-item nav__item">
+                    <a className="nav-link nav__link" href="/#MobileApp">Ứng Dụng</a>
+                  </li>
+                  <li className="nav-item select__location nav__item" id="location">
+                    <FontAwesomeIcon icon={faMapMarkerAlt} className="map__icon" />
+                    <div className="dropdown">
+                      <button className="btn btn-secondary dropdown-toggle btn__location" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onClick={chooseLocation}>
+                        Hồ Chí Minh
                       </button>
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenu2">
                     <button className="dropdown-item" type="button" id="1" onClick={chooseLocation}>
