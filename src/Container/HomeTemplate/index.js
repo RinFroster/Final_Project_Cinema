@@ -20,7 +20,7 @@ export default function HomeTemplate({ Component, ...props }) {
       render={(propsComponent) => (
         <HomeLayout>
           <Component {...propsComponent} />
-        </HomeLayout>
+        </HomeLayout>                          
       )}
     />
   );

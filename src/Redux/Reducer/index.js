@@ -7,6 +7,8 @@ import LoaderReducer from "./../../Component/Loader/modules/LoaderReducer"
 import ListCinemaReducer from "./../../Component/Theater/modules/ListCinemaReducer"
 import ListTheaterReducer from "./../../Component/TheaterItem/modules/ListTheaterReducer";
 import ShowTimeReducer from "./../../Component/ShowTimes/modules/ShowTimeReducer";
+import LoginReducer from "./../../Container/HomeTemplate/Login/module/LoginReducer";
+import RegisterReducer from "./../../Container/HomeTemplate/Register/module/RegisterReducer"
 import listMovieAdminReducer from "./../../Container/AdminTemplate/MovieControlPage/modules/reducer";
 import listCheckoutReducer from "./../../Container/CheckoutTemplate/CheckoutPage/modules/reducer";
 
@@ -19,8 +21,11 @@ const rootReducer = combineReducers({
     ListCinemaReducer,
     ListTheaterReducer,
     ShowTimeReducer,
+    LoginReducer,
+    RegisterReducer, 
     listMovieAdminReducer,
     listCheckoutReducer,
+
 });
 
 export default rootReducer;

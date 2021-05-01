@@ -1,11 +1,14 @@
 import './App.css';
-import {BrowserRouter,Route,Switch } from 'react-router-dom';
+// Route
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import {routeHome,routeCheckout,routeAdmin} from './Route';
 import HomeTemplate from "./Container/HomeTemplate";
 import CheckoutTemplate from "./Container/CheckoutTemplate";
 import AdminTemplate from "./Container/AdminTemplate";
 import Loader from "./Component/Loader/index";
-import PageNotFound from "./Container/PageNotFound";
+import PageNotFound from './Container/PageNotFound';
+import Login from './Container/HomeTemplate/Login';
+import Register from './Container/HomeTemplate/Register';
 
 function App() {
   const showLayoutHome = (route) => {
@@ -42,8 +45,12 @@ function App() {
       <Switch>
         {showLayoutHome(routeHome)}
         {showLayoutCheckout(routeCheckout)}
+        {showLayoutAdmin(routeAdmin)} 
+        <Route path="/Login" exact component={Login} />
+        <Route path="/Register" exact component={Register} />
         {showLayoutAdmin(routeAdmin)}
         <Route path="" component={PageNotFound} />
+
       </Switch>
     </BrowserRouter>
   );
