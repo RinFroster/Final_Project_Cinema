@@ -1,8 +1,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {NavLink} from "react-router-dom";
+import { USRELOGIN,TOKEN } from '../../../util/settings';
+import {useSelector} from "react-redux"
 
-function AdminHeader() {
+function AdminHeader(props) {
+    const {data} = useSelector(state => state.AuthPageReducer)
     return (
         <div className="adminHeader">
             <form action="" className="searchForm">
@@ -16,7 +20,13 @@ function AdminHeader() {
                 <div className="adminPage__avatar">
                     <img src={require("./../../../Asset/img/photo.png").default}/>
                 </div>
-                <div className="adminPage__userName">trương vĩ hào</div>
+                <div className="adminPage__userName">{data ? <NavLink className="user__account__name" to="/">
+              {data.taiKhoan}(<a onClick={()=>{
+                localStorage.removeItem(USRELOGIN);
+                localStorage.removeItem(TOKEN);
+                window.location.reload();
+              }}>Đăng xuất</a>)
+            </NavLink> : <NavLink className="user__account__name" to="/auth">Đăng nhập</NavLink>}</div>
             </div>
         </div>
     )

@@ -11,6 +11,13 @@ export const fetchRegisterApi = (user) =>{
         })
         .then((res)=>{
             dispatch(actRegisterSuccess(res.data));
+            console.log(res)
+            if(res.status === 200){
+                alert("Bạn đã đăng ký thành công!!!")
+            }
+            else if (res.status === 500){
+                console.log(res)
+            }
         })
         .catch((err)=>{
             dispatch(actRegisterFailed(err))

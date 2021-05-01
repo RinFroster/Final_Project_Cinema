@@ -5,7 +5,7 @@ import {actFetchAdminUser} from "./modules/action";
 import { connect } from "react-redux";
 import ReactPaginate from 'react-paginate';
 import axios from "axios";
-import AddUser from "./modal/AddUser";
+import AddUser from "./modal/AddUser/AddUser";
 
 function UserPage(props) {
     const [pageCount, setPageCount] = useState(52);

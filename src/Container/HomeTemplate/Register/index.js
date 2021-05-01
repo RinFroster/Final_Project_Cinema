@@ -23,12 +23,12 @@ function Register(props) {
       Register => ({ ...Register, [name]: value })
     )
   }
-  const handleLogin = (e) => {
+  const handleRegister = (e) => {
     // e.preventDefault();
     props.fetchRegister(Register);
 
   }
-  console.log(props.err)
+  // console.log(props.data)
   // const renderNoti = ()=>{
   //     const { err } = props;
   //     console.log(err)
@@ -40,7 +40,7 @@ function Register(props) {
     <div className="register">
       <div className="register__content">
         <h3>Đăng ký</h3>
-        <form onSubmit={handleSubmit(handleLogin)}>
+        <form onSubmit={handleSubmit(handleRegister)}>
           <div className="form-group">
             <label htmlFor="taiKhoan" className="labelRegister">Tài khoản</label>
             <input type="text" {...register("taiKhoan", { required: 'Tài khoản không được rỗng'})} 
@@ -95,7 +95,7 @@ function Register(props) {
 }
 const mapStateToProps = (state) => {
   return {
-    err: state.RegisterReducer.data,
+    data: state.RegisterReducer.data,
   }
 }
 

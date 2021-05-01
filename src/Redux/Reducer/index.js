@@ -12,6 +12,9 @@ import RegisterReducer from "./../../Container/HomeTemplate/Register/module/Regi
 import listMovieAdminReducer from "./../../Container/AdminTemplate/MovieControlPage/modules/reducer";
 import listCheckoutReducer from "./../../Container/CheckoutTemplate/CheckoutPage/modules/reducer";
 import listUserAdminReducer from "./../../Container/AdminTemplate/UserPage/modules/reducer";
+import AuthPageReducer from "./../../Container/AdminTemplate/AuthPage/module/AuthPageReducer";
+import AddUserReducer from "./../../Container/AdminTemplate/UserPage/modal/AddUser/module/AddUserReducer";
+
 
 const rootReducer = combineReducers({
     listMovieReducerNS,
@@ -27,6 +30,9 @@ const rootReducer = combineReducers({
     listMovieAdminReducer,
     listCheckoutReducer,
     listUserAdminReducer,
+    AuthPageReducer,
+    AddUserReducer, 
+    
 });
 
 export default rootReducer;
