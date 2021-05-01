@@ -4865,4 +4865,54 @@ footer .btnBackToTop .backToTopText:hover {
 .navbarAdmin .navbarAdmin__container .navbarAdmin__user .navbarAdmin__userName:hover {
   color: #fb4226;
 }
+
+.signIn {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./../Asset/img/bg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.signIn .signIn__content {
+  max-width: 360px;
+  padding: 40px 32px 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(to bottom, rgba(20, 50, 93, 0.9), rgba(8, 22, 48, 0.9));
+  color: #fff;
+  border-radius: 6px;
+}
+
+.signIn .signIn__content h3 {
+  text-align: center;
+}
+
+.register {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./../Asset/img/bg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.register .register__content {
+  max-width: 360px;
+  padding: 40px 32px 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(to bottom, rgba(20, 50, 93, 0.9), rgba(8, 22, 48, 0.9));
+  color: #fff;
+  border-radius: 6px;
+}
+
+.register .register__content h3 {
+  text-align: center;
+}
 /*# sourceMappingURL=main.css.map */
