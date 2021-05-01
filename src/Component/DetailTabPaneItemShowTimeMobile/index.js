@@ -8,6 +8,7 @@ function DetailTabPaneItemShowTimeMobile(props) {
 
     useEffect(() => {
         const { maCumRap, maPhim, nameCinema ,danhSachRap } = props;
+        console.log(maPhim)
         props.fetchShowTimeMobile(nameCinema);
         return () => {
         }
@@ -25,7 +26,7 @@ function DetailTabPaneItemShowTimeMobile(props) {
                         if (itemDS.maPhim === props.maPhim)
                             console.log(itemDS)
                             return (itemDS.lstLichChieuTheoPhim.map((itemP) => {
-                                // console.log(itemP)
+                                console.log(itemP)
                                 return (
                                     <div className="theater__sessionsMobile" key={itemP.maLichChieu}>
                                     <Link to={`/checkout/${itemDS.maPhim}`} className="sessions__btnMobile">

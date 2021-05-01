@@ -11,19 +11,19 @@ export const fetchLoginApi  = (user, history) =>{
             data: user,
         })
         .then((res)=>{
-            if(res.data.maLoaiNguoiDung === "KhachHang"){
+            // if(res.data.maLoaiNguoiDung === "KhachHang"){
                 dispatch(actLoginSuccess(res.data));
                 localStorage.setItem(TOKEN, res.data.accessToken)
                 localStorage.setItem(USRELOGIN,JSON.stringify(res.data));
 
                 // push về trang chủ khi đăng nhập thành công
                 history.push("/");
-            }
-            else {
-                return Promise.reject({
-                    reponse:{data: "Tài khoản không có quyền truy cập !"},
-                });
-            }
+            // }
+            // else {
+            //     return Promise.reject({
+            //         response:{data: "Tài khoản không có quyền truy cập !"},
+            //     });
+            // }
         })
         .catch((err)=>{
             dispatch(actLoginFailed(err));

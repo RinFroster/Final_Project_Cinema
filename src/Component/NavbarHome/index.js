@@ -20,7 +20,7 @@ function NavbarHome() {
 
   const { data } = useSelector(state => state.LoginReducer);
   // // const {taiKhoan} = data;
-  console.log(data);
+  // console.log(data);
 
   const handleOnClick = () => {
     if (addActiveClass === false) {

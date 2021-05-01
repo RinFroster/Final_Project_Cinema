@@ -9,6 +9,7 @@ import Loader from "./Component/Loader/index";
 import PageNotFound from './Container/PageNotFound';
 import Login from './Container/HomeTemplate/Login';
 import Register from './Container/HomeTemplate/Register';
+import AuthPage from './Container/AdminTemplate/AuthPage';
 
 function App() {
   const showLayoutHome = (route) => {
@@ -46,6 +47,7 @@ function App() {
         {showLayoutHome(routeHome)}
         {showLayoutCheckout(routeCheckout)}
         {showLayoutAdmin(routeAdmin)} 
+        <Route path="/auth" component={AuthPage} />
         <Route path="/Login" exact component={Login} />
         <Route path="/Register" exact component={Register} />
         {showLayoutAdmin(routeAdmin)}
