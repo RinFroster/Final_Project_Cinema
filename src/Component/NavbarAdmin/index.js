@@ -43,12 +43,6 @@ function NavbarAdmin() {
                     quản lý người dùng
                   </NavLink>
                 </li>
-                <li className="nav-item controlNav__dropdownItem">
-                  <NavLink className="nav-link controlNav__dropdownLink" to="/movieShow">
-                    <FontAwesomeIcon icon={faThLarge} className="controlNav__icon"/>
-                    quản lý lịch chiếu
-                  </NavLink>
-                </li>
               </ul>
             </div>
           </div>

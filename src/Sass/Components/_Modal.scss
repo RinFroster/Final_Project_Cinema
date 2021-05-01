@@ -132,6 +132,38 @@
     }
 }
 
+// Modal Create ShowTimes
+.modalAdmin__header{
+    display: block !important;
+    width: 100%;
+    margin-top: 2rem;
+    border-bottom: none !important;
+    text-transform: capitalize;
+    text-align: center;
+    .modalAdmin__headerText{
+        @include styleText($fs-5,$text-base-color,$fw-bold-2);
+    } 
+}
+.modalAdmin__body{
+    text-align: left;
+}
+.form__label{
+    @include styleText($fs-3,$text-base-color,$fw-bold-2);
+}
+
+// Modal Add Movie
+.modalAddMovie__header{
+    display: block !important;
+    width: 100%;
+    margin-top: 2rem;
+    border-bottom: none !important;
+    text-transform: capitalize;
+    text-align: center;
+    .modalAddMovie__headerText{
+        @include styleText($fs-5,$text-base-color,$fw-bold-2);
+    }
+}
+
 // Responsive for screen > 320px and < 480px
 @include responsive ('extra-small'){
     .modal__dialog{

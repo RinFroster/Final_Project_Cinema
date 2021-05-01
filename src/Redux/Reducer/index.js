@@ -11,6 +11,7 @@ import LoginReducer from "./../../Container/HomeTemplate/Login/module/LoginReduc
 import RegisterReducer from "./../../Container/HomeTemplate/Register/module/RegisterReducer"
 import listMovieAdminReducer from "./../../Container/AdminTemplate/MovieControlPage/modules/reducer";
 import listCheckoutReducer from "./../../Container/CheckoutTemplate/CheckoutPage/modules/reducer";
+import listUserAdminReducer from "./../../Container/AdminTemplate/UserPage/modules/reducer";
 
 const rootReducer = combineReducers({
     listMovieReducerNS,
@@ -25,7 +26,7 @@ const rootReducer = combineReducers({
     RegisterReducer, 
     listMovieAdminReducer,
     listCheckoutReducer,
-
+    listUserAdminReducer,
 });
 
 export default rootReducer;

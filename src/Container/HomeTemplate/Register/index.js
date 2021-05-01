@@ -42,34 +42,34 @@ function Register(props) {
         <h3>Đăng ký</h3>
         <form onSubmit={handleSubmit(handleLogin)}>
           <div className="form-group">
-            <label htmlFor="taiKhoan">Tài khoản</label>
+            <label htmlFor="taiKhoan" className="labelRegister">Tài khoản</label>
             <input type="text" {...register("taiKhoan", { required: 'Tài khoản không được rỗng'})} 
-            className="form-control" name="taiKhoan" onChange={handleOnChange} />
+            className="form-control form__control" name="taiKhoan" onChange={handleOnChange} />
             {errors.taiKhoan && <span className="">{errors.taiKhoan.message}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="matKhau">Mật khẩu</label>
-            <input type="password" {...register("matKhau", {required:"Mật khẩu không được rỗng"})} className="form-control" name="matKhau" onChange={handleOnChange} />
+            <label htmlFor="matKhau" className="labelRegister">Mật khẩu</label>
+            <input type="password" {...register("matKhau", {required:"Mật khẩu không được rỗng"})} className="form-control form__control" name="matKhau" onChange={handleOnChange} />
             {errors.matKhau && <span>{errors.matKhau.message}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="labelRegister">Email</label>
             <input type="text" {...register('email',
             {required: 'Email không được rỗng', pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 
             message:'Vui lòng nhập đúng dạng Email'}} )}  
-            className="form-control" name="email" onChange={handleOnChange} />
+            className="form-control form__control" name="email" onChange={handleOnChange} />
             {errors.email && <span>{errors.email.message}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="soDt">Sô điện thoại</label>
+            <label htmlFor="soDt" className="labelRegister">Số điện thoại</label>
             <input type="text" {...register("soDt", 
             {required: 'Số điện thoại không được trống', pattern: {value:/^[0-9]+$/, message:'Vui lòng nhập số điện thoại'}})} 
-            className="form-control" name="soDt" onChange={handleOnChange} />
+            className="form-control form__control" name="soDt" onChange={handleOnChange} />
             {errors.soDt && <span >{errors.soDt.message}</span>}
           </div>
           <div className="form-group">
-            <label htmlFor="maNhom">Mã nhóm</label>
-            <select className="form-control" {...register("maNhom")} name="maNhom" onChange={handleOnChange} >
+            <label htmlFor="maNhom" className="labelRegister">Mã nhóm</label>
+            <select className="form-control form__control" {...register("maNhom")} name="maNhom" onChange={handleOnChange} >
               <option value="GP01">GP01</option>
               <option value="GP02">GP02</option>
               <option value="GP03">GP03</option>
@@ -77,17 +77,18 @@ function Register(props) {
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="hoTen">Họ tên</label>
-            <input type="text" {...register("hoTen",{required:'Họ tên không được rỗng'})} className="form-control" name="hoTen" onChange={handleOnChange} />
+            <label htmlFor="hoTen" className="labelRegister">Họ tên</label>
+            <input type="text" {...register("hoTen",{required:'Họ tên không được rỗng'})} className="form-control form__control" name="hoTen" onChange={handleOnChange} />
             {errors.hoTen && <span>{errors.hoTen.message}</span>}
           </div>
-          <button type="submit" className="btn btn-success">
-            Đăng ký
+          <button type="submit" className="btn btn-success registerBtn">
+            Register
             </button>
           <div className="mt-2">
-            <Link to="/Login">Bạn đã có tài khoản</Link>
+            <Link to="/Login" className="backToLogin">Bạn đã có tài khoản?</Link>
           </div>
         </form>
+        <Link to="/" className="registerClose"></Link>
       </div>
     </div>
   )

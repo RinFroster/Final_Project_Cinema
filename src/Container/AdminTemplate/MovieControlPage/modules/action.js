@@ -1,11 +1,11 @@
 import * as ActionType from "./constant";
 import Axios from "axios";
 
-export const actFetchAdminMovie = () => {
+export const actFetchAdminMovie = (numb) => {
     return(dispatch) => {
         dispatch(actFetchAdminMovieRequest());
         Axios({
-            url:"https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP11&soTrang=1&soPhanTuTrenTrang=10",
+            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP11&soTrang=${numb}&soPhanTuTrenTrang=9`,
             method:"GET",
         })
         .then((result) => {

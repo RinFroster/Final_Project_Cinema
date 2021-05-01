@@ -373,6 +373,8 @@ html, body {
   color: #9b9b9b;
   font-weight: 500;
   height: 5rem;
+  text-decoration: none;
+  text-transform: capitalize;
   line-height: 5rem;
 }
 
@@ -2613,6 +2615,7 @@ p {
 }
 
 .tool__nav .nav__container .buy__button .disabled {
+  pointer-events: none;
   background-color: #1a1d24;
   border: none;
   text-transform: uppercase;
@@ -4749,7 +4752,7 @@ p {
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
   width: 20%;
   display: block;
-  z-index: 3;
+  z-index: 1052;
 }
 
 .controlNav .controlNav__container .controlNav__top {
@@ -4841,7 +4844,8 @@ p {
 }
 
 .signIn .signIn__content {
-  max-width: 360px;
+  max-width: 35rem;
+  width: 100%;
   padding: 40px 32px 30px;
   position: absolute;
   top: 50%;
@@ -4854,6 +4858,110 @@ p {
 
 .signIn .signIn__content h3 {
   text-align: center;
+  text-transform: capitalize;
+  color: #bf1650;
+}
+
+.signIn .signIn__content .labelLogin {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.signIn .signIn__content .register {
+  background: transparent;
+  text-decoration: none;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.signIn .signIn__content .register:hover {
+  color: #fb4226;
+}
+
+.signIn .signIn__content .btnLoginRegister__container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.signIn .signIn__content .btnLogin {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s;
+  padding: 1.5rem 3rem;
+  border-radius: 0.6rem;
+  background-color: #0e101c;
+  border: 1px solid #516391;
+}
+
+.signIn .signIn__content .btnLogin:hover {
+  border: 1px solid #bf1650;
+  box-shadow: 0 0 0.5rem #000;
+  color: #fb4226;
+}
+
+.signIn .signIn__content .btnRegister {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s;
+  padding: 1.5rem 3rem;
+  border-radius: 0.6rem;
+  background-color: #0e101c;
+  border: 1px solid #516391;
+}
+
+.signIn .signIn__content .btnRegister:hover {
+  border: 1px solid #bf1650;
+  box-shadow: 0 0 0.5rem #000;
+  color: #fb4226;
+}
+
+.signIn .signIn__content .loginClose {
+  opacity: 1;
+  position: absolute;
+  top: -1.8rem;
+  right: -1.8rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: #081630;
+  box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.5);
+  content: "";
+  cursor: pointer;
+}
+
+.signIn .signIn__content .loginClose::before {
+  content: "";
+  display: block;
+  border-left: 0.2rem solid #455570;
+  width: 0.2rem;
+  height: 1.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.signIn .signIn__content .loginClose::after {
+  content: "";
+  display: block;
+  border-left: 0.2rem solid #455570;
+  width: 0.2rem;
+  height: 1.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.signIn .signIn__content .loginClose:hover::after, .signIn .signIn__content .loginClose:hover::before {
+  border-left: 0.2rem solid #bf1650;
 }
 
 .register {
@@ -4866,7 +4974,8 @@ p {
 }
 
 .register .register__content {
-  max-width: 360px;
+  max-width: 35rem;
+  width: 100%;
   padding: 40px 32px 30px;
   position: absolute;
   top: 50%;
@@ -4879,6 +4988,86 @@ p {
 
 .register .register__content h3 {
   text-align: center;
+  text-transform: capitalize;
+  color: #bf1650;
+}
+
+.register .register__content .registerBtn {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s;
+  padding: 1.5rem 12rem;
+  border-radius: 0.6rem;
+  background-color: #0e101c;
+  border: 1px solid #516391;
+  text-transform: capitalize;
+}
+
+.register .register__content .registerBtn:hover {
+  border: 1px solid #bf1650;
+  box-shadow: 0 0 0.5rem #000;
+  color: #fb4226;
+}
+
+.register .register__content .labelRegister {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.register .register__content .backToLogin {
+  text-decoration: none;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.register .register__content .backToLogin:hover {
+  color: #fb4226;
+}
+
+.register .register__content .registerClose {
+  opacity: 1;
+  position: absolute;
+  top: -1.8rem;
+  right: -1.8rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: #081630;
+  box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.5);
+  content: "";
+  cursor: pointer;
+}
+
+.register .register__content .registerClose::before {
+  content: "";
+  display: block;
+  border-left: 0.2rem solid #455570;
+  width: 0.2rem;
+  height: 1.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.register .register__content .registerClose::after {
+  content: "";
+  display: block;
+  border-left: 0.2rem solid #455570;
+  width: 0.2rem;
+  height: 1.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.register .register__content .registerClose:hover::after, .register .register__content .registerClose:hover::before {
+  border-left: 0.2rem solid #bf1650;
 }
 
 .movieControl {
@@ -4889,15 +5078,22 @@ p {
   right: 0;
   top: 6rem;
   height: 100%;
-  z-index: 2;
+  z-index: 1050;
 }
 
-.movieControl .admin__services {
-  text-align: left;
+.movieControl .admin__title {
+  text-align: center;
   font-size: 36px;
   color: #000;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+
+.movieControl .admin__service {
+  margin-bottom: 2rem;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 500;
 }
 
 .movieControl .movieShowControl__container {
@@ -4936,6 +5132,7 @@ p {
   height: 6rem;
   line-height: 4rem;
   cursor: pointer;
+  transition: all 0.5s;
 }
 
 .movieControl .movieShowControl__container .movieShowControl__item__container .movieShowControl__item .movieShowControl__content img {
@@ -4989,15 +5186,318 @@ p {
   background-color: lightcoral;
 }
 
-.userPage {
-  width: 80%;
+.movieControl__containerPagination {
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #191d3a;
+  border-radius: 0.5rem;
+  display: flex;
+  list-style: none;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.pageNavigation {
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: all 0.3s;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.pageNavigation:hover {
+  color: #fb4226;
+}
+
+.page {
+  line-height: 4rem;
+  width: 20%;
+  text-align: center;
+  outline: none;
   padding: 1rem;
+  border-radius: 0.6rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  text-decoration: none !important;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.page.active .pageBtn {
+  color: #fb4226;
+}
+
+.pageBtn {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.pageBtn:hover {
+  color: #fb4226;
+}
+
+.pageDisabled {
+  cursor: not-allowed;
+}
+
+.pageActive {
+  border: 1px solid #516391;
+  font-weight: bold;
+}
+
+.previous {
+  padding: 1.5rem 3rem;
+  border-radius: 0.6rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  background-color: #0e101c;
+  border: 1px solid #516391;
+  transition: all 0.3s;
+}
+
+.previous:hover {
+  border: 1px solid #bf1650;
+  box-shadow: 0 0 0.5rem #000;
+}
+
+.break {
+  padding: 10px;
+}
+
+.next {
+  padding: 1.5rem 3rem;
+  border-radius: 0.6rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  background-color: #0e101c;
+  border: 1px solid #516391;
+  transition: all 0.3s;
+}
+
+.next:hover {
+  border: 1px solid #bf1650;
+  box-shadow: 0 0 0.5rem #000;
+}
+
+.userControl {
+  width: 80%;
+  padding: 2rem 1rem;
   position: absolute;
-  background: linear-gradient(-45deg, #f6339d, #33d7fe);
+  background-color: #fff;
   right: 0;
   top: 6rem;
   height: 100%;
-  z-index: 2;
+  z-index: 1050;
+}
+
+.userControl .admin__title {
+  text-align: center;
+  font-size: 36px;
+  color: #000;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.userControl .admin__service {
+  margin-bottom: 2rem;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.userControl .userControl__container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 0.4rem;
+}
+
+.userControl .userControl__container .userControl__title__container .userControl__title {
+  text-align: center;
+  font-size: 15px;
+  color: #000;
+  font-weight: 700;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.userControl .userControl__container .userControl__title__container .userControl__title .userControl__titleIcon {
+  font-size: 18px;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item {
+  text-align: center;
+  font-size: 14px;
+  color: #000;
+  font-weight: 500;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userControl__content {
+  padding: 1rem 0;
+  height: 6rem;
+  line-height: 4rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userControl__content img {
+  max-width: 8.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userControl__content:hover {
+  color: #fb4226;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userName, .userControl .userControl__container .userControl__item__container .userControl__item .userPhone {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 98%;
+  padding-left: 0.5rem;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userEmail {
+  padding: 1rem 1rem;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userServices {
+  padding: 1rem 1rem;
+  display: flex;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userServices .adminBtn {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  margin-right: 1rem;
+  padding: 1rem 2rem;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userServices .updateUser:hover {
+  background-color: #059105;
+}
+
+.userControl .userControl__container .userControl__item__container .userControl__item .userServices .deleteUser:hover {
+  background-color: lightcoral;
+}
+
+.movieControl__containerPagination {
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #191d3a;
+  border-radius: 0.5rem;
+  display: flex;
+  list-style: none;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.pageNavigation {
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: all 0.3s;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.pageNavigation:hover {
+  color: #fb4226;
+}
+
+.page {
+  line-height: 4rem;
+  width: 20%;
+  text-align: center;
+  outline: none;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  text-decoration: none !important;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.page.active .pageBtn {
+  color: #fb4226;
+}
+
+.pageBtn {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.pageBtn:hover {
+  color: #fb4226;
+}
+
+.pageDisabled {
+  cursor: not-allowed;
+}
+
+.pageActive {
+  border: 1px solid #516391;
+  font-weight: bold;
+}
+
+.previous {
+  padding: 1.5rem 3rem;
+  border-radius: 0.6rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  background-color: #0e101c;
+  border: 1px solid #516391;
+  transition: all 0.3s;
+}
+
+.previous:hover {
+  border: 1px solid #bf1650;
+  box-shadow: 0 0 0.5rem #000;
+}
+
+.break {
+  padding: 10px;
+}
+
+.next {
+  padding: 1.5rem 3rem;
+  border-radius: 0.6rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  background-color: #0e101c;
+  border: 1px solid #516391;
+  transition: all 0.3s;
+}
+
+.next:hover {
+  border: 1px solid #bf1650;
+  box-shadow: 0 0 0.5rem #000;
 }
 
 .movieShowControl {
@@ -5019,7 +5519,7 @@ p {
   top: 0;
   height: 6rem;
   display: flex;
-  z-index: 3;
+  z-index: 1051;
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.3);
 }
 
@@ -5036,6 +5536,7 @@ p {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.5s;
   font-size: 15px;
   color: #000;
   font-weight: 500;
@@ -5278,6 +5779,46 @@ p {
 .modalTimeOut__body .modalTimeOut__refresh {
   font-size: 1.6rem;
   color: #fb4226;
+  font-weight: 500;
+}
+
+.modalAdmin__header {
+  display: block !important;
+  width: 100%;
+  margin-top: 2rem;
+  border-bottom: none !important;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.modalAdmin__header .modalAdmin__headerText {
+  font-size: 20px;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalAdmin__body {
+  text-align: left;
+}
+
+.form__label {
+  font-size: 15px;
+  color: #000;
+  font-weight: 500;
+}
+
+.modalAddMovie__header {
+  display: block !important;
+  width: 100%;
+  margin-top: 2rem;
+  border-bottom: none !important;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.modalAddMovie__header .modalAddMovie__headerText {
+  font-size: 20px;
+  color: #000;
   font-weight: 500;
 }
 
