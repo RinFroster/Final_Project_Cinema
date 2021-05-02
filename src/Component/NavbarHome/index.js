@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { TOKEN, USRELOGIN } from "../../util/settings";
+import Popup from 'reactjs-popup';
 // import {
 //   Link,
 //   animateScroll as scroll,
@@ -267,13 +268,13 @@ function NavbarHome() {
           <div className="right">
             <div className="user__account">
               <FontAwesomeIcon icon={faUserCircle} className="user__avatar" />
-            {data ? <NavLink className="user__account__name" to="/">
-              {data.taiKhoan}(<a onClick={()=>{
-                localStorage.removeItem(USRELOGIN);
-                localStorage.removeItem(TOKEN);
-                window.location.reload();
-              }}>Đăng xuất</a>)
-            </NavLink> : <NavLink className="user__account__name" to="/Login">Đăng nhập</NavLink>}
+              <Popup trigger={data ? <NavLink className="user__account__name" to="/">{data.taiKhoan}</NavLink> : <NavLink className="user__account__name" to="/Login">Đăng nhập</NavLink>} position="bottom center" >
+              <a onClick={()=>{
+                  localStorage.removeItem(USRELOGIN);
+                  localStorage.removeItem(TOKEN);
+                  window.location.reload();
+                }} className="logOut">Đăng xuất</a>
+              </Popup>
             </div>
           </div>
         </nav>

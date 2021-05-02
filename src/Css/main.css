@@ -393,6 +393,22 @@ html, body {
   border-right-color: #e9e9e9;
 }
 
+#popup-root .popup-content {
+  text-align: center;
+}
+
+#popup-root .popup-content .logOut {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  color: #000;
+  font-weight: 500;
+}
+
+#popup-root .popup-content .logOut:hover {
+  color: #fb4226;
+}
+
 @media screen and (min-width: 320px) {
   .navbar__container .container-fluid .navbar__header {
     padding: 0;
@@ -5584,11 +5600,24 @@ p {
 }
 
 .adminHeader .adminPage__user .adminPage__userName {
+  text-decoration: none;
   line-height: 6rem;
   text-transform: capitalize;
   font-size: 15px;
   color: #fff;
   font-weight: 500;
+}
+
+#popup-root .popup-content .logOutAdmin {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+  color: #000;
+  font-weight: 500;
+}
+
+#popup-root .popup-content .logOutAdmin:hover {
+  color: #fb4226;
 }
 
 .btnBackToTop {

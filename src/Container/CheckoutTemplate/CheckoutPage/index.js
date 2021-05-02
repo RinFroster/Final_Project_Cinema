@@ -1,8 +1,6 @@
-import React,{useState,useEffect,useSelector} from 'react';
+import React,{useState,useEffect} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faTimes
-  } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Scrollbars } from 'react-custom-scrollbars';
 import Countdown from "react-countdown";
 import {Link,NavLink} from "react-router-dom";
@@ -12,29 +10,26 @@ import modalCheckoutPageError from "./modalCheckoutPage/modalErrorFullSeat";
 import modalErrorNotFirstSeat from "./modalCheckoutPage/modalErrorNotFirstSeat";
 import modalBodyFullSeat from "./modalCheckoutPage/modalBodyFullSeat";
 import modalBodyNotFirstSeat from "./modalCheckoutPage/modalBodyNotFirstSeat";
-import modalConfirm from "./modalCheckoutPage/modalConfirm";
+import ModalConfirm from "./modalCheckoutPage/modalConfirm";
 import modalTimeOut from "./modalCheckoutPage/modalTimeOut";
 import modalErrorInfo from "./modalCheckoutPage/modalErrorInfo";
 import $ from "jquery";
-import { TOKEN, USRELOGIN } from "../../../util/settings";
 
 function CheckoutPage(props) {
     const getParams = props.match.params.id;
+    
     useEffect(() => {
-        props.fetchCheckout(getParams)
+        props.fetchCheckout(getParams);
     }, [])
     const {data} = props;
 
-    // const { dataUser } = useSelector(state => state.LoginReducer);
-    // // // const {taiKhoan} = data;
-    // console.log(dataUser);
     
     // Modal Error
     let FormModal = modalCheckoutPageError(modalBodyFullSeat);
     let FormModalNotFirstSeat = modalErrorNotFirstSeat(modalBodyNotFirstSeat);
     let FormModalInfo = modalErrorInfo;
     // Modal Confirm
-    let FormModalConfirm = modalConfirm;
+    let FormModalConfirm = ModalConfirm;
     // Modal Time Out
     let FormModalTimeOut = modalTimeOut;
     
@@ -168,9 +163,8 @@ function CheckoutPage(props) {
     const [listSeat,setListSeat] = useState([]);
     const [listSeatForPrice,setListSeatForPrice] = useState([]);
     const [price,setPrice] = useState([]);
+    const [array,setArray] = useState({arr: []});
     let sumPrice = 0;
-    const [email,setEmail] = useState("");
-    const [phone,setPhone] = useState(null);
 
     const handleChooseSeat = (e) => {
         const getSeatId = e.target.id;
@@ -191,6 +185,35 @@ function CheckoutPage(props) {
             listSeat&&listSeat.map((item,index)=>{
                 if(findSeat.innerHTML===item){
                     listSeat&&listSeat.splice(index,1);
+                    if(getSeatName.slice(1,3)==="1" || getSeatName.slice(1,3)==="16"){
+                        if(!(listSeat.length===0)){
+                            listSeat&&listSeat.map((item)=>{
+                                if(item.slice(1,3)==="2" || item.slice(1,3)==="15"){
+                                    $('#modelIdError').modal('show');
+                                    array.arr.push(getSeatName);
+                                }
+                            })
+                        }
+                    }else{
+                        if(!(listSeat.length===0)){
+                            listSeat&&listSeat.map((item)=>{
+                                if(item.slice(1,3)==="2" || item.slice(1,3)==="15"){
+                                    array.arr&&array.arr.map((item,index)=>{
+                                        if(getSeatName===item){
+                                            array.arr&&array.arr.splice(index,1);
+                                            if(!(array.arr.length===0)){
+                                                $('#modelIdError').modal('show');
+                                            }
+                                        }else{
+                                            $('#modelIdError').modal('show');
+                                        }
+                                    })
+                                }
+                            })
+                        }else{
+                            array.arr.splice(0);
+                        }
+                    }
                     price&&price.map((item2,index2)=>{
                         if(index===index2){
                             price&&price.splice(index2,1);
@@ -224,6 +247,7 @@ function CheckoutPage(props) {
                     })
                     findSeat.classList.add("chosenSeat");
                     listSeat.push(getSeatName);
+                    // if choose more than 10 seats
                     if(listSeat.length > 10){
                         $('#modelId').modal('show');
                         listSeat.splice(10);
@@ -233,25 +257,38 @@ function CheckoutPage(props) {
                         })
                         findSeat.classList.remove("chosenSeat");
                     }
-                }
-            })
-            console.log(getSeatName.slice(1,3));
-            if(getSeatName.slice(1,3) === "1" || getSeatName.slice(1,3) === "16"){
-                console.log("condition number");
-            }else{
-                if(getPrevSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1) && getNextSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1)){
-                    if(getPrevSeat.innerHTML.slice(1,3)==="1"){
-                        if(!(getPrevSeat.classList.contains("chosenSeat"))){
-                            $('#modelIdError').modal('show');
-                        }
-                    }else if(getNextSeat.innerHTML.slice(1,3)==="16"){
-                        if(!(getNextSeat.classList.contains("chosenSeat"))){
-                            $('#modelIdError').modal('show');
+                    // if user leave the first seat but choose the seat next to it
+                    if(getSeatName.slice(1,3) === "1" || getSeatName.slice(1,3) === "16"){
+                        console.log("condition number");
+                    }else{
+                        if(getPrevSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1) && getNextSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1)){
+                            if(getPrevSeat.innerHTML.slice(1,3)==="1"){
+                                if(!(getPrevSeat.classList.contains("chosenSeat"))){
+                                    $('#modelIdError').modal('show');
+                                    array.arr.push(getPrevSeat.innerHTML);
+                                    console.log(array.arr);
+                                }
+                            }else if(getNextSeat.innerHTML.slice(1,3)==="16"){
+                                if(!(getNextSeat.classList.contains("chosenSeat"))){
+                                    $('#modelIdError').modal('show');
+                                    array.arr.push(getNextSeat.innerHTML);
+                                    console.log(array.arr);
+                                }
+                            }
                         }
                     }
+                    array.arr&&array.arr.map((item,index)=>{
+                        if(getSeatName===item){
+                            array.arr&&array.arr.splice(index,1);
+                            if(!(array.arr.length===0)){
+                                $('#modelIdError').modal('show');
+                            }
+                        }else{
+                            $('#modelIdError').modal('show');
+                        }
+                    })
                 }
-            }
-            
+            })
             getNoticeId.style.display = "none";
             getPaymentMethod.style.display = "block";
             getContinueBtn.classList.remove("disabled");
@@ -671,8 +708,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchCheckout: (getParams) => {
-        dispatch(actCheckoutMovie(getParams));
-        }
+            dispatch(actCheckoutMovie(getParams));
+        },
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(CheckoutPage)

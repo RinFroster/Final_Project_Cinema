@@ -15,7 +15,6 @@ import listUserAdminReducer from "./../../Container/AdminTemplate/UserPage/modul
 import AuthPageReducer from "./../../Container/AdminTemplate/AuthPage/module/AuthPageReducer";
 import AddUserReducer from "./../../Container/AdminTemplate/UserPage/modal/AddUser/module/AddUserReducer";
 
-
 const rootReducer = combineReducers({
     listMovieReducerNS,
     listMovieReducerCS,
@@ -31,7 +30,7 @@ const rootReducer = combineReducers({
     listCheckoutReducer,
     listUserAdminReducer,
     AuthPageReducer,
-    AddUserReducer, 
+    AddUserReducer,
     
 });
 

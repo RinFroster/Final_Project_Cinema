@@ -1,15 +1,15 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle, faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import modalComplete from "./modalComplete";
 
-export default function modalConfirm() {
+function ModalConfirm() {
     let ModalComplete = modalComplete;
     return (
         <>
             {/* Modal */}
             <div className="modal fade" id="modelIdConfirm" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                <div className="modal-dialog modal__dialog" role="document">
+                <form className="modal-dialog modal__dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header modalConfirm__header">
                             xác nhận mua vé
@@ -28,9 +28,11 @@ export default function modalConfirm() {
                             </span>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <ModalComplete/>
         </>
     )
 }
+
+export default ModalConfirm

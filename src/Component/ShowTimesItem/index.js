@@ -12,7 +12,7 @@ export default function ShowTimesItem(props) {
   const renderBtn = (lstLichChieuTheoPhim, maPhim) => {
     return lstLichChieuTheoPhim.map((item) => {
       return (
-        <div key={item.maCumRap} className="theater__sessions">
+        <div className="theater__sessions">
           <Link to={`/checkout/${item.maLichChieu}`} className="sessions__btn">
             <span className="sessions__span">
               {item.ngayChieuGioChieu.slice(11, 16)}
@@ -34,10 +34,9 @@ export default function ShowTimesItem(props) {
         }else{
           getTheaterItemRow.classList.remove("show");
         }
-        console.log(getTheaterItemRow);
       }
       return (
-        <div className="theaterItem__row" onClick={handleShowTimeMovie} key={item.tenPhim}>
+        <div className="theaterItem__row" onClick={handleShowTimeMovie}>
           <div
             className="theaterItem__movie"
             aria-controls={item.maPhim}
@@ -53,7 +52,7 @@ export default function ShowTimesItem(props) {
             </div>
           </div>
           <Collapse in={!open}>
-            <div className="theater__2D" id={item.maPhim}>
+            <div className="theater__2D">
               <div className="theaterItem__header">2D Digital</div>
               <div className="theater__sessionsContainer">
                 {renderBtn(item.lstLichChieuTheoPhim, item.maPhim)}

@@ -56,7 +56,7 @@ function AuthPage(props) {
                 </button>
               </div>
             </form>
-            <Link to="/" className="loginClose"></Link>
+            <Link to="/admin" className="loginClose"></Link>
           </div>
         </div>
     )

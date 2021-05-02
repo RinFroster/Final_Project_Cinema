@@ -59,9 +59,22 @@
             }
         }
         .adminPage__userName{
+            text-decoration: none;
             line-height: 6rem;
             text-transform: capitalize;
             @include styleText($fs-3,$text-on-base-color,$fw-bold-2);
+        }
+    }
+}
+#popup-root{
+    .popup-content{
+        .logOutAdmin{
+            cursor: pointer;
+            text-decoration: none;
+            @include styleText($fs-1,$text-base-color,$fw-bold-2);
+            &:hover{
+                color: $item-active;
+            }
         }
     }
 }

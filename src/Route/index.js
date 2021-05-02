@@ -4,7 +4,6 @@ import CheckoutPage from "../Container/CheckoutTemplate/CheckoutPage";
 import UserPage from "../Container/AdminTemplate/UserPage";
 import MovieControlPage from "../Container/AdminTemplate/MovieControlPage";
 import MovieShowControl from "../Container/AdminTemplate/MovieShowControl";
-import NavbarAdmin from "../Component/NavbarAdmin";
 import AdminPage from "../Container/AdminTemplate/AdminPage";
 const routeHome = [
     {

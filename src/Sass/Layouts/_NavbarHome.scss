@@ -188,6 +188,21 @@
     }
   }
 }
+#popup-root{
+  .popup-content{
+    text-align: center;
+    .logOut{
+      cursor: pointer;
+      text-decoration: none;
+      @include styleText($fs-1,$text-base-color,$fw-bold-2);
+      &:hover{
+        color: $item-active;
+      }
+    }
+  }
+}
+
+
 
 // Responsive for screen > 320px and < 480px
 @include responsive ('extra-small'){
