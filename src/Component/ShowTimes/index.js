@@ -18,7 +18,7 @@ function ShowTimes(props) {
             return item.lstCumRap.map((itemR)=>{
             if(itemR.maCumRap === props.maCumRap)
             return (
-              <ShowTimesItem  key={itemR.maCumRap} danhSachPhim = {itemR.danhSachPhim} />
+              <ShowTimesItem danhSachPhim = {itemR.danhSachPhim} />
             )
           })
           })

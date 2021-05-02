@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import {NavLink} from "react-router-dom";
 import { USRELOGIN,TOKEN } from '../../../util/settings';
-import {useSelector} from "react-redux"
+import {useSelector} from "react-redux";
+import Popup from 'reactjs-popup';
 
 function AdminHeader(props) {
     const {data} = useSelector(state => state.AuthPageReducer)
@@ -20,13 +21,13 @@ function AdminHeader(props) {
                 <div className="adminPage__avatar">
                     <img src={require("./../../../Asset/img/photo.png").default}/>
                 </div>
-                <div className="adminPage__userName">{data ? <NavLink className="user__account__name" to="/">
-              {data.taiKhoan}(<a onClick={()=>{
-                localStorage.removeItem(USRELOGIN);
-                localStorage.removeItem(TOKEN);
-                window.location.reload();
-              }}>Đăng xuất</a>)
-            </NavLink> : <NavLink className="user__account__name" to="/auth">Đăng nhập</NavLink>}</div>
+                <Popup trigger={data ? <NavLink className="adminPage__userName" to="/admin">{data.taiKhoan}</NavLink> : <NavLink className="adminPage__userName" to="/Login">Đăng nhập</NavLink>} position="bottom center" >
+              <a onClick={()=>{
+                  localStorage.removeItem(USRELOGIN);
+                  localStorage.removeItem(TOKEN);
+                  window.location.reload();
+                }} className="logOutAdmin">Đăng xuất</a>
+              </Popup>
             </div>
         </div>
     )

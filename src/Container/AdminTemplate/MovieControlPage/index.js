@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import ReactPaginate from 'react-paginate';
 import CreateShowTimesModal from "./modal/CreateShowTimes";
 import AddMovieModal from "./modal/AddMovie";
+import UpdateMovieModal from "./modal/UpdateMovie";
 import axios from "axios";
 
 function MovieControlPage(props) {
@@ -32,6 +33,7 @@ function MovieControlPage(props) {
 
     let FormModalCreateShowTimes = CreateShowTimesModal;
     let FormModalAddMovie = AddMovieModal;
+    let FormModalUpdateMovie = UpdateMovieModal;
 
     // function handling page change
     const handlePageChange = (selectedObject) => {
@@ -68,7 +70,7 @@ function MovieControlPage(props) {
                     <div className="col-lg-3 p-0 movieShowControl__item">
                         <div className="movieShowControl__content movieServices">
                             <button className="btn btn-primary adminBtn createShow" data-toggle="modal" data-target="#modalCreateShowTimes">Tạo Lịch Chiếu</button>
-                            <button className="btn btn-success adminBtn updateShow" data-toggle="modal" data-target="#myModal">Sửa</button>
+                            <button className="btn btn-success adminBtn updateShow" data-toggle="modal" data-target="#modalUpdateMovie">Sửa</button>
                             <button className="btn btn-danger adminBtn deleteShow" id={item.maPhim} onClick={handleDelete}>Xoá</button>
                         </div>
                     </div>
@@ -111,6 +113,7 @@ function MovieControlPage(props) {
             </div>
             <FormModalCreateShowTimes/>
             <FormModalAddMovie/>
+            <FormModalUpdateMovie/>
         </div>
     )
 }
