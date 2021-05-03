@@ -1,1 +1,1 @@
-# Final_Project_TIX
+# Final_Project_Cinema
