@@ -52,7 +52,7 @@ export default function ShowTimesItem(props) {
             </div>
           </div>
           <Collapse in={!open}>
-            <div className="theater__2D">
+            <div className="theater__2D" id={item.maPhim}>
               <div className="theaterItem__header">2D Digital</div>
               <div className="theater__sessionsContainer">
                 {renderBtn(item.lstLichChieuTheoPhim, item.maPhim)}

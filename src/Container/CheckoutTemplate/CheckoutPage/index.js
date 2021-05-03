@@ -38,13 +38,13 @@ function CheckoutPage(props) {
     // Modal Time Out
     let FormModalTimeOut = modalTimeOut;
     
-    setTimeout(function(){
-        $('#modelIdTimeOut').modal({show:true,backdrop:'static'});
-        $('#modelId').modal('hide');
-        $('#modelIdError').modal('hide');
-        $('#modelIdInfo').modal('hide');
-        $('#modelIdConfirm').modal('hide');
-    }, 300000);
+    // setTimeout(function(){
+    //     $('#modelIdTimeOut').modal({show:true,backdrop:'static'});
+    //     $('#modelId').modal('hide');
+    //     $('#modelIdError').modal('hide');
+    //     $('#modelIdInfo').modal('hide');
+    //     $('#modelIdConfirm').modal('hide');
+    // }, 300000);
 
     // const hanleOnClick = (ma,) =>{
     //     dispatch({
@@ -256,11 +256,11 @@ function CheckoutPage(props) {
         }))
     }
 
-    const [listSeat,setListSeat] = useState([]);
-    const [listSeatForPrice,setListSeatForPrice] = useState([]);
-    const [price,setPrice] = useState([]);
-    const [array,setArray] = useState({arr: []});
-    let sumPrice = 0;
+    // const [listSeat,setListSeat] = useState([]);
+    // const [listSeatForPrice,setListSeatForPrice] = useState([]);
+    // const [price,setPrice] = useState([]);
+    // const [array,setArray] = useState({arr: []});
+    // let sumPrice = 0;
 
     // const handleChooseSeat = (e) => {
     //     const getSeatId = e.target.id;
@@ -669,13 +669,26 @@ function CheckoutPage(props) {
                     <div className="numberMobile">
                         <p className="seatChosenMobile"></p>
                     </div>
-                    <button type="button" className="btn btn-secondary continueBtn disabled" id="continueBtnMobile" onClick={handleClickContinueBtn}>Tiếp Tục</button>
-                    <button type="submit" value="submit" className="btn btn-secondary continueBtn visible disabled" id="continueBtnMobile1" onClick={handleClickBuy}>đặt vé</button>
+                    <button type="button" className="btn btn-secondary continueBtn" id="continueBtnMobile" onClick={handleClickContinueBtn}>Tiếp Tục</button>
+                    <button type="submit" value="submit" className="btn btn-secondary continueBtn visible" id="continueBtnMobile1" onClick={() => {
+
+let userLogin = JSON.parse(localStorage.getItem(USRELOGIN));
+//Dữ liệu tổng hợp đúng định dạng backend yêu cầu
+let objectApi = {
+    "maLichChieu": props.match.params.id,
+    "danhSachVe": danhSachGheDangDat,
+    "taiKhoanNguoiDung": userLogin.taiKhoan,
+}
+
+const action = DatVeAction(objectApi);
+console.log(objectApi)
+//Dispatch action api
+dispatch(action);
+}}>đặt vé</button>
                 </div>
             
             <div className="buyTicketOption__container">
                 <div className="buyTicketOption__scrollbars">
-                    <CustomScrollbars autoHide autoHideTimeout={500} autoHideDuration={200}>
                         <div className="scrollBars">
                             <div className="total">0 đ</div>
                             <div className="filmInfo">
@@ -704,93 +717,7 @@ function CheckoutPage(props) {
                                 <input className="discountCouponCheckout" onChange={handleCheckCoupon} type="text" placeholder="Nhập mã giảm giá tại đây..."/>
                                 <div className="applyDiscountCoupon disabled" onClick={handleClickCoupon}>áp dụng</div>
                             </div>
-                            <div className="paymentMethod">
-                                <div className="paymentMethod__title">Hình Thức Thanh Toán</div>
-                                <div className="paymentMethod__notice" id="notice">Vui lòng chọn ghế để hiển thị phương thức thanh toán phù hợp.</div>
-                                <div className="paymentMethod__container" id="paymentMethodContainer">
-                                    <div className="paymentMethod__chosenMethod">
-                                        <div className="paymentParent">
-                                            <input className="radio" type="radio" name="method" value="option1" id="option1" onChange={handleOption} onClick={handleClickOption}></input>
-                                            <img className="icon" src={require("./../../../Asset/img/zaloPay.jpg").default}/>
-                                            <div className="titleChosen">thanh toán qua ZaloPay</div>
-                                        </div>
-                                    </div>
-                                    <div className="paymentMethod__chosenMethod">
-                                        <div className="paymentParent">
-                                            <input className="radio" type="radio" name="method" value="option2" id="option2" onChange={handleOption} onClick={handleClickOption}></input>
-                                            <img className="icon" src={require("./../../../Asset/img/otherPayment.png").default}/>
-                                            <div className="titleChosen">Visa, Master, JCB</div>
-                                        </div>
-                                    </div>
-                                    <div className="paymentMethod__chosenMethod">
-                                        <div className="paymentParent selectATM">
-                                            <input className="radio" type="radio" name="method" value="option3" id="option3" onChange={handleOption} onClick={handleClickOption}></input>
-                                            <img className="icon" src={require("./../../../Asset/img/atm.png").default}/>
-                                            <div className="titleChosen" id="titleChosen">thẻ ATM nội địa</div>
-                                        </div>
-                                        <div className="listChildren" id="listChildren">
-                                                <div className="row bankRow">
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="KienLongBank" src={require("./../../../Asset/CheckoutPage__img/bank1.jpg").default}/>
-                                                    </a>
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="PVComBank" src={require("./../../../Asset/CheckoutPage__img/bank2.png").default}/>
-                                                    </a>
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="ABBank" src={require("./../../../Asset/CheckoutPage__img/bank3.jpg").default}/>
-                                                    </a>
-                                                </div>
-                                                <div className="row bankRow">
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="VietinBank" src={require("./../../../Asset/CheckoutPage__img/bank4.jpg").default}/>
-                                                    </a>
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="BIDV" src={require("./../../../Asset/CheckoutPage__img/bank5.jpg").default}/>
-                                                    </a>
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="OceanBank" src={require("./../../../Asset/CheckoutPage__img/bank6.jpg").default}/>
-                                                    </a>
-                                                </div>
-                                                <div className="row bankRow">
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="HDBank" src={require("./../../../Asset/CheckoutPage__img/bank7.jpg").default}/>
-                                                    </a>
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="TPBank" src={require("./../../../Asset/CheckoutPage__img/bank8.jpg").default}/>
-                                                    </a>
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="VRB" src={require("./../../../Asset/CheckoutPage__img/bank9.jpg").default}/>
-                                                    </a>
-                                                </div>
-                                                <div className="row bankRow">
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="VPBank" src={require("./../../../Asset/CheckoutPage__img/bank10.jpg").default}/>
-                                                    </a>
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="SHB" src={require("./../../../Asset/CheckoutPage__img/bank11.jpg").default}/>
-                                                    </a>
-                                                    <a className="bank" onClick={handleChooseBank}>
-                                                        <img id="PublicBanVietNam" src={require("./../../../Asset/CheckoutPage__img/bank12.jpg").default}/>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div className="paymentMethod__chosenMethod">
-                                        <div className="paymentParent">
-                                            <input className="radio" type="radio" name="method" value="option4" id="option4" onChange={handleOption} onClick={handleClickOption}></input>
-                                            <img className="icon" src={require("./../../../Asset/img/payoo.png").default}/>
-                                            <div className="titleChosen">thanh toán tại cửa hàng tiện ích</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    </CustomScrollbars>
-                </div>
-                <div className="notice">
-                    <img className="notice__icon" src={require("./../../../Asset/img/notice-icon.png").default}/>
-                    <span className="title">Vé đã mua không thể đổi hoặc hoàn tiền</span>
-                    <span className="title">Mã vé sẽ được gửi qua tin nhắn <span className="notice__textSpan">ZMS</span> (tin nhắn Zalo) và <span className="notice__textSpan">Email</span> đã nhập.</span>
                 </div>
                 <button
                     onClick={() => {
@@ -809,7 +736,7 @@ function CheckoutPage(props) {
                     dispatch(action);
                 }}
                 // btnBuy
-                 className="btn btn-secondary " type="submit" value="submit" 
+                 className="btn btn-secondary btnBuy" type="submit" value="submit" 
                 
                 >Đặt Vé</button>
             </div>

@@ -3969,11 +3969,11 @@ p {
 }
 
 #checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .gheVip {
-  background-color: orange !important;
+  background-color: #f7b500 !important;
 }
 
 #checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .gheDangDat {
-  background-color: greenyellow !important;
+  background-color: #fb4226 !important;
 }
 
 #checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .listSeat__seatRow {
@@ -4246,134 +4246,9 @@ p {
   pointer-events: none;
 }
 
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod {
-  cursor: pointer;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__title {
-  margin-bottom: 0.5rem;
-  font-size: 14px;
-  color: #000;
-  font-weight: 500;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__notice {
-  font-size: 14px;
-  color: #fb4226;
-  font-weight: 400;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  display: none;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod {
-  margin-bottom: 0.5rem;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .paymentParent {
-  position: relative;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .paymentParent .radio {
-  position: absolute;
-  top: 25%;
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  outline: none;
-  border: 0.1rem solid #4a90e2;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .paymentParent .icon {
-  position: relative;
-  border-radius: 0.5rem;
-  margin-left: 3.5rem;
-  margin-right: 1.5rem;
-  pointer-events: none;
-  max-width: 4rem;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .paymentParent .titleChosen {
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  left: 9.5rem;
-  margin-bottom: 0;
-  transform: translateY(-50%);
-  width: calc(100% - 9.5rem);
-  text-transform: capitalize;
-  font-size: 14px;
-  color: #000;
-  font-weight: 400;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .selectATM::after {
-  position: absolute;
-  right: 1%;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.3s;
-  width: 0.7rem;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .listChildren {
-  width: 100%;
-  position: relative !important;
-  z-index: 3;
-  display: none;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .listChildren .bankRow {
-  margin-left: 4rem !important;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .listChildren .bankRow .bank {
-  border: 1px solid #ccc;
-  background-color: #fff;
-  width: 6rem;
-  height: 4rem;
-  cursor: pointer;
-  background-size: 5rem auto;
-  margin: 1.5rem 1.5rem 0 0;
-}
-
-#checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .listChildren .bankRow .bank img {
-  width: 100%;
-  height: 100%;
-}
-
-#checkoutPage .buyTicketOption__container .notice {
-  position: absolute;
-  left: 0;
-  right: 0;
-  text-align: center;
-  background-color: #fff;
-  z-index: 4;
-}
-
-#checkoutPage .buyTicketOption__container .notice .notice__icon {
-  margin-right: 0.8rem;
-  width: 1.6rem;
-  height: 1.6rem;
-}
-
-#checkoutPage .buyTicketOption__container .notice .title {
-  font-size: 1.2rem;
-  color: #4a4a4a;
-  font-weight: 400;
-  display: inline-block;
-}
-
-#checkoutPage .buyTicketOption__container .notice .title .notice__textSpan {
-  color: #f79320;
-}
-
 #checkoutPage .buyTicketOption__container .btnBuy {
   width: 100%;
-  background-color: #afafaf;
+  background-image: linear-gradient(223deg, #b4ec51 0, #429321 100%);
   position: absolute;
   bottom: 0;
   right: 0;
@@ -4383,16 +4258,9 @@ p {
   padding: 1.5rem 2rem;
   text-align: center;
   z-index: 4;
-  pointer-events: none;
   font-size: 2.2rem;
   color: #fff;
   font-weight: 500;
-}
-
-#checkoutPage .buyTicketOption__container .btnBuy.active {
-  pointer-events: all;
-  cursor: pointer;
-  background-image: linear-gradient(223deg, #b4ec51 0, #429321 100%);
 }
 
 @media screen and (min-width: 320px) {
@@ -4454,9 +4322,6 @@ p {
     height: auto;
     width: 3rem;
     border-radius: 2.5rem;
-  }
-  #checkoutPage .movie__bg {
-    display: none;
   }
   #checkoutPage .checkoutMain__container {
     margin-top: 6rem;
@@ -4544,8 +4409,8 @@ p {
   #checkoutPage .buyTicketOption__container {
     display: none;
     width: 100%;
-    height: auto;
-    position: absolute;
+    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
@@ -4558,12 +4423,6 @@ p {
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod {
     margin-bottom: 20%;
-  }
-  #checkoutPage .buyTicketOption__container .notice {
-    bottom: 0;
-    margin-bottom: 6.5rem;
-    position: static;
-    padding: 0;
   }
   #checkoutPage .buyTicketOption__container .btnBuy {
     display: none;
@@ -4587,6 +4446,9 @@ p {
   }
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap .noteSeat {
     margin-bottom: 15%;
+  }
+  #checkoutPage .buyTicketOption__container {
+    margin-top: 6rem;
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
     max-height: 63.5rem;
@@ -4617,10 +4479,6 @@ p {
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .listSeat__seatRow {
     margin-right: 1rem;
   }
-  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .seat {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
   #checkoutPage .continueBtnMobile {
     max-height: 7rem;
   }
@@ -4632,9 +4490,6 @@ p {
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
     max-height: 60.5rem;
-  }
-  #checkoutPage .buyTicketOption__container .notice {
-    margin-bottom: 10rem;
   }
 }
 
@@ -4666,6 +4521,10 @@ p {
     margin-top: 7rem;
     padding-top: 0.5rem;
   }
+  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .ghe {
+    width: 3rem;
+    height: 3rem;
+  }
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap .noteSeat {
     margin-top: 2rem;
     margin-bottom: 0;
@@ -4674,11 +4533,12 @@ p {
     display: none;
   }
   #checkoutPage .buyTicketOption__container {
-    position: relative;
+    position: fixed;
     display: block;
     width: 26%;
     height: 100%;
     z-index: 3;
+    margin-left: 75%;
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
     max-height: 46.5rem;
@@ -4721,13 +4581,9 @@ p {
     line-height: 3rem;
     margin-right: 2.5rem;
   }
-  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .seat {
-    width: 3.2rem;
-    height: 3.2rem;
-    font-size: 14px;
-  }
-  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .seat:hover {
-    background-color: #fb4226;
+  #checkoutPage .checkoutMain__container .checkoutMain__seatMap .seatMap__container .room .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .ghe {
+    width: 3.5rem;
+    height: 3.5rem;
   }
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap .noteSeat {
     margin-top: 2.5rem;
@@ -4739,6 +4595,9 @@ p {
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap .noteSeat .positionViews {
     margin-top: 1rem;
   }
+  #checkoutPage .buyTicketOption__container {
+    margin-left: 97rem;
+  }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
     height: 90rem;
     max-height: 66.5rem;
@@ -4748,14 +4607,6 @@ p {
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars .scrollBars .paymentMethod .paymentMethod__container .paymentMethod__chosenMethod .listChildren .bankRow {
     margin-left: 4rem !important;
-  }
-  #checkoutPage .buyTicketOption__container .notice {
-    position: absolute;
-    bottom: 6rem;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 4%;
-    margin-bottom: 0;
   }
 }
 

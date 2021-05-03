@@ -4,25 +4,6 @@
     font-weight: $fw;
 }
 
-@mixin styleButton($bg-color,$border,$py,$px){
-    background-color: $bg-color;
-    border: 1px solid  $border;
-    padding: $py $px;
-    border-radius: $border-radius;
-}
-
-@mixin styleHoverButtuon($bg-hover,$border-hover,$color-hover){
-    background-color: $bg-hover;
-    border-color: $border-hover;
-    color: $color-hover;
-}
-
-@mixin  styleHoverHeaderIcon($bgIcon-hover,$borderIcon-hover,$colorIcon-hover) {
-    background-color: $bgIcon-hover;
-    border-color: $borderIcon-hover;
-    color: $colorIcon-hover;
-}
-
 // $screen: tên màn hình
 @mixin responsive($screen){
     // map-has-key: gíup kt có giá trị trong mảng
