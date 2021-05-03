@@ -4,8 +4,8 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Scrollbars } from 'react-custom-scrollbars';
 import Countdown from "react-countdown";
 import {Link,NavLink} from "react-router-dom";
-import {actCheckoutMovie} from "./modules/action";
-import { connect } from 'react-redux';
+import {actCheckoutMovie, DatVeAction} from "./modules/action";
+import { connect,useDispatch, useSelector } from 'react-redux';
 import modalCheckoutPageError from "./modalCheckoutPage/modalErrorFullSeat";
 import modalErrorNotFirstSeat from "./modalCheckoutPage/modalErrorNotFirstSeat";
 import modalBodyFullSeat from "./modalCheckoutPage/modalBodyFullSeat";
@@ -14,14 +14,19 @@ import ModalConfirm from "./modalCheckoutPage/modalConfirm";
 import modalTimeOut from "./modalCheckoutPage/modalTimeOut";
 import modalErrorInfo from "./modalCheckoutPage/modalErrorInfo";
 import $ from "jquery";
+import {DAT_VE} from "./modules/constant"
+import { USRELOGIN } from '../../../util/settings';
 
 function CheckoutPage(props) {
-    const getParams = props.match.params.id;
-    
+
+    const { lichChieu, danhSachGheDangDat } = useSelector(state => state.listCheckoutReducer);
+    console.log(lichChieu)
+    console.log("get", danhSachGheDangDat)
+    const dispatch = useDispatch();
     useEffect(() => {
-        props.fetchCheckout(getParams);
+        const action = actCheckoutMovie(props.match.params.id);
+        dispatch(action);
     }, [])
-    const {data} = props;
 
     
     // Modal Error
@@ -41,15 +46,35 @@ function CheckoutPage(props) {
         $('#modelIdConfirm').modal('hide');
     }, 300000);
 
+    // const hanleOnClick = (ma,) =>{
+    //     dispatch({
+    //         type: DAT_VE,
+    //         gheDangDat: ma
+    //     })
+    // }
+
     // render DS A
     const renderSeatListA = () => {
-        return(data&&data.danhSachGhe.map((item)=>{
+        return(lichChieu.danhSachGhe?.map((item,index)=>{        
             if(item.stt<17){
+                let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
+                console.log(indexGheDD)
+                let classGheDangDat = '';
+                if (indexGheDD !== -1) {
+                    classGheDangDat = 'gheDangDat';
+                }
+                let classGheDaDat = item.daDat ? 'gheDaDat' : '';
+                let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
                 return(
-                    <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe} >
-                            {"A" + (item.tenGhe - 0)}
-                        </button>
+                    <span className="listSeat__seatWrapper"  key={item.maGhe} >
+                        <button onClick={()=>{dispatch({type: DAT_VE,
+                        gheDangDat: item, 
+                        })}}  disabled={item.daDat} 
+                      className={` ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat} `}
+                        value={item.daDat}  id={item.maGhe} >
+                            {/* {"A" + (item.tenGhe - 0)} */}
+                            {item.daDat ? 'X' : item.stt} 
+                            </button>
                     </span>
                 )
             }
@@ -57,27 +82,46 @@ function CheckoutPage(props) {
     }
     // render DS B
     const renderSeatListB = () => {
-        return(data&&data.danhSachGhe.map((item)=>{
+        return(lichChieu.danhSachGhe?.map((item)=>{
             if(item.stt>17&&item.stt<34){
+                let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
+                console.log(indexGheDD)
+                let classGheDangDat = '';
+                if (indexGheDD !== -1) {
+                    classGheDangDat = 'gheDangDat';
+                }
+                let classGheDaDat = item.daDat ? 'gheDaDat' : '';
+                let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
-                            {"B" + (item.tenGhe - 17)}
-                        </button>
+                        <button className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} onClick={()=>{dispatch({type: DAT_VE,
+                        gheDangDat: item})}} value={item.daDat}  id={item.maGhe}  >
+                            {/* {"B" + (item.tenGhe - 17)} */}
+                            {item.daDat ? 'X' : item.stt}</button>
                     </span>
                 )
             }
         }))
     }
 
-    // render DS C
+    // // render DS C
     const renderSeatListC = () => {
-        return(data&&data.danhSachGhe.map((item)=>{
+        return(lichChieu.danhSachGhe?.map((item)=>{
             if(item.stt>34&&item.stt<51){
+                let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
+                console.log(indexGheDD)
+                let classGheDangDat = '';
+                if (indexGheDD !== -1) {
+                    classGheDangDat = 'gheDangDat';
+                }
+                let classGheDaDat = item.daDat ? 'gheDaDat' : '';
+                let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
-                            {"C" + (item.tenGhe - 34)}
+                        <button onClick={()=>{dispatch({type: DAT_VE,
+                        gheDangDat: item})}} disabled={item.daDat} className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} value={item.daDat} id={item.maGhe}  >
+                            {/* {"C" + (item.tenGhe - 34)} */}
+                            {item.daDat ? 'X' : item.stt}
                         </button>
                     </span>
                 )
@@ -85,14 +129,25 @@ function CheckoutPage(props) {
         }))
     }
 
-    // render DS D
+    // // render DS D
     const renderSeatListD = () => {
-        return(data&&data.danhSachGhe.map((item)=>{
+        return(lichChieu.danhSachGhe?.map((item)=>{
             if(item.stt>51&&item.stt<68){
+                let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
+                console.log(indexGheDD)
+                let classGheDangDat = '';
+                if (indexGheDD !== -1) {
+                    classGheDangDat = 'gheDangDat';
+                }
+                let classGheDaDat = item.daDat ? 'gheDaDat' : '';
+                let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
-                            {"D" + (item.tenGhe - 51)}
+                        <button onClick={()=>{dispatch({type: DAT_VE,
+                        gheDangDat: item})}} 
+                        className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat}   value={item.daDat}  id={item.maGhe}  >
+                            {/* {"D" + (item.tenGhe - 51)} */}
+                            {item.daDat ? 'X' : item.stt}
                         </button>
                     </span>
                 )
@@ -102,12 +157,23 @@ function CheckoutPage(props) {
     
     // render DS E
     const renderSeatListE = () => {
-        return(data&&data.danhSachGhe.map((item)=>{
+        return(lichChieu.danhSachGhe?.map((item)=>{
             if(item.stt>68&&item.stt<85){
+                let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
+                console.log(indexGheDD)
+                let classGheDangDat = '';
+                if (indexGheDD !== -1) {
+                    classGheDangDat = 'gheDangDat';
+                }
+                let classGheDaDat = item.daDat ? 'gheDaDat' : '';
+                let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
-                            {"E" + (item.tenGhe - 68)}
+                        <button onClick={()=>{dispatch({type: DAT_VE,
+                        gheDangDat: item})}} 
+                        className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
+                            {/* {"E" + (item.tenGhe - 68)} */}
+                            {item.daDat ? 'X' : item.stt}
                         </button>
                     </span>
                 )
@@ -117,12 +183,22 @@ function CheckoutPage(props) {
     
     // render DS F
     const renderSeatListF = () => {
-        return(data&&data.danhSachGhe.map((item)=>{
+        return(lichChieu.danhSachGhe?.map((item)=>{
             if(item.stt>85&&item.stt<102){
+                let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
+                console.log(indexGheDD)
+                let classGheDangDat = '';
+                if (indexGheDD !== -1) {
+                    classGheDangDat = 'gheDangDat';
+                }
+                let classGheDaDat = item.daDat ? 'gheDaDat' : '';
+                let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
-                            {"F" + (item.tenGhe - 85)}
+                        <button onClick={()=>{dispatch({type: DAT_VE,
+                        gheDangDat: item})}}  className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
+                            {/* {"F" + (item.tenGhe - 85)} */}
+                            {item.daDat ? 'X' : item.stt}
                         </button>
                     </span>
                 )
@@ -132,12 +208,22 @@ function CheckoutPage(props) {
     
     // render DS G
     const renderSeatListG = () => {
-        return(data&&data.danhSachGhe.map((item)=>{
+        return(lichChieu.danhSachGhe?.map((item)=>{
             if(item.stt>102&&item.stt<119){
+                let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
+                console.log(indexGheDD)
+                let classGheDangDat = '';
+                if (indexGheDD !== -1) {
+                    classGheDangDat = 'gheDangDat';
+                }
+                let classGheDaDat = item.daDat ? 'gheDaDat' : '';
+                let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
-                            {"G" + (item.tenGhe - 102)}
+                        <button onClick={()=>{dispatch({type: DAT_VE,
+                        gheDangDat: item})}}  className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat} value={item.daDat}  id={item.maGhe}  >
+                            {/* {"G" + (item.tenGhe - 102)} */}
+                            {item.daDat ? 'X' : item.stt}
                         </button>
                     </span>
                 )
@@ -147,12 +233,22 @@ function CheckoutPage(props) {
     
     // render DS H
     const renderSeatListH = () => {
-        return(data&&data.danhSachGhe.map((item)=>{
+        return(lichChieu.danhSachGhe?.map((item)=>{
             if(item.stt>119&&item.stt<136){
+                let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
+                console.log(indexGheDD)
+                let classGheDangDat = '';
+                if (indexGheDD !== -1) {
+                    classGheDangDat = 'gheDangDat';
+                }
+                let classGheDaDat = item.daDat ? 'gheDaDat' : '';
+                let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
                 return(
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`seat ${item.loaiGhe} ${item.daDat ? "alreadyChosenSeat" : ""}`} value={item.daDat} onClick={handleChooseSeat} id={item.maGhe}  >
-                            {"H" + (item.tenGhe - 119)}
+                        <button  onClick={()=>{dispatch({type: DAT_VE,
+                        gheDangDat: item})}}  className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat} value={item.daDat}  id={item.maGhe}  >
+                            {/* {"H" + (item.tenGhe - 119)} */}
+                            {item.daDat ? 'X' : item.stt}
                         </button>
                     </span>
                 )
@@ -166,138 +262,139 @@ function CheckoutPage(props) {
     const [array,setArray] = useState({arr: []});
     let sumPrice = 0;
 
-    const handleChooseSeat = (e) => {
-        const getSeatId = e.target.id;
-        const findSeat = document.getElementById(e.target.id);
-        const getNoticeId = document.getElementById("notice");
-        const getPaymentMethod = document.getElementById("paymentMethodContainer");
-        const getBuyBtn = document.getElementsByClassName("btnBuy")[0];
-        const getPrice = document.getElementsByClassName("chair__price")[0];
-        const getTotalPrice = document.getElementsByClassName("total")[0];
-        const renderSeat = document.getElementsByClassName("number")[0];
-        const renderSeatMobile = document.getElementsByClassName("seatChosenMobile")[0];
-        const getContinueBtn = document.getElementsByClassName("continueBtn")[0];
-        const getSeatName = findSeat.innerHTML;
-        const getPrevSeat = document.getElementById((getSeatId)-1);
-        const getNextSeat = document.getElementById((parseInt(getSeatId) + 1));
-        if(findSeat.classList.contains("chosenSeat")){
-            findSeat.classList.remove("chosenSeat");
-            listSeat&&listSeat.map((item,index)=>{
-                if(findSeat.innerHTML===item){
-                    listSeat&&listSeat.splice(index,1);
-                    if(getSeatName.slice(1,3)==="1" || getSeatName.slice(1,3)==="16"){
-                        if(!(listSeat.length===0)){
-                            listSeat&&listSeat.map((item)=>{
-                                if(item.slice(1,3)==="2" || item.slice(1,3)==="15"){
-                                    $('#modelIdError').modal('show');
-                                    array.arr.push(getSeatName);
-                                }
-                            })
-                        }
-                    }else{
-                        if(!(listSeat.length===0)){
-                            listSeat&&listSeat.map((item)=>{
-                                if(item.slice(1,3)==="2" || item.slice(1,3)==="15"){
-                                    array.arr&&array.arr.map((item,index)=>{
-                                        if(getSeatName===item){
-                                            array.arr&&array.arr.splice(index,1);
-                                            if(!(array.arr.length===0)){
-                                                $('#modelIdError').modal('show');
-                                            }
-                                        }else{
-                                            $('#modelIdError').modal('show');
-                                        }
-                                    })
-                                }
-                            })
-                        }else{
-                            array.arr.splice(0);
-                        }
-                    }
-                    price&&price.map((item2,index2)=>{
-                        if(index===index2){
-                            price&&price.splice(index2,1);
-                            if(price&&price.length === 0){
-                                sumPrice = 0;
-                                getNoticeId.style.display = "block";
-                                getPaymentMethod.style.display = "none";
-                                getBuyBtn.classList.remove("active");
-                                getContinueBtn.classList.add("disabled");
-                            }else{
-                                price&&price.map(()=>{
-                                    sumPrice = price.reduce((b,item) => b + item);
-                                })
-                            }
-                            getPrice.innerHTML = sumPrice + "đ";
-                            getTotalPrice.innerHTML = sumPrice + "đ";
-                        }
-                    })
-                }
-            })
-        }else{
-            data&&data.danhSachGhe.map((item)=>{
-                if(getSeatId==item.maGhe){
-                    listSeatForPrice.push(item)
-                    listSeatForPrice&&listSeatForPrice.map((item2)=>{
-                        listSeatForPrice.splice(0,1);
-                        price.push(item2.giaVe);
-                        price&&price.map(()=>{
-                            sumPrice = price.reduce((a,item) => a + item );
-                        })
-                    })
-                    findSeat.classList.add("chosenSeat");
-                    listSeat.push(getSeatName);
-                    // if choose more than 10 seats
-                    if(listSeat.length > 10){
-                        $('#modelId').modal('show');
-                        listSeat.splice(10);
-                        price.splice(10);
-                        price&&price.map(()=>{
-                            sumPrice = price.reduce((a,item) => a + item );
-                        })
-                        findSeat.classList.remove("chosenSeat");
-                    }
-                    // if user leave the first seat but choose the seat next to it
-                    if(getSeatName.slice(1,3) === "1" || getSeatName.slice(1,3) === "16"){
-                        console.log("condition number");
-                    }else{
-                        if(getPrevSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1) && getNextSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1)){
-                            if(getPrevSeat.innerHTML.slice(1,3)==="1"){
-                                if(!(getPrevSeat.classList.contains("chosenSeat"))){
-                                    $('#modelIdError').modal('show');
-                                    array.arr.push(getPrevSeat.innerHTML);
-                                    console.log(array.arr);
-                                }
-                            }else if(getNextSeat.innerHTML.slice(1,3)==="16"){
-                                if(!(getNextSeat.classList.contains("chosenSeat"))){
-                                    $('#modelIdError').modal('show');
-                                    array.arr.push(getNextSeat.innerHTML);
-                                    console.log(array.arr);
-                                }
-                            }
-                        }
-                    }
-                    array.arr&&array.arr.map((item,index)=>{
-                        if(getSeatName===item){
-                            array.arr&&array.arr.splice(index,1);
-                            if(!(array.arr.length===0)){
-                                $('#modelIdError').modal('show');
-                            }
-                        }else{
-                            $('#modelIdError').modal('show');
-                        }
-                    })
-                }
-            })
-            getNoticeId.style.display = "none";
-            getPaymentMethod.style.display = "block";
-            getContinueBtn.classList.remove("disabled");
-            getPrice.innerHTML = sumPrice + "đ";
-            getTotalPrice.innerHTML = sumPrice + "đ";
-        }
-        renderSeatMobile.innerHTML = listSeat;
-        renderSeat.innerHTML = listSeat;
-    }
+    // const handleChooseSeat = (e) => {
+    //     const getSeatId = e.target.id;
+    //     const findSeat = document.getElementById(e.target.id);
+    //     const getNoticeId = document.getElementById("notice");
+    //     const getPaymentMethod = document.getElementById("paymentMethodContainer");
+    //     const getBuyBtn = document.getElementsByClassName("btnBuy")[0];
+    //     const getPrice = document.getElementsByClassName("chair__price")[0];
+    //     const getTotalPrice = document.getElementsByClassName("total")[0];
+    //     const renderSeat = document.getElementsByClassName("number")[0];
+    //     const renderSeatMobile = document.getElementsByClassName("seatChosenMobile")[0];
+    //     const getContinueBtn = document.getElementsByClassName("continueBtn")[0];
+    //     const getSeatName = findSeat.innerHTML;
+    //     const getPrevSeat = document.getElementById((getSeatId)-1);
+    //     const getNextSeat = document.getElementById((parseInt(getSeatId) + 1));
+    //     if(findSeat.classList.contains("chosenSeat")){
+    //         findSeat.classList.remove("chosenSeat");
+    //         listSeat&&listSeat.map((item,index)=>{
+    //             if(findSeat.innerHTML===item){
+    //                 listSeat&&listSeat.splice(index,1);
+    //                 if(getSeatName.slice(1,3)==="1" || getSeatName.slice(1,3)==="16"){
+    //                     if(!(listSeat.length===0)){
+    //                         listSeat&&listSeat.map((item)=>{
+    //                             if(item.slice(1,3)==="2" || item.slice(1,3)==="15"){
+    //                                 $('#modelIdError').modal('show');
+    //                                 array.arr.push(getSeatName);
+    //                             }
+    //                         })
+    //                     }
+    //                 }else{
+    //                     if(!(listSeat.length===0)){
+    //                         listSeat&&listSeat.map((item)=>{
+    //                             if(item.slice(1,3)==="2" || item.slice(1,3)==="15"){
+    //                                 array.arr&&array.arr.map((item,index)=>{
+    //                                     if(getSeatName===item){
+    //                                         array.arr&&array.arr.splice(index,1);
+    //                                         if(!(array.arr.length===0)){
+    //                                             $('#modelIdError').modal('show');
+    //                                         }
+    //                                     }else{
+    //                                         $('#modelIdError').modal('show');
+    //                                     }
+    //                                 })
+    //                             }
+    //                         })
+    //                     }else{
+    //                         array.arr.splice(0);
+    //                     }
+    //                 }
+    //                 price&&price.map((item2,index2)=>{
+    //                     if(index===index2){
+    //                         price&&price.splice(index2,1);
+    //                         if(price&&price.length === 0){
+    //                             sumPrice = 0;
+    //                             getNoticeId.style.display = "block";
+    //                             getPaymentMethod.style.display = "none";
+    //                             getBuyBtn.classList.remove("active");
+    //                             getContinueBtn.classList.add("disabled");
+    //                         }else{
+    //                             price&&price.map(()=>{
+    //                                 sumPrice = price.reduce((b,item) => b + item);
+    //                             })
+    //                         }
+    //                         getPrice.innerHTML = sumPrice + "đ";
+    //                         getTotalPrice.innerHTML = sumPrice + "đ";
+    //                     }
+    //                 })
+    //             }
+    //         })
+    //     }else{
+    //         lichChieu.danhSachGhe?.map((item)=>{
+    //             if(getSeatId==item.maGhe){
+    //                 listSeatForPrice.push(item)
+    //                 listSeatForPrice&&listSeatForPrice.map((item2)=>{
+    //                     listSeatForPrice.splice(0,1);
+    //                     price.push(item2.giaVe);
+    //                     price&&price.map(()=>{
+    //                         sumPrice = price.reduce((a,item) => a + item );
+    //                     })
+    //                 })
+    //                 findSeat.classList.add("chosenSeat");
+    //                 listSeat.push(getSeatName);
+    //                 // if choose more than 10 seats
+    //                 if(listSeat.length > 10){
+    //                     $('#modelId').modal('show');
+    //                     listSeat.splice(10);
+    //                     price.splice(10);
+    //                     price&&price.map(()=>{
+    //                         sumPrice = price.reduce((a,item) => a + item );
+    //                     })
+    //                     findSeat.classList.remove("chosenSeat");
+    //                 }
+    //                 // if user leave the first seat but choose the seat next to it
+    //                 if(getSeatName.slice(1,3) === "1" || getSeatName.slice(1,3) === "16"){
+    //                     console.log("condition number");
+    //                 }else{
+    //                     if(getPrevSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1) && getNextSeat.innerHTML.slice(0,1)===getSeatName.slice(0,1)){
+    //                         if(getPrevSeat.innerHTML.slice(1,3)==="1"){
+    //                             if(!(getPrevSeat.classList.contains("chosenSeat"))){
+    //                                 $('#modelIdError').modal('show');
+    //                                 array.arr.push(getPrevSeat.innerHTML);
+    //                                 console.log(array.arr);
+    //                             }
+    //                         }else if(getNextSeat.innerHTML.slice(1,3)==="16"){
+    //                             if(!(getNextSeat.classList.contains("chosenSeat"))){
+    //                                 $('#modelIdError').modal('show');
+    //                                 array.arr.push(getNextSeat.innerHTML);
+    //                                 console.log(array.arr);
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //                 array.arr&&array.arr.map((item,index)=>{
+    //                     if(getSeatName===item){
+    //                         array.arr&&array.arr.splice(index,1);
+    //                         if(!(array.arr.length===0)){
+    //                             $('#modelIdError').modal('show');
+    //                         }
+    //                     }else{
+    //                         $('#modelIdError').modal('show');
+    //                     }
+    //                 })
+    //             }
+    //         })
+    //         getNoticeId.style.display = "none";
+    //         getPaymentMethod.style.display = "block";
+    //         getContinueBtn.classList.remove("disabled");
+    //         getPrice.innerHTML = sumPrice + "đ";
+    //         getTotalPrice.innerHTML = sumPrice + "đ";
+    //     }
+    //     renderSeatMobile.innerHTML = listSeat;
+    //     renderSeat.innerHTML = listSeat;
+    // }
+   
 
     const handleClickBuy = () => {
         const getEmail = document.getElementsByClassName("emailCheckout")[0];
@@ -406,7 +503,7 @@ function CheckoutPage(props) {
                 <div className="rightStep">
                     <div className="account">
                         <div className="account__avatar"><img src={require("./../../../Asset/CheckoutPage__img/photo.png").default} className="account__icon"/></div>
-                        <div className="account__name">Trương Vĩ Hào</div>
+                        <div className="account__name"></div>
                     </div>
                 </div>
             </div>
@@ -440,9 +537,9 @@ function CheckoutPage(props) {
                         </div>
                         <div className="contentCinema">
                             <p className="address">
-                                <span className="cinemaName">{data&&data.thongTinPhim.tenCumRap}</span>
+                                <span className="cinemaName">{lichChieu.thongTinPhim?.tenCumRap}</span>
                             </p>
-                            <p className="hour">{data&&data.thongTinPhim.ngayChieu} - {data&&data.thongTinPhim.gioChieu} - {data&&data.thongTinPhim.tenRap}</p>
+                            <p className="hour">{lichChieu.thongTinPhim?.ngayChieu} - {lichChieu.thongTinPhim?.gioChieu} - {lichChieu.thongTinPhim?.tenRap}</p>
                         </div>
                     </div>
                     <div className="rightTitle">
@@ -582,12 +679,12 @@ function CheckoutPage(props) {
                         <div className="scrollBars">
                             <div className="total">0 đ</div>
                             <div className="filmInfo">
-                                <span className="ageType">C18</span> {data&&data.thongTinPhim.tenPhim}
+                                <span className="ageType">C18</span> {lichChieu.thongTinPhim?.tenPhim}
                                 <div className="contentCinema">
                                     <div className="address">
-                                        <span className="cinemaName">{data&&data.thongTinPhim.tenCumRap}</span>
+                                        <span className="cinemaName">{lichChieu.thongTinPhim?.tenCumRap}</span>
                                     </div>
-                                    <div className="hour">{data&&data.thongTinPhim.ngayChieu}- {data&&data.thongTinPhim.gioChieu} - {data&&data.thongTinPhim.tenRap}</div>
+                                    <div className="hour">{lichChieu.thongTinPhim?.ngayChieu}- {lichChieu.thongTinPhim?.gioChieu} - {lichChieu.thongTinPhim?.tenRap}</div>
                                 </div>
                             </div>
                             <div className="chair">
@@ -695,21 +792,40 @@ function CheckoutPage(props) {
                     <span className="title">Vé đã mua không thể đổi hoặc hoàn tiền</span>
                     <span className="title">Mã vé sẽ được gửi qua tin nhắn <span className="notice__textSpan">ZMS</span> (tin nhắn Zalo) và <span className="notice__textSpan">Email</span> đã nhập.</span>
                 </div>
-                <button className="btn btn-secondary btnBuy" type="submit" value="submit" onClick={handleClickBuy}>Đặt Vé</button>
+                <button
+                    onClick={() => {
+
+                    let userLogin = JSON.parse(localStorage.getItem(USRELOGIN));
+                    //Dữ liệu tổng hợp đúng định dạng backend yêu cầu
+                    let objectApi = {
+                        "maLichChieu": props.match.params.id,
+                        "danhSachVe": danhSachGheDangDat,
+                        "taiKhoanNguoiDung": userLogin.taiKhoan,
+                    }
+
+                    const action = DatVeAction(objectApi);
+                    console.log(objectApi)
+                    //Dispatch action api
+                    dispatch(action);
+                }}
+                // btnBuy
+                 className="btn btn-secondary " type="submit" value="submit" 
+                
+                >Đặt Vé</button>
             </div>
         </section>
     )
 }
-const mapStateToProps = (state) => {
-    return {
-        data: state.listCheckoutReducer.data,
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchCheckout: (getParams) => {
-            dispatch(actCheckoutMovie(getParams));
-        },
-    }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(CheckoutPage)
+// const mapStateToProps = (state) => {
+//     return {
+//         data: state.listCheckoutReducer.data,
+//     }
+// }
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         fetchCheckout: (getParams) => {
+//             dispatch(actCheckoutMovie(getParams));
+//         },
+//     }
+// }
+export default (CheckoutPage)
