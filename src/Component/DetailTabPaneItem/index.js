@@ -1,19 +1,14 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import Collapse from "react-bootstrap/Collapse";
-import { connect } from "react-redux"
 import DetailTabPaneItemShowTime from '../DetailTabPaneItemShowTime';
-import { actListTheaterApi } from '../TheaterItem/modules/action';
+
 
 function DetailTabPaneItem(props) {
     const [showTime, setShowTime] = useState({indexShow: 0})
     const [openDetailCollapse, setOpenDetailCollapse] = useState(false);
-    useEffect(() => {
-        const id = props.cinameDestop;
-        props.fetchListDetailItem(id);
-        return () => {
-        }
-    }, [])
+
     const { data } = props;
+    //render DetailTab Pane Theater
     const renderTheaterItem = ()=> {
         return (data && data.map((item,index)=>{
             const handleShowTimeMovie = () => {
@@ -23,7 +18,6 @@ function DetailTabPaneItem(props) {
                 }else{
                     getTabPaneItem.classList.remove("show");
                 }
-                console.log(getTabPaneItem);
             }
             return (
                 <div className="col-lg-12 tabPaneItem__showTime" key={item.maCumRap} id={item.maCumRap + "Theater"} onClick={handleShowTimeMovie}>
@@ -50,13 +44,13 @@ function DetailTabPaneItem(props) {
         }))
         
     }
+
     const renderShowTime = () =>{ 
         return (
             data && (
             <div className="tabPaneItem__2D" id= {data[showTime.indexShow].maCumRap}>
                   <DetailTabPaneItemShowTime 
-                  key ={data[showTime.indexShow].maCumRap} maCumRap = {data[showTime.indexShow].maCumRap}
-                  maPhim = {props.maPhim} nameCinema = {props.cinameDestop}  danhSachRap = {data[showTime.indexShow].danhSachRap}
+                  key ={data[showTime.indexShow].maCumRap} data = {data[showTime.indexShow].lichChieuPhim}
                   />  
             </div>
     
@@ -522,18 +516,4 @@ function DetailTabPaneItem(props) {
         </div>
     )
 }
-
-const mapStateToProps = (state) => {
-    return {
-        data: state.ListTheaterReducer.data,
-    }
-}
-const mapDispatchToProps = (dispatch) =>{
-    return {
-        fetchListDetailItem: (id)=>{
-            dispatch(actListTheaterApi(id));
-        },
-    };
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(DetailTabPaneItem)
+export default DetailTabPaneItem;
