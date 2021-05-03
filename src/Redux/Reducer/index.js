@@ -14,6 +14,9 @@ import listCheckoutReducer from "./../../Container/CheckoutTemplate/CheckoutPage
 import listUserAdminReducer from "./../../Container/AdminTemplate/UserPage/modules/reducer";
 import AuthPageReducer from "./../../Container/AdminTemplate/AuthPage/module/AuthPageReducer";
 import AddUserReducer from "./../../Container/AdminTemplate/UserPage/modal/AddUser/module/AddUserReducer";
+import listToolMovieReducer from "./../../Component/BuyTicketTool/modules/reducer";
+import listToolTheaterReducer from "./../../Component/BuyTicketTool/BuyTicketToolChild/modulesTheater/reducer";
+import listTheaterDetailTabItemReducer from "./../../Component/DetailTabPane/modules/reducer";
 
 const rootReducer = combineReducers({
     listMovieReducerNS,
@@ -31,6 +34,9 @@ const rootReducer = combineReducers({
     listUserAdminReducer,
     AuthPageReducer,
     AddUserReducer,
+    listToolMovieReducer,
+    listToolTheaterReducer,
+    listTheaterDetailTabItemReducer,
     
 });
 

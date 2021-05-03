@@ -1274,6 +1274,7 @@ p {
     position: relative !important;
     padding: 0;
     width: 100%;
+    z-index: 1;
   }
   .detail__tab .detailTab__container .detailTab__box .detailTab__pillsMobile .dropdown .dropdown__menu .dropdown__item {
     padding: 0;
@@ -1539,6 +1540,12 @@ p {
   }
   .tabPaneItem__showTime__containerMobile .tabPaneItem__showTimeMobile .tabPaneItem__2DMobile .theater__sessionsContainerMobile .theater__sessionsMobile .sessions__btnMobile :hover {
     color: #fb4226;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .tabPaneItem__showTime__containerMobile .tabPaneItem__showTimeMobile .tabPaneItem__2DMobile .theater__sessionsContainerMobile .theater__sessionsMobile .sessions__btnMobile {
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -1999,7 +2006,7 @@ p {
 @media screen and (min-width: 480px) {
   .slider {
     width: 100%;
-    height: 39rem;
+    height: 40rem;
   }
   .slider .slick-list {
     margin: 0 8%;

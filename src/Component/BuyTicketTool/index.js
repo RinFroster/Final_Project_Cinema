@@ -1,8 +1,18 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React,{useState,useEffect} from "react";
+import {actFetchMovieTool} from "./modules/action";
+import {connect} from "react-redux";
+import BuyTicketToolChild from "./BuyTicketToolChild";
 
-function BuyTicketTool() {
-  const chooseMovie = (e) => {
+function BuyTicketTool(props) {
+  const [index, setIndex] = useState({indexShow: 0});
+  useEffect(() => {
+    props.fetchMovieTool();
+  }, [])
+  const {data} = props;
+
+  const renderBuyTicketToolMovie = () => {
+    return(data&&data.map((item,index)=>{
+      const chooseMovie = (e) => {
     const buttonSelected = document.getElementById("buyTicketDropdownMovie");
     const itemSelected = document.getElementById(e.target.id);
     const getId = document.getElementById("buyTicketDropdownTheater");
@@ -10,35 +20,25 @@ function BuyTicketTool() {
       getId.classList.remove("disabled");
     }
     buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
+    setIndex({indexShow: index});
+  }
+      return(
+        <li>
+            <a className="dropdown-item" id={item.maPhim} onClick={chooseMovie} key={item.maPhim}>
+              {item.tenPhim}
+            </a>
+          </li>
+      )
+    })) 
+  }
 
+  const test = () => {
+    return (
+      data && (<BuyTicketToolChild id ={data&&data[index.indexShow].maPhim}/>)
+    )
   }
-  const chooseTheater = (e) => {
-    const buttonSelected = document.getElementById("buyTicketDropdownTheater");
-    const itemSelected = document.getElementById(e.target.id);
-    buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
-    const getId = document.getElementById("buyTicketDropdownDate");
-    if(getId){
-      getId.classList.remove("disabled");
-    }
-  }
-  const chooseDate = (e) => {
-    const buttonSelected = document.getElementById("buyTicketDropdownDate");
-    const itemSelected = document.getElementById(e.target.id);
-    buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
-    const getId = document.getElementById("buyTicketDropdownPremiere");
-    if(getId){
-      getId.classList.remove("disabled");
-    }
-  }
-  const choosePremiere = (e) => {
-    const buttonSelected = document.getElementById("buyTicketDropdownPremiere");
-    const itemSelected = document.getElementById(e.target.id);
-    buttonSelected.innerHTML = `${itemSelected.innerHTML}`;
-    const getId = document.getElementById("btnBuyTicket");
-    if(getId){
-      getId.classList.remove("disabled");
-    }
-  }
+
+
   return (
     <section className="tool__nav noneOnMobile">
       <div className="nav__container">
@@ -47,147 +47,27 @@ function BuyTicketTool() {
           Phim
         </button>
         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a className="dropdown-item" id="chosenMovie1" onClick={chooseMovie}>
-              Mortal Kombat - Cuộc Chiến Sinh Tử (C18)
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie2" onClick={chooseMovie}>
-              Lật Mặt 48h
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie3" onClick={chooseMovie}>
-              Godzilla vs Kong
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie4" onClick={chooseMovie}>
-              Người Nhân Bản - Seobok (C16)
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie5" onClick={chooseMovie}>
-              Bàn Tay Diệt Quỷ - Evil Expeller (C16)
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie6" onClick={chooseMovie}>
-              1990 (C16)
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie7" onClick={chooseMovie}>
-              Ong Nhí Phiêu Lưu Ký: Giải Cứu Công Chúa Kiến - Maya The Bee 3: The Golden Orb - P
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie8" onClick={chooseMovie}>
-              Detective Conan: Scarlet Bullet - Thám Tử Lừng Danh Conan: Viên Đạn Đỏ - C13
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie9" onClick={chooseMovie}>
-              The Hypnosis - Con Lắc Tà Thuật - C18
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenMovie10" onClick={chooseMovie}>
-              Bạn Tôi- Our Friend
-            </a>
-          </li>
+          {renderBuyTicketToolMovie()}
         </ul>
       </div>
-      <div className="dropdown -selectCinema">
-        <button
-          className="btn btn-secondary dropdown-toggle disabled"
-          type="button"
-          id="buyTicketDropdownTheater"
-          data-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Rạp
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a className="dropdown-item" id="chosenTheaterBHD" onClick={chooseTheater}>
-              BHD
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenTheaterCGV" onClick={chooseTheater}>
-              CGV
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenTheaterGalaxy" onClick={chooseTheater}>
-              GALAXY
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="dropdown -selectDate">
-        <button
-          className="btn btn-secondary dropdown-toggle disabled"
-          type="button"
-          id="buyTicketDropdownDate"
-          data-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Ngày Xem
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a className="dropdown-item" id="chosenDate1" onClick={chooseDate}>
-              Action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenDate2" onClick={chooseDate}>
-              Another action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenDate3" onClick={chooseDate}>
-              Something else here
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="dropdown -selectSession">
-        <button
-          className="btn btn-secondary dropdown-toggle disabled"
-          type="button"
-          id="buyTicketDropdownPremiere"
-          data-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Suất Chiếu
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a className="dropdown-item" id="chosenPremiere1" onClick={choosePremiere}>
-              Action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenPremiere2" onClick={choosePremiere}>
-              Another action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" id="chosenPremiere3" onClick={choosePremiere}>
-              Something else here
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div className="buy__button">
-        <Link to="/checkout"><button className="btn btn-secondary -enabled disabled" id="btnBuyTicket">Mua Vé Ngay</button></Link>
-      </div>
+      {test()}
+      {/* <BuyTicketToolChild id ={index}/> */}
+
     </div>
     </section>
   );
 }
-export default BuyTicketTool;
+const mapStateToProps = (state) => {
+  return {
+    data: state.listToolMovieReducer.data,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchMovieTool: () => {
+      dispatch(actFetchMovieTool());
+    },
+  };
+};
+export default connect(mapStateToProps,mapDispatchToProps)(BuyTicketTool);

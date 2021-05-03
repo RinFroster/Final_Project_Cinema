@@ -1,34 +1,23 @@
-import React,{useState, useEffect} from 'react';
+import React,{useState} from 'react';
 import Collapse from "react-bootstrap/Collapse";
-import {connect} from "react-redux";
 import DetailTabPaneItemShowTimeMobile from '../DetailTabPaneItemShowTimeMobile';
-import { actListTheaterApi } from '../TheaterItem/modules/action';
 
 function DetailTabPaneItemMobile(props) {
-
     const [cinemaMobile, setCinemaMobile] = useState({indexCinema : 0})
-    useEffect(() => {
-        const id = props.cinameMobile;
-        props.fetchListCinemaSystemMobile(id);
-        return () => {
-        }
-    }, [])
-
     const {data} = props;
     const renderListSystemCinemaMobile = () =>{
         return data && data.map((item, index)=>{
             const handleShowTimeMovie = () => {
-                const getTabPaneItem = document.getElementById(item.maCumRap);
+                const getTabPaneItem = document.getElementById(item.tenCumRap);
                 if(!(getTabPaneItem&&getTabPaneItem.classList.contains("show"))){
                     getTabPaneItem.classList.add("show");
                 }else{
                     getTabPaneItem.classList.remove("show");
                 }
-                console.log(getTabPaneItem);
             }
             return (
                 <div className="col-lg-12 tabPaneItem__showTimeMobile" onClick = {handleShowTimeMovie} key={item.maCumRap}>
-                    <div className="tabPaneItem__movieMobile" id = {item.maCumRap}  aria-controls={item.maCumRap} onClick= {()=>{setCinemaMobile({indexCinema: index})}} aria-expanded={!openDetailCollapse}>
+                    <div className="tabPaneItem__movieMobile" aria-controls={item.tenCumRap} onClick= {()=>{setCinemaMobile({indexCinema: index})}} aria-expanded={!openDetailCollapse}>
                         <img src={require("./../../Asset/img/theater/bhd-star-pham-hung-16105959230642.png").default} alt=""/>
                         <div className="tabPaneItem__movieSpanMobile">
                             <span className="tabPaneItem__cinemaMobile">
@@ -52,10 +41,9 @@ function DetailTabPaneItemMobile(props) {
     }
     const renderShowTimeMobile = () =>{
         return data && (
-            <div className="tabPaneItem__2DMobile" id= {data[cinemaMobile.indexCinema].maCumRap}>
+            <div className="tabPaneItem__2DMobile" id= {data[cinemaMobile.indexCinema].tenCumRap}>
                 <DetailTabPaneItemShowTimeMobile  
-                key= {data[cinemaMobile.indexCinema].maCumRap}  maCumRap = {data[cinemaMobile.indexCinema].maCumRap}
-                maPhim = {props.maPhim} nameCinema = {props.cinema} danhSachRap = {data[cinemaMobile.indexCinema].danhSachRap}
+                key= {data[cinemaMobile.indexCinema].maCumRap} data = {data[cinemaMobile.indexCinema].lichChieuPhim}
                  />
         </div>
         )
@@ -517,17 +505,4 @@ function DetailTabPaneItemMobile(props) {
     )
 }
 
-const mapStateToProps = (state)=>{
-    return {
-        data: state.ListTheaterReducer.data,
-    }
-}
-const mapDispatchToProps = (dispatch)=>{
-    return {
-        fetchListCinemaSystemMobile: (id) =>{
-            dispatch(actListTheaterApi(id))
-        }
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps )(DetailTabPaneItemMobile);
+export default DetailTabPaneItemMobile;
