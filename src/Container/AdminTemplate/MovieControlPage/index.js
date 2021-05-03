@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
-import {actFetchAdminMovie} from "./modules/action";
-import { connect } from "react-redux";
+import {actFetchAdminMovie, DeleteMovieApi} from "./modules/action";
+import { connect, useDispatch } from "react-redux";
 import ReactPaginate from 'react-paginate';
 import CreateShowTimesModal from "./modal/CreateShowTimes";
 import AddMovieModal from "./modal/AddMovie";
@@ -16,20 +16,7 @@ function MovieControlPage(props) {
         props.fetchAdminMovieList(currentPage);
     }, [currentPage])
 
-    const handleDelete = (e) => {
-        e.preventDefault();
-
-        axios({
-            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim`,
-            method: "DELETE",
-        })
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.log(err.response.data);
-        })
-    }
+    let dispatch = useDispatch();
 
     let FormModalCreateShowTimes = CreateShowTimesModal;
     let FormModalAddMovie = AddMovieModal;
@@ -40,6 +27,10 @@ function MovieControlPage(props) {
 		setCurrentPage(selectedObject.selected);
 		props.fetchAdminMovieList(currentPage);
 	};
+
+    const delMovie = (ma)=>{
+        dispatch(DeleteMovieApi(ma))
+    }
     const {data} = props;
     const renderAdminMovie = () => {
         return(data&&data.items.map((item) => {
@@ -71,7 +62,7 @@ function MovieControlPage(props) {
                         <div className="movieShowControl__content movieServices">
                             <button className="btn btn-primary adminBtn createShow" data-toggle="modal" data-target="#modalCreateShowTimes">Tạo Lịch Chiếu</button>
                             <button className="btn btn-success adminBtn updateShow" data-toggle="modal" data-target="#modalUpdateMovie">Sửa</button>
-                            <button className="btn btn-danger adminBtn deleteShow" id={item.maPhim} onClick={handleDelete}>Xoá</button>
+                            <button className="btn btn-danger adminBtn deleteShow" id={item.maPhim} onClick={()=>{delMovie(item.maPhim)}}>Xoá</button>
                         </div>
                     </div>
                 </div>

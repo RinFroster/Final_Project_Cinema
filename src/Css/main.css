@@ -3946,6 +3946,29 @@ p {
   display: inline-flex;
 }
 
+#checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .ghe {
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #e9e9e9;
+}
+
+#checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .gheDaDat {
+  background-color: #767676 !important;
+  cursor: no-drop !important;
+}
+
+#checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .gheVip {
+  background-color: orange !important;
+}
+
+#checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .gheDangDat {
+  background-color: greenyellow !important;
+}
+
 #checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .listSeat__seatRow {
   position: relative;
 }
@@ -3955,23 +3978,6 @@ p {
   font-size: 14px;
   color: #000;
   font-weight: 500;
-}
-
-#checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .seat {
-  margin-right: 0.5rem;
-  border-radius: 100%;
-  text-align: center;
-  outline: none;
-  border: none;
-  background-color: #3e515d;
-  font-size: 14px;
-  color: #fff;
-  font-weight: 500;
-}
-
-#checkoutPage .checkoutMain__container .listSeat .listSeat__container .listSeat__rowSeat .listSeat__seatWrapper .chosenSeat {
-  background-color: #fb4226 !important;
-  color: #fff;
 }
 
 #checkoutPage .checkoutMain__container .listSeat .listSeat__container .visible {

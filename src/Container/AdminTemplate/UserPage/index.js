@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
-import {actFetchAdminUser} from "./modules/action";
-import { connect } from "react-redux";
+import {actFetchAdminUser, DeleteUser} from "./modules/action";
+import { connect, useDispatch } from "react-redux";
 import ReactPaginate from 'react-paginate';
 import axios from "axios";
 import AddUser from "./modal/AddUser/AddUser";
@@ -14,21 +14,12 @@ function UserPage(props) {
         props.fetchAdminUserList(currentPage);
     }, [currentPage])
 
-    const handleDelete = (e) => {
-        e.preventDefault();
 
-        axios({
-            url:`https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung`,
-            method: "DELETE",
-        })
-        .then((result)=>{
-            console.log(result);
-        })
-        .catch((err)=>{
-            console.log(err.response.data);
-        })
+    let dispatch = useDispatch();
+
+    const delUser = (taikhoan)=>{
+        dispatch(DeleteUser(taikhoan))
     }
-
     let FormModal = AddUser;
 
     // function handling page change
@@ -69,7 +60,7 @@ function UserPage(props) {
                     <div className="col-lg-2 p-0 userControl__item">
                         <div className="userControl__content userServices">
                             <button className="btn btn-success adminBtn updateUser" data-toggle="modal" data-target="#myModal">Sửa</button>
-                            <button className="btn btn-danger adminBtn deleteUser" id={item.taiKhoan} onClick={handleDelete}>Xoá</button>
+                            <button className="btn btn-danger adminBtn deleteUser" id={item.taiKhoan} onClick={()=>{delUser(item.taiKhoan)}}>Xoá</button>
                         </div>
                     </div>
                 </div>

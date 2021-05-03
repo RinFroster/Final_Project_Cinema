@@ -131,6 +131,28 @@
                     display: flex;
                     .listSeat__seatWrapper{
                         display: inline-flex;
+                        .ghe{
+                            width: 35px;
+                            height: 35px;
+                            border:none;
+                            border-radius: 5px;
+                            margin: 5px;
+                            cursor: pointer;
+                            background-color: rgb(233, 233, 233) ;
+                        }
+                        
+                        .gheDaDat{
+                            background-color: rgb(118, 118, 118) !important;
+                            cursor: no-drop !important;
+                        }
+                        
+                        .gheVip {
+                            background-color: orange !important;
+                        }
+                        
+                        .gheDangDat {
+                            background-color: greenyellow !important;
+                        }
                         .listSeat__seatRow{
                             position: relative;
                             .listSeat__seatLine{
@@ -138,19 +160,19 @@
                                 @include styleText($fs-2,$text-base-color,$fw-bold-2);
                             }
                         }
-                        .seat{
-                            margin-right: 0.5rem;
-                            border-radius: 100%;
-                            text-align: center;
-                            outline: none;
-                            border: none;
-                            background-color: #3e515d;
-                            @include styleText($fs-2,$text-on-base-color,$fw-bold-2);
-                        }
-                        .chosenSeat{
-                            background-color: $item-active !important;
-                            color: $text-on-base-color;
-                        }
+                        // .seat{
+                        //     margin-right: 0.5rem;
+                        //     border-radius: 100%;
+                        //     text-align: center;
+                        //     outline: none;
+                        //     border: none;
+                        //     background-color: #3e515d;
+                        //     @include styleText($fs-2,$text-on-base-color,$fw-bold-2);
+                        // }
+                        // .chosenSeat{
+                        //     background-color: $item-active !important;
+                        //     color: $text-on-base-color;
+                        // }
                     }
                 }
                 .visible{

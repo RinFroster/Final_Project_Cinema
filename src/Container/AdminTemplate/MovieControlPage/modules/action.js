@@ -1,5 +1,6 @@
 import * as ActionType from "./constant";
 import Axios from "axios";
+import { USRELOGIN } from "../../../../util/settings";
 
 export const actFetchAdminMovie = (numb) => {
     return(dispatch) => {
@@ -13,6 +14,29 @@ export const actFetchAdminMovie = (numb) => {
         })
         .catch((err) => {
             dispatch(actFetchAdminMovieFailed(err))
+        })
+    }
+}
+
+export const DeleteMovieApi = (ma) =>{
+    let accessToken = "";
+    if(localStorage.getItem(USRELOGIN)) {
+        accessToken = JSON.parse(localStorage.getItem(USRELOGIN)).accessToken;
+    }
+    return (dispatch) =>{
+        Axios({
+            url : `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${ma}`,
+            method:"DELETE",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            }
+        })
+        .then((res)=>{
+            alert(res.data)
+            dispatch(actFetchAdminMovie());
+        })
+        .catch((err)=>{
+            alert(err.response.data)
         })
     }
 }
