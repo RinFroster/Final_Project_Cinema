@@ -4539,6 +4539,7 @@ p {
     height: 100%;
     z-index: 3;
     margin-left: 75%;
+    margin-top: 0;
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
     max-height: 46.5rem;
@@ -4594,9 +4595,6 @@ p {
   }
   #checkoutPage .checkoutMain__container .checkoutMain__seatMap .noteSeat .positionViews {
     margin-top: 1rem;
-  }
-  #checkoutPage .buyTicketOption__container {
-    margin-left: 97rem;
   }
   #checkoutPage .buyTicketOption__container .buyTicketOption__scrollbars {
     height: 90rem;
