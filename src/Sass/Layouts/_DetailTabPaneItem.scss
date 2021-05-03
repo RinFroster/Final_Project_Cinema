@@ -196,6 +196,23 @@
     }
 }
 
+// Responsive for screen > 480px and < 576px
+@include responsive ('very-small'){
+    .tabPaneItem__showTime__containerMobile{
+        .tabPaneItem__showTimeMobile{
+            .tabPaneItem__2DMobile{
+                .theater__sessionsContainerMobile{
+                    .theater__sessionsMobile{
+                        .sessions__btnMobile{
+                            padding: 0.5rem 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Responsive for screen > 992px and < 1200px
 @include responsive('large'){
     .tabPaneItem__showTime__container{
