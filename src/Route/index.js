@@ -16,11 +16,6 @@ const routeHome = [
         component: MovieDetail,
         exact: false,
     },
-    // {
-    //     path: "/Login",
-    //     component: Login,
-    //     exact: false,
-    // },
 ]
 
 const routeCheckout = [
