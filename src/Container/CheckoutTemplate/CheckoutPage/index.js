@@ -1,11 +1,11 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Scrollbars } from 'react-custom-scrollbars';
 import Countdown from "react-countdown";
-import {Link,NavLink} from "react-router-dom";
-import {actCheckoutMovie, DatVeAction} from "./modules/action";
-import { connect,useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink } from "react-router-dom";
+import { actCheckoutMovie, DatVeAction } from "./modules/action";
+import { connect, useDispatch, useSelector } from 'react-redux';
 import modalCheckoutPageError from "./modalCheckoutPage/modalErrorFullSeat";
 import modalErrorNotFirstSeat from "./modalCheckoutPage/modalErrorNotFirstSeat";
 import modalBodyFullSeat from "./modalCheckoutPage/modalBodyFullSeat";
@@ -14,7 +14,7 @@ import ModalConfirm from "./modalCheckoutPage/modalConfirm";
 import modalTimeOut from "./modalCheckoutPage/modalTimeOut";
 import modalErrorInfo from "./modalCheckoutPage/modalErrorInfo";
 import $ from "jquery";
-import {DAT_VE} from "./modules/constant"
+import { DAT_VE } from "./modules/constant"
 import { USRELOGIN } from '../../../util/settings';
 
 function CheckoutPage(props) {
@@ -28,7 +28,7 @@ function CheckoutPage(props) {
         dispatch(action);
     }, [])
 
-    
+
     // Modal Error
     let FormModal = modalCheckoutPageError(modalBodyFullSeat);
     let FormModalNotFirstSeat = modalErrorNotFirstSeat(modalBodyNotFirstSeat);
@@ -37,7 +37,7 @@ function CheckoutPage(props) {
     let FormModalConfirm = ModalConfirm;
     // Modal Time Out
     let FormModalTimeOut = modalTimeOut;
-    
+
     // setTimeout(function(){
     //     $('#modelIdTimeOut').modal({show:true,backdrop:'static'});
     //     $('#modelId').modal('hide');
@@ -53,10 +53,12 @@ function CheckoutPage(props) {
     //     })
     // }
 
+    let userLogin = JSON.parse(localStorage.getItem(USRELOGIN))
+
     // render DS A
     const renderSeatListA = () => {
-        return(lichChieu.danhSachGhe?.map((item,index)=>{        
-            if(item.stt<17){
+        return (lichChieu.danhSachGhe?.map((item, index) => {
+            if (item.stt < 17) {
                 let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
                 console.log(indexGheDD)
                 let classGheDangDat = '';
@@ -65,16 +67,19 @@ function CheckoutPage(props) {
                 }
                 let classGheDaDat = item.daDat ? 'gheDaDat' : '';
                 let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
-                return(
-                    <span className="listSeat__seatWrapper"  key={item.maGhe} >
-                        <button onClick={()=>{dispatch({type: DAT_VE,
-                        gheDangDat: item, 
-                        })}}  disabled={item.daDat} 
-                      className={` ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat} `}
-                        value={item.daDat}  id={item.maGhe} >
+                return (
+                    <span className="listSeat__seatWrapper" key={item.maGhe} >
+                        <button onClick={() => {
+                            dispatch({
+                                type: DAT_VE,
+                                gheDangDat: item,
+                            })
+                        }} disabled={item.daDat}
+                            className={` ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat} `}
+                            value={item.daDat} id={item.maGhe} >
                             {/* {"A" + (item.tenGhe - 0)} */}
-                            {item.daDat ? 'X' : item.stt} 
-                            </button>
+                            {item.daDat ? 'X' : item.stt}
+                        </button>
                     </span>
                 )
             }
@@ -82,8 +87,8 @@ function CheckoutPage(props) {
     }
     // render DS B
     const renderSeatListB = () => {
-        return(lichChieu.danhSachGhe?.map((item)=>{
-            if(item.stt>17&&item.stt<34){
+        return (lichChieu.danhSachGhe?.map((item) => {
+            if (item.stt > 17 && item.stt < 34) {
                 let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
                 console.log(indexGheDD)
                 let classGheDangDat = '';
@@ -92,10 +97,14 @@ function CheckoutPage(props) {
                 }
                 let classGheDaDat = item.daDat ? 'gheDaDat' : '';
                 let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
-                return(
+                return (
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} onClick={()=>{dispatch({type: DAT_VE,
-                        gheDangDat: item})}} value={item.daDat}  id={item.maGhe}  >
+                        <button className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} onClick={() => {
+                            dispatch({
+                                type: DAT_VE,
+                                gheDangDat: item
+                            })
+                        }} value={item.daDat} id={item.maGhe}  >
                             {/* {"B" + (item.tenGhe - 17)} */}
                             {item.daDat ? 'X' : item.stt}</button>
                     </span>
@@ -106,8 +115,8 @@ function CheckoutPage(props) {
 
     // // render DS C
     const renderSeatListC = () => {
-        return(lichChieu.danhSachGhe?.map((item)=>{
-            if(item.stt>34&&item.stt<51){
+        return (lichChieu.danhSachGhe?.map((item) => {
+            if (item.stt > 34 && item.stt < 51) {
                 let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
                 console.log(indexGheDD)
                 let classGheDangDat = '';
@@ -116,10 +125,14 @@ function CheckoutPage(props) {
                 }
                 let classGheDaDat = item.daDat ? 'gheDaDat' : '';
                 let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
-                return(
+                return (
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button onClick={()=>{dispatch({type: DAT_VE,
-                        gheDangDat: item})}} disabled={item.daDat} className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} value={item.daDat} id={item.maGhe}  >
+                        <button onClick={() => {
+                            dispatch({
+                                type: DAT_VE,
+                                gheDangDat: item
+                            })
+                        }} disabled={item.daDat} className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} value={item.daDat} id={item.maGhe}  >
                             {/* {"C" + (item.tenGhe - 34)} */}
                             {item.daDat ? 'X' : item.stt}
                         </button>
@@ -131,8 +144,8 @@ function CheckoutPage(props) {
 
     // // render DS D
     const renderSeatListD = () => {
-        return(lichChieu.danhSachGhe?.map((item)=>{
-            if(item.stt>51&&item.stt<68){
+        return (lichChieu.danhSachGhe?.map((item) => {
+            if (item.stt > 51 && item.stt < 68) {
                 let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
                 console.log(indexGheDD)
                 let classGheDangDat = '';
@@ -141,11 +154,15 @@ function CheckoutPage(props) {
                 }
                 let classGheDaDat = item.daDat ? 'gheDaDat' : '';
                 let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
-                return(
+                return (
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button onClick={()=>{dispatch({type: DAT_VE,
-                        gheDangDat: item})}} 
-                        className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat}   value={item.daDat}  id={item.maGhe}  >
+                        <button onClick={() => {
+                            dispatch({
+                                type: DAT_VE,
+                                gheDangDat: item
+                            })
+                        }}
+                            className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
                             {/* {"D" + (item.tenGhe - 51)} */}
                             {item.daDat ? 'X' : item.stt}
                         </button>
@@ -154,11 +171,11 @@ function CheckoutPage(props) {
             }
         }))
     }
-    
+
     // render DS E
     const renderSeatListE = () => {
-        return(lichChieu.danhSachGhe?.map((item)=>{
-            if(item.stt>68&&item.stt<85){
+        return (lichChieu.danhSachGhe?.map((item) => {
+            if (item.stt > 68 && item.stt < 85) {
                 let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
                 console.log(indexGheDD)
                 let classGheDangDat = '';
@@ -167,11 +184,15 @@ function CheckoutPage(props) {
                 }
                 let classGheDaDat = item.daDat ? 'gheDaDat' : '';
                 let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
-                return(
+                return (
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button onClick={()=>{dispatch({type: DAT_VE,
-                        gheDangDat: item})}} 
-                        className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
+                        <button onClick={() => {
+                            dispatch({
+                                type: DAT_VE,
+                                gheDangDat: item
+                            })
+                        }}
+                            className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
                             {/* {"E" + (item.tenGhe - 68)} */}
                             {item.daDat ? 'X' : item.stt}
                         </button>
@@ -180,11 +201,11 @@ function CheckoutPage(props) {
             }
         }))
     }
-    
+
     // render DS F
     const renderSeatListF = () => {
-        return(lichChieu.danhSachGhe?.map((item)=>{
-            if(item.stt>85&&item.stt<102){
+        return (lichChieu.danhSachGhe?.map((item) => {
+            if (item.stt > 85 && item.stt < 102) {
                 let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
                 console.log(indexGheDD)
                 let classGheDangDat = '';
@@ -193,10 +214,14 @@ function CheckoutPage(props) {
                 }
                 let classGheDaDat = item.daDat ? 'gheDaDat' : '';
                 let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
-                return(
+                return (
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button onClick={()=>{dispatch({type: DAT_VE,
-                        gheDangDat: item})}}  className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
+                        <button onClick={() => {
+                            dispatch({
+                                type: DAT_VE,
+                                gheDangDat: item
+                            })
+                        }} className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
                             {/* {"F" + (item.tenGhe - 85)} */}
                             {item.daDat ? 'X' : item.stt}
                         </button>
@@ -205,11 +230,11 @@ function CheckoutPage(props) {
             }
         }))
     }
-    
+
     // render DS G
     const renderSeatListG = () => {
-        return(lichChieu.danhSachGhe?.map((item)=>{
-            if(item.stt>102&&item.stt<119){
+        return (lichChieu.danhSachGhe?.map((item) => {
+            if (item.stt > 102 && item.stt < 119) {
                 let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
                 console.log(indexGheDD)
                 let classGheDangDat = '';
@@ -218,10 +243,14 @@ function CheckoutPage(props) {
                 }
                 let classGheDaDat = item.daDat ? 'gheDaDat' : '';
                 let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
-                return(
+                return (
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button onClick={()=>{dispatch({type: DAT_VE,
-                        gheDangDat: item})}}  className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat} value={item.daDat}  id={item.maGhe}  >
+                        <button onClick={() => {
+                            dispatch({
+                                type: DAT_VE,
+                                gheDangDat: item
+                            })
+                        }} className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
                             {/* {"G" + (item.tenGhe - 102)} */}
                             {item.daDat ? 'X' : item.stt}
                         </button>
@@ -230,11 +259,11 @@ function CheckoutPage(props) {
             }
         }))
     }
-    
+
     // render DS H
     const renderSeatListH = () => {
-        return(lichChieu.danhSachGhe?.map((item)=>{
-            if(item.stt>119&&item.stt<136){
+        return (lichChieu.danhSachGhe?.map((item) => {
+            if (item.stt > 119 && item.stt < 136) {
                 let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe === item.maGhe);
                 console.log(indexGheDD)
                 let classGheDangDat = '';
@@ -243,10 +272,14 @@ function CheckoutPage(props) {
                 }
                 let classGheDaDat = item.daDat ? 'gheDaDat' : '';
                 let classGheVip = item.loaiGhe === 'Vip' ? 'gheVip' : '';
-                return(
+                return (
                     <span className="listSeat__seatWrapper" key={item.maGhe}>
-                        <button  onClick={()=>{dispatch({type: DAT_VE,
-                        gheDangDat: item})}}  className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}` } disabled={item.daDat} value={item.daDat}  id={item.maGhe}  >
+                        <button onClick={() => {
+                            dispatch({
+                                type: DAT_VE,
+                                gheDangDat: item
+                            })
+                        }} className={`ghe ${classGheDaDat} ${classGheVip} ${classGheDangDat}`} disabled={item.daDat} value={item.daDat} id={item.maGhe}  >
                             {/* {"H" + (item.tenGhe - 119)} */}
                             {item.daDat ? 'X' : item.stt}
                         </button>
@@ -394,14 +427,14 @@ function CheckoutPage(props) {
     //     renderSeatMobile.innerHTML = listSeat;
     //     renderSeat.innerHTML = listSeat;
     // }
-   
+
 
     const handleClickBuy = () => {
         const getEmail = document.getElementsByClassName("emailCheckout")[0];
         const getPhone = document.getElementsByClassName("phoneCheckout")[0];
-        if( getEmail.value==="" || getPhone.value===""){
+        if (getEmail.value === "" || getPhone.value === "") {
             $('#modelIdInfo').modal('show');
-        }else{
+        } else {
             $('#modelIdConfirm').modal('show');
         }
     }
@@ -409,9 +442,9 @@ function CheckoutPage(props) {
     const handleOption = (e) => {
         const findChosen = e.target.id;
         const getListPayment = document.getElementById("listChildren");
-        if(findChosen === "option3"){
-        getListPayment.style.display = "block";
-        }else{
+        if (findChosen === "option3") {
+            getListPayment.style.display = "block";
+        } else {
             getListPayment.style.display = "none";
         }
     }
@@ -421,7 +454,7 @@ function CheckoutPage(props) {
         const getEmail = document.getElementsByClassName("emailCheckout")[0];
         const getPhone = document.getElementsByClassName("phoneCheckout")[0];
         const getBuyBtnMobile = document.getElementById("continueBtnMobile1");
-        if( !(getEmail.value==="") || !(getPhone.value==="")){
+        if (!(getEmail.value === "") || !(getPhone.value === "")) {
             getBuyBtnMobile.classList.remove("disabled");
         }
     }
@@ -437,7 +470,7 @@ function CheckoutPage(props) {
         const getBuyTicketMobile = document.getElementById("continueBtnMobile1");
         const getBuyTicketOption = document.getElementsByClassName("buyTicketOption__container")[0];
         const getTitleProgressBar = document.getElementsByClassName("stepTitle")[0];
-        if(getContinueBtnMobile&&getBuyTicketMobile&&getBuyTicketOption&&getTitleProgressBar){
+        if (getContinueBtnMobile && getBuyTicketMobile && getBuyTicketOption && getTitleProgressBar) {
             getBuyTicketOption.style.display = "block";
             getTitleProgressBar.innerHTML = "03. thanh toán";
             getContinueBtnMobile.style.display = "none";
@@ -447,10 +480,10 @@ function CheckoutPage(props) {
     const handleCheckCoupon = () => {
         const getCouponInput = document.getElementsByClassName("discountCouponCheckout")[0];
         const getCouponBtn = document.getElementsByClassName("applyDiscountCoupon")[0];
-        if(!(getCouponInput.value==="")){
+        if (!(getCouponInput.value === "")) {
             getCouponBtn.classList.remove("disabled");
             getCouponBtn.classList.add("active");
-        }else{
+        } else {
             getCouponBtn.classList.add("disabled");
             getCouponBtn.classList.remove("active");
         }
@@ -462,31 +495,31 @@ function CheckoutPage(props) {
     }
     const renderThumb = ({ style, ...props }) => {
         const thumbStyle = {
-          borderRadius: 6,
-          backgroundColor: 'rgba(35, 49, 86, 0.8)',
+            borderRadius: 6,
+            backgroundColor: 'rgba(35, 49, 86, 0.8)',
         };
         return <div style={{ ...style, ...thumbStyle }} {...props} />;
-      };
-      const CustomScrollbars = props => (
+    };
+    const CustomScrollbars = props => (
         <Scrollbars
-          renderThumbVertical={renderThumb}
-          {...props}
+            renderThumbVertical={renderThumb}
+            {...props}
         />
-      );
+    );
 
     const Completionist = () => <span>00:00</span>;
 
     const renderer = ({ minutes, seconds, completed }) => {
         if (completed) {
-          // Render a complete state
-          return <Completionist />;
+            // Render a complete state
+            return <Completionist />;
         } else {
-          // Render a countdown
-          return (
-            <span>
-              {minutes}:{seconds}
-            </span>
-          );
+            // Render a countdown
+            return (
+                <span>
+                    {minutes}:{seconds}
+                </span>
+            );
         }
     };
 
@@ -502,7 +535,9 @@ function CheckoutPage(props) {
                 </div>
                 <div className="rightStep">
                     <div className="account">
-                        <div className="account__avatar"><img src={require("./../../../Asset/CheckoutPage__img/photo.png").default} className="account__icon"/></div>
+                        <div className="account__avatar"><img src={require("./../../../Asset/CheckoutPage__img/photo.png").default} className="account__icon" />
+                            {userLogin.taiKhoan}
+                        </div>
                         <div className="account__name"></div>
                     </div>
                 </div>
@@ -511,29 +546,29 @@ function CheckoutPage(props) {
             {/* Mobile ProggressBar */}
             <div className="progressBar__containerMobile">
                 <div className="leftMobile">
-                    <Link to="/"><FontAwesomeIcon icon={faTimes} className="leftMobile__exit"/></Link>
+                    <Link to="/"><FontAwesomeIcon icon={faTimes} className="leftMobile__exit" /></Link>
                 </div>
                 <div className="centerMobile">
                     <span className="stepTitle">02. chọn ghế</span>
                 </div>
                 <div className="rightMobile">
                     <div className="imgCircle isLoggedIn">
-                        <img src={require("./../../../Asset/CheckoutPage__img/photo.png").default}/>
+                        <img src={require("./../../../Asset/CheckoutPage__img/photo.png").default} />
                     </div>
                 </div>
             </div>
 
-            <FormModal/>
-            <FormModalNotFirstSeat/>
-            <FormModalConfirm/>
-            <FormModalTimeOut/>
-            <FormModalInfo/>
+            <FormModal />
+            <FormModalNotFirstSeat />
+            <FormModalConfirm />
+            <FormModalTimeOut />
+            <FormModalInfo />
 
             <div className="checkoutMain__container">
                 <div className="checkoutMain__theaterInfo">
                     <div className="leftTitle">
                         <div className="logoCinema">
-                            <img src={require("./../../../Asset/img/theater/BHD.png").default} alt=""/>
+                            <img src={require("./../../../Asset/img/theater/BHD.png").default} alt="" />
                         </div>
                         <div className="contentCinema">
                             <p className="address">
@@ -559,168 +594,118 @@ function CheckoutPage(props) {
                             <div className="listSeat">
                                 <div className="listSeat__container">
                                     <div className="listSeat__rowSeat visible">a</div>
-                                        <div className="listSeat__rowSeat">
-                                            <span className="listSeat__seatWrapper">
-                                                <span className="listSeat__seatRow">
-                                                    <span className="listSeat__seatLine">a</span>
-                                                </span>
+                                    <div className="listSeat__rowSeat">
+                                        <span className="listSeat__seatWrapper">
+                                            <span className="listSeat__seatRow">
+                                                <span className="listSeat__seatLine">a</span>
                                             </span>
-                                            {renderSeatListA()}
-                                        </div>
-                                        <div className="listSeat__rowSeat">
-                                            <span className="listSeat__seatWrapper">
-                                                <span className="listSeat__seatRow">
-                                                    <span className="listSeat__seatLine">b</span>
-                                                </span>
+                                        </span>
+                                        {renderSeatListA()}
+                                    </div>
+                                    <div className="listSeat__rowSeat">
+                                        <span className="listSeat__seatWrapper">
+                                            <span className="listSeat__seatRow">
+                                                <span className="listSeat__seatLine">b</span>
                                             </span>
-                                            {renderSeatListB()}
-                                        </div>
-                                        <div className="listSeat__rowSeat">
-                                            <span className="listSeat__seatWrapper">
-                                                <span className="listSeat__seatRow">
-                                                    <span className="listSeat__seatLine">c</span>
-                                                </span>
+                                        </span>
+                                        {renderSeatListB()}
+                                    </div>
+                                    <div className="listSeat__rowSeat">
+                                        <span className="listSeat__seatWrapper">
+                                            <span className="listSeat__seatRow">
+                                                <span className="listSeat__seatLine">c</span>
                                             </span>
-                                            {renderSeatListC()}
-                                        </div>
-                                        <div className="listSeat__rowSeat">
-                                            <span className="listSeat__seatWrapper">
-                                                <span className="listSeat__seatRow">
-                                                    <span className="listSeat__seatLine">d</span>
-                                                </span>
+                                        </span>
+                                        {renderSeatListC()}
+                                    </div>
+                                    <div className="listSeat__rowSeat">
+                                        <span className="listSeat__seatWrapper">
+                                            <span className="listSeat__seatRow">
+                                                <span className="listSeat__seatLine">d</span>
                                             </span>
-                                            {renderSeatListD()}
-                                        </div>
-                                        <div className="listSeat__rowSeat">
-                                            <span className="listSeat__seatWrapper">
-                                                <span className="listSeat__seatRow">
-                                                    <span className="listSeat__seatLine">e</span>
-                                                </span>
+                                        </span>
+                                        {renderSeatListD()}
+                                    </div>
+                                    <div className="listSeat__rowSeat">
+                                        <span className="listSeat__seatWrapper">
+                                            <span className="listSeat__seatRow">
+                                                <span className="listSeat__seatLine">e</span>
                                             </span>
-                                            {renderSeatListE()}
-                                        </div>
-                                        <div className="listSeat__rowSeat">
-                                            <span className="listSeat__seatWrapper">
-                                                <span className="listSeat__seatRow">
-                                                    <span className="listSeat__seatLine">f</span>
-                                                </span>
+                                        </span>
+                                        {renderSeatListE()}
+                                    </div>
+                                    <div className="listSeat__rowSeat">
+                                        <span className="listSeat__seatWrapper">
+                                            <span className="listSeat__seatRow">
+                                                <span className="listSeat__seatLine">f</span>
                                             </span>
-                                            {renderSeatListF()}
-                                        </div>
-                                        <div className="listSeat__rowSeat">
-                                            <span className="listSeat__seatWrapper">
-                                                <span className="listSeat__seatRow">
-                                                    <span className="listSeat__seatLine">g</span>
-                                                </span>
+                                        </span>
+                                        {renderSeatListF()}
+                                    </div>
+                                    <div className="listSeat__rowSeat">
+                                        <span className="listSeat__seatWrapper">
+                                            <span className="listSeat__seatRow">
+                                                <span className="listSeat__seatLine">g</span>
                                             </span>
-                                            {renderSeatListG()}
-                                        </div>
-                                        <div className="listSeat__rowSeat">
-                                            <span className="listSeat__seatWrapper">
-                                                <span className="listSeat__seatRow">
-                                                    <span className="listSeat__seatLine">h</span>
-                                                </span>
+                                        </span>
+                                        {renderSeatListG()}
+                                    </div>
+                                    <div className="listSeat__rowSeat">
+                                        <span className="listSeat__seatWrapper">
+                                            <span className="listSeat__seatRow">
+                                                <span className="listSeat__seatLine">h</span>
                                             </span>
-                                            {renderSeatListH()}
-                                        </div>
+                                        </span>
+                                        {renderSeatListH()}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="noteSeat">
-                            <div className="typeSeat">
-                                <span className="seatTypes">
-                                    <span className="seatIcon colorNormal"></span>
-                                    <span className="nameSeat">ghế thường</span>
-                                </span>
-                                <span className="seatTypes">
-                                    <span className="seatIcon colorVip"></span>
-                                    <span className="nameSeat">ghế vip</span>
-                                </span>
-                                <span className="seatTypes">
-                                    <span className="seatIcon colorChoosing"></span>
-                                    <span className="nameSeat">ghế đang chọn</span>
-                                </span>
-                                <span className="seatTypes">
-                                    <span className="seatIcon colorChosen"></span>
-                                    <span className="nameSeat">ghế đã chọn</span>
-                                </span>
-                                <span className="seatTypes">
-                                    <span className="seatIcon colorNotChosen"></span>
-                                    <span className="nameSeat">ghế không thể chọn</span>
-                                </span>
-                            </div>
-                            <div className="positionViews">
-                                <span className="positionView">
-                                    <span className="lineView lineCenter"></span>
-                                    <span className="titleView">ghế trung tâm</span>
-                                </span>
-                                <span className="positionView">
-                                    <span className="lineView lineBeautiful"></span>
-                                    <span className="titleView">ghế đẹp</span>
-                                </span>
-                            </div>
+                        <div className="typeSeat">
+                            <span className="seatTypes">
+                                <span className="seatIcon colorNormal"></span>
+                                <span className="nameSeat">ghế thường</span>
+                            </span>
+                            <span className="seatTypes">
+                                <span className="seatIcon colorVip"></span>
+                                <span className="nameSeat">ghế vip</span>
+                            </span>
+                            <span className="seatTypes">
+                                <span className="seatIcon colorChoosing"></span>
+                                <span className="nameSeat">ghế đang chọn</span>
+                            </span>
+                            <span className="seatTypes">
+                                <span className="seatIcon colorChosen"></span>
+                                <span className="nameSeat">ghế đã chọn</span>
+                            </span>
+                            <span className="seatTypes">
+                                <span className="seatIcon colorNotChosen"></span>
+                                <span className="nameSeat">ghế không thể chọn</span>
+                            </span>
                         </div>
+                        <div className="positionViews">
+                            <span className="positionView">
+                                <span className="lineView lineCenter"></span>
+                                <span className="titleView">ghế trung tâm</span>
+                            </span>
+                            <span className="positionView">
+                                <span className="lineView lineBeautiful"></span>
+                                <span className="titleView">ghế đẹp</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-                
-                {/* Mobile Continue Button */}
-                <div className="continueBtnMobile">
-                    <div className="numberMobile">
-                        <p className="seatChosenMobile"></p>
-                    </div>
-                    <button type="button" className="btn btn-secondary continueBtn" id="continueBtnMobile" onClick={handleClickContinueBtn}>Tiếp Tục</button>
-                    <button type="submit" value="submit" className="btn btn-secondary continueBtn visible" id="continueBtnMobile1" onClick={() => {
 
-let userLogin = JSON.parse(localStorage.getItem(USRELOGIN));
-//Dữ liệu tổng hợp đúng định dạng backend yêu cầu
-let objectApi = {
-    "maLichChieu": props.match.params.id,
-    "danhSachVe": danhSachGheDangDat,
-    "taiKhoanNguoiDung": userLogin.taiKhoan,
-}
-
-const action = DatVeAction(objectApi);
-console.log(objectApi)
-//Dispatch action api
-dispatch(action);
-}}>đặt vé</button>
+            {/* Mobile Continue Button */}
+            <div className="continueBtnMobile">
+                <div className="numberMobile">
+                    <p className="seatChosenMobile"></p>
                 </div>
-            
-            <div className="buyTicketOption__container">
-                <div className="buyTicketOption__scrollbars">
-                        <div className="scrollBars">
-                            <div className="total">0 đ</div>
-                            <div className="filmInfo">
-                                <span className="ageType">C18</span> {lichChieu.thongTinPhim?.tenPhim}
-                                <div className="contentCinema">
-                                    <div className="address">
-                                        <span className="cinemaName">{lichChieu.thongTinPhim?.tenCumRap}</span>
-                                    </div>
-                                    <div className="hour">{lichChieu.thongTinPhim?.ngayChieu}- {lichChieu.thongTinPhim?.gioChieu} - {lichChieu.thongTinPhim?.tenRap}</div>
-                                </div>
-                            </div>
-                            <div className="chair">
-                                <div className="chair__number">Ghế <span className="number"></span></div>
-                                <div className="chair__price">0 đ</div>
-                            </div>
-                            <div className="infoUser">
-                                <label className="inputTitle" htmlFor="emailCheckout">E-Mail</label>
-                                <input className="emailCheckout" type="email" placeholder="Enter email here" pattern="/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i" required/>
-                            </div>
-                            <div className="infoUser">
-                                <label className="inputTitle" htmlFor="phoneCheckout">Phone</label>
-                                <input className="phoneCheckout" type="tel" placeholder="Enter phone here" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required/>
-                            </div>
-                            <div className="discountCoupon">
-                                <label className="inputTitle" htmlFor="discountCouponCheckout">Mã Giảm Giá</label>
-                                <input className="discountCouponCheckout" onChange={handleCheckCoupon} type="text" placeholder="Nhập mã giảm giá tại đây..."/>
-                                <div className="applyDiscountCoupon disabled" onClick={handleClickCoupon}>áp dụng</div>
-                            </div>
-                        </div>
-                </div>
-                <button
-                    onClick={() => {
+                <button type="button" className="btn btn-secondary continueBtn" id="continueBtnMobile" onClick={handleClickContinueBtn}>Tiếp Tục</button>
+                <button type="submit" value="submit" className="btn btn-secondary continueBtn visible" id="continueBtnMobile1" onClick={() => {
 
                     let userLogin = JSON.parse(localStorage.getItem(USRELOGIN));
                     //Dữ liệu tổng hợp đúng định dạng backend yêu cầu
@@ -734,10 +719,67 @@ dispatch(action);
                     console.log(objectApi)
                     //Dispatch action api
                     dispatch(action);
-                }}
-                // btnBuy
-                 className="btn btn-secondary btnBuy" type="submit" value="submit" 
-                
+                }}>đặt vé</button>
+            </div>
+
+            <div className="buyTicketOption__container">
+                <div className="buyTicketOption__scrollbars">
+                    <div className="scrollBars">
+                        <div className="total">{danhSachGheDangDat.reduce((Tolal, item, index) => {
+                            return Tolal += item.giaVe;
+                        }, 0).toLocaleString()}đ</div>
+                        <div className="filmInfo">
+                            <span className="ageType">C18</span> {lichChieu.thongTinPhim?.tenPhim}
+                            <div className="contentCinema">
+                                <div className="address">
+                                    <span className="cinemaName">{lichChieu.thongTinPhim?.tenCumRap}</span>
+                                </div>
+                                <div className="hour">{lichChieu.thongTinPhim?.ngayChieu}- {lichChieu.thongTinPhim?.gioChieu} - {lichChieu.thongTinPhim?.tenRap}</div>
+                            </div>
+                        </div>
+                        <div className="chair">
+                            <div className="chair__number">Ghế  :
+                                {danhSachGheDangDat.map((item, index) => {
+                                return <span key={index} className="number mr-2">{item.stt}</span>
+                            })}</div>
+                            <div className="chair__price">{danhSachGheDangDat.reduce((Tolal, item, index) => {
+                            return Tolal += item.giaVe;
+                        }, 0).toLocaleString()} đ</div>
+                        </div>
+                        <div className="infoUser">
+                            <label className="inputTitle" htmlFor="emailCheckout">E-Mail</label>
+                            <input className="emailCheckout" type="email" placeholder="Enter email here" pattern="/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i" required />{userLogin.email}
+                        </div>
+                        <div className="infoUser">
+                            <label className="inputTitle" htmlFor="phoneCheckout">Phone</label>
+                            <input className="phoneCheckout" type="tel" placeholder="Enter phone here" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required />{userLogin.soDT}
+                        </div>
+                        <div className="discountCoupon">
+                            <label className="inputTitle" htmlFor="discountCouponCheckout">Mã Giảm Giá</label>
+                            <input className="discountCouponCheckout" onChange={handleCheckCoupon} type="text" placeholder="Nhập mã giảm giá tại đây..." />
+                            <div className="applyDiscountCoupon disabled" onClick={handleClickCoupon}>áp dụng</div>
+                        </div>
+                    </div>
+                </div>
+                <button
+                    onClick={() => {
+
+                        let userLogin = JSON.parse(localStorage.getItem(USRELOGIN));
+                        //Dữ liệu tổng hợp đúng định dạng backend yêu cầu
+                        let objectApi = {
+                            "maLichChieu": props.match.params.id,
+                            "danhSachVe": danhSachGheDangDat,
+                            "taiKhoanNguoiDung": userLogin.taiKhoan,
+                        }
+
+                        const action = DatVeAction(objectApi);
+                        console.log(objectApi)
+                        //Dispatch action api
+                        dispatch(action);
+                    }}
+                    // btnBuy
+                    className="btn btn-secondary btnBuy" type="submit" value="submit"
+
                 >Đặt Vé</button>
             </div>
         </section>
