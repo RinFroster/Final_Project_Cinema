@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {actDetailMovieApi} from "./modules/action";
+import {actDetailMovieApi} from "./modules/Action";
 import {connect} from "react-redux";
 import DetailTabPane from "./../../../Component/DetailTabPane";
 import MovieInfo from "./../../../Component/MovieInfo";
